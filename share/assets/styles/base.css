@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --primary-color: #CF0000;
+}
+.color-white{
+    color: white;
+}
+.font-24{
+    font-size: 12px;
+}
+.hover:hover{
+    color: var(--primary-color);
+}
+.bold{
+    font-weight: bold;
+}
+.no-padding{
+    padding: 0;
+}
