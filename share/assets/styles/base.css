@@ -1,22 +1,54 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
 }
 :root{
     --primary-color: #CF0000;
 }
+
 .color-white{
     color: white;
 }
-.font-24{
+.color-second{
+    color: #777;
+}
+.color-primary{
+    color: var(--primary-color);
+}
+.bg-primary{
+    color: var(--primary-color) !important;
+}
+.font-14{
+    font-size: 14px;
+}
+.font-12{
     font-size: 12px;
+}
+.font-18{
+    font-size: 18px;
 }
 .hover:hover{
     color: var(--primary-color);
+    cursor: pointer;
 }
 .bold{
     font-weight: bold;
 }
-.no-padding{
-    padding: 0;
+
+.header-head{
+    height: 50px;
+    padding: 0px 20px;
+}
+#header-logo{
+    height: 20px;
+}
+.user-control{
+    width: 30%;
+}
+.user-login{
+    margin-right: 20px;
 }
