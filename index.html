@@ -10,47 +10,103 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./share/assets/styles/base.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./share/assets/base.js"></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid app">
         <header>
             <div class="header-head d-flex justify-content-between align-items-center">
                 <img id="header-logo" src="./share/assets/images/logo.png"></img>
                 <div class="user-control d-flex justify-content-end">
-                    <a href="#" class="user-login hover font-12 text-uppercase bold color-second ">Đăng nhập</a>
-                    <a href="#" class="user-signup hover font-12 text-uppercase bold color-second ">Đăng ký</a>
+                    <a href="#" class="user-login hover text-uppercase bold color-second ">Đăng nhập</a>
+                    <a href="#" class="user-signup hover text-uppercase bold color-second ">Đăng ký</a>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-sm bg-black rounded-1 ">
+            <nav id="header__navbar" class=" navbar navbar-expand-sm bg-black ">
                 <div class="container-fluid ">
-                    <ul class="navbar-nav font-14 ">
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Trang
-                                chủ</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Kinh tế</a>
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Thể thao</a>
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Pháp
-                                luật</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Đời sống</a>
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Công
-                                nghệ</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Sức khỏe</a>
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Âm nhạc</a>
-                        </li>
-                    </ul>
-                    <div class="navbar-search color-white font-18"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <button id="menu-btn" >
+                        <i class="fa-solid fa-bars hover"></i>
+                    </button>
+                    <div id="navbar-menu">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item"><a href="#"
+                                    class="nav-link text-uppercase color-white hover bold">Trang
+                                    chủ</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Kinh
+                                    tế</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Thể
+                                    thao</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Pháp
+                                    luật</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Đời
+                                    sống</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Công
+                                    nghệ</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Sức
+                                    khỏe</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link text-uppercase color-white hover bold">Âm
+                                    nhạc</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar-search color-white hover"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
-    
+
             </nav>
         </header>
         <main>
 
         </main>
-        <footer></footer>
+        <footer>
+            <ul class="d-flex footer__social justify-content-center">
+                <li class="footer__social-item"><a href="#" class="footer__social-link hover">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a></li>
+                <li class="footer__social-item"><a href="#" class="footer__social-link hover">
+                        <i class="fa-brands fa-square-twitter"></i>
+                    </a></li>
+                <li class="footer__social-item"><a href="#" class="footer__social-link hover">
+                        <i class="fa-brands fa-square-instagram"></i>
+                    </a></li>
+                <li class="footer__social-item"><a href="#" class="footer__social-link hover">
+                        <i class="fa-brands fa-square-pinterest"></i>
+                    </a></li>
+            </ul>
+            <div class="container d-flex  justify-content-center">
+                <ul class="navbar footer__navbar">
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">Trang chủ</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">Kinh tế</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">Thể thao</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">pháp luật</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">đời sống</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">công nghệ</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">sức khỏe</a></li>
+                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
+                    <li class="nav-item footer__navbar-item"><a href="#"
+                            class="nav-link hover footer__navbar-link text-uppercase">âm nhạc</a></li>
+                </ul>
+            </div>
+            <div class="footer__coppyright text-center">©Group04</div>
+        </footer>
 
     </div>
 </body>
