@@ -1,3 +1,13 @@
+/* VARIABLE */
+:root{
+    --primary-color: #CF0000;
+    --black-color: black;
+    --second-color: rgb(119, 119, 119);
+    --light-color: rgba(119,119,119,0.2);
+    --white-color: white;
+}
+
+/* CSS FOR ALL PAGES*/
 *{
     padding: 0;
     margin: 0;
@@ -6,34 +16,18 @@
 a{
     text-decoration: none;
 }
+
 ul{
     list-style: none;
 }
-:root{
-    --primary-color: #CF0000;
-    --second-color: #777;
+.expand{
+    margin-left: 2px;
 }
 
-.color-white{
-    color: white;
-}
-.color-second{
-    color: #777;
-}
-.color-primary{
-    color: var(--primary-color);
-}
+
+
 .bg-primary{
     color: var(--primary-color) !important;
-}
-.font-14{
-    font-size: 14px;
-}
-.font-12{
-    font-size: 12px;
-}
-.font-18{
-    font-size: 18px;
 }
 .hover:hover{
     color: var(--primary-color);
@@ -42,6 +36,7 @@ ul{
 .bold{
     font-weight: bold;
 }
+
 /* HEADAER */
 #header__navbar{
     border-radius: 5px;
@@ -53,29 +48,98 @@ ul{
     padding: 0px 20px;
 }
 #header-logo{
-    height: 20px;
-}
-.user-control{
-    width: 30%;
-    font-size: 12px;
-}
-.user-login{
-    margin-right: 20px;
+    height: 25px;
+    cursor: pointer;
 }
 
 .navbar-search{
-    font-size: 18px;
+    color: var(--white-color);
+    font-size: 20px;
+    margin-right: 16px;
 }
-
+.header__nav-link{
+    color: var(--white-color);
+}
 #menu-btn{
    border: none;
    background-color: transparent;
-   color: white;
+   color: var(--white-color);
    font-size: 20px;
    display: none;
 }
+.navbar-nav li a:active, .navbar-nav li a:focus{
+    color: var(--white-color);
+}
 
+/* USER DO NOT LOG IN */
+#guest{
+    width: 30%;
+    font-size: 12px;
+    display: none;
+}
+#log-in{
+    margin-right: 20px;
+}
+/* USER LOGGED IN*/
+#user-logged-in{
+    display: flex;
+}
+#user-img, #user-notice{
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    cursor: pointer;
+}
 
+#user-notice{
+    background-color: var(--light-color);
+    text-align: center;
+    line-height: 36px;
+    font-size: 18px;
+    color: var(--second-color);
+    margin-right: 16px;
+}
+#user-notice:hover,#user-img:hover{
+    opacity: 0.8;
+}
+/* SUB NAVIGATION */
+.subnav{
+    position: relative;
+}
+.subnav-menu{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 1px 1px 5px #ccc;
+    background-color: var(--white-color);
+    display: none;
+    width: 150px;
+    padding: 8px 0px;
+    border-radius: 2px;
+    flex-direction: column;
+}
+.subnav-item{
+    width: 100%;
+    color: var(--black-color);
+    text-transform: uppercase;
+    line-height: 30px;
+    font-weight: bold;
+}
+.subnav-menu li{
+    text-align: center;
+    
+}
+.subnav-menu li:hover{
+    background-color: var(--light-color);
+    cursor: pointer;
+}
+.subnav-menu li:hover > .subnav-item{
+    color: var(--primary-color);
+}
+.subnav-menu li a:active, .subnav-menu li a:focus{
+    color: var(--black-color);
+}
 /* FOOTER */
 .footer__social{
     padding: 0;
@@ -118,13 +182,11 @@ footer{
     #header__navbar{
         font-size: 12px;
     }
-    .navbar-search{
-        top: 14px;
-        font-size: 14px;
-    }
-    .user-control{
+  
+    #guest{
         font-size: 10px;
     }
+  
     /* footer */
     .footer__navbar-link{
         font-size: 11px;
@@ -154,13 +216,38 @@ footer{
     }
     .navbar-search{
         font-size: 18px;
+        margin: 0;
     }
     #menu-btn{
         display: block;
         
     }
+    #user-notice{
+        margin-right: 8px;
+    }
     .container-fluid.app{
         padding: 0px !important;
+    }
+    .subnav-menu{
+        position: relative;
+        top: 0;
+        left: 80px;
+        color: var(--white-color);
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+    .subnav-item{
+        color: var(--white-color);
+    }
+    .subnav-menu li{
+        text-align: left;
+        margin-left: 30px;
+        
+    }
+    .subnav-menu li:hover{
+        background-color: transparent;
     }
     .footer__navbav-separate{
         display: none;
