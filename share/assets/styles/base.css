@@ -179,3 +179,8 @@ footer{
         background-color: black;
     }
 }
+@media screen and (max-width: 560px){
+    #header__navbar .navbar-nav{
+        padding: 0px 30px;
+    }
+}
