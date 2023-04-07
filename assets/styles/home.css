@@ -1,0 +1,36 @@
+main{
+    margin: 20px 0px;
+}
+/* SLIDER */
+
+
+.slider__caption{
+    /* background-color: #ccc; */
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--white-color);
+    padding: 20px 50px;
+    background-color: rgba(255,255 , 255, 0.4);
+    font-size: 16px;
+
+}
+#slider{
+    background-size:auto;
+  
+}
+.slider__item-img{
+    border-radius: 5px;
+   object-fit: cover;
+   max-height: 550px ;
+}
+
+/* REPONSIVE */
+@media screen and (max-width: 800px) {
+    .slider__caption{
+        padding: 10px 20px;
+    }
+
+}
