@@ -1,6 +1,11 @@
 main{
     margin: 20px 0px;
 }
+ul.row{
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
 /* SLIDER */
 
 
@@ -13,8 +18,8 @@ main{
     left: 0;
     color: var(--white-color);
     padding: 20px 50px;
-    background-color: rgba(255,255 , 255, 0.4);
-    font-size: 16px;
+    background-color: rgba(255,255 , 255, 0.45);
+    font-size: 20px;
 
 }
 #slider{
@@ -26,11 +31,127 @@ main{
    object-fit: cover;
    max-height: 550px ;
 }
+.heading-title{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 8px solid var(--primary-color);
+    position: relative;
 
+}
+.heading-title::after{
+    position: absolute;
+    cursor: pointer;
+    content: "Xem thêm +";
+    text-transform: capitalize;
+    color: white;
+    background-color: var(--primary-color);
+    right: 0;
+    bottom: 0;
+    font-size: 18px;
+    padding: 5px 20px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
+}
+/* OUSTANDING */
+
+.outstanding__item-title{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: 18px;
+    margin: 20px 0px;
+}
+.outstanding__infor{
+    font-size: 12px;
+    height: 20px;
+    color: var(--second-color);
+    
+}
+
+.card-title{
+    font-weight: bold;
+}
+.outstanding__article{
+    overflow: hidden;
+    border:none;
+    background-color: #f1f1f1;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    top:0;
+    transition: top linear 0.1s; 
+    
+}
+.outstanding__article img{
+    
+    transition: transform .3s ease-out;
+}
+.outstanding__article:hover{
+    cursor: pointer;
+    top: -2px;
+    box-shadow: 0px 0.5px 20px 0px rgba(0, 0, 0, 0.1);
+}
+.outstanding__article:hover img{
+    transform: scale(1.03);
+}
 /* REPONSIVE */
-@media screen and (max-width: 800px) {
-    .slider__caption{
+@media screen and (max-width: 1024px){
+ .slider__caption{
         padding: 10px 20px;
+        font-size: 14px;
     }
+    .heading-title{
+        font-size: 20px;
+    }
+    .heading-title::after{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 800px) {
+   
+    .outstanding__item-title{
+        font-size: 17px;
+    }
+    .outstanding__infor{
+        font-size: 10px;
+    }
+  
+}
+@media screen and (max-width: 768px) {
+    .slider__caption{
+        padding: 5px 20px;
+        font-size: 14px;
+    }
+    .slider__item-img{
+        border-radius: 0px;
+    }
+    .heading-title{
+        font-size: 18px;
+        padding-left: 20px;
+    }
+    .heading-title::after{
+        font-size: 14px;
+    }
+    
 
+}
+@media screen and (max-width: 576px){
+    
+    
+    .heading-title{
+        font-size: 16px;
+        padding-left: 16px;
+    }
+    .heading-title::after{
+        font-size: 12px;
+    }
+    .outstanding__item{
+        padding: 0px 20px;
+    }
+    .outstanding__item-title{
+        font-size: 18px;
+    }
+    
 }

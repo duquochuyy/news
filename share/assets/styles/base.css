@@ -8,10 +8,14 @@
 }
 
 /* CSS FOR ALL PAGES*/
+html{
+    font-size: 16px;
+}
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family:'Roboto','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 a{
     text-decoration: none;
@@ -23,7 +27,10 @@ ul{
 .expand{
     margin-left: 2px;
 }
-
+.btn-primary{
+    background-color: var(--primary-color);
+    border: none;
+}
 
 
 .bg-primary{
@@ -36,9 +43,7 @@ ul{
 .bold{
     font-weight: bold;
 }
-#app{
-    display: flex;
-}
+
 /* HEADAER */
 #header__navbar{
     border-radius: 5px;
@@ -204,9 +209,8 @@ footer{
     #header__navbar{
         font-size: 11px;
     }
-
 }
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 768px) {
     #header__navbar{
         border-radius: 0;
         padding: 5px 20px;
@@ -237,9 +241,7 @@ footer{
     #user-notice{
         margin-right: 8px;
     }
-    .container-fluid.app{
-        padding: 0px !important;
-    }
+   
     .subnav-menu{
         position: relative;
         top: 0;
