@@ -27,5 +27,19 @@ $(document).ready(function () {
         })
     }
     )
+    // Hide and show header base on scroll 
+    window.onscroll = function () {
+        scroll();
+    };
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("app__header").style.top = "0";
+        } else {
+            document.getElementById("app__header").style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
+    }
 
 })
