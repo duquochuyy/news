@@ -1,0 +1,31 @@
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-second {
+    color: var(--second-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-second {
+    background-color: var(--second-color) !important;
+}
+
+.app_body {
+    box-sizing: border-box;
+}
+
+.main__path a {
+    color: var(--second-color)
+}
+
+.main__path i {
+    font-size: x-small;
+}
+
+.sidebar__current {
+    background-color: #d9d9d9;
+}
