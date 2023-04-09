@@ -31,6 +31,15 @@ a, .page-link {
     font-size: x-small;
 }
 
-.sidebar__current {
+.sidebar li.active {
     background-color: #d9d9d9;
+}
+
+.content-hidden {
+    display: none;
+}
+
+
+.content-active {
+    display: block;
 }
