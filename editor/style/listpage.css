@@ -9,3 +9,7 @@
 .text-primary {
     color: var(--primary-color) !important;
 }
+
+.text-second {
+    color: var(--second-color) !important;
+}
