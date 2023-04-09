@@ -11,33 +11,63 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="../share/assets/styles/base.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style/listpage.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="../share/assets/base.js"></script>
 </head>
 
 <body>
-        <div class="container" id="app">
-                <header>
+        <div id="app">
+                <header id="app__header">
 
-                        <div id="user-control" class="header-head d-flex justify-content-between align-items-center">
+                        <div  class="header-head d-flex justify-content-between align-items-center">
                                 <img id="header-logo" src="../share/assets/images/logo.png"></img>
                                 <!-- user don't login -->
                                 <div id="guest" class="justify-content-end">
-                                        <a href="#" id="log-in" class="hover text-uppercase bold color-second ">Đăng
+                                        <a href="#" id="log-in" class="hover text-uppercase bold hover">Đăng
                                                 nhập</a>
-                                        <a href="#" id="sign-up" class="hover text-uppercase bold color-second ">Đăng
+                                        <a href="#" id="sign-up" class="hover text-uppercase bold hover">Đăng
                                                 ký</a>
                                 </div>
                                 <!-- user logged in -->
                                 <div id="user-logged-in" class="justify-content-end align-items-center">
-                                        <div id="user-notice"><i class="fa-solid fa-bell hover"></i></div>
-                                        <img src="../assets/images/avatars/female_default.png" alt="avatar of user"
+                                        <div id="notice" >
+                                                <div id="notice-icon" ><i class="fa-solid fa-bell "></i></div></i>
+                                                <ul id="notice-list">
+                                                        <li class="notice-item">
+                                                                <a href="#" class="notice-link">Bạn chưa có thông báo </a>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                        <!-- for reporter, user and premium -->
+                                        <div id="user">
+                                                <img src="../assets/images/avatars/female_default.png" alt="avatar of user"
                                                 id="user-img">
+                                               <div id="user-control">
+                                                <div id="control-heading" class="line-separate">
+                                                        <img src="../assets/images/avatars/female_default.png" alt="Avatar" class="rounded">
+                                                        <p class="text-capitalize bold">minh Hiền</p>
+                                                </div>
+                                                <div id="control-reporter" class="line-separate">
+                                                        <a href="#" class="control-link hover light-hover">Đăng bài viết</a>
+                                                        <a href="#" class="control-link hover light-hover">Bài viết của tôi</a>
+
+                                                </div>
+                                                <div id="control-premium" class="line-separate">
+                                                        <a href="#" class="control-link hover light-hover">Bài viết của tôi</a>
+                                                </div>
+                                                <div class="control-all">
+                                                        <a href="#" class="control-link hover light-hover">Cài đặt</a>
+                                                        <a href="#" class="control-link hover light-hover">Đăng xuất</a>
+                                                </div>
+                                               </div>
+                                        </div>
+                                        
                                 </div>
 
                         </div>
                         <!-- nav for all user subsystem -->
-                        <nav id="header__navbar" class=" navbar navbar-expand-sm bg-black ">
+                        <nav id="header__navbar" class=" navbar navbar-expand-sm bg-black">
                                 <div class="container-fluid ">
                                         <button id="menu-btn">
                                                 <i class="fa-solid fa-bars hover"></i>
@@ -97,8 +127,85 @@
 
                         </nav>
                 </header>
-                <main>
-                    <h1>Duyệt bài viết</h1>
+                <main  id="app__body">
+                        <div class="container-fluid mb-5">
+                                <div class="main__path">
+                                        <a href="../index.html"><small>Trang chủ</small></a>    
+                                        <i class="fa-solid fa-angles-right"></i>          
+                                        <a href="#"><small class="text-primary">Duyệt bài viết</small></a>
+                                </div>
+
+                                <div class="col-lg-3">
+                                        <h1  class="mt-4 fw-bold">Duyệt bài viết</h1>
+                                        <hr>
+                                </div>
+
+                                <div class="container col-lg-8 d-flex flex-column align-items-center">
+                                        <div class="row col-lg-5 text-center border rounded">
+                                                <h4 class="mt-2 mb-2">Bài viết chờ được duyệt</h4>
+                                        </div>
+
+                                        <div class="row col-lg-12 d-flex justify-content-center border rounded mt-3">
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                                <a class="col col-lg-11 d-flex flex-row justify-content-between border rounded mt-4 mb-4" href="page/detail.html">
+                                                        <div class="col col-lg-6 d-flex flex-column">
+                                                                <p class="text-primary mb-2 mt-2">Nhãn bài viết</p>
+                                                                <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                                        </div>
+                                                        
+                                                        <p class="col-lg-2 text-end align-self-end text-second mb-2"><small>12 giờ trước</small></p>
+                                                </a>
+                                        </div>
+                                </div>
+                        </div>
+
                 </main>
                 <footer>
                         <ul class="d-flex footer__social justify-content-center">

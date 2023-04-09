@@ -1,0 +1,45 @@
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-second {
+    color: var(--second-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--black-color) !important;
+}
+
+.bg-second {
+    background-color: var(--second-color) !important;
+}
+
+.app_body {
+    box-sizing: border-box;
+}
+
+a, .page-link {
+    color: var(--black-color);
+}
+
+.main__path a {
+    color: var(--second-color)
+}
+
+.main__path i {
+    font-size: x-small;
+}
+
+.sidebar li.active {
+    background-color: #d9d9d9;
+}
+
+.content-hidden {
+    display: none;
+}
+
+
+.content-active {
+    display: block;
+}
