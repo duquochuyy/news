@@ -20,7 +20,7 @@
         <div id="app">
                 <header id="app__header">
 
-                        <div  class="header-head d-flex justify-content-between align-items-center">
+                        <div class="header-head d-flex justify-content-between align-items-center">
                                 <img id="header-logo" src="./share/assets/images/logo.png"></img>
                                 <!-- user don't login -->
                                 <div id="guest" class="justify-content-end">
@@ -31,38 +31,57 @@
                                 </div>
                                 <!-- user logged in -->
                                 <div id="user-logged-in" class="justify-content-end align-items-center">
-                                        <div id="notice" >
-                                                <div id="notice-icon" ><i class="fa-solid fa-bell "></i></div></i>
+                                        <div id="notice">
+                                                <div id="notice-icon"><i class="fa-solid fa-bell "></i></div></i>
                                                 <ul id="notice-list">
                                                         <li class="notice-item">
-                                                                <a href="#" class="notice-link">Bạn chưa có thông báo </a>
+                                                                <a href="#" class="notice-link">Bạn chưa có thông báo
+                                                                </a>
                                                         </li>
                                                 </ul>
                                         </div>
-                                        <!-- for reporter, user and premium -->
+                                        <!-- -->
                                         <div id="user">
-                                                <img src="./assets/images/avatars/female_default.png" alt="avatar of user"
-                                                id="user-img">
-                                               <div id="user-control">
-                                                <div id="control-heading" class="line-separate">
-                                                        <img src="./assets/images/avatars/female_default.png" alt="Avatar" class="rounded">
-                                                        <p class="text-capitalize bold">minh Hiền</p>
+                                                <div id="avatar" class="pos-r">
+                                                        <img src="./assets/images/avatars/female_default.png"
+                                                                alt="avatar of user" id="user-img">
+                                                        <img src="./share/assets/images/premium.png"
+                                                                class="premium-icon premium">
                                                 </div>
-                                                <div id="control-reporter" class="line-separate">
-                                                        <a href="#" class="control-link hover light-hover">Đăng bài viết</a>
-                                                        <a href="#" class="control-link hover light-hover">Bài viết của tôi</a>
+                                                <div id="user-control">
+                                                        <div id="control-heading" class="line-separate">
+                                                                <img src="./assets/images/avatars/female_default.png"
+                                                                        alt="Avatar" class="rounded">
+                                                                <p class="text-capitalize bold">minh Hiền</p>
+                                                        </div>
+                                                        <div class="editor non-ad line-separate control-item">
+                                                                <a href="#" class="control-link hover">Duyệt bài
+                                                                        viết</a>
+                                                        </div>
+                                                        <div class="admin line-separate control-item">
+                                                                <a href="#" class="control-link hover">Trang quản lý</a>
+                                                        </div>
+                                                        <div class="line-separate non-ad control-item">
+                                                                <a href="#" class="control-link hover light-hover">Đăng
+                                                                        bài viết</a>
+                                                                <a href="#" class="control-link hover light-hover">Bài
+                                                                        viết của tôi</a>
 
+                                                        </div>
+                                                        <div class="line-separate non-ad control-item">
+                                                                <a href="#" class="control-link hover light-hover">Nâng
+                                                                        cấp tài khoản</a>
+                                                        </div>
+                                                        <div class=" control-item">
+                                                                <a href="#" class="control-link hover light-hover">Cài
+                                                                        đặt</a>
+                                                                <a href="#" class="control-link hover light-hover">Đăng
+                                                                        xuất</a>
+                                                        </div>
                                                 </div>
-                                                <div id="control-premium" class="line-separate">
-                                                        <a href="#" class="control-link hover light-hover">Bài viết của tôi</a>
-                                                </div>
-                                                <div class="control-all">
-                                                        <a href="#" class="control-link hover light-hover">Cài đặt</a>
-                                                        <a href="#" class="control-link hover light-hover">Đăng xuất</a>
-                                                </div>
-                                               </div>
                                         </div>
-                                        
+                                        <!--  -->
+
                                 </div>
 
                         </div>
@@ -127,7 +146,7 @@
 
                         </nav>
                 </header>
-                <main id="app__body" >
+                <main id="app__body">
                         <div id="slider" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
 
@@ -163,62 +182,9 @@
                                                         <img src="./assets/images/news/ID3_0.png" alt="Article's name"
                                                                 class="card-img-top">
                                                         <div class="card-body  ">
-                                                                <p class="card-title featured__item-title">Từ 31/3 bắt đầu khóa thuê bao nếu không chuẩn hóa thông tin cá nhân</p>
-                                                                <section class="d-flex justify-content-between featured__infor ">
-                                                                        <p class="author"><i class="fa-solid fa-pen "></i>  Tác giả</p>
-                                                                        <p class="time"><i class="fa-solid fa-clock"></i>  08/04/2023</p>
-                                                                </section>
-                                                                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
-                                                        </div>
-
-                                                </a>
-                                                <div class="category-card">đời sống</div>
-
-                                        </li>
-                                        <li class="col-md-4 col-sm-6 mt-3 featured__item">
-                                                <a class="card featured__article text-black">
-                                                        <img src="./assets/images/news/ID3_0.png" alt="Article's name"
-                                                                class="card-img-top">
-                                                        <div class="card-body  ">
-                                                                <p class="card-title featured__item-title">Từ 31/3 bắt đầu khóa thuê bao nếu không chuẩn hóa thông tin cá nhân</p>
-                                                                <section class="d-flex justify-content-between featured__infor ">
-                                                                        <p class="author"><i class="fa-solid fa-pen "></i>  Tác giả</p>
-                                                                        <p class="time"><i class="fa-solid fa-clock"></i>  08/04/2023</p>
-                                                                </section>
-                                                                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
-                                                        </div>
-
-                                                </a>
-                                                
-                                                <div class="category-card">đời sống</div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-6 mt-3 featured__item">
-                                                <a class="card featured__article text-black">
-                                                        <img src="./assets/images/news/ID3_0.png" alt="Article's name"
-                                                                class="card-img-top">
-                                                        <div class="card-body  ">
-                                                                <p class="card-title featured__item-title">Từ 31/3 bắt đầu khóa thuê bao nếu không chuẩn hóa thông tin cá nhân</p>
-                                                                <section class="d-flex justify-content-between featured__infor ">
-                                                                        <p class="author"><i class="fa-solid fa-pen "></i>  Tác giả</p>
-                                                                        <p class="time"><i class="fa-solid fa-clock"></i>  08/04/2023</p>
-                                                                </section>
-                                                                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
-                                                        </div>
-
-                                                </a>
-                                                
-                                                <div class="category-card">đời sống</div>
-                                        </li>
-                                        <!-- <li class="col-md-4 col-sm-6 mt-3 featured__item">
-                                                <a class="card featured__article text-black">
-                                                        <div class="main-img"><img src="./assets/images/news/ID3_0.png"
-                                                                        alt="Article's name" class="card-img-top">
-                                                                <div class="category-card">đời sống</div>
-                                                        </div>
-                                                        <div class="card-body  ">
-                                                                <p class="card-title featured__item-title">Từ 31/3
-                                                                        bắt đầu khóa thuê bao nếu không chuẩn hóa thông
-                                                                        tin cá nhân</p>
+                                                                <p class="card-title featured__item-title font-title">Từ 31/3 bắt
+                                                                        đầu khóa thuê bao nếu không chuẩn hóa thông tin
+                                                                        cá nhân</p>
                                                                 <section
                                                                         class="d-flex justify-content-between featured__infor ">
                                                                         <p class="author"><i
@@ -228,16 +194,314 @@
                                                                                         class="fa-solid fa-clock"></i>
                                                                                 08/04/2023</p>
                                                                 </section>
+                                                                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
                                                         </div>
 
                                                 </a>
+                                                <div class="category-card pos-a">đời sống</div>
 
+                                        </li>
+                                        <li class="col-md-4 col-sm-6 mt-3 featured__item">
+                                                <a class="card featured__article text-black">
+                                                        <img src="./assets/images/news/ID3_0.png" alt="Article's name"
+                                                                class="card-img-top">
+                                                        <div class="card-body  ">
+                                                                <p class="card-title featured__item-title font-title">Từ 31/3 bắt
+                                                                        đầu khóa thuê bao nếu không chuẩn hóa thông tin
+                                                                        cá nhân</p>
+                                                                <section
+                                                                        class="d-flex justify-content-between featured__infor ">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </section>
+                                                                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                                                        </div>
 
-                                        </li> -->
-                                     
+                                                </a>
+                                                <div class="category-card pos-a">đời sống</div>
+
+                                        </li>
+                                        <li class="col-md-4 col-sm-6 mt-3 featured__item">
+                                                <a class="card featured__article text-black">
+                                                        <img src="./assets/images/news/ID3_0.png" alt="Article's name"
+                                                                class="card-img-top">
+                                                        <div class="card-body  ">
+                                                                <p class="card-title featured__item-title font-title">Từ 31/3 bắt
+                                                                        đầu khóa thuê bao nếu không chuẩn hóa thông tin
+                                                                        cá nhân</p>
+                                                                <section
+                                                                        class="d-flex justify-content-between featured__infor ">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </section>
+                                                                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                                                        </div>
+
+                                                </a>
+                                                <div class="category-card pos-a">đời sống</div>
+
+                                        </li>
+                                      
+
 
                                 </ul>
-                                
+
+                        </div>
+                        <div class="row">
+                                <div id="most-viewed" class="col-md-7">
+                                        <header class="heading-title text-uppercase">Xem nhiều nhất</header>
+                                        <ul class="most-viewd__list d-flex-column">
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                                <li class="most-viewd__item pos-r mt-3">
+                                                        <img src="./assets/images/news/ID4_0.png" alt="Title of article"
+                                                                class="most-viewd__img">
+                                                        <a href="#"
+                                                                class="most-viewd__link pos-a">
+                                                        <div class="most-viewd__infor">
+                                                                <div class="category-card">Đời sống</div>
+                                                                <p class="most-viewd__title text-white font-title">Bãi rác Cam Ly
+                                                                        bốc
+                                                                        cháy nhiều gây ô nhiễm nghiêm trọng</p>
+                                                                <div
+                                                                        class="most-viewd__extra d-flex justify-content-between">
+                                                                        <p class="author"><i
+                                                                                        class="fa-solid fa-pen "></i>
+                                                                                Tác giả</p>
+                                                                        <p class="time"><i
+                                                                                        class="fa-solid fa-clock"></i>
+                                                                                08/04/2023</p>
+                                                                </div>
+
+                                                        </div>
+                                                                
+                                                        </a>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="col-md-5"></div>
                         </div>
                 </main>
                 <footer>

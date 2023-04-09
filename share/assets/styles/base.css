@@ -8,6 +8,12 @@
 }
 
 /* CSS FOR ALL PAGES*/
+.font-title{
+    font-size: 18px;
+}
+.light-color{
+    color: var(--light-color);
+}
 html {
     font-size: 16px;
 }
@@ -43,11 +49,10 @@ ul {
     text-transform: uppercase;
     padding: 4px 0px;
     font-size: 12px;
-    display: inline-block;
     text-align: center;
     min-width: 100px;
-    position: absolute;
     border-radius: 2px;
+    display: inline-block;
 }
 
 .bg-primary {
@@ -57,6 +62,19 @@ ul {
 .hover:hover {
     color: var(--primary-color) !important;
     cursor: pointer;
+}
+.light-hover:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.zoom-hover{
+    overflow: hidden;
+}
+.zoom-hover-img img{
+    transition: transform .3s ease-out;
+}
+.zoom-hover-img:hover img{
+    transform: scale(1.03);
 }
 .light-hover:hover{
     background-color: var(--light-color);
@@ -72,14 +90,39 @@ ul {
 
 #app__body {
     margin-top: 120px;
-    padding: 0 20px;
+    
 }
+/* RULE */
+.admin, .editor{
+    display: none !important;
+}
+.non-ad{
+    display: flex;
+}
+.premium-icon{
+    position: absolute;
+    
+}
+.pos-r{
+    position: relative;
+}
+.pos-a{
+    position: absolute;
+}
+
+#avatar .premium-icon{
+    height: 20px;
+    width: 20px;
+    bottom: -2px;
+    right: -2px;
+  
+}
+
 
 /* HEADAER */
 #app__header {
     background-color: var(--white-color);
     display: block;
-    transition: top 0.5s;
     top: 0;
     right: 0;
     position: fixed;
@@ -90,14 +133,19 @@ ul {
 }
 
 #header__navbar {
-    position: sticky;
-    border-radius: 2px;
+    border-radius: 5px;
+    /* border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; */
     font-size: 14px;
+    /* padding-left: 30px ;
+    padding-right: 30px; */
 }
 
 .header-head {
+  
     height: 50px;
     padding: 0px 20px;
+    /* background-color: rgba(240,240,240,1); */
 }
 
 #header-logo {
@@ -144,7 +192,7 @@ ul {
     margin-right: 20px;
 }
 
-/* USER LOGGED IN*/
+/* USER LOGGED IN */
 #user-logged-in {
     /* display: none; */
     display: flex;
@@ -237,6 +285,7 @@ ul {
 
 }
 /* USER CONTROL */
+/* for reporter and user */
 #user-control {
    width: 250px;
 }
@@ -272,7 +321,7 @@ ul {
 .control-link+.control-link{
     padding-top: 5px;
 }
-#control-reporter, #control-premium, .control-all{
+.control-item{
     display: flex;
     flex-direction: column;
 }
@@ -385,7 +434,12 @@ footer {
     .footer__navbar-item {
         padding: 4px;
     }
-
+    .font-title{
+        font-size: 16px;
+    }
+    #app__body {
+        margin-top: 110px;
+    }
 
 }
 
@@ -410,7 +464,8 @@ footer {
     }
 
     #app__body {
-        margin-top: 110px;
+        margin-top: 105px;
+        padding: 0px 20px;
     }
 
     #header__navbar {

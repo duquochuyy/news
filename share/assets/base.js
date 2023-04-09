@@ -14,6 +14,9 @@ $(document).ready(function () {
             menu.css("display", "block");
         }
     });
+    // close navbar
+    $("#app").click(()=>menu.css("display","none"));
+    $("#header__navbar").click((event)=>event.stopPropagation())
     // expand sub menu
     $.each(subnav, (idx, element) => {
         $(element).mouseover(function () {
@@ -28,6 +31,8 @@ $(document).ready(function () {
     }
     )
     // Hide and show header base on scroll 
+    const header = document.getElementById("app__header");
+    const nav = document.getElementById("header__navbar");
     window.onscroll = function () {
         scroll();
     };
@@ -35,9 +40,14 @@ $(document).ready(function () {
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if (prevScrollpos > currentScrollPos) {
-            document.getElementById("app__header").style.top = "0";
+            nav.style.display="flex";
+            nav.style.top = "0px";
+            header.style.boxShadow ="none";
+            
         } else {
-            document.getElementById("app__header").style.top = "-50px";
+            nav.style.display="none";
+            nav.style.top = "-30px";
+            header.style.boxShadow ="0 0 5px #ccc";
         }
         prevScrollpos = currentScrollPos;
     }
