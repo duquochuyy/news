@@ -5,8 +5,21 @@ $(document).ready(function () {
     const menu = $("#navbar-menu");
     const subnav = $(".subnav");
     const subnavMenu = $(".subnav-menu");
+    const header = document.getElementById("app__header");
+    const nav = document.getElementById("header__navbar");
+    
+    $(window).resize(function(){
+        if(menuBtn.css("display")=="block"){
+            menu.css("display","none");
+        }
+        else{
+            menu.css("display","block");
+        }
+    })
     // press menu button
+    
     menuBtn.click(function () {
+        
         if (menu.css("display") == "block") {
             menu.css("display", "none");
         }
@@ -15,7 +28,11 @@ $(document).ready(function () {
         }
     });
     // close navbar
-    $("#app").click(()=>menu.css("display","none"));
+    $("#app").click(()=>{
+        if(menuBtn.css("display")!="block")
+            return;
+        menu.css("display","none")
+    });
     $("#header__navbar").click((event)=>event.stopPropagation())
     // expand sub menu
     $.each(subnav, (idx, element) => {
@@ -31,8 +48,6 @@ $(document).ready(function () {
     }
     )
     // Hide and show header base on scroll 
-    const header = document.getElementById("app__header");
-    const nav = document.getElementById("header__navbar");
     window.onscroll = function () {
         scroll();
     };
