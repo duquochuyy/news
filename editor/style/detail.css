@@ -1,0 +1,19 @@
+.main__path a {
+    color: var(--second-color) !important;
+}
+
+.main__path i {
+    font-size: x-small;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-second {
+    color: var(--second-color) !important;
+}
+
+.sidebar li.active {
+    background-color: #d9d9d9;
+}

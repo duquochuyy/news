@@ -11,7 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="../../share/assets/styles/base.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="../style/listpage.css">
+        <link rel="stylesheet" href="../style/detail.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="../../share/assets/base.js"></script>
 </head>
@@ -139,16 +139,55 @@
                                         <h1  class="mt-4 fw-bold">Tiêu đề bài viết</h1>
                                 </div>
 
-                                <div class="row">
+                                <div class="row m-0">
                                     <hr class="col-lg-3 p-0">
                                 </div>
 
                                 <div class="row">
-                                        <div class="sidebar col col-lg-3">
-                                                <div class="navbar "></div>
+                                        <div class="sidebar col-lg-3">
+                                                <ul class="nav navbar-nav">
+                                                        <li class="nav-item active rounded mb-1">
+                                                                <a class="nav-link text-black hover px-4" href="#" aria-current="page">Nội dung chi tiết<span class="visually-hidden">(current)</span></a>
+                                                        </li>
+                                                        <li class="nav-item rounded mb-1">
+                                                                <a class="nav-link text-black hover px-4" href="#">Chuyên mục</a>
+                                                        </li>
+                                                        <li class="nav-item rounded mb-1">
+                                                                <a class="nav-link text-black hover px-4" href="#">Nhãn</a>
+                                                        </li>
+                                                </ul>
+                                        </div>
+
+                                        <div class="content col-lg-9">
+                                                <div class="content-1">
+                                                        <div class="border rounded p-3">
+                                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor ea mollitia laborum, error ipsam, aut possimus beatae placeat quasi eum, corrupti assumenda inventore fugiat eligendi cumque ex optio eos. Est?
+                                                                Libero, quia distinctio soluta odit inventore consequatur officiis deleniti ipsa sequi reiciendis harum aut neque obcaecati recusandae cum, vitae atque temporibus repellendus eius repellat, impedit delectus? Aut qui in dicta.
+                                                                Eaque, ab in labore asperiores beatae impedit quia temporibus deserunt doloribus, inventore tempora ex mollitia eius consequuntur dolor, et maiores. Veniam ex quasi accusamus! Dolore ducimus laudantium id ut architecto.
+                                                                Nisi, obcaecati? Ipsam fuga dolorem quisquam cum optio dolor unde qui, impedit pariatur incidunt. Illo nemo sapiente est optio sint ut perferendis laudantium nam eos maiores ab, provident distinctio saepe!
+                                                                Est deleniti vero harum reprehenderit, facilis mollitia iure magni. Eum, dolor. Cumque necessitatibus incidunt iusto aspernatur? Sit praesentium itaque, molestiae inventore amet nemo dolor velit atque minima doloribus corrupti eveniet.</p>
+                                                        </div>
+                                                        <div class="row d-flex justify-content-around align-items-center mt-4">
+                                                                <a href="reject.html" class="btn btn-primary col-lg-2 text-uppercase p-2">
+                                                                        <i class="fa-regular fa-circle-xmark pe-2"></i> 
+                                                                        Từ chối
+                                                                </a>
+                                                                <a href="accept.html" class="btn btn-success col-lg-2 text-uppercase p-2">
+                                                                        <i class="fa-regular fa-circle-check pe-2"></i> 
+                                                                        Duyệt
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                                
+                                                <div class="content-2 border rounded">
+                                                        
+                                                </div>
                                         </div>
                                 </div>
+
                         </div>
+                        
+                        <script src="../script/detail.js"></script>
                 </main>
                 <footer>
                         <ul class="d-flex footer__social justify-content-center">
