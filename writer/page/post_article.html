@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="./share/assets/base.js"></script>
-    <link rel="stylesheet" href="../style/my_article.css">
+    <link rel="stylesheet" href="../style/post_article.css">
 </head>
 
 <body>
@@ -127,9 +127,9 @@
         <main id="app__body">
             <div class="container-fluid">
                 <div class="main__path">
-                    <a href="#"><small >Trang chủ</small></a>    
+                    <a href="#" class="hover"><small >Trang chủ</small></a>    
                     <i class="fa-solid fa-angles-right"></i>     
-                    <a href="#"><small >Bài viết của tôi</small></a>    
+                    <a href="#" class="hover"><small >Bài viết của tôi</small></a>    
                     <i class="fa-solid fa-angles-right"></i>      
                     <a href="#"><small class="text-primary">Đăng bài viết</small></a>
                 </div>
@@ -141,6 +141,78 @@
                 <div class="row m-0">
                     <hr class="col-lg-3">
                 </div>
+
+                <form action="" class="needs-validation" method="get">
+                    <div class="form-group row mt-4">
+                        <div class="col-lg-2">
+                            <label for="inputTitle" class="col-form-label my-0 py-0">Tiêu đề bài viết</label>
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control form-control-lg" id="inputTitle" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <div class="col-lg-2">
+                            <label for="inputSumary" class="col-form-label my-0 py-0">Tóm tắt</label>
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control form-control-lg" id="inputSumary" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <div class="col-lg-2">
+                            <label for="inputContent" class="col-form-label my-0 py-0">Tóm tắt</label>
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-lg-10">
+                            <textarea class="form-control form-control-lg" id="inputContent" placeholder="" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <div class="col-lg-2">
+                            <label for="inputCategory" class="col-form-label my-0 py-0">Chuyên mục</label>
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-lg-10">
+                            <select id="inputCategory" class="form-select form-select-lg custom-select" required>
+                                <option value="">Chọn chuyên mục</option>
+                                <option value="kinhte">Kinh tế</option>
+                                <option value="thethao">Thể Thao</option>
+                                <option value="phapluat">Pháp luật</option>
+                              </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <div class="col-lg-2">
+                            <label for="inputTag" class="col-form-label my-0 py-0">Gán nhãn bài viết</label>
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control form-control-lg" id="inputTag" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <div class="col-lg-2">
+                            <label for="inputImage" class="col-form-label my-0 py-0">Tải ảnh lên</label>
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="file" class="form-control-file" id="inputImage" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-5">
+                        <button type="submit" id="btnSubmit" class="btn btn-lg btn-primary">Đăng bài</button>
+                    </div>
+                    
+                </form>
 
             </div>    
 
@@ -201,5 +273,5 @@
     </div>
 
 </body>
-<script src="../scripts/my_article.js"></script>
+<script src="../scripts/post_article.js"></script>
 </html>
