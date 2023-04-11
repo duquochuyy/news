@@ -1,10 +1,9 @@
 $(document).ready(()=>{
     const menuBtn = $("#menu-btn");
     const contentCategories = $("#categories").html();
-    console.log(contentCategories);
+    // console.log(contentCategories);
     const mostViewed = $("#most-viewed");
     const newArticle = $("#new");
-    console.log(newArticle);
     if(menuBtn.css("display")=="block"){
         $("#categories").remove();
         newArticle.after(`<ul id="categories" class=" col-md-5">${contentCategories}</ul>`);

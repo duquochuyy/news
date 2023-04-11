@@ -12,9 +12,11 @@
         <link rel="stylesheet" href="./share/assets/styles/base.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="./assets/styles/home.css">
+        <link rel="stylesheet" href="./assets/styles/authentication.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="./share/assets/base.js"></script>
+        <script type="module" src="./share/assets/base.js"></script>
         <script src="./assets/scripts/home.js"></script>
+        <script type="module" src="./assets/scripts/Validator.js"></script>
 </head>
 
 <body>
@@ -25,9 +27,9 @@
                                 <img id="header-logo" src="./share/assets/images/logo.png"></img>
                                 <!-- user don't login -->
                                 <div id="guest" class="justify-content-end">
-                                        <a href="#" id="log-in" class="hover text-uppercase bold hover">Đăng
+                                        <a href="#" id="app__header-login" class="hover text-uppercase bold hover">Đăng
                                                 nhập</a>
-                                        <a href="#" id="sign-up" class="hover text-uppercase bold hover">Đăng
+                                        <a href="#" id="app__header-signup" class="hover text-uppercase bold hover">Đăng
                                                 ký</a>
                                 </div>
                                 <!-- user logged in -->
@@ -274,9 +276,11 @@
                                                                                 class="most-viewd__title text-white font-title">
                                                                                 Bãi rác Cam Ly
                                                                                 bốc
-                                                                                cháy nhiều gây ô nhiễm nghiêm trọng Bãi rác Cam Ly
+                                                                                cháy nhiều gây ô nhiễm nghiêm trọng Bãi
+                                                                                rác Cam Ly
                                                                                 bốc
-                                                                                cháy nhiều gây ô nhiễm nghiêm trọng  Bãi rác Cam Ly
+                                                                                cháy nhiều gây ô nhiễm nghiêm trọng Bãi
+                                                                                rác Cam Ly
                                                                                 bốc
                                                                                 cháy nhiều gây ô nhiễm nghiêm trọng</p>
                                                                         <div
@@ -523,242 +527,161 @@
                                 </div>
                                 <ul id="categories" class=" col-md-5 ">
                                         <div class="row">
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        kinh
-                                                        tế</header>
-                                                <div class="categories-item__body">
-                                                        <div class="categories-item__item ">
-                                                                <header
-                                                                        class="categories-item__item-heading text-uppercase text-black">
-                                                                        nông sản</header>
-                                                                <a href="#" class="categories-item__link pos-r">
-                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                                class="categories-item__img">
-                                                                        <div class="categories-item__infor">
-                                                                                <p
-                                                                                        class="categories-item__title text-black bold">
-                                                                                        Tiêu đề của bài viết Tiêu đề của bài viết Tiêu đề của bài viết Tiêu đề của bài viết Tiêu đề của bài viết  bài viết Tiêu đề của bài viết Tiêu đề của bài viết Tiêu đề của bài viết</p>
-                                                                                <p class="article-time pos-a"><i
-                                                                                                class="fa-solid fa-clock"></i>
-                                                                                        08/04/2023</p>
-
-                                                                        </div>
-                                                                </a>
-                                                               
-                                                                <div class="categories-btn">
-                                                                        <button class="btn-primary ">Xem thêm</button>
-                                                                </div>
-
-                                                        </div>
-                                                        <div class="categories-item__item ">
-                                                                <header
-                                                                        class="categories-item__item-heading text-uppercase text-black">
-                                                                        hải sản</header>
-                                                               
-                                                                <a href="#" class="categories-item__link pos-r">
-                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                                class="categories-item__img">
-                                                                        <div class="categories-item__infor">
-                                                                                <p
-                                                                                        class="categories-item__title text-black bold">
-                                                                                        Tiêu đề của bài viết</p>
-                                                                                <p class="article-time pos-a"><i
-                                                                                                class="fa-solid fa-clock"></i>
-                                                                                        08/04/2023</p>
-
-                                                                        </div>
-                                                                </a>
-                                                                <div class="categories-btn">
-                                                                        <button class="btn-primary ">Xem thêm</button>
-                                                                </div>
-
-                                                        </div>
-                                                </div>
-
-                                        </li>
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        Thể
-                                                        thao</header>
-                                                <div class="categories-item__body">
-                                                        <div class="categories-item__item ">
-                                                                <header
-                                                                        class="categories-item__item-heading text-uppercase text-black">
-                                                                        trong nước</header>
-                                                                <a href="#" class="categories-item__link pos-r">
-                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                                class="categories-item__img">
-                                                                        <div class="categories-item__infor">
-                                                                                <p
-                                                                                        class="categories-item__title text-black bold">
-                                                                                        Tiêu đề của bài viết</p>
-                                                                                <p class="article-time pos-a"><i
-                                                                                                class="fa-solid fa-clock"></i>
-                                                                                        08/04/2023</p>
-
-                                                                        </div>
-                                                                </a>
-                                                               
-                                                                <div class="categories-btn">
-                                                                        <button class="btn-primary ">Xem thêm</button>
-                                                                </div>
-
-                                                        </div>
-                                                        <div class="categories-item__item ">
-                                                                <header
-                                                                        class="categories-item__item-heading text-uppercase text-black">
-                                                                        ngoài nước</header>
-                                                              
-                                                                <a href="#" class="categories-item__link pos-r">
-                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                                class="categories-item__img">
-                                                                        <div class="categories-item__infor">
-                                                                                <p
-                                                                                        class="categories-item__title text-black bold">
-                                                                                        Tiêu đề của bài viết</p>
-                                                                                <p class="article-time pos-a"><i
-                                                                                                class="fa-solid fa-clock"></i>
-                                                                                        08/04/2023</p>
-
-                                                                        </div>
-                                                                </a>
-                                                                <div class="categories-btn">
-                                                                        <button class="btn-primary ">Xem thêm</button>
-                                                                </div>
-
-                                                        </div>
-                                                </div>
-                                        </li>
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        pháp
-                                                        luật</header>
-                                                <div class="categories-item__body">
-                                                        <a href="#" class="categories-item__link pos-r">
-                                                                <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                        class="categories-item__img">
-                                                                <div class="categories-item__infor">
-                                                                        <p
-                                                                                class="categories-item__title text-black bold">
-                                                                                Tiêu đề của bài viết</p>
-                                                                        <p class="article-time pos-a"><i
-                                                                                        class="fa-solid fa-clock"></i>
-                                                                                08/04/2023</p>
-
-                                                                </div>
-                                                        </a>
-                                                        <a href="#" class="categories-item__link pos-r">
-                                                                <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                        class="categories-item__img">
-                                                                <div class="categories-item__infor">
-                                                                        <p
-                                                                                class="categories-item__title text-black bold">
-                                                                                Tiêu đề của bài viết</p>
-                                                                        <p class="article-time pos-a"><i
-                                                                                        class="fa-solid fa-clock"></i>
-                                                                                08/04/2023</p>
-
-                                                                </div>
-                                                        </a>
-                                                        <a href="#" class="categories-item__link pos-r">
-                                                                <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                        class="categories-item__img">
-                                                                <div class="categories-item__infor">
-                                                                        <p
-                                                                                class="categories-item__title text-black bold">
-                                                                                Tiêu đề của bài viết</p>
-                                                                        <p class="article-time pos-a"><i
-                                                                                        class="fa-solid fa-clock"></i>
-                                                                                08/04/2023</p>
-
-                                                                </div>
-                                                        </a>
-                                                        <div class="categories-btn">
-                                                                <button class="btn-primary ">Xem thêm</button>
-                                                        </div>
-                                                </div>
-                                        </li>
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        đời
-                                                        sống</header>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                kinh
+                                                                tế</header>
                                                         <div class="categories-item__body">
-                                                <a href="#" class="categories-item__link pos-r">
-                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                class="categories-item__img">
-                                                        <div class="categories-item__infor">
-                                                                <p class="categories-item__title text-black bold">Tiêu
-                                                                        đề của bài viết</p>
-                                                                <p class="article-time pos-a"><i
-                                                                                class="fa-solid fa-clock"></i>
-                                                                        08/04/2023</p>
+                                                                <div class="categories-item__item ">
+                                                                        <header
+                                                                                class="categories-item__item-heading text-uppercase text-black">
+                                                                                nông sản</header>
+                                                                        <a href="#" class="categories-item__link pos-r">
+                                                                                <img src="./assets/images/news/ID8_0.jpg"
+                                                                                        alt=""
+                                                                                        class="categories-item__img">
+                                                                                <div class="categories-item__infor">
+                                                                                        <p
+                                                                                                class="categories-item__title text-black bold">
+                                                                                                Tiêu đề của bài viết
+                                                                                                Tiêu đề của bài viết
+                                                                                                Tiêu đề của bài viết
+                                                                                                Tiêu đề của bài viết
+                                                                                                Tiêu đề của bài viết bài
+                                                                                                viết Tiêu đề của bài
+                                                                                                viết Tiêu đề của bài
+                                                                                                viết Tiêu đề của bài
+                                                                                                viết</p>
+                                                                                        <p class="article-time pos-a"><i
+                                                                                                        class="fa-solid fa-clock"></i>
+                                                                                                08/04/2023</p>
 
-                                                        </div>
-                                                </a>
-                                                <a href="#" class="categories-item__link pos-r">
-                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                class="categories-item__img">
-                                                        <div class="categories-item__infor">
-                                                                <p class="categories-item__title text-black bold">Tiêu
-                                                                        đề của bài viết</p>
-                                                                <p class="article-time pos-a"><i
-                                                                                class="fa-solid fa-clock"></i>
-                                                                        08/04/2023</p>
+                                                                                </div>
+                                                                        </a>
 
-                                                        </div>
-                                                </a>
-                                                <a href="#" class="categories-item__link pos-r">
-                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
-                                                                class="categories-item__img">
-                                                        <div class="categories-item__infor">
-                                                                <p
-                                                                        class="categories-item__title text-black bold">
-                                                                        Tiêu đề của bài viết</p>
-                                                                <p class="article-time pos-a"><i
-                                                                                class="fa-solid fa-clock"></i>
-                                                                        08/04/2023</p>
+                                                                        <div class="categories-btn">
+                                                                                <button class="btn-primary ">Xem
+                                                                                        thêm</button>
+                                                                        </div>
 
+                                                                </div>
+                                                                <div class="categories-item__item ">
+                                                                        <header
+                                                                                class="categories-item__item-heading text-uppercase text-black">
+                                                                                hải sản</header>
+
+                                                                        <a href="#" class="categories-item__link pos-r">
+                                                                                <img src="./assets/images/news/ID8_0.jpg"
+                                                                                        alt=""
+                                                                                        class="categories-item__img">
+                                                                                <div class="categories-item__infor">
+                                                                                        <p
+                                                                                                class="categories-item__title text-black bold">
+                                                                                                Tiêu đề của bài viết</p>
+                                                                                        <p class="article-time pos-a"><i
+                                                                                                        class="fa-solid fa-clock"></i>
+                                                                                                08/04/2023</p>
+
+                                                                                </div>
+                                                                        </a>
+                                                                        <div class="categories-btn">
+                                                                                <button class="btn-primary ">Xem
+                                                                                        thêm</button>
+                                                                        </div>
+
+                                                                </div>
                                                         </div>
-                                                </a>
-                                                <div class="categories-btn">
-                                                        <button class="btn-primary ">Xem thêm</button>
-                                                </div>
-                                        </div>
-                                        </li>
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        công
-                                                        nghệ</header>
-                                                
+
+                                                </li>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                Thể
+                                                                thao</header>
+                                                        <div class="categories-item__body">
+                                                                <div class="categories-item__item ">
+                                                                        <header
+                                                                                class="categories-item__item-heading text-uppercase text-black">
+                                                                                trong nước</header>
+                                                                        <a href="#" class="categories-item__link pos-r">
+                                                                                <img src="./assets/images/news/ID8_0.jpg"
+                                                                                        alt=""
+                                                                                        class="categories-item__img">
+                                                                                <div class="categories-item__infor">
+                                                                                        <p
+                                                                                                class="categories-item__title text-black bold">
+                                                                                                Tiêu đề của bài viết</p>
+                                                                                        <p class="article-time pos-a"><i
+                                                                                                        class="fa-solid fa-clock"></i>
+                                                                                                08/04/2023</p>
+
+                                                                                </div>
+                                                                        </a>
+
+                                                                        <div class="categories-btn">
+                                                                                <button class="btn-primary ">Xem
+                                                                                        thêm</button>
+                                                                        </div>
+
+                                                                </div>
+                                                                <div class="categories-item__item ">
+                                                                        <header
+                                                                                class="categories-item__item-heading text-uppercase text-black">
+                                                                                ngoài nước</header>
+
+                                                                        <a href="#" class="categories-item__link pos-r">
+                                                                                <img src="./assets/images/news/ID8_0.jpg"
+                                                                                        alt=""
+                                                                                        class="categories-item__img">
+                                                                                <div class="categories-item__infor">
+                                                                                        <p
+                                                                                                class="categories-item__title text-black bold">
+                                                                                                Tiêu đề của bài viết</p>
+                                                                                        <p class="article-time pos-a"><i
+                                                                                                        class="fa-solid fa-clock"></i>
+                                                                                                08/04/2023</p>
+
+                                                                                </div>
+                                                                        </a>
+                                                                        <div class="categories-btn">
+                                                                                <button class="btn-primary ">Xem
+                                                                                        thêm</button>
+                                                                        </div>
+
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                pháp
+                                                                luật</header>
                                                         <div class="categories-item__body">
                                                                 <a href="#" class="categories-item__link pos-r">
                                                                         <img src="./assets/images/news/ID8_0.jpg" alt=""
                                                                                 class="categories-item__img">
                                                                         <div class="categories-item__infor">
-                                                                                <p class="categories-item__title text-black bold">Tiêu
-                                                                                        đề của bài viết</p>
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu đề của bài viết</p>
                                                                                 <p class="article-time pos-a"><i
                                                                                                 class="fa-solid fa-clock"></i>
                                                                                         08/04/2023</p>
-                
+
                                                                         </div>
                                                                 </a>
                                                                 <a href="#" class="categories-item__link pos-r">
                                                                         <img src="./assets/images/news/ID8_0.jpg" alt=""
                                                                                 class="categories-item__img">
                                                                         <div class="categories-item__infor">
-                                                                                <p class="categories-item__title text-black bold">Tiêu
-                                                                                        đề của bài viết</p>
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu đề của bài viết</p>
                                                                                 <p class="article-time pos-a"><i
                                                                                                 class="fa-solid fa-clock"></i>
                                                                                         08/04/2023</p>
-                
+
                                                                         </div>
                                                                 </a>
                                                                 <a href="#" class="categories-item__link pos-r">
@@ -778,35 +701,39 @@
                                                                         <button class="btn-primary ">Xem thêm</button>
                                                                 </div>
                                                         </div>
-                                        </li>
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        sức
-                                                        khỏe</header>
+                                                </li>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                đời
+                                                                sống</header>
                                                         <div class="categories-item__body">
                                                                 <a href="#" class="categories-item__link pos-r">
                                                                         <img src="./assets/images/news/ID8_0.jpg" alt=""
                                                                                 class="categories-item__img">
                                                                         <div class="categories-item__infor">
-                                                                                <p class="categories-item__title text-black bold">Tiêu
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
                                                                                         đề của bài viết</p>
                                                                                 <p class="article-time pos-a"><i
                                                                                                 class="fa-solid fa-clock"></i>
                                                                                         08/04/2023</p>
-                
+
                                                                         </div>
                                                                 </a>
                                                                 <a href="#" class="categories-item__link pos-r">
                                                                         <img src="./assets/images/news/ID8_0.jpg" alt=""
                                                                                 class="categories-item__img">
                                                                         <div class="categories-item__infor">
-                                                                                <p class="categories-item__title text-black bold">Tiêu
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
                                                                                         đề của bài viết</p>
                                                                                 <p class="article-time pos-a"><i
                                                                                                 class="fa-solid fa-clock"></i>
                                                                                         08/04/2023</p>
-                
+
                                                                         </div>
                                                                 </a>
                                                                 <a href="#" class="categories-item__link pos-r">
@@ -826,35 +753,40 @@
                                                                         <button class="btn-primary ">Xem thêm</button>
                                                                 </div>
                                                         </div>
-                                        </li>
-                                        <li class="categories-item col-md-12 col-sm-6 ">
-                                                <header
-                                                        class="categories-item__heading font-size text-uppercase text-white">
-                                                        âm
-                                                        nhạc</header>
+                                                </li>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                công
+                                                                nghệ</header>
+
                                                         <div class="categories-item__body">
                                                                 <a href="#" class="categories-item__link pos-r">
                                                                         <img src="./assets/images/news/ID8_0.jpg" alt=""
                                                                                 class="categories-item__img">
                                                                         <div class="categories-item__infor">
-                                                                                <p class="categories-item__title text-black bold">Tiêu
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
                                                                                         đề của bài viết</p>
                                                                                 <p class="article-time pos-a"><i
                                                                                                 class="fa-solid fa-clock"></i>
                                                                                         08/04/2023</p>
-                
+
                                                                         </div>
                                                                 </a>
                                                                 <a href="#" class="categories-item__link pos-r">
                                                                         <img src="./assets/images/news/ID8_0.jpg" alt=""
                                                                                 class="categories-item__img">
                                                                         <div class="categories-item__infor">
-                                                                                <p class="categories-item__title text-black bold">Tiêu
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
                                                                                         đề của bài viết</p>
                                                                                 <p class="article-time pos-a"><i
                                                                                                 class="fa-solid fa-clock"></i>
                                                                                         08/04/2023</p>
-                
+
                                                                         </div>
                                                                 </a>
                                                                 <a href="#" class="categories-item__link pos-r">
@@ -874,7 +806,111 @@
                                                                         <button class="btn-primary ">Xem thêm</button>
                                                                 </div>
                                                         </div>
-                                        </li>
+                                                </li>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                sức
+                                                                khỏe</header>
+                                                        <div class="categories-item__body">
+                                                                <a href="#" class="categories-item__link pos-r">
+                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
+                                                                                class="categories-item__img">
+                                                                        <div class="categories-item__infor">
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
+                                                                                        đề của bài viết</p>
+                                                                                <p class="article-time pos-a"><i
+                                                                                                class="fa-solid fa-clock"></i>
+                                                                                        08/04/2023</p>
+
+                                                                        </div>
+                                                                </a>
+                                                                <a href="#" class="categories-item__link pos-r">
+                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
+                                                                                class="categories-item__img">
+                                                                        <div class="categories-item__infor">
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
+                                                                                        đề của bài viết</p>
+                                                                                <p class="article-time pos-a"><i
+                                                                                                class="fa-solid fa-clock"></i>
+                                                                                        08/04/2023</p>
+
+                                                                        </div>
+                                                                </a>
+                                                                <a href="#" class="categories-item__link pos-r">
+                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
+                                                                                class="categories-item__img">
+                                                                        <div class="categories-item__infor">
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu đề của bài viết</p>
+                                                                                <p class="article-time pos-a"><i
+                                                                                                class="fa-solid fa-clock"></i>
+                                                                                        08/04/2023</p>
+
+                                                                        </div>
+                                                                </a>
+                                                                <div class="categories-btn">
+                                                                        <button class="btn-primary ">Xem thêm</button>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li class="categories-item col-md-12 col-sm-6 ">
+                                                        <header
+                                                                class="categories-item__heading font-size text-uppercase text-white">
+                                                                âm
+                                                                nhạc</header>
+                                                        <div class="categories-item__body">
+                                                                <a href="#" class="categories-item__link pos-r">
+                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
+                                                                                class="categories-item__img">
+                                                                        <div class="categories-item__infor">
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
+                                                                                        đề của bài viết</p>
+                                                                                <p class="article-time pos-a"><i
+                                                                                                class="fa-solid fa-clock"></i>
+                                                                                        08/04/2023</p>
+
+                                                                        </div>
+                                                                </a>
+                                                                <a href="#" class="categories-item__link pos-r">
+                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
+                                                                                class="categories-item__img">
+                                                                        <div class="categories-item__infor">
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu
+                                                                                        đề của bài viết</p>
+                                                                                <p class="article-time pos-a"><i
+                                                                                                class="fa-solid fa-clock"></i>
+                                                                                        08/04/2023</p>
+
+                                                                        </div>
+                                                                </a>
+                                                                <a href="#" class="categories-item__link pos-r">
+                                                                        <img src="./assets/images/news/ID8_0.jpg" alt=""
+                                                                                class="categories-item__img">
+                                                                        <div class="categories-item__infor">
+                                                                                <p
+                                                                                        class="categories-item__title text-black bold">
+                                                                                        Tiêu đề của bài viết</p>
+                                                                                <p class="article-time pos-a"><i
+                                                                                                class="fa-solid fa-clock"></i>
+                                                                                        08/04/2023</p>
+
+                                                                        </div>
+                                                                </a>
+                                                                <div class="categories-btn">
+                                                                        <button class="btn-primary ">Xem thêm</button>
+                                                                </div>
+                                                        </div>
+                                                </li>
                                         </div>
                                 </ul>
                         </div>
@@ -1300,6 +1336,124 @@
                 </footer>
 
         </div>
+        <div id="form-modal">
+
+                <form id="login-form" class="authentication-form " action="./index.html" novalidate>
+                        <header class="form-heading">
+                                <h5 class="form-title text-uppercase bold ">xin chào!</h5>
+                                <p class="form-direction">Đăng nhập bên dưới hoặc <a href="#" class="form-link bold"
+                                                id="form-link__signup">
+                                                đăng
+                                                ký ngay.</a></p>
+                        </header>
+                        <div class="line-separate"></div>
+                        <main class="form-body">
+                                <ul class="form-social d-flex justify-content-between">
+                                        <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                                                src="./share/assets/images/google.png" alt=""
+                                                                class="form-social__icon">
+                                                        <p class="form-social__name text-black">Google</p>
+                                                </a></li>
+                                        <li class="form-social__item"><a href="#" class="form-social__link"><i
+                                                                class="form-social__icon fa-brands fa-facebook"></i>
+                                                        <p class="form-social__name text-black">Facebook</p>
+                                                </a></li>
+                                        <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                                                src="./share/assets/images/zalo.png" alt=""
+                                                                class="form-social__icon">
+                                                        <p class="form-social__name text-black">Zalo</p>
+                                                </a></li>
+                                </ul>
+                                <div class="form-separate d-flex justify-content-between align-items-center">
+                                        <div class="line-separate"></div>
+                                        <p>Hoặc</p>
+                                        <duv class="line-separate"></duv>
+                                </div>
+                                <ul class="user-input mt-3">
+                                        <li class="mb-3">
+                                                <input type="text" class="form-control username"
+                                                        placeholder="Nhập tên đăng nhập" name="username">
+                                                <div class="invalid-feedback">Tên đăng nhập không tồn tại!</div>
+                                        </li>
+                                        <li class="mb-3">
+                                                <input type="password" class="form-control password" name="pswd"
+                                                        placeholder="Nhập mật khẩu">
+                                                <div class="invalid-feedback">Sai mật khẩu!</div>
+                                        </li>
+                                        </li>
+                                </ul>
+                        </main>
+                        <div class="close-btn"> <i class="close-icon fa-solid fa-xmark"></i></div></a>
+                        <button type="submit" class=" form-submit text-uppercase">đăng nhập</button>
+                        <a href="./resetpw.html" class="form-link mt-2">Quên mật khẩu?</a>
+                </form>
+
+
+                <form id="signup-form" class="authentication-form " action="./index.html" novalidate>
+                        <header class="form-heading">
+                                <h5 class="form-title text-uppercase bold ">đăng ký!</h5>
+                                <p class="form-direction">Đã có tài khoản? <a href="#" class="form-link bold"
+                                                id="form-link__login">
+                                                Đăng nhập!</a></p>
+                        </header>
+                        <div class="line-separate"></div>
+                        <main class="form-body">
+                                <ul class="form-social d-flex justify-content-between">
+                                        <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                                                src="./share/assets/images/google.png" alt=""
+                                                                class="form-social__icon">
+                                                        <p class="form-social__name text-black">Google</p>
+                                                </a></li>
+                                        <li class="form-social__item"><a href="#" class="form-social__link"><i
+                                                                class="form-social__icon fa-brands fa-facebook"></i>
+                                                        <p class="form-social__name text-black">Facebook</p>
+                                                </a></li>
+                                        <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                                                src="./share/assets/images/zalo.png" alt=""
+                                                                class="form-social__icon">
+                                                        <p class="form-social__name text-black">Zalo</p>
+                                                </a></li>
+                                </ul>
+                                <div class="form-separate d-flex justify-content-between align-items-center">
+                                        <div class="line-separate"></div>
+                                        <p>Hoặc</p>
+                                        <duv class="line-separate"></duv>
+                                </div>
+                                <ul class="user-input">
+                                        <li class="mb-2">
+                                                <label for="signup-email" class="form-label">Email</label>
+                                                <input type="email" class="form-control email" id="signup-email"
+                                                        placeholder="Nhập email" name="username">
+                                                <div class="invalid-feedback">Email đã được sử dụng!</div>
+                                        </li>
+                                        <li class="mb-2">
+                                                <label for="signup-username" class="form-label">Tên đăng nhập</label>
+                                                <input type="text" class="form-control username" id="signup-username"
+                                                        placeholder="Nhập tên đăng nhập" name="username">
+                                                <div class="invalid-feedback">Tên đăng nhập đã tồn tại!</div>
+                                        </li>
+                                        <li class="mb-2">
+                                                <label for="signup-pw" class="form-label">Mật khẩu</label>
+                                                <input type="password" class="form-control password" id="signup-pw"
+                                                        name="pswd" placeholder="Nhập mật khẩu">
+                                                <div class="invalid-feedback"></div>
+                                        </li>
+                                        <li class="mb-2">
+                                                <label for="signup-repw" class="form-label">Xác nhận mật khẩu</label>
+                                                <input type="password" class="form-control re-password" name="pswd"
+                                                        id="signup-repw" placeholder="Nhập lại mật khẩu">
+                                                <div class="invalid-feedback"></div>
+                                        </li>
+                                        </li>
+                                </ul>
+                        </main>
+                        <div class="close-btn"> <a href="#"><i class="close-icon fa-solid fa-xmark"></i></a></div>
+                        <button type="submit" class=" form-submit text-uppercase">đăng ký</button>
+
+                </form>
+
+        </div>
+
 </body>
 
 </html>

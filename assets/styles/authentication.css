@@ -1,0 +1,152 @@
+/* signup form */
+#signup-form,
+#login-form {
+    display: none;
+}
+#form-modal{
+    position: fixed;
+    z-index: 1500;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: none;
+}
+.authentication-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 5px;
+    min-width: 300px;
+}
+
+.authentication-form .line-separate {
+    width: 50%;
+    border-color: #ccc;
+    margin: 20px auto;
+}
+
+.form-heading {
+    text-align: center;
+    font-size: 12px;
+    margin: 20px 0px;
+}
+
+.form-direction {
+    color: var(--second-color);
+}
+
+.form-link,
+.form-link:hover {
+    color: var(--primary-color);
+
+}
+
+.form-link:hover,
+.form-social:hover .form-social__btn,
+.form-social__link:hover {
+    opacity: 0.8;
+}
+
+.form-social__item+.form-social__item {
+    margin-left: 10px;
+}
+
+.form-social__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: var(--light-color);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.form-social__icon {
+    font-size: 23px;
+    margin-right: 4px;
+    width: 24px;
+}
+
+.close-btn {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 5px;
+    right: 10px;
+    top: 10px;
+}
+
+.close-icon {
+    font-size: 26px;
+    color: var(--second-color);
+}
+
+.close-btn:hover .close-icon {
+    color: var(--primary-color) !important;
+}
+
+.form-separate p {
+    color: var(--second-color);
+    font-size: 12px;
+    margin: 10px;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #2ab391;
+    box-shadow: 0 0 1px #2ab391;
+}
+
+.form-submit {
+    width: 100%;
+    border: none;
+    color: var(--white-color);
+    background-color: #0f9170;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+}
+
+.form-submit:hover {
+    opacity: 0.8;
+}
+
+.authentication-form>.form-link {
+    font-size: 12px;
+    float: right;
+    clear: both;
+}
+
+.invalid-feedback {
+    font-size: 12px;
+    margin-left: 12px;
+}
+.form-label{
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+#signup .form-control{
+    font-size: 12px;
+}
+#signup .form-heading{
+    margin: 0px;
+}
+#signup .form-submit{
+    margin-top: 10px;
+}
+#signup .authentication-form{
+    padding: 25px 50px;
+}
