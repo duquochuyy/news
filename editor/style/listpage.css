@@ -13,3 +13,9 @@
 .text-second {
     color: var(--second-color) !important;
 }
+#user-logged-in{
+    display: flex;
+}
+#guest{
+    display: none;
+}
