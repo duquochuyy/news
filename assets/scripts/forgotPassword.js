@@ -56,18 +56,28 @@ $(document).ready(() => {
         confirmPw.next().html("Mật khẩu không khớp");
         return false;
     }
-  
+
 
     // handle on submit
     submits.each((idx) => {
-        $(submits[idx]).click(() => {
+        $(submits[idx]).click((e) => {
             const inputs = $(forgotFields[idx]).find(".forgot-control");
-            if ([...inputs].find((input) => $(input).val() === "") || [...inputs].find((input) => $(input).hasClass("is-invalid")))
+            [...inputs].forEach((input) => {
+                if ($(input).val() == "") {
+                    $(input).next().html("Vui lòng nhập thông tin!");
+                    $(input).addClass("is-invalid");
+                }
+            })
+
+            if ([...inputs].find((input) => $(input).hasClass("is-invalid"))) {
+                e.preventDefault();
                 return;
-            if (idx < maxPage) {
-                $(forgotFields[idx]).css("display","none");
-                $(forgotFields[idx+1]).css("display","block");
             }
+            if (idx < maxPage) {
+                $(forgotFields[idx]).css("display", "none");
+                $(forgotFields[idx + 1]).css("display", "block");
+            }
+
         })
 
     })

@@ -101,7 +101,10 @@ $(document).ready(function () {
     });
 
 
-
+    $("input").keypress((e)=>{
+       if(String.fromCharCode(e.which)==" ")
+          e.preventDefault();
+    })
     // Validation for sign up and login form
 
     const registerForm = new Validator("#signup-form");
