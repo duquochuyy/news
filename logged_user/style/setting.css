@@ -1,0 +1,72 @@
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-second {
+    color: var(--second-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--black-color) !important;
+}
+
+.bg-second {
+    background-color: var(--second-color) !important;
+}
+
+.app_body {
+    box-sizing: border-box;
+}
+
+a, .page-link {
+    color: var(--black-color);
+}
+
+.main__path a {
+    color: var(--second-color)
+}
+
+.main__path i {
+    font-size: x-small;
+}
+
+.sidebar li.active {
+    background-color: #d9d9d9;
+}
+
+.content-hidden {
+    display: none;
+}
+
+
+.content-active {
+    display: block;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+}
+
+.logo-socialnetwork {
+    width: 25px;
+    height: 25px;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 25px;
+    background-color: var(--second-color) !important;
+    padding: 0;
+    margin: 0 10px;
+}
+
+.account-socialnetwork {
+    width: 90%;
+    font-size: 18px;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color) !important;
+}
