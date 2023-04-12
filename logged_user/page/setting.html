@@ -170,41 +170,118 @@
 
 
                     <div class="bodyarea col-lg-9">
-                        <div class="content-1 content-hidden">
+                        <div class="content-1 content-active">
                             <h2>Thông tin cá nhân</h2>
                             <hr>
 
-                            <form id="profileForm">
-                                <div class="row m-0 mb-3">
-                                    <div class="col-lg-2 rounded-circle d-flex justify-content-center avatar position-relative">
-                                        <img src="../../assets/images/avatars/man_default.png" alt="avatar">
-                                        <div class="position-absolute camera">
-                                            <i class="fa-regular fa-circle-camera"></i>
-                                        </div>
+                            <form class="profileForm" method="post">
+                                <div class="form-group row m-0 p-0">
+                                    <div class="col-lg-2">
+                                        <div class="rounded-circle d-flex justify-content-center avatar position-relative">
+                                            <img src="../../assets/images/avatars/man_default.png" alt="avatar">
+                                            <label class="input-group-text position-absolute camera-to-choose" for="inputImage">
+                                                <i class="fa-solid fa-camera-retro"></i>
+                                            </label>
+                                            <input type="file" class="form-control-file" id="inputImage" style="display: none;" accept="image/*">
+                                        </div>                                        
                                     </div>
-                                    <div class="col-lg-10">
-                                        <div class="d-flex align-items-center">
-                                            <input type="file" id="avatarInput" accept="image/*" style="display:none">
-                                            <div class="avatar-preview mr-3">
-                                                <img src="default-avatar.png" alt="Avatar" id="avatarPreview" class="rounded-circle" width="80" height="80">
+
+                                    <div class="col-lg-8 .col-lg-offset-2 inner1 d-flex align-items-center">
+                                        <p class="info-text font-weight-bold">Minh Hiền</p>
+                                        <input type="text" class="form-control edit-input font-weight-bold d-none">
+                                    </div>
+
+                                    <div class="col-11 col-lg-2 d-flex align-items-center inner2 p-0">
+                                        <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh sửa</span>
+                                    </div>
+
+                                </div>
+
+                                <hr class="col-lg-2">
+
+                                <div class="form-group row m-0 text-second mt-5">
+                                    <i class="fa-regular fa-envelope col-lg-1"></i>
+
+                                    <div class="col-lg-9 p-0 inner1">
+                                        <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Email</label>
+                                        <p class="info-text mt-2">leminhhien25062002@gmail.com</p>
+                                        <hr class="m-0">
+                                        <input type="email" class="form-control edit-input d-none">
+                                    </div>
+
+                                    <div class="col-lg-2 p-0 inner2">
+                                        <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh sửa</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row m-0 text-second mt-5">
+                                    <i class="fa-solid fa-phone col-lg-1"></i>
+
+                                    <div class="col-lg-9 p-0 inner1">
+                                        <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Số điện thoại</label>
+                                        <p class="info-text mt-2">Thêm số điện thoại</p>
+                                        <hr class="m-0">
+                                        <input type="tel" class="form-control edit-input d-none">
+                                    </div>
+
+                                    <div class="col-lg-2 p-0 inner2">
+                                        <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh sửa</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row m-0 text-second mt-5">
+
+                                    <i class="fa-solid fa-mars-and-venus col-lg-1 font"></i>
+
+                                    <div class="col-lg-11 p-0 inner1">
+                                        <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Giới tính</label>
+                                        <hr class="col-lg-10">
+                                        <div class="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="option1" checked>
+                                                <label class="form-check-label" for="genderMale">
+                                                Nam
+                                                </label>
                                             </div>
-                                            <button type="button" class="btn btn-outline-primary" id="changeAvatarBtn">Chọn ảnh</button>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="option2">
+                                                <label class="form-check-label" for="genderFemale">
+                                                Nữ
+                                                </label>
+                                              </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-                                <div class="form-group">
-                                    <label for="nameInput">Họ và tên</label>
-                                    <input type="text" class="form-control" id="nameInput" placeholder="Nhập họ và tên">
+
+                                <div class="form-group row m-0 text-second mt-5">
+
+                                    <i class="fa-solid fa-mars-and-venus col-lg-1 font"></i>
+
+                                    <div class="col-lg-9 p-0 inner1">
+                                        <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Ngày sinh</label>
+                                        <p class="info-text mt-2">25/06/2002</p>
+                                        <hr class="m-0">
+                                        <input type="date" class="form-control edit-input d-none" id="dateInput">
+                                    </div>
+
+                                    <div class="col-lg-2 p-0 inner2">
+                                        <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh sửa</span>
+                                    </div>
+
                                 </div>
-                                <div class="form-group">
-                                    <label for="emailInput">Email</label>
-                                    <input type="email" class="form-control" id="emailInput" placeholder="Nhập địa chỉ email">
+
+
+                                <div class="d-flex justify-content-end mt-5">
+                                    <button type="submit" id="btnSubmit" class="btn btn-lg btn-primary">Lưu</button>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                             </form>
                         </div>
                         
-                        <div class="content-2 content-active">
+                        <div class="content-2 content-hidden">
                             <h2>Liên kết tài khoản xã hội</h2>
                             <hr>
                             <div class="bodyarea__items">
@@ -270,7 +347,10 @@
                             </div>
                             
                         </div>
-    
+                        
+                        <div class="content-3 content-hidden">
+                        </div>
+
                     </div>
                 </div>
 

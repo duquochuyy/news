@@ -49,6 +49,23 @@ a, .page-link {
     height: 80px;
 }
 
+.camera-to-choose {
+    bottom: 0;
+    right: 0;
+    padding: 6px 6px;
+    background-color: var(--second-color) !important;
+    border-radius: 50%;
+    color: white;
+}
+
+.camera-to-choose, .edit-icon:hover {
+    cursor: pointer;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
 .logo-socialnetwork {
     width: 25px;
     height: 25px;
@@ -69,4 +86,11 @@ a, .page-link {
 
 .form-check-input:checked {
     background-color: var(--primary-color) !important;
+}
+
+.btn-lg {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: larger;
 }
