@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="col d-flex justify-content-center">
-                    <form action="" method="post" class="col-lg-5 col-md-8 col-sm-10 col-xs-12">
+                    <form action="reset_pw.html" method="post" id="resetPWForm" class=" col-lg-5 col-md-8 col-sm-10 col-xs-12">
                         <div class="form-group mt-5">
                             <label for="inputCurrentPW"><strong>Nhập mật khẩu hiện tại</strong></label>
                             <input type="password" class="form-control mt-1" id="inputCurrentPW" placeholder="Nhập mật khẩu" required>
@@ -148,8 +148,11 @@
 
                         <div class="form-group mt-4">
                             <label for="inputConfirmNewPW"><strong>Xác nhận mật khẩu</strong></label>
-                            <input type="password" class="form-control mt-1" id="inputConfirmNewPW" placeholder="Xác nhận mật khẩu mới" required>
+                            <input type="password" class="form-control mt-1 mb-3" id="inputConfirmNewPW" placeholder="Xác nhận mật khẩu mới">
                         </div>
+
+                        <p id="passwordError" class="text-danger d-none">Password must be at least 8 characters long.</p>
+                        <p id="confirmPasswordError" class="text-danger d-none">Passwords do not match.</p>
 
                         <button type="submit" id="btnSubmit" class="btn btn-success mt-4 btn-lg btn-block">Xác nhận</button>
                     </form>
