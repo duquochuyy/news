@@ -21,3 +21,11 @@
 .item-child {
     background-color: rgba(217, 217, 217, 0.3);
 }
+
+.content-active {
+    display: block;
+}
+
+.content-hidden {
+    display: none;
+}
