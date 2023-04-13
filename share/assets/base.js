@@ -35,6 +35,14 @@ $(document).ready(function () {
         menu.css("display", "none")
     });
     $("#header__navbar").click((event) => event.stopPropagation())
+
+    // close search
+    $("#search-close").click(()=>{
+        $("#search-modal").css("display","none");
+    })
+    $("#search-btn").click(()=>{
+        $("#search-modal").css("display","flex");
+    })
     // expand sub menu
     $.each(subnav, (idx, element) => {
         $(element).mouseover(function () {

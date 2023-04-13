@@ -442,6 +442,38 @@ footer {
     z-index: -1;
 }
 
+/* SEARCH MODAL */
+#search-modal{
+    position: fixed;
+    z-index: 1500;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#search-input{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--second-color);
+    padding: 10px 20px;
+    color: var(--white-color);
+    font-size: 32px;
+    width: 70%;
+}
+#search-input:focus{
+    outline: 0;
+}
+#search-close{
+    color: var(--white-color);
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
 /* REPONSIVE */
 
 @media screen and (max-width: 1024px) {
