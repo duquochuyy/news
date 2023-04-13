@@ -455,6 +455,9 @@ footer {
     justify-content: center;
     align-items: center;
 }
+#search-modal form{
+    width: 70%;
+}
 #search-input{
     background-color: transparent;
     border: 0;
@@ -462,7 +465,7 @@ footer {
     padding: 10px 20px;
     color: var(--white-color);
     font-size: 32px;
-    width: 70%;
+    width: 100%;
 }
 #search-input:focus{
     outline: 0;
