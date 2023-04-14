@@ -8,13 +8,28 @@ $(document).ready(function () {
     const subnavMenu = $(".subnav-menu");
     const header = document.getElementById("app__header");
     const nav = document.getElementById("header__navbar");
-
+    const breadcrumb = $("#breadcrumb");
+    const breadcrumbTop= 50;
+    const body = $("#app__body");
+    if (menuBtn.css("display") == "block") {
+        body.css("marginTop",`${105 + breadcrumb.height()}px`);
+    }
+    else {
+        body.css("marginTop",`${120 + breadcrumb.height()}px`);
+    }
+    console.log(breadcrumb.css("top"));
     $(window).resize(function () {
+        console.log(breadcrumb.css("top"));
         if (menuBtn.css("display") == "block") {
             menu.css("display", "none");
+            body.css("marginTop",`${105 + breadcrumb.height()}px`);
+            breadcrumb.css("top","90px");
         }
         else {
             menu.css("display", "block");
+            body.css("marginTop",`${120 + breadcrumb.height()}px`);
+            breadcrumb.css("top","103px");
+
         }
     })
     // press menu button
@@ -67,11 +82,15 @@ $(document).ready(function () {
             nav.style.display = "flex";
             nav.style.top = "0px";
             header.style.boxShadow = "none";
+            
+            breadcrumb.css("top",`${breadcrumbTop + nav.offsetHeight}px`);
+            
 
         } else {
             nav.style.display = "none";
             nav.style.top = "-30px";
             header.style.boxShadow = "0 0 5px #ccc";
+            breadcrumb.css("top",`${breadcrumbTop}px`);
         }
         prevScrollpos = currentScrollPos;
     }
