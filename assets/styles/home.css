@@ -47,8 +47,11 @@ main {
     position: relative;
 
 }
-
-.heading-title::after {
+.heading-title__link:hover{
+    color: var(--white-color);
+    opacity: 0.8;
+}
+.heading-title__link {
     position: absolute;
     cursor: pointer;
     content: "Xem thêm +";
@@ -441,7 +444,7 @@ main {
         font-size: 18px;
     }
 
-    .heading-title::after {
+    .heading-title__link {
         padding: 5px 16px;
         font-size: 14px;
     }
@@ -583,7 +586,7 @@ main {
         padding-left: 16px;
     }
 
-    .heading-title::after {
+    .heading-title__link {
         padding: 5px 10px;
         font-size: 13px;
     }
