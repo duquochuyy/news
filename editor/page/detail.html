@@ -189,11 +189,11 @@
                                                                 Est deleniti vero harum reprehenderit, facilis mollitia iure magni. Eum, dolor. Cumque necessitatibus incidunt iusto aspernatur? Sit praesentium itaque, molestiae inventore amet nemo dolor velit atque minima doloribus corrupti eveniet.</p>
                                                         </div>
                                                         <div class="row d-flex justify-content-around align-items-center mt-4">
-                                                                <a href="reject.html" class="btn btn-danger col-lg-2 text-uppercase p-2">
+                                                                <a href="reject.html" class="btn btn-danger col-lg-2 text-uppercase p-2" id="button-reject" data-bs-toggle="modal" data-bs-target="#reject-modal">
                                                                         <i class="fa-regular fa-circle-xmark pe-2 fa-sm"></i> 
                                                                         Từ chối
                                                                 </a>
-                                                                <a href="accept.html" class="btn btn-success col-lg-2 text-uppercase p-2" >
+                                                                <a href="accept.html" class="btn btn-success col-lg-2 text-uppercase p-2" id="button-accept" data-bs-toggle="modal" data-bs-target="#accept-modal">
                                                                         <i class="fa-regular fa-circle-check pe-2 fa-sm"></i> 
                                                                         Duyệt
                                                                 </a>
@@ -376,6 +376,105 @@
                 </footer>
 
         </div>
+        <div class="modal fade" id="reject-modal" tabindex="-1" aria-labelledby="reject-modal-label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                                <div class="modal-header d-flex just justify-content-center">
+                                        <h5 class="modal-title" id="reject-modal-label">Lý do từ chối bài viết</h5>
+                                </div>
+                                <div class="modal-body">
+                                        <form class="d-flex flex-column justify-content-around align-items-center" action="./detail.html">
+                                                <textarea class="col-10 form-control mb-3" name="" id="" type="text" placeholder="Ghi chú rõ lý do từ chối để phóng viên có thể hiệu chỉnh lại bài vết cho phù hợp" rows="10"></textarea>
+                                                <button type="submit" class="btn btn-danger col-4">TỪ CHỐI</button>
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="modal fade" id="accept-modal" tabindex="-1" aria-labelledby="accept-modal-label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                        <h5 class="modal-title text-center" id="accept-modal-label">Xác định thời điểm đăng bài viết lên hệ thống</h5>
+                                </div>
+                                <div class="modal-body">
+                                        <form class="d-flex flex-column justify-content-around align-items-center" action="./detail.html">
+                                              <ul class="row mb-3 d-flex flex-direction-column justify-content-around">
+                                                        <li class="mb-3 col-6">
+                                                                <label for="accept-hour" class="col-form-label">Giờ</label>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-hour">
+                                                                        <option selected>Chọn giờ</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                </select>
+                                                        </li>
+                                                        <li class="mb-3 col-6">
+                                                                <label for="accept-minute" class="col-form-label">Phút</label>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-minute">
+                                                                        <option selected>Chọn phút</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                </select>
+                                                        </li>
+                                                        <li class="mb-3">
+                                                                <label for="accept-day" class="col-form-label">Ngày</label>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-day">
+                                                                        <option selected>Chọn ngày</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                </select>
+                                                        </li>
+                                                        <li class="mb-3">
+                                                                <label for="accept-month" class="col-form-label">Tháng</label>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-month">
+                                                                        <option selected>Chọn tháng</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                </select>
+                                                        </li>
+                                                        <li class="mb-3">
+                                                                <label for="accept-year" class="col-form-label">Năm</label>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-year">
+                                                                        <option selected>Chọn năm</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                </select>
+                                                        </li>
+                                              </ul>  
+                                              <button type="submit" class="btn btn-success col-4">DUYỆT</button>
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <!-- <div id="form-modal">
+                <form id="form-accept" action="./detail.html">
+                        <header class="form-heading">
+                                <h5 class="form-title bold">Xác định thời điểm đăng bài viết lên hệ thống</h5>
+                        </header>
+                        <div class="line-separate"></div>
+                        <main class="form-body">
+                                <ul class="row d-flex flex-direction-column justify-content-around">
+                                        <li>Giờ</li>
+                                        <li>Phút</li>
+                                        <li>Ngày</li>
+                                        <li>Tháng</li>
+                                        <li>Năm</li>
+                                </ul>
+                        </main>
+                </form>
+                <form action="./detail.html" id="form-reject">
+                        <header class="form-heading">
+                                <h5 class="form-title bold">Lý do từ chối bài viết</h5>
+                        </header>
+                </form>
+        </div> -->
+
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
         </script>
 

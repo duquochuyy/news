@@ -65,3 +65,4 @@ $('#menu-tag p').on('click', function () {
     li.appendChild(i);
     ul.insertBefore(li, ul.lastChild);
 });
+
