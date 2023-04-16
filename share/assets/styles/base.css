@@ -5,6 +5,8 @@
     --second-color: rgb(119, 119, 119);
     --light-color: rgba(119, 119, 119, 0.2);
     --white-color: white;
+    --success-bg: #4EA952;
+    --light-bg: rgba(119,119,119,0.05);
 }
 
 /* CSS FOR ALL PAGES*/
