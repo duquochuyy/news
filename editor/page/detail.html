@@ -384,7 +384,7 @@
                                 </div>
                                 <div class="modal-body">
                                         <form class="d-flex flex-column justify-content-around align-items-center" action="./detail.html">
-                                                <textarea class="col-10 form-control mb-3" name="" id="" type="text" placeholder="Ghi chú rõ lý do từ chối để phóng viên có thể hiệu chỉnh lại bài vết cho phù hợp" rows="10"></textarea>
+                                                <textarea class="col-10 form-control mb-3" name="" id="" type="text" placeholder="Ghi chú rõ lý do từ chối để phóng viên có thể hiệu chỉnh lại bài vết cho phù hợp" rows="10" required></textarea>
                                                 <button type="submit" class="btn btn-danger col-4">TỪ CHỐI</button>
                                         </form>
                                 </div>
@@ -402,47 +402,32 @@
                                               <ul class="row mb-3 d-flex flex-direction-column justify-content-around">
                                                         <li class="mb-3 col-6">
                                                                 <label for="accept-hour" class="col-form-label">Giờ</label>
-                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-hour">
-                                                                        <option selected>Chọn giờ</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-hour" required>
+                                                                        <option selected disabled value="">Chọn giờ</option>
                                                                 </select>
                                                         </li>
                                                         <li class="mb-3 col-6">
                                                                 <label for="accept-minute" class="col-form-label">Phút</label>
-                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-minute">
-                                                                        <option selected>Chọn phút</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-minute" required>
+                                                                        <option selected disabled value="">Chọn phút</option>
                                                                 </select>
                                                         </li>
                                                         <li class="mb-3">
                                                                 <label for="accept-day" class="col-form-label">Ngày</label>
-                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-day">
-                                                                        <option selected>Chọn ngày</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-day" required>
+                                                                        <option selected disabled value="">Chọn ngày</option>
                                                                 </select>
                                                         </li>
                                                         <li class="mb-3">
                                                                 <label for="accept-month" class="col-form-label">Tháng</label>
-                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-month">
-                                                                        <option selected>Chọn tháng</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-month" required>
+                                                                        <option selected disabled value="">Chọn tháng</option>
                                                                 </select>
                                                         </li>
                                                         <li class="mb-3">
                                                                 <label for="accept-year" class="col-form-label">Năm</label>
-                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-year">
-                                                                        <option selected>Chọn năm</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
+                                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-year" required>
+                                                                        <option selected disabled value="">Chọn năm</option>
                                                                 </select>
                                                         </li>
                                               </ul>  
