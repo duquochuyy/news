@@ -15,7 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/articleManagement.css">
     <script src="./assets/scripts/main.js"></script>
+    <script src="./assets/scripts/artiles.js"></script>
 </head>
 
 <body>
@@ -45,7 +47,7 @@
                         <p class="text-capitalize bold">minh Hiền</p>
                     </div>
                     <div class="header-control__item">
-                        <a href="#" class="header-control__link hover">Trang người dùng</a>
+                        <a href="../index.html" class="header-control__link hover">Trang người dùng</a>
                     </div>
                     <div class=" header-control__item">
                         <a href="#" class="header-control__link hover light-hover">Cài
@@ -76,7 +78,7 @@
             <li class="sidebar__item"><a href="#" class="sidebar__link">Chuyên mục</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">Nhãn</a></li>
             <li class="sidebar__item sidebar__item--active"><a href="#" class="sidebar__link">Bài viết</a></li>
-            <li class="sidebar__item"><a href="#" class="sidebar__link">Người dùng</a>
+            <li class="sidebar__item"><a href="./articleManagement.html" class="sidebar__link">Người dùng</a>
             </li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">Phân công chuyên mục</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">Gia hạn tài khoản</a></li>
@@ -153,8 +155,8 @@
                             <tr class="published">
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
+                                        <input type="checkbox" id="checkbox2" name="options[]" value="1">
+                                        <label for="checkbox2"></label>
                                     </span>
                                 </td>
                                 <td>
@@ -183,8 +185,8 @@
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
+                                        <input type="checkbox" id="checkbox3" name="options[]" value="1">
+                                        <label for="checkbox3"></label>
                                     </span>
                                 </td>
                                 <td>
@@ -212,8 +214,8 @@
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
+                                        <input type="checkbox" id="checkbox4" name="options[]" value="1">
+                                        <label for="checkbox4"></label>
                                     </span>
                                 </td>
                                 <td>
@@ -241,8 +243,8 @@
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
+                                        <input type="checkbox" id="checkbox5" name="options[]" value="1">
+                                        <label for="checkbox5"></label>
                                     </span>
                                 </td>
                                 <td>
@@ -351,7 +353,7 @@
                         class="fa-solid fa-xmark close-modal"></i></button>
 
                 <p class="modal-title">Bạn có muốn xuất bản bài viết đã chọn?</p>
-                <form>
+                <form action="#">
 
                     <div class="form-group modal-body">
                         <label class="form-label">Nhập lý do xóa</label>
