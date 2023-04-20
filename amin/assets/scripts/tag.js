@@ -1,4 +1,4 @@
-$(function () {
+z$(function () {
     //$('.edit').on('click', function() {
     console.log('2')
     $('#myTable').on('click', '.edit', function () {

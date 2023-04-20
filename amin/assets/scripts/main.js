@@ -1,4 +1,5 @@
 $(document).ready(()=>{
+    // console.log("hi")
     const sidebarBtn = $("#sidebar-btn");
     const sidebar = $("#sidebar");
     const main = $("#main");
@@ -13,6 +14,7 @@ $(document).ready(()=>{
             main.css("padding-left","270px");
         }
     })
+<<<<<<< HEAD
     // Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
 	
@@ -65,6 +67,58 @@ $(document).ready(()=>{
                     // $(rows[idx]).remove();
                     e.closest('tr').remove();
                     $('#selectAll').prop('checked', false);
+=======
+    
+
+
+    // Select/Deselect checkboxes
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function () {
+        if (this.checked) {
+            checkbox.each(function () {
+                this.checked = true;
+            });
+        } else {
+            checkbox.each(function () {
+                this.checked = false;
+            });
+        }
+    });
+    checkbox.click(function () {
+        if (!this.checked) {
+            $("#selectAll").prop("checked", false);
+        }
+    });
+
+    // close modal
+    const rows = $("tbody tr");
+    const dlt = $(".delete");
+    const deleteModal = $("#deleteModal");
+    const modal = $(".myModal");
+    const closeModal = $(".myModal .close");
+    let currentIdx = 0;
+    const cancelBtn = $(".cancel-btn"); 
+
+      [...modal].forEach((element, idx) => {
+        $(closeModal[idx]).click(() => $(element).css("display", "none"));
+        $(cancelBtn[idx]).click(() => $(element).css("display", "none"));
+
+    });
+
+
+    // delete
+    const dltInput = $("#deleteModal textarea.required");
+    dlt.each((idx, btn) => {
+        $(btn).click(() => {
+            currentIdx = idx;
+            dltInput.val("");
+            dltInput.removeClass("is-invalid");
+            deleteModal.css("display", "flex");
+            deleteModal.find(".submit").click(() => {
+                if (!dltInput.val()) {
+                    dltInput.addClass("is-invalid");
+                    return;
+>>>>>>> 75da1067dbbf092bb38671177e81e5a56fa237e0
                 }
 
                 // rows[currentIdx].remove();
@@ -91,7 +145,13 @@ $(document).ready(()=>{
     //             deleteModal.css("display", "none");
     //         })
 
+<<<<<<< HEAD
     //     })
     // })
     
+=======
+        })
+    })
+>>>>>>> 75da1067dbbf092bb38671177e81e5a56fa237e0
 })
+// export  {checkbox}
