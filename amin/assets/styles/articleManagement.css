@@ -1,22 +1,12 @@
 .edit {
-	color: var(--second-color) !important;
-    display: none !important;
+    display: none;
     
 }
 table.table td a.publish{
     color: var(--success-bg);
 }
-table.table td a.publish i{
-    font-size: 18px;
-    height: 22px;
-    line-height: 22px;
-}
-table.table td a.delete {
-	color: #F44336;
-}
-table.table td i {
-	font-size: 19px;
-}
+
+
 table.table .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
@@ -29,11 +19,12 @@ table.table .avatar {
     font-size: 13px;
     align-items: center;
 }
-.list__link:hover{
+.list__link:hover p{
     color: var(--primary-color) !important;
 }
 .list__link img{
     width: 100px;
+    border-radius: 5px;
 }
 .list__link p{
     margin: 0;
@@ -46,10 +37,10 @@ table.table .avatar {
     -webkit-line-clamp: 2;
 }
 .status{
-    color: var(--primary-color) !important;
+    color: var(--primary-color) ;
 }
 .published .status{
-    color: var(--success-bg) !important;
+    color: var(--success-bg);
 }
 .published .edit{
     display: block !important;
@@ -60,4 +51,7 @@ table.table .avatar {
 table.table{
     table-layout: fixed;
     word-wrap: break-word;
+}
+#publishModal .modal-title{
+    padding: 10px 0px !important;
 }

@@ -1,8 +1,8 @@
 $(document).ready(()=>{
     const sidebarBtn = $("#sidebar-btn");
     const sidebar = $("#sidebar");
-    const rows = $("tbody tr");
     const main = $("#main");
+    // SIDE BAR
     sidebarBtn.click(()=>{
         if(sidebar.css("display")=="block"){
             sidebar.css("display","none");
@@ -13,40 +13,83 @@ $(document).ready(()=>{
             main.css("padding-left","270px");
         }
     })
-    // Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]');
-	$("#selectAll").click(function(){
-		if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
-	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
-		}
-	});
-    // delete muti
-    $("#delete").click(()=>{
-        $("#deleteModal form").submit(()=>{
-            [...checkbox].forEach((e,idx)=>{
-                if(e.checked){
-                    $("body").removeClass("modal-open");
-                    $("#deleteModal").removeClass("show");
-                    $(".modal-backdrop.fade.show").remove();
-                    $(rows[idx]).remove();
+    
+
+
+    // Select/Deselect checkboxes
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function () {
+        if (this.checked) {
+            checkbox.each(function () {
+                this.checked = true;
+            });
+        } else {
+            checkbox.each(function () {
+                this.checked = false;
+            });
+        }
+    });
+    checkbox.click(function () {
+        if (!this.checked) {
+            $("#selectAll").prop("checked", false);
+        }
+    });
+
+    // close modal
+    const rows = $("tbody tr");
+    const dlt = $(".delete");
+    const deleteModal = $("#deleteModal");
+    const modal = $(".myModal");
+    const closeModal = $(".myModal .close");
+    let currentIdx = 0;
+    const cancelBtn = $(".cancel-btn"); 
+
+      [...modal].forEach((element, idx) => {
+        $(closeModal[idx]).click(() => $(element).css("display", "none"));
+        $(cancelBtn[idx]).click(() => $(element).css("display", "none"));
+
+    });
+
+
+    // delete
+    const dltInput = $("#deleteModal textarea.required");
+    dlt.each((idx, btn) => {
+        $(btn).click(() => {
+            currentIdx = idx;
+            dltInput.val("");
+            dltInput.removeClass("is-invalid");
+            deleteModal.css("display", "flex");
+            deleteModal.find(".submit").click(() => {
+                if (!dltInput.val()) {
+                    dltInput.addClass("is-invalid");
+                    return;
                 }
+
+                rows[currentIdx].remove();
+                deleteModal.css("display", "none");
+
             })
-            
         })
     })
 
+    // delete muti
+    $("#delete").click(() => {
+        deleteModal.css("display", "flex");
+        dltInput.val("");
+        deleteModal.find(".submit").click(() => {
+            [...checkbox].forEach((e, idx) => {
+                if (dltInput.val() == "") {
+                    dltInput.addClass("is-invalid");
+                    return;
+                }
+                if (e.checked) {
+                    $(rows[idx]).remove();
+                }
+
+                deleteModal.css("display", "none");
+            })
+
+        })
+    })
+    
 })

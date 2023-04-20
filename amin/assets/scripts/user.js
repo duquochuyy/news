@@ -1,31 +1,39 @@
-$(document).ready(()=>{
+$(document).ready(() => {
     const edit = $(".edit");
     const editModal = $("#editModal");
-    const users = $("tbody tr");
-    const dlt = $(".delete");
-    const deleteModal = $("#deleteModal");
+    const roles = $("tbody tr td.role");
+    let currentIdx = 0;
+   
 
-   edit.each((idx,e)=>{
-        $(e).click(()=>{
-            editModal.find(".submit").click((e)=>{
-                $("body").removeClass("modal-open");
-                editModal.removeClass("show");
-                $(".modal-backdrop.fade.show").remove();
-               $(users[idx]).find(".role").html(editModal.find("#role option:selected").html());
-                
-            })
-        })
-    })
-     // delete
-     dlt.each((idx,btn)=>{
-        $(btn).click(()=>{
-            deleteModal.find("form").submit(()=>{
-                $("body").removeClass("modal-open");
-                deleteModal.removeClass("show");
-                $(".modal-backdrop.fade.show").remove();
-                $(users[idx]).remove();
-                
-            });
-        })
-    })
+
+    // HANDLE edit
+    [...edit].forEach((element, idx) => {
+        $(element).click((e) => {
+            editModal.css("display", "flex");
+            currentIdx = idx;
+        });
+    });
+    $("#role").change((event) => {
+        const val = $("#role option:selected").html();
+        $(roles[currentIdx]).html(val);
+    });
+
+    editModal.find(".submit").click(() => editModal.css("display", "none"));
+
 })
+
+
+
+    // ĐỂ ĐÂY RÙI MỐT TÌM LỖI SAU :((
+//    ; [...edit].forEach((element, idx) => {
+
+//         $(element).click((e) => {
+//             editModal.css("display", "flex");
+//             currentIdx = idx; //neu khong co cai nay thi se sai???
+//             $("#role").change((event) => {
+//                 const val = $("#role option:selected").html();
+//                 $(roles[currentIdx]).html(val);
+//             });
+
+//         });
+//     });

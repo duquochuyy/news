@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./assets/styles/main.css">
     <link rel="stylesheet" href="./assets/styles/articleManagement.css">
     <script src="./assets/scripts/main.js"></script>
@@ -100,9 +97,9 @@
                                 </form>
                             </div>
                             <div class="col-sm-4 d-flex justify-content-end">
-                                <a href="#publishModal" class="button success-btn" id="publish" data-toggle="modal">Xuất
+                                <a href="#publishModal" class="button success-btn" id="publish">Xuất
                                     bản</a>
-                                <a href="#deleteModal" class="button remove-btn" id="delete" data-toggle="modal">Xóa</a>
+                                <a href="#deleteModal" class="button remove-btn" id="delete">Xóa</a>
                             </div>
                         </div>
                     </div>
@@ -115,9 +112,9 @@
                                         <label for="selectAll"></label>
                                     </span>
                                 </th>
-                                <th style="width: 40%;">Bài viết</th>
-                                <th style="width: 20%;">Chuyên mục</th>
-                                <th style="width: 20%;">Nhãn</th>
+                                <th style="width: 36%;">Bài viết</th>
+                                <th style="width: 17%;">Chuyên mục</th>
+                                <th style="width: 17%;">Nhãn</th>
                                 <th style="width: 15%;">Trạng thái <i class="fa-solid fa-caret-down"></i></th>
                                 <th></th>
                             </tr>
@@ -133,143 +130,139 @@
                                 <td>
                                     <a href="#" class="list__link">
                                         <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                        <p>Tiêu đề bài viết</p>
+                                        <p>Tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
+                                            tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
+                                        </p>
                                     </a>
                                 </td>
                                 <td>Kinh tế</td>
                                 <td>Tag1, Tag2</td>
                                 <td class="status ">Chờ xuất bản</td>
                                 <td>
-                                    <div class="d-flex">
-                                        <a href="#publishModal" class="success publish" data-toggle="modal"><i
+                                    <div class="d-flex table-control">
+                                        <a href="#publishModal" class="success publish"><i
                                                 class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
                                                 title="Xuất bản"></i></a>
-                                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
-                                                data-toggle="tooltip" title="Chỉnh sửa">&#xE254;</i></a>
-                                        <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                                class="material-icons" data-toggle="tooltip"
-                                                title="Xóa">&#xE872;</i></a>
+                                        <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
+                                                data-toggle="tooltip" title="Xóa"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr class="published">
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                        <label for="checkbox2"></label>
+                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                        <label for="checkbox1"></label>
                                     </span>
                                 </td>
                                 <td>
                                     <a href="#" class="list__link">
                                         <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                        <p>Tiêu đề bài viết Tiêu đề bài viết Tiêu đề bài viết Tiêu đề bài viết Tiêu đề
-                                            bài viết Tiêu đề bài viết Tiêu đề bài viết Tiêu đề bài viết</p>
+                                        <p>Tiêu đề bài viết 2
+                                        </p>
                                     </a>
                                 </td>
                                 <td>Kinh tế</td>
                                 <td>Tag1, Tag2</td>
                                 <td class="status ">Đã xuất bản</td>
                                 <td>
-                                    <div class="d-flex">
-                                        <a href="#publishModal" class="success publish" data-toggle="modal"><i
+                                    <div class="d-flex table-control">
+                                        <a href="#publishModal" class="success publish"><i
                                                 class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
                                                 title="Xuất bản"></i></a>
-                                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
-                                                data-toggle="tooltip" title="Chỉnh sửa">&#xE254;</i></a>
-                                        <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                                class="material-icons" data-toggle="tooltip"
-                                                title="Xóa">&#xE872;</i></a>
+                                        <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
+                                                data-toggle="tooltip" title="Xóa"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                        <label for="checkbox3"></label>
+                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                        <label for="checkbox1"></label>
                                     </span>
                                 </td>
                                 <td>
                                     <a href="#" class="list__link">
                                         <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                        <p>Tiêu đề bài viết</p>
+                                        <p>Tiêu đề bài viết 3
+                                        </p>
                                     </a>
                                 </td>
                                 <td>Kinh tế</td>
                                 <td>Tag1, Tag2</td>
                                 <td class="status ">Chờ xuất bản</td>
                                 <td>
-                                    <div class="d-flex">
-                                        <a href="#publishModal" class="success publish" data-toggle="modal"><i
+                                    <div class="d-flex table-control">
+                                        <a href="#publishModal" class="success publish"><i
                                                 class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
                                                 title="Xuất bản"></i></a>
-                                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
-                                                data-toggle="tooltip" title="Chỉnh sửa">&#xE254;</i></a>
-                                        <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                                class="material-icons" data-toggle="tooltip"
-                                                title="Xóa">&#xE872;</i></a>
+                                        <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
+                                                data-toggle="tooltip" title="Xóa"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                                        <label for="checkbox4"></label>
+                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                        <label for="checkbox1"></label>
                                     </span>
                                 </td>
                                 <td>
                                     <a href="#" class="list__link">
                                         <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                        <p>Tiêu đề bài viết</p>
+                                        <p>Tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
+                                            tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
+                                        </p>
                                     </a>
                                 </td>
                                 <td>Kinh tế</td>
                                 <td>Tag1, Tag2</td>
                                 <td class="status ">Chờ xuất bản</td>
                                 <td>
-                                    <div class="d-flex">
-                                        <a href="#publishModal" class="success publish" data-toggle="modal"><i
+                                    <div class="d-flex table-control">
+                                        <a href="#publishModal" class="success publish"><i
                                                 class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
                                                 title="Xuất bản"></i></a>
-                                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
-                                                data-toggle="tooltip" title="Chỉnh sửa">&#xE254;</i></a>
-                                        <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                                class="material-icons" data-toggle="tooltip"
-                                                title="Xóa">&#xE872;</i></a>
+                                        <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
+                                                data-toggle="tooltip" title="Xóa"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                                        <label for="checkbox5"></label>
+                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                        <label for="checkbox1"></label>
                                     </span>
                                 </td>
                                 <td>
                                     <a href="#" class="list__link">
                                         <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                        <p>Tiêu đề bài viết</p>
+                                        <p>Tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
+                                            tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
+                                        </p>
                                     </a>
                                 </td>
                                 <td>Kinh tế</td>
                                 <td>Tag1, Tag2</td>
                                 <td class="status ">Chờ xuất bản</td>
                                 <td>
-                                    <div class="d-flex">
-                                        <a href="#publishModal" class="success publish" data-toggle="modal"><i
+                                    <div class="d-flex table-control">
+                                        <a href="#publishModal" class="success publish"><i
                                                 class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
                                                 title="Xuất bản"></i></a>
-                                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
-                                                data-toggle="tooltip" title="Chỉnh sửa">&#xE254;</i></a>
-                                        <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                                class="material-icons" data-toggle="tooltip"
-                                                title="Xóa">&#xE872;</i></a>
+                                        <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
+                                                data-toggle="tooltip" title="Xóa"></i></a>
                                     </div>
                                 </td>
                             </tr>
-
                         </tbody>
                     </table>
                     <div class="clearfix">
@@ -296,7 +289,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                    class="fa-solid fa-xmark close-modal"></i></button>
+                        class="fa-solid fa-xmark close-modal"></i></button>
                 <form>
 
                     <div class="modal-body">
@@ -326,52 +319,48 @@
         </div>
     </div>
     <!-- PUBLISH Modal -->
-    <div id="publishModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
+    <div id="publishModal" class="myModal">
+
+        <div class="myModal-content">
 
 
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                        class="fa-solid fa-xmark close-modal"></i></button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                    class="fa-solid fa-xmark close-modal"></i></button>
 
-                <p class="modal-title">Bạn có muốn xuất bản bài viết đã chọn?</p>
+            <p class="modal-title">Bạn có muốn xuất bản bài viết đã chọn?</p>
 
-                <div class="modal-footer">
-                    <button id="publish-btn" class="button success-btn text-uppercase">Xuất bản</button>
-                    <button data-dismiss="modal" class="button cancel-btn text-uppercase">Hủy bỏ</button>
-
-                </div>
+            <div class="myModal-button">
+                <button id="publish-btn" class="button success-btn text-uppercase">Xuất bản</button>
+                <button data-dismiss="modal" class="button cancel-btn text-uppercase">Hủy bỏ</button>
 
             </div>
+
         </div>
+
     </div>
     <!-- Delete Modal HTML -->
-    <div id="deleteModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                        class="fa-solid fa-xmark close-modal"></i></button>
+    <div id="deleteModal" class="myModal">
+        <div class="myModal-content">
+            <button type="button" class="close"><i class="fa-solid fa-xmark close-modal"></i></button>
 
-                <p class="modal-title">Bạn có muốn xuất bản bài viết đã chọn?</p>
-                <form action="#">
+            <p class="modal-title">Xóa bài viết</p>
 
-                    <div class="form-group modal-body">
-                        <label class="form-label">Nhập lý do xóa</label>
-                        <input type="text" class="form-control input-field" required>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="button remove-btn text-uppercase" value="xóa">
-                        <button data-dismiss="modal" class="button cancel-btn text-uppercase" data-dismiss="modal">Hủy
-                            bỏ</button>
-
-                    </div>
-                </form>
-
-
+            <div class="form-group ">
+                <textarea type="text" class="form-control input-field required"
+                    placeholder="Nhập lý do xóa..."></textarea>
+                <div class="invalid-feedback">Vui lòng ghi rõ lý do xóa!</div>
 
 
             </div>
+            <div class="myModal-button">
+                <button class="button remove-btn text-uppercase submit">Xóa</button>
+                <button class="button cancel-btn text-uppercase">Hủy
+                    bỏ</button>
+
+            </div>
+
         </div>
+
     </div>
 </body>
 
