@@ -1,4 +1,4 @@
-$(function () {
+z$(function () {
     //$('.edit').on('click', function() {
     $('#tableTag').on('click', '.edit', function () {
         var tagSelectedEdit = $(this).closest('tr').find('.tag__name')
