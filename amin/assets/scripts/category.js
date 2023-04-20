@@ -2,25 +2,25 @@ $(function () {
     //$('.edit').on('click', function() {
     console.log('2')
     $('#myTable').on('click', '.edit', function () {
-        var tagSelectedEdit = $(this).closest('tr').find('.tag__name')
-        console.log(tagSelectedEdit);
+        var categorySelectedEdit = $(this).closest('tr').find('.category__name')
+        console.log(categorySelectedEdit);
         var editModal = $('#editModal');
 
         $('tbody .selectedEdit').removeClass('selectedEdit');
         // alert('huy')
-        tagSelectedEdit.addClass('selectedEdit');
+        categorySelectedEdit.addClass('selectedEdit');
         var oldName = $('.selectedEdit').find('p').text();
 
         console.log(oldName);
 
         $('#editModal').on('shown.bs.modal', function () {
-            $('#tag__name--edit').val(oldName);
-            $('#tag__name--edit').focus();
+            $('#category__name--edit').val(oldName);
+            $('#category__name--edit').focus();
         })
 
         $('.form-edit').submit(function (e) {
             e.preventDefault();
-            var newName = $('#tag__name--edit').val();
+            var newName = $('#category__name--edit').val();
             console.log(newName);
             $('.selectedEdit').text(newName);
 
@@ -33,11 +33,11 @@ $(function () {
 
     //$('.delete').on('click', function() {
     $('#myTable').on('click', '.delete', function () {
-        var tagSelectedDelete = $(this).closest('tr').find('.tag__name')
+        var categorySelectedDelete = $(this).closest('tr').find('.category__name')
         var editModal = $('#deleteModal');
 
         $('tbody .selectedDelete').removeClass('selectedDelete');
-        tagSelectedDelete.addClass('selectedDelete');
+        categorySelectedDelete.addClass('selectedDelete');
 
         $('#deleteModal').on('shown.bs.modal', function () {
             $('#deleteModal input').val('');
@@ -59,7 +59,7 @@ $(function () {
 });
 
 $(function () {
-    function createNewRow(nameNewTag, newNumber) {
+    function createNewRow(nameNewcategory, newNumber) {
         var newRow = $('<tr>');
         newRow.append($('<td>').addClass('').append(
             $('<span>').addClass('custom-checkbox').append(
@@ -72,7 +72,7 @@ $(function () {
                 $('<label>').attr('for', `checkbox${newNumber}`)
             )
         ));
-        newRow.append($('<td>').addClass('tag__name').append($('<p>').text(nameNewTag)));
+        newRow.append($('<td>').addClass('category__name').append($('<p>').text(nameNewcategory)));
         newRow.append($('<td>').append($('<div>').addClass('d-flex table-control').append(
             $('<a>').attr('href', '#editModal').addClass('edit').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-pencil')),
             $('<a>').attr('href', '#deleteModal').addClass('delete').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-trash-can'))
@@ -80,13 +80,13 @@ $(function () {
         return newRow;
     }
 
-    $('.form-add').submit(function(e) {
+    $('.form-add').submit(function (e) {
         e.preventDefault();
         var myTable = $('#myTable');
-        var nameNewTag = $('#tag__name--add').val();
+        var nameNewcategory = $('#category__name--add').val();
         var newNumber = myTable.find('tr').length - 1 + 1;
 
-        var newRow = createNewRow(nameNewTag, newNumber);
+        var newRow = createNewRow(nameNewcategory, newNumber);
         // console.log(newRow);
         myTable.prepend(newRow);
 
@@ -98,11 +98,11 @@ $(function () {
 
     $('#add').on('click', function () {
         $('#addModal').on('shown.bs.modal', function () {
-            $('#tag__name--add').val('');
-            $('#tag__name--add').focus();
+            $('#category__name--add').val('');
+            $('#category__name--add').focus();
         })
 
-        
+
     })
 })
 
@@ -125,15 +125,14 @@ function convertString(str) {
 
 function search(keyword) {
     console.log(keyword);
-    $('#myTable tbody tr').each(function(idx, e) {
-        var name = $(e).find('.tag__name p').text();
+    $('#myTable tbody tr').each(function (idx, e) {
+        var name = $(e).find('.category__name p').text();
         console.log(name);
         var convertedName = convertString(name);
         var convertedKeyword = convertString(keyword);
         if (convertedName.indexOf(convertedKeyword) >= 0) {
             e.style.display = 'table-row';
-        }
-        else {
+        } else {
             e.style.display = 'none';
         }
     });

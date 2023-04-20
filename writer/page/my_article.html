@@ -10,9 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../../share/assets/styles/base.css">
+    <link rel="stylesheet" href="../../assets/styles/authentication.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="./share/assets/base.js"></script>
+    <script type="module" src="../../share/assets/base.js"></script>
     <link rel="stylesheet" href="../style/my_article.css">
 </head>
 
@@ -21,12 +22,12 @@
         <header id="app__header">
 
             <div class="header-head d-flex justify-content-between align-items-center">
-                <img id="header-logo" src="../../share/assets/images/logo.png"></img>
+                <a href="./index.html"><img id="header-logo" src="../../share/assets/images/logo.png"></img></a>
                 <!-- user don't login -->
                 <div id="guest" class="justify-content-end">
-                    <a href="#" id="log-in" class="hover text-uppercase bold hover">Đăng
+                    <a href="#" id="app__header-login" class="hover text-uppercase bold hover">Đăng
                         nhập</a>
-                    <a href="#" id="sign-up" class="hover text-uppercase bold hover">Đăng
+                    <a href="#" id="app__header-signup" class="hover text-uppercase bold hover">Đăng
                         ký</a>
                 </div>
                 <!-- user logged in -->
@@ -35,32 +36,49 @@
                         <div id="notice-icon"><i class="fa-solid fa-bell "></i></div></i>
                         <ul id="notice-list">
                             <li class="notice-item">
-                                <a href="#" class="notice-link">Bạn chưa có thông báo </a>
+                                <a href="#" class="notice-link">Bạn chưa có thông báo
+                                </a>
                             </li>
                         </ul>
                     </div>
-                    <!-- for reporter, user and premium -->
+                    <!-- -->
                     <div id="user">
-                        <img src="../../assets/images/avatars/female_default.png" alt="avatar of user" id="user-img">
+                        <div id="avatar" class="pos-r">
+                            <img src="../../assets/images/avatars/female_default.png" alt="avatar of user" id="user-img">
+                            <img src="../../share/assets/images/premium.png" class="premium-icon premium">
+                        </div>
                         <div id="user-control">
                             <div id="control-heading" class="line-separate">
                                 <img src="../../assets/images/avatars/female_default.png" alt="Avatar" class="rounded">
                                 <p class="text-capitalize bold">minh Hiền</p>
                             </div>
-                            <div id="control-reporter" class="line-separate">
-                                <a href="#" class="control-link hover light-hover">Đăng bài viết</a>
-                                <a href="#" class="control-link hover light-hover">Bài viết của tôi</a>
+                            <div class="editor non-ad line-separate control-item">
+                                <a href="./editor/listpage.html" class="control-link hover">Duyệt bài
+                                    viết</a>
+                            </div>
+                            <div class="admin line-separate control-item">
+                                <a href="#" class="control-link hover">Trang quản lý</a>
+                            </div>
+                            <div class="line-separate non-ad control-item">
+                                <a href="./writer/page/post_article.html" class="control-link hover light-hover">Đăng
+                                    bài viết</a>
+                                <a href="./writer/page/my_article.html" class="control-link hover light-hover">Bài
+                                    viết của tôi</a>
 
                             </div>
-                            <div id="control-premium" class="line-separate">
-                                <a href="#" class="control-link hover light-hover">Bài viết của tôi</a>
+                            <div class="line-separate non-ad control-item">
+                                <a href="#" class="control-link hover light-hover">Nâng
+                                    cấp tài khoản</a>
                             </div>
-                            <div class="control-all">
-                                <a href="#" class="control-link hover light-hover">Cài đặt</a>
-                                <a href="#" class="control-link hover light-hover">Đăng xuất</a>
+                            <div class=" control-item">
+                                <a href="#" class="control-link hover light-hover">Cài
+                                    đặt</a>
+                                <a href="#" class="control-link hover light-hover">Đăng
+                                    xuất</a>
                             </div>
                         </div>
                     </div>
+                    <!--  -->
 
                 </div>
 
@@ -73,52 +91,55 @@
                     </button>
                     <div id="navbar-menu">
                         <ul class="navbar-nav ">
-                            <li class="nav-item"><a href="#"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Trang
+                            <li class="nav-item"><a href="./index.html"
+                                    class="nav-link text-uppercase header__nav-link hover bold pc">Trang
                                     chủ</a></li>
                             <li class="nav-item subnav">
-                                <a href="#" class="nav-link text-uppercase header__nav-link hover bold">
+                                <a href="./listArticle.html"
+                                    class="nav-link text-uppercase header__nav-link hover bold">
                                     Kinh tế
                                     <i class="fa-solid fa-caret-down expand"></i>
                                 </a>
                                 <ul class="subnav-menu">
-                                    <li><a href="#" class="subnav-item ">nông
+                                    <li><a href="./listArticle.html" class="subnav-item ">nông
                                             sản</a></li>
-                                    <li><a href="#" class="subnav-item ">hải sản</a>
+                                    <li><a href="./listArticle.html" class="subnav-item ">hải sản</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item subnav"><a href="#"
+                            <li class="nav-item subnav"><a href="./listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Thể
                                     thao <i class="fa-solid fa-caret-down expand"></i></a>
                                 <ul class="subnav-menu">
-                                    <li><a href="#" class="subnav-item ">trong
+                                    <li><a href="./listArticle.html" class="subnav-item ">trong
                                             nước</a></li>
-                                    <li><a href="#" class="subnav-item ">ngoài
+                                    <li><a href="./listArticle.html" class="subnav-item ">ngoài
                                             nước</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="./listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Pháp
                                     luật</a></li>
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="./listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Đời
                                     sống</a>
                             </li>
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="./listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Công
                                     nghệ</a></li>
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="./listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Sức
                                     khỏe</a>
                             </li>
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="./listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Âm
                                     nhạc</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="navbar-search hover"><i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="navbar-search">
+                        <i class="fa-solid fa-magnifying-glass hover" id="search-btn"></i>
+
                     </div>
                 </div>
 
@@ -127,37 +148,42 @@
         <main id="app__body">
             <div class="container-fluid">
                 <div class="main__path">
-                    <a href="#"><small >Trang chủ</small></a>    
-                    <i class="fa-solid fa-angles-right"></i>          
+                    <a href="#"><small>Trang chủ</small></a>
+                    <i class="fa-solid fa-angles-right"></i>
                     <a href="#"><small class="text-primary">Bài viết của tôi</small></a>
                 </div>
 
                 <div class="row mt-5 mb-2 d-flex justify-content-between align-items-center m-0">
-                    <h1 class="text-left col-lg-5 p-0"><strong>Bài viết của tôi</strong></h1>
-                    <a href="" class="btn btn-primary col-lg-2"><i class="fa-regular fa-pen-to-square"></i> Đăng bài mới</a>
+                    <h1 class="text-left col-lg-5 p-0">
+                        <strong>Bài viết của tôi</strong>
+                        <i class="fa-solid fa-bars" id="sidebar-btn"></i>
+                    </h1>
+                    <a href="post_article.html" class="btn btn-primary col-lg-2 btn-hover-opacity"><i class="fa-regular fa-pen-to-square"></i> Đăng bài
+                        mới</a>
                 </div>
-                
+
                 <div class="row m-0">
                     <hr class="col-lg-3">
                 </div>
 
                 <div class="row">
-                    <div class="sidebar col-lg-3">
+                    <div id="sidebar" class="col-lg-3">
                         <ul class="nav navbar-nav">
                             <li class="nav-item active rounded content-1">
-                                <a class="nav-link px-4 text-black hover d-block" href="#" aria-current="page">Chưa được duyệt <span class="visually-hidden">(current)</span></a>
+                                <a class="nav-link px-4 text-black hover d-block" href="#" aria-current="page">Chưa được
+                                    duyệt <span class="visually-hidden">(current)</span></a>
                             </li>
-    
+
                             <li class="nav-item rounded mt-1 content-2">
-                                <a class="nav-link px-4 text-black hover d-block" href="#" >Chờ xuất bản</a>
+                                <a class="nav-link px-4 text-black hover d-block" href="#">Chờ xuất bản</a>
                             </li>
-    
+
                             <li class="nav-item rounded mt-1 content-3">
-                                <a class="nav-link px-4 text-black hover d-block" href="#" >Đã xuất bản</a>
+                                <a class="nav-link px-4 text-black hover d-block" href="#">Đã xuất bản</a>
                             </li>
-    
+
                             <li class="nav-item rounded mt-1 content-4">
-                                <a class="nav-link px-4 text-black hover" href="#" >Bị từ chối</a>
+                                <a class="nav-link px-4 text-black hover" href="#">Bị từ chối</a>
                             </li>
                         </ul>
                     </div>
@@ -175,29 +201,31 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
-                                        <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+
+                                        <div
+                                            class="col-lg-2 text-center d-flex align-items-center justify-content-center">
                                             <div class="dropdown open">
-                                                <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa-solid fa-ellipsis"></i>
-                                                        </button>
+                                                <button class="btn" type="button" id="triggerId"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item edit" href="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item delete" href="#deletaModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -205,13 +233,15 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
-                                        <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+
+                                        <div
+                                            class="col-lg-2 text-center d-flex align-items-center justify-content-center">
                                             <div class="dropdown open">
-                                                <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa-solid fa-ellipsis"></i>
-                                                        </button>
+                                                <button class="btn" type="button" id="triggerId"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
                                                     <button class="dropdown-item" href="#">
                                                         <i class="fa-solid fa-pen px-1"></i>
@@ -224,10 +254,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -235,13 +265,15 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
-                                        <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+
+                                        <div
+                                            class="col-lg-2 text-center d-flex align-items-center justify-content-center">
                                             <div class="dropdown open">
-                                                <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa-solid fa-ellipsis"></i>
-                                                        </button>
+                                                <button class="btn" type="button" id="triggerId"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
                                                     <button class="dropdown-item" href="#">
                                                         <i class="fa-solid fa-pen px-1"></i>
@@ -254,12 +286,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="content-2 content-hidden">
                             <h2>Bài viết chờ xuất bản</h2>
                             <hr>
@@ -271,7 +303,7 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
+
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
                                             <a href="#" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
@@ -279,7 +311,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -287,7 +319,7 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
+
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
                                             <a href="#" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
@@ -295,7 +327,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -303,7 +335,7 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
+
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
                                             <a href="#" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
@@ -311,10 +343,10 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
-    
+
                         <div class="content-3  content-hidden">
                             <h2>Bài viết đã xuất bản</h2>
                             <hr>
@@ -326,7 +358,7 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
+
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
                                             <a href="#" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
@@ -334,7 +366,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -342,7 +374,7 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
+
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
                                             <a href="#" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
@@ -350,7 +382,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -358,7 +390,7 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
+
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
                                             <a href="#" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
@@ -366,10 +398,10 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
-    
+
                         <div class="content-4 content-hidden">
                             <h2>Bài viết bị từ chối</h2>
                             <hr>
@@ -381,13 +413,15 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
-                                        <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+
+                                        <div
+                                            class="col-lg-2 text-center d-flex align-items-center justify-content-center">
                                             <div class="dropdown open">
-                                                <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa-solid fa-ellipsis"></i>
-                                                        </button>
+                                                <button class="btn" type="button" id="triggerId"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
                                                     <button class="dropdown-item" href="#">
                                                         <i class="fa-solid fa-pen px-1"></i>
@@ -400,10 +434,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -411,13 +445,15 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
-                                        <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+
+                                        <div
+                                            class="col-lg-2 text-center d-flex align-items-center justify-content-center">
                                             <div class="dropdown open">
-                                                <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa-solid fa-ellipsis"></i>
-                                                        </button>
+                                                <button class="btn" type="button" id="triggerId"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
                                                     <button class="dropdown-item" href="#">
                                                         <i class="fa-solid fa-pen px-1"></i>
@@ -430,10 +466,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
-    
+
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
@@ -441,13 +477,15 @@
                                             <p class="text-second mb-2">Tiêu đề của bài viết</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
-                                        
-                                        <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+
+                                        <div
+                                            class="col-lg-2 text-center d-flex align-items-center justify-content-center">
                                             <div class="dropdown open">
-                                                <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa-solid fa-ellipsis"></i>
-                                                        </button>
+                                                <button class="btn" type="button" id="triggerId"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
                                                     <button class="dropdown-item" href="#">
                                                         <i class="fa-solid fa-pen px-1"></i>
@@ -460,7 +498,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -472,27 +510,27 @@
                 <div class="d-flex justify-content-end m-0 my-5">
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item"><a class="page-link bg-primary" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">...</a></li>
-                          <li class="page-item"><a class="page-link" href="#">5</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link bg-primary" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
                         </ul>
-                      </nav>
+                    </nav>
                 </div>
-            </div>    
+            </div>
 
         </main>
         <footer>
@@ -550,6 +588,170 @@
 
     </div>
 
+    <div id="form-modal">
+
+        <form id="login-form" class="authentication-form " action="./index.html" novalidate>
+            <header class="form-heading">
+                <h5 class="form-title text-uppercase bold ">xin chào!</h5>
+                <p class="form-direction">Đăng nhập bên dưới hoặc <a href="#" class="form-link bold"
+                        id="form-link__signup">
+                        đăng
+                        ký ngay.</a></p>
+            </header>
+            <div class="line-separate"></div>
+            <main class="form-body">
+                <ul class="form-social d-flex justify-content-between">
+                    <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                src="../../share/assets/images/google.png" alt="" class="form-social__icon">
+                            <p class="form-social__name text-black">Google</p>
+                        </a></li>
+                    <li class="form-social__item"><a href="#" class="form-social__link"><i
+                                class="form-social__icon fa-brands fa-facebook"></i>
+                            <p class="form-social__name text-black">Facebook</p>
+                        </a></li>
+                    <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                src="../../share/assets/images/zalo.png" alt="" class="form-social__icon">
+                            <p class="form-social__name text-black">Zalo</p>
+                        </a></li>
+                </ul>
+                <div class="form-separate d-flex justify-content-between align-items-center">
+                    <div class="line-separate"></div>
+                    <p>Hoặc</p>
+                    <duv class="line-separate"></duv>
+                </div>
+                <ul class="user-input mt-3">
+                    <li class="mb-3">
+                        <input type="text" class="form-control username" placeholder="Nhập tên đăng nhập"
+                            name="username">
+                        <div class="invalid-feedback">Tên đăng nhập không tồn tại!</div>
+                    </li>
+                    <li class="mb-3">
+                        <input type="password" class="form-control password" name="pswd" placeholder="Nhập mật khẩu">
+                        <div class="invalid-feedback">Sai mật khẩu!</div>
+                    </li>
+                    </li>
+                </ul>
+            </main>
+            <div class="close-btn"> <i class="close-icon fa-solid fa-xmark"></i></div></a>
+            <button type="submit" class=" form-submit text-uppercase">đăng nhập</button>
+            <a href="../../forgotPassword.html" class="form-link mt-2">Quên mật khẩu?</a>
+        </form>
+
+
+        <form id="signup-form" class="authentication-form " action="./index.html" novalidate>
+            <header class="form-heading">
+                <h5 class="form-title text-uppercase bold ">đăng ký!</h5>
+                <p class="form-direction">Đã có tài khoản? <a href="#" class="form-link bold" id="form-link__login">
+                        Đăng nhập!</a></p>
+            </header>
+            <div class="line-separate"></div>
+            <main class="form-body">
+                <ul class="form-social d-flex justify-content-between">
+                    <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                src="../../share/assets/images/google.png" alt="" class="form-social__icon">
+                            <p class="form-social__name text-black">Google</p>
+                        </a></li>
+                    <li class="form-social__item"><a href="#" class="form-social__link"><i
+                                class="form-social__icon fa-brands fa-facebook"></i>
+                            <p class="form-social__name text-black">Facebook</p>
+                        </a></li>
+                    <li class="form-social__item"><a href="#" class="form-social__link"><img
+                                src="../../share/assets/images/zalo.png" alt="" class="form-social__icon">
+                            <p class="form-social__name text-black">Zalo</p>
+                        </a></li>
+                </ul>
+                <div class="form-separate d-flex justify-content-between align-items-center">
+                    <div class="line-separate"></div>
+                    <p>Hoặc</p>
+                    <duv class="line-separate"></duv>
+                </div>
+                <ul class="user-input">
+                    <li class="mb-2">
+                        <label for="signup-email" class="form-label">Email</label>
+                        <input type="email" class="form-control email" id="signup-email" placeholder="Nhập email"
+                            name="username">
+                        <div class="invalid-feedback">Email đã được sử dụng!</div>
+                    </li>
+                    <li class="mb-2">
+                        <label for="signup-username" class="form-label">Tên đăng nhập</label>
+                        <input type="text" class="form-control username" id="signup-username"
+                            placeholder="Nhập tên đăng nhập" name="username">
+                        <div class="invalid-feedback">Tên đăng nhập đã tồn tại!</div>
+                    </li>
+                    <li class="mb-2">
+                        <label for="signup-pw" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control password" id="signup-pw" name="pswd"
+                            placeholder="Nhập mật khẩu">
+                        <div class="invalid-feedback"></div>
+                    </li>
+                    <li class="mb-2">
+                        <label for="signup-repw" class="form-label">Xác nhận mật khẩu</label>
+                        <input type="password" class="form-control re-password" name="pswd" id="signup-repw"
+                            placeholder="Nhập lại mật khẩu">
+                        <div class="invalid-feedback"></div>
+                    </li>
+                    </li>
+                </ul>
+            </main>
+            <div class="close-btn"> <a href="#"><i class="close-icon fa-solid fa-xmark"></i></a></div>
+            <button type="submit" class=" form-submit text-uppercase">đăng ký</button>
+
+        </form>
+
+    </div>
+    <div id="search-modal">
+        <form action="#">
+            <input type="text" id="search-input" placeholder="Nhập để tìm kiếm...">
+        </form>
+        <i class="fa-solid fa-xmark hover" id="search-close"></i>
+    </div>
+
+    <!-- Edit Modal HTML -->
+    <div id="editModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+                </button>
+                <p class="modal-title">Chỉnh sửa tên chuyên mục</p>
+                <form action="#" class="form-edit">
+                    <div class="form-group modal-body">
+                        <input type="text" name="" id="category__name--edit" class="p-2 w-100" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="button submit success-btn">Cập nhập</button>
+                        <button type="button" class="button cancel-btn" data-dismiss="modal">Hủy bỏ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal HTML -->
+    <div id="deleteModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                        class="fa-solid fa-xmark close-modal"></i></button>
+
+                <p class="modal-title">Xóa chuyên mục</p>
+                <form action="#">
+                    <div class="form-group modal-body">
+                        <label class="form-label">Nhập lý do xóa</label>
+                        <input type="text" class="form-control input-field" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button remove-btn text-uppercase submit">Xóa</button>
+                        <button data-dismiss="modal" class="button cancel-btn text-uppercase" data-dismiss="modal">Hủy
+                            bỏ</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="../scripts/my_article.js"></script>
+
 </html>
