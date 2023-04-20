@@ -17,9 +17,12 @@ $(document).ready(()=>{
 	$('[data-toggle="tooltip"]').tooltip();
 	
 	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]');
+	
+    
 	$("#selectAll").click(function(){
-		if(this.checked){
+        var checkbox = $('table tbody input[type="checkbox"]');
+		// console.log(checkbox);
+        if(this.checked){
 			checkbox.each(function(){
 				this.checked = true;                        
 			});
@@ -28,21 +31,40 @@ $(document).ready(()=>{
 				this.checked = false;                        
 			});
 		} 
+        checkbox.click(function(){
+            if(!this.checked){
+                $("#selectAll").prop("checked", false);
+            }
+        });
 	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
-		}
-	});
+
+    // var checkbox = $('table tbody input[type="checkbox"]');
+	// checkbox.click(function(){
+	// 	if(!this.checked){
+	// 		$("#selectAll").prop("checked", false);
+	// 	}
+	// });
+
+    $('#deleteModal').on('shown.bs.modal', function () {
+        $('#deleteModal input').val('');
+        $('#deleteModal input').focus();
+    })
+
     // delete muti
     $("#delete").click(()=>{
         $("#deleteModal form").submit(()=>{
-            [...checkbox].forEach((e,idx)=>{
+            //[...checkbox].forEach((e,idx)=>{
+                var checkbox = $('table tbody input[type="checkbox"]')
+                console.log(checkbox);
+                checkbox.each(function(idx, e) {
                 if(e.checked){
                     $("body").removeClass("modal-open");
                     $("#deleteModal").removeClass("show");
                     $(".modal-backdrop.fade.show").remove();
-                    $(rows[idx]).remove();
+                    $('#deleteModal').hide();
+                    // $(rows[idx]).remove();
+                    e.closest('tr').remove();
+                    $('#selectAll').prop('checked', false);
                 }
             })
             
