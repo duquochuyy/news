@@ -16,11 +16,11 @@ table.table .avatar {
 .list__link{
     display: flex !important;
     width: 100%;
-    font-size: 13px;
     align-items: center;
 }
 .list__link:hover p{
     color: var(--primary-color) !important;
+   
 }
 .list__link img{
     width: 100px;
@@ -28,7 +28,7 @@ table.table .avatar {
 }
 .list__link p{
     margin: 0;
-    padding: 0px 10px;
+    padding: 0px 16px;
     color: var(--black-color);
     font-weight: bold;
     overflow: hidden;
