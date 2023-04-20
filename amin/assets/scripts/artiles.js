@@ -1,44 +1,28 @@
 $(document).ready(()=>{
    
     const articles = $("tbody tr");
-    const detete = $(".delete");
     const publishBtn = $(".publish");
+    const publishModal = $("#publishModal");
     
-    
-
-    // delete
-    [...detete].forEach((btn,idx)=>{
-        $(btn).click(()=>{
-            $("#deleteModal form").submit(()=>{
-                $("body").removeClass("modal-open");
-                $("#deleteModal").removeClass("show");
-                $(".modal-backdrop.fade.show").remove();
-                $(articles[idx]).remove();
-                
-            });
-        })
-    })
     // publish
    publishBtn.each((idx,btn)=>{
     $(btn).click(()=>{
+        publishModal.css("display","flex");
         $("#publish-btn").click(()=>{
-            $("body").removeClass("modal-open");
-            $("#publishModal").removeClass("show");
-            $(".modal-backdrop.fade.show").remove();
             $(articles[idx]).addClass("published");
             $(articles[idx]).find(".status").html("Đã xuất bản");
+            publishModal.css("display","none");
         });
     })
    })
      //publish muti
      const checkbox = $('table tbody input[type="checkbox"]');
      $("#publish").click(()=>{
+        publishModal.css("display","flex");
         $("#publish-btn").click(()=>{
             [...checkbox].forEach((e,idx)=>{
                 if(e.checked){
-                    $("body").removeClass("modal-open");
-                    $("#publishModal").removeClass("show");
-                    $(".modal-backdrop.fade.show").remove();
+                    publishModal.css("display","none");
                     $(articles[idx]).addClass("published");
                     $(articles[idx]).find(".status").html("Đã xuất bản");
                 }
