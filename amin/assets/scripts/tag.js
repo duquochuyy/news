@@ -1,6 +1,6 @@
-z$(function () {
+import { checkbox } from "./main.js";
+$(function () {
     //$('.edit').on('click', function() {
-    console.log('2')
     $('#myTable').on('click', '.edit', function () {
         var tagSelectedEdit = $(this).closest('tr').find('.tag__name')
         console.log(tagSelectedEdit);
@@ -87,7 +87,7 @@ $(function () {
         var newNumber = myTable.find('tr').length - 1 + 1;
 
         var newRow = createNewRow(nameNewTag, newNumber);
-        // console.log(newRow);
+        checkbox.push(...$(newRow).find('input[type="checkbox"]'));
         myTable.prepend(newRow);
 
         $('#addModal').hide();

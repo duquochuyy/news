@@ -1,3 +1,4 @@
+import { checkbox } from "./main.js";
 $(function () {
     //$('.edit').on('click', function() {
     console.log('2')
@@ -88,6 +89,8 @@ $(function () {
 
         var newRow = createNewRow(nameNewcategory, newNumber);
         // console.log(newRow);
+        
+        checkbox.push(...$(newRow).find('input[type="checkbox"]'));
         myTable.prepend(newRow);
 
         $('#addModal').hide();

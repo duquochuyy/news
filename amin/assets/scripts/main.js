@@ -1,8 +1,10 @@
+ export const checkbox = $();
 $(document).ready(()=>{
-    // console.log("hi")
     const sidebarBtn = $("#sidebar-btn");
     const sidebar = $("#sidebar");
     const main = $("#main");
+    const tmp = $('table tbody input[type="checkbox"]');
+    [...tmp].forEach((element)=>checkbox.push(element));
     // SIDE BAR
     sidebarBtn.click(()=>{
         if(sidebar.css("display")=="block"){
@@ -14,65 +16,11 @@ $(document).ready(()=>{
             main.css("padding-left","270px");
         }
     })
-<<<<<<< HEAD
-    // Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	
-    
-	$("#selectAll").click(function(){
-        var checkbox = $('table tbody input[type="checkbox"]');
-		// console.log(checkbox);
-        if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
-        checkbox.click(function(){
-            if(!this.checked){
-                $("#selectAll").prop("checked", false);
-            }
-        });
-	});
-
-    // var checkbox = $('table tbody input[type="checkbox"]');
-	// checkbox.click(function(){
-	// 	if(!this.checked){
-	// 		$("#selectAll").prop("checked", false);
-	// 	}
-	// });
-
-    $('#deleteModal').on('shown.bs.modal', function () {
-        $('#deleteModal input').val('');
-        $('#deleteModal input').focus();
-    })
-
-    // delete muti
-    $("#delete").click(()=>{
-        $("#deleteModal form").submit(()=>{
-            //[...checkbox].forEach((e,idx)=>{
-                var checkbox = $('table tbody input[type="checkbox"]');
-                console.log(checkbox);
-                checkbox.each(function(idx, e) {
-                if(e.checked){
-                    $("body").removeClass("modal-open");
-                    $("#deleteModal").removeClass("show");
-                    $(".modal-backdrop.fade.show").remove();
-                    $('#deleteModal').hide();
-                    // $(rows[idx]).remove();
-                    e.closest('tr').remove();
-                    $('#selectAll').prop('checked', false);
-=======
     
 
 
     // Select/Deselect checkboxes
-    var checkbox = $('table tbody input[type="checkbox"]');
+  
     $("#selectAll").click(function () {
         if (this.checked) {
             checkbox.each(function () {
@@ -91,7 +39,6 @@ $(document).ready(()=>{
     });
 
     // close modal
-    const rows = $("tbody tr");
     const dlt = $(".delete");
     const deleteModal = $("#deleteModal");
     const modal = $(".myModal");
@@ -109,7 +56,7 @@ $(document).ready(()=>{
     // delete
     const dltInput = $("#deleteModal textarea.required");
     dlt.each((idx, btn) => {
-        $(btn).click(() => {
+        $(btn).click((e) => {
             currentIdx = idx;
             dltInput.val("");
             dltInput.removeClass("is-invalid");
@@ -118,40 +65,33 @@ $(document).ready(()=>{
                 if (!dltInput.val()) {
                     dltInput.addClass("is-invalid");
                     return;
->>>>>>> 75da1067dbbf092bb38671177e81e5a56fa237e0
                 }
-
-                // rows[currentIdx].remove();
-                // deleteModal.css("display", "none");
+                $(...$(e.target).closest("tr")).remove();
+                deleteModal.css("display", "none");
 
             })
         })
     })
 
     // delete muti
-    // $("#delete").click(() => {
-    //     deleteModal.css("display", "flex");
-    //     dltInput.val("");
-    //     deleteModal.find(".submit").click(() => {
-    //         [...checkbox].forEach((e, idx) => {
-    //             if (dltInput.val() == "") {
-    //                 dltInput.addClass("is-invalid");
-    //                 return;
-    //             }
-    //             if (e.checked) {
-    //                 $(rows[idx]).remove();
-    //             }
+    $("#delete").click(() => {
+        deleteModal.css("display", "flex");
+        dltInput.val("");
+        deleteModal.find(".submit").click(() => {
+            [...checkbox].forEach((e, idx) => {
+                if (dltInput.val() == "") {
+                    dltInput.addClass("is-invalid");
+                    return;
+                }
+                if (e.checked) {
+                    console.log(e)
+                    $(...$(e).closest("tr")).remove();
+                }
 
-    //             deleteModal.css("display", "none");
-    //         })
+                deleteModal.css("display", "none");
+            })
 
-<<<<<<< HEAD
-    //     })
-    // })
-    
-=======
         })
     })
->>>>>>> 75da1067dbbf092bb38671177e81e5a56fa237e0
 })
 // export  {checkbox}
