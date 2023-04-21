@@ -11,6 +11,16 @@ table td {
     word-wrap: break-word;
 }
 
+table.table thead tr th {
+    font-weight: bold !important;
+    color: black !important;
+}
+
+.font-weight-bold {
+    color: var(--second-color) !important;
+    font-weight: 600;
+}
+
 /* Modal styles */
 
 .modal .modal-dialog {
