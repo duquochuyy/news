@@ -109,14 +109,18 @@ body{
 #header-logo {
     height: 25px;
     cursor: pointer;
+    display: none;
 }
 
 #sidebar-btn{
-    padding: 5px;
+    /* padding: 5px; */
+    margin-left: -20px;
     height: 25px;
+    width: auto;
     font-size: 22px;
     color: var(--second-color);
     margin-left: 24px;
+    margin-left: 0px;
     cursor: pointer;
 }
 #sidebar-btn:hover{
@@ -556,4 +560,21 @@ table.table th{
 .sidebar__link{
     display: block;
     width: 100%;
+}
+@media screen and (max-width: 768px) {
+    #header{
+        padding: 0px 20px;
+    }
+    #sidebar{
+        display: none;
+    }
+    #header-logo {
+        display: none;
+    }
+    #sidebar-btn{
+        margin-left: 0;
+    }
+    #main{
+        padding-left: 20px;
+    }
 }

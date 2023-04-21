@@ -1,6 +1,9 @@
+<<<<<<< HEAD
+=======
+import { checkbox } from "./main.js";
+>>>>>>> c2deb573736dd7c550938486822a1c6e8658a2a7
 $(function () {
     //$('.edit').on('click', function() {
-    console.log('2')
     $('#myTable').on('click', '.edit', function () {
         var tagSelectedEdit = $(this).closest('tr').find('.tag__name')
         console.log(tagSelectedEdit);
@@ -88,7 +91,11 @@ $(function () {
         var newNumber = myTable.find('tr').length - 1 + 1;
 
         var newRow = createNewRow(nameNewTag, newNumber);
+<<<<<<< HEAD
         console.log(newRow);
+=======
+        checkbox.push(...$(newRow).find('input[type="checkbox"]'));
+>>>>>>> c2deb573736dd7c550938486822a1c6e8658a2a7
         myTable.prepend(newRow);
 
         $('#addModal').hide();
