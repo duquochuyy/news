@@ -1,43 +1,98 @@
+<<<<<<< HEAD
+var categoryParent = {
+    kinhte: 'Kinh tế',
+    thethao: 'Thể thao'
+    // phapluat: 'Pháp luật',
+    // doisong: 'Đời sống',
+    // congnghe: 'Công nghệ',
+    // suckhoe: 'Sức khỏe',
+    // amnhac: 'Âm nhạc'
+}
+
+function addItemCategoryParent(nameValue, nameText) {
+    $('#category__parent--add, #category__parent--edit').append($('<option>', {
+        value: nameValue,
+        text: nameText
+    }));
+
+}
+
+function removeItemCategoryParent(nameValue, nameText) {
+    $(`#category__parent--edit, #category__parent--add option[value=${nameValue}]`).remove();
+}
+
+=======
+import { checkbox } from "./main.js";
+>>>>>>> c2deb573736dd7c550938486822a1c6e8658a2a7
 $(function () {
-    //$('.edit').on('click', function() {
-    console.log('2')
-    $('#myTable').on('click', '.edit', function () {
-        var categorySelectedEdit = $(this).closest('tr').find('.category__name')
-        console.log(categorySelectedEdit);
+    console.log('2');
+    // edit
+    
+    function handleEdit() {
+        var categorySelectedEdit = $(this).closest('tr').find('.category__name');
         var editModal = $('#editModal');
 
         $('tbody .selectedEdit').removeClass('selectedEdit');
-        // alert('huy')
         categorySelectedEdit.addClass('selectedEdit');
-        var oldName = $('.selectedEdit').find('p').text();
+
+        var selectedEdit = $('.selectedEdit');
+        var oldName = selectedEdit.find('p').text();
+
+        // optionHidden = $(`#category__parent--select option:contains(${oldName})`).hide();
+        
 
         console.log(oldName);
 
+        // làm sạch modal
         $('#editModal').on('shown.bs.modal', function () {
             $('#category__name--edit').val(oldName);
             $('#category__name--edit').focus();
+            $('#category__parent--edit').val($("#category__parent--edit option:first").val());
         })
 
-        $('.form-edit').submit(function (e) {
+        // sử lý sự kiện submit
+        $('.form-edit').off('submit').on('submit', function(e) {
             e.preventDefault();
             var newName = $('#category__name--edit').val();
             console.log(newName);
-            $('.selectedEdit').text(newName);
+            selectedEdit.text(newName);
+
+            var parent = $('#category__parent--edit');
+            if (parent.val()) {
+                parent = $("#category__parent--edit option:selected").text();
+                console.log(parent);
+                selectedEdit.siblings('.category__parent').find('p').text(parent);
+            }
+            else {
+                removeItemCategoryParent(convertString(oldName));
+                addItemCategoryParent(convertString(newName), newName);
+            }
+
+            $('td.category__parent p').filter(function() {
+                return $(this).text() === oldName;
+            }).text(newName);
 
             $('#editModal').hide();
             $("body").removeClass("modal-open");
             $(".modal-backdrop.fade.show").remove();
+        });
 
-        })
-    })
+        // optionHidden = $(`#category__parent--select option:contains(${oldName})`).show();
 
-    //$('.delete').on('click', function() {
-    $('#myTable').on('click', '.delete', function () {
+    }
+    
+    $('#myTable').on('click', '.edit', handleEdit);
+
+    // delete
+    function handleDelete() {
         var categorySelectedDelete = $(this).closest('tr').find('.category__name')
-        var editModal = $('#deleteModal');
+        var deleteModal = $('#deleteModal');
 
         $('tbody .selectedDelete').removeClass('selectedDelete');
         categorySelectedDelete.addClass('selectedDelete');
+
+        var nameDelete = $('.selectedDelete').find('p').text();
+
 
         $('#deleteModal').on('shown.bs.modal', function () {
             $('#deleteModal input').val('');
@@ -45,21 +100,27 @@ $(function () {
         })
 
         var deleteModal = $("#deleteModal");
-        editModal.find('.submit').on('click', function () {
+        deleteModal.find('.submit').on('click', function () {
             deleteModal.find("form").submit(() => {
                 $('#deleteModal').hide();
                 $("body").removeClass("modal-open");
                 deleteModal.removeClass("show");
                 $(".modal-backdrop.fade.show").remove();
+
                 $('.selectedDelete').closest('tr').remove();
 
+                $('tr').filter(function() {
+                    return $(this).find('td.category__parent p').text() === nameDelete;
+                }).remove();
             });
         })
-    })
+    }
+
+    $('#myTable').on('click', '.delete', handleDelete);
 });
 
 $(function () {
-    function createNewRow(nameNewcategory, newNumber) {
+    function createNewRow(nameNewcategory, parentNewcategory, newNumber) {
         var newRow = $('<tr>');
         newRow.append($('<td>').addClass('').append(
             $('<span>').addClass('custom-checkbox').append(
@@ -73,6 +134,7 @@ $(function () {
             )
         ));
         newRow.append($('<td>').addClass('category__name').append($('<p>').text(nameNewcategory)));
+        newRow.append($('<td>').addClass('category__parent').append($('<p>').text(parentNewcategory)));
         newRow.append($('<td>').append($('<div>').addClass('d-flex table-control').append(
             $('<a>').attr('href', '#editModal').addClass('edit').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-pencil')),
             $('<a>').attr('href', '#deleteModal').addClass('delete').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-trash-can'))
@@ -86,8 +148,18 @@ $(function () {
         var nameNewcategory = $('#category__name--add').val();
         var newNumber = myTable.find('tr').length - 1 + 1;
 
-        var newRow = createNewRow(nameNewcategory, newNumber);
+        var parent = $('#category__parent--add');
+        if (parent.val()) {
+            parent = $("#category__parent--add option:selected").text();
+            
+        } else {            
+            parent = '';
+            addItemCategoryParent(convertString(nameNewcategory), nameNewcategory);
+        }
+        var newRow = createNewRow(nameNewcategory, parent, newNumber);
         // console.log(newRow);
+        
+        checkbox.push(...$(newRow).find('input[type="checkbox"]'));
         myTable.prepend(newRow);
 
         $('#addModal').hide();
