@@ -1,4 +1,4 @@
-z$(function () {
+$(function () {
     //$('.edit').on('click', function() {
     console.log('2')
     $('#myTable').on('click', '.edit', function () {
@@ -73,6 +73,7 @@ $(function () {
             )
         ));
         newRow.append($('<td>').addClass('tag__name').append($('<p>').text(nameNewTag)));
+        newRow.append($('<td>').addClass('').append($('<p>').text('0')));
         newRow.append($('<td>').append($('<div>').addClass('d-flex table-control').append(
             $('<a>').attr('href', '#editModal').addClass('edit').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-pencil')),
             $('<a>').attr('href', '#deleteModal').addClass('delete').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-trash-can'))
@@ -87,7 +88,7 @@ $(function () {
         var newNumber = myTable.find('tr').length - 1 + 1;
 
         var newRow = createNewRow(nameNewTag, newNumber);
-        // console.log(newRow);
+        console.log(newRow);
         myTable.prepend(newRow);
 
         $('#addModal').hide();

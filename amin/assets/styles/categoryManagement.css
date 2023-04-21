@@ -79,3 +79,7 @@ table td {
 .input-field{
     border-radius: 5px !important;
 }
+.modal .modal-body select {
+    width: 100%;
+    padding: 10px;
+}

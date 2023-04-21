@@ -120,7 +120,8 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>
-                            <th scope="col" style="width: 85%;">Tên</th>
+                            <th scope="col" style="width: 45%;">Tên</th>
+                            <th scope="col" style="width: 40%;">Thuộc chuyên mục</th>
                             <th scope="col" style="width: 10%"></th>
                         </tr>
                     </thead>
@@ -133,6 +134,53 @@
                                 </span>
                             </td>
                             <td class="category__name">
+                                <p>Kinh tế</p>
+                            </td>
+                            <td class="category__parent">
+                                <p></p>
+                            </td>
+                            <td>
+                                <div class="d-flex table-control">
+                                    <a href="#editModal" class="edit" data-toggle="modal"><i
+                                            class="fa-solid fa-pencil"></i></a>
+                                    <a href="#deleteModal" class="delete" data-toggle="modal"><i
+                                            class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td class="text-center">
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <label for="checkbox1"></label>
+                                </span>
+                            </td>
+                            <td class="category__name">
+                                <p>Nông sản</p>
+                            </td>
+                            <td class="category__parent">
+                                <p>Kinh tế</p>
+                            </td>
+                            <td>
+                                <div class="d-flex table-control">
+                                    <a href="#editModal" class="edit" data-toggle="modal"><i
+                                            class="fa-solid fa-pencil"></i></a>
+                                    <a href="#deleteModal" class="delete" data-toggle="modal"><i
+                                            class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td class="text-center">
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <label for="checkbox1"></label>
+                                </span>
+                            </td>
+                            <td class="category__name">
+                                <p>Hải sản</p>
+                            </td>
+                            <td class="category__parent">
                                 <p>Kinh tế</p>
                             </td>
                             <td>
@@ -154,43 +202,8 @@
                             <td class="category__name">
                                 <p>Thể thao</p>
                             </td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#editModal" class="edit" data-toggle="modal"><i
-                                            class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                            class="fa-solid fa-trash-can"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="">
-                            <td class="text-center">
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
-                            <td class="category_name">
-                                <p>Pháp luật</p>
-                            </td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#editModal" class="edit" data-toggle="modal"><i
-                                            class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                            class="fa-solid fa-trash-can"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="">
-                            <td class="text-center">
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
-                            <td class="category__name">
-                                <p>Đời sống</p>
+                            <td class="category__parent">
+                                <p></p>
                             </td>
                             <td>
                                 <div class="d-flex table-control">
@@ -231,9 +244,27 @@
                 </button>
                 <p class="modal-title">Chỉnh sửa tên chuyên mục</p>
                 <form action="#" class="form-edit">
-                    <div class="form-group modal-body">
-                        <input type="text" name="" id="category__name--edit" class="p-2 w-100" required>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="category__name--edit">Nhập tên mới</label>
+                            <input type="text" name="" id="category__name--edit" class="p-2 w-100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category__parent--edit">Chọn chuyên mục cha</label>
+                            <select name="category__parent--edit" id="category__parent--edit">
+                                <option value="" selected>--Đây là chuyên mục cấp 1--</option>
+                                <option value="kinhte">Kinh tế</option>
+                                <option value="thethao">Thể thao</option>
+                                <!-- <option value="phapluat">Pháp luật</option>
+                                <option value="doisong">Đời sống</option>
+                                <option value="congnghe">Công nghệ</option>
+                                <option value="suckhoe">Sức khỏe</option>
+                                <option value="amnhac">Âm nhạc</option> -->
+                            </select>
+                        </div>
                     </div>
+                    
+
                     <div class="modal-footer">
                         <button type="submit" class="button submit success-btn">Cập nhập</button>
                         <button type="button" class="button cancel-btn" data-dismiss="modal">Hủy bỏ</button>
@@ -276,10 +307,26 @@
                 </button>
                 <p class="modal-title">Thêm chuyên mục mới</p>
                 <form action="#" class="form-add">
-                    <div class="form-group modal-body">
-                        <label class="form-label">Nhập tên của chuyên mục mới</label>
-                        <input type="text" name="" id="category__name--add" class="p-2 w-100" required>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="category__name--add" class="form-label">Nhập tên của chuyên mục mới</label>
+                            <input type="text" name="" id="category__name--add" class="p-2 w-100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category__parent--add">Chọn chuyên mục cha</label>
+                            <select name="category__parent--add" id="category__parent--add">
+                                <option value="" selected>--Đây là chuyên mục cấp 1--</option>
+                                <option value="kinhte">Kinh tế</option>
+                                <option value="thethao">Thể thao</option>
+                                <!-- <option value="phapluat">Pháp luật</option>
+                                <option value="doisong">Đời sống</option>
+                                <option value="congnghe">Công nghệ</option>
+                                <option value="suckhoe">Sức khỏe</option>
+                                <option value="amnhac">Âm nhạc</option> -->
+                            </select>
+                        </div>
                     </div>
+                    
                     <div class="modal-footer">
                         <button type="submit" class="button submit success-btn">Hoàn tất</button>
                         <button type="button" class="button cancel-btn" data-dismiss="modal">Hủy bỏ</button>

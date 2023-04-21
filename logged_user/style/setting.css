@@ -94,3 +94,8 @@ a, .page-link {
     border-radius: 10px;
     font-size: larger;
 }
+
+.btn.btn-hover-opacity {
+    color: var(--white-color) !important;
+    background-color: var(--primary-color) !important;
+}
