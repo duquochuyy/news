@@ -16,7 +16,16 @@ $(document).ready(()=>{
             main.css("padding-left","270px");
         }
     })
-    
+    $(window).resize(()=>{
+        if($(window).width()<768){
+            sidebar.css("display","none");
+            main.css("padding-left","20px");
+        }
+        else{
+            sidebar.css("display","block");
+            main.css("padding-left","270px");
+        }
+    })
 
 
     // Select/Deselect checkboxes
