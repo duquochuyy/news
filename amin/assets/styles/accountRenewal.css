@@ -1,0 +1,16 @@
+table.table .user-avatar{
+    width: 40px;
+    margin-left: 10px;
+}
+table.table .user-fullname{
+    font-weight: bold;
+}
+table.table .user-nickname{
+    font-size: 11px;
+    color: var(--second-color);
+}
+table.table .user-name{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
