@@ -2,6 +2,7 @@ import { checkbox } from "./main.js";
 $(function () {
     //$('.edit').on('click', function() {
     $('#myTable').on('click', '.edit', function () {
+
         var tagSelectedEdit = $(this).closest('tr').find('.tag__name')
         console.log(tagSelectedEdit);
         var editModal = $('#editModal');
@@ -34,7 +35,7 @@ $(function () {
     //$('.delete').on('click', function() {
     $('#myTable').on('click', '.delete', function () {
         var tagSelectedDelete = $(this).closest('tr').find('.tag__name')
-        var editModal = $('#deleteModal');
+        var deleteModal = $('#deleteModal');
 
         $('tbody .selectedDelete').removeClass('selectedDelete');
         tagSelectedDelete.addClass('selectedDelete');
@@ -44,8 +45,7 @@ $(function () {
             $('#deleteModal input').focus();
         })
 
-        var deleteModal = $("#deleteModal");
-        editModal.find('.submit').on('click', function () {
+        deleteModal.find('.submit').on('click', function () {
             deleteModal.find("form").submit(() => {
                 $('#deleteModal').hide();
                 $("body").removeClass("modal-open");
@@ -73,6 +73,7 @@ $(function () {
             )
         ));
         newRow.append($('<td>').addClass('tag__name').append($('<p>').text(nameNewTag)));
+        newRow.append($('<td>').addClass('').append($('<p>').text('0')));
         newRow.append($('<td>').append($('<div>').addClass('d-flex table-control').append(
             $('<a>').attr('href', '#editModal').addClass('edit').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-pencil')),
             $('<a>').attr('href', '#deleteModal').addClass('delete').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-trash-can'))
@@ -87,6 +88,7 @@ $(function () {
         var newNumber = myTable.find('tr').length - 1 + 1;
 
         var newRow = createNewRow(nameNewTag, newNumber);
+        console.log(newRow);
         checkbox.push(...$(newRow).find('input[type="checkbox"]'));
         myTable.prepend(newRow);
 

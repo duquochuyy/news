@@ -22,7 +22,7 @@
         <header id="app__header">
 
             <div class="header-head d-flex justify-content-between align-items-center">
-                <a href="./index.html"><img id="header-logo" src="../../share/assets/images/logo.png"></img></a>
+                <a href="../../index.html"><img id="header-logo" src="../../share/assets/images/logo.png"></img></a>
                 <!-- user don't login -->
                 <div id="guest" class="justify-content-end">
                     <a href="#" id="app__header-login" class="hover text-uppercase bold hover">Đăng
@@ -53,16 +53,16 @@
                                 <p class="text-capitalize bold">minh Hiền</p>
                             </div>
                             <div class="editor non-ad line-separate control-item">
-                                <a href="./editor/listpage.html" class="control-link hover">Duyệt bài
+                                <a href="../../editor/listpage.html" class="control-link hover">Duyệt bài
                                     viết</a>
                             </div>
                             <div class="admin line-separate control-item">
                                 <a href="#" class="control-link hover">Trang quản lý</a>
                             </div>
                             <div class="line-separate non-ad control-item">
-                                <a href="./writer/page/post_article.html" class="control-link hover light-hover">Đăng
+                                <a href="../../writer/page/post_article.html" class="control-link hover light-hover">Đăng
                                     bài viết</a>
-                                <a href="./writer/page/my_article.html" class="control-link hover light-hover">Bài
+                                <a href="../../writer/page/my_article.html" class="control-link hover light-hover">Bài
                                     viết của tôi</a>
 
                             </div>
@@ -91,47 +91,47 @@
                     </button>
                     <div id="navbar-menu">
                         <ul class="navbar-nav ">
-                            <li class="nav-item"><a href="./index.html"
+                            <li class="nav-item"><a href="../../index.html"
                                     class="nav-link text-uppercase header__nav-link hover bold pc">Trang
                                     chủ</a></li>
                             <li class="nav-item subnav">
-                                <a href="./listArticle.html"
+                                <a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">
                                     Kinh tế
                                     <i class="fa-solid fa-caret-down expand"></i>
                                 </a>
                                 <ul class="subnav-menu">
-                                    <li><a href="./listArticle.html" class="subnav-item ">nông
+                                    <li><a href="../../listArticle.html" class="subnav-item ">nông
                                             sản</a></li>
-                                    <li><a href="./listArticle.html" class="subnav-item ">hải sản</a>
+                                    <li><a href="../../listArticle.html" class="subnav-item ">hải sản</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item subnav"><a href="./listArticle.html"
+                            <li class="nav-item subnav"><a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Thể
                                     thao <i class="fa-solid fa-caret-down expand"></i></a>
                                 <ul class="subnav-menu">
-                                    <li><a href="./listArticle.html" class="subnav-item ">trong
+                                    <li><a href="../../listArticle.html" class="subnav-item ">trong
                                             nước</a></li>
                                     <li><a href="./listArticle.html" class="subnav-item ">ngoài
                                             nước</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="./listArticle.html"
+                            <li class="nav-item"><a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Pháp
                                     luật</a></li>
-                            <li class="nav-item"><a href="./listArticle.html"
+                            <li class="nav-item"><a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Đời
                                     sống</a>
                             </li>
-                            <li class="nav-item"><a href="./listArticle.html"
+                            <li class="nav-item"><a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Công
                                     nghệ</a></li>
-                            <li class="nav-item"><a href="./listArticle.html"
+                            <li class="nav-item"><a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Sức
                                     khỏe</a>
                             </li>
-                            <li class="nav-item"><a href="./listArticle.html"
+                            <li class="nav-item"><a href="../../listArticle.html"
                                     class="nav-link text-uppercase header__nav-link hover bold">Âm
                                     nhạc</a>
                             </li>
@@ -197,8 +197,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -211,11 +211,11 @@
                                                     <i class="fa-solid fa-ellipsis"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item edit" href="#editModal">
+                                                    <button type="button" href="#editModal" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item delete" href="#deletaModal">
+                                                    <button class="dropdown-item delete" href="#deletaModal" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
@@ -229,8 +229,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -243,11 +243,11 @@
                                                     <i class="fa-solid fa-ellipsis"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item" href="#">
+                                                    <button type="button" href="#editModal" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item delete" href="#deletaModal" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
@@ -261,8 +261,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -275,11 +275,11 @@
                                                     <i class="fa-solid fa-ellipsis"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item" href="#">
+                                                    <button type="button" href="#editModal" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item delete" href="#deletaModal" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
@@ -299,8 +299,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -315,8 +315,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -331,8 +331,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -354,13 +354,13 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
-                                            <a href="#" class="text-primary p-3 light-hover">
+                                            <a href="../../articleDetail.html" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
                                             </a>
                                         </div>
@@ -370,13 +370,13 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
-                                            <a href="#" class="text-primary p-3 light-hover">
+                                            <a href="../../articleDetail.html" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
                                             </a>
                                         </div>
@@ -386,13 +386,13 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
                                         <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
-                                            <a href="#" class="text-primary p-3 light-hover">
+                                            <a href="../../articleDetail.html" class="text-primary p-3 light-hover">
                                                 <small>Xem bài viết</small>
                                             </a>
                                         </div>
@@ -409,8 +409,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -423,11 +423,11 @@
                                                     <i class="fa-solid fa-ellipsis"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item" href="#">
+                                                    <button type="button" href="#editModal" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item delete" href="#deletaModal" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
@@ -441,8 +441,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -455,11 +455,11 @@
                                                     <i class="fa-solid fa-ellipsis"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item" href="#">
+                                                    <button type="button" href="#editModal" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item delete" href="#deletaModal" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
@@ -473,8 +473,8 @@
                                 <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
                                     <div class="row m-0">
                                         <div class="col p-3 col-lg-10 text-left">
-                                            <p class="text-primary mb-2">Nhãn bài viết</p>
-                                            <p class="text-second mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                            <p class="text-second mb-2">Chuyên mục</p>
                                             <p class="text-second mb-0"><small>12 giờ trước</small></p>
                                         </div>
 
@@ -487,11 +487,11 @@
                                                     <i class="fa-solid fa-ellipsis"></i>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                                                    <button class="dropdown-item" href="#">
+                                                    <button type="button" href="#editModal" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                                         <i class="fa-solid fa-pen px-1"></i>
                                                         Chỉnh sửa
                                                     </button>
-                                                    <button class="dropdown-item" href="#">
+                                                    <button class="dropdown-item delete" href="#deletaModal" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                         <i class="fa-solid fa-trash-can px-1"></i>
                                                         Xóa bài viết
                                                     </button>
@@ -590,7 +590,7 @@
 
     <div id="form-modal">
 
-        <form id="login-form" class="authentication-form " action="./index.html" novalidate>
+        <form id="login-form" class="authentication-form " action="../../index.html" novalidate>
             <header class="form-heading">
                 <h5 class="form-title text-uppercase bold ">xin chào!</h5>
                 <p class="form-direction">Đăng nhập bên dưới hoặc <a href="#" class="form-link bold"
@@ -638,7 +638,7 @@
         </form>
 
 
-        <form id="signup-form" class="authentication-form " action="./index.html" novalidate>
+        <form id="signup-form" class="authentication-form " action="../../index.html" novalidate>
             <header class="form-heading">
                 <h5 class="form-title text-uppercase bold ">đăng ký!</h5>
                 <p class="form-direction">Đã có tài khoản? <a href="#" class="form-link bold" id="form-link__login">
@@ -710,17 +710,17 @@
     <div id="editModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
                 </button>
-                <p class="modal-title">Chỉnh sửa tên chuyên mục</p>
+                <p class="modal-title">Chỉnh sửa tiêu đề bài viết</p>
                 <form action="#" class="form-edit">
                     <div class="form-group modal-body">
-                        <input type="text" name="" id="category__name--edit" class="p-2 w-100" required>
+                        <input type="text" name="" id="title__name--edit" class="p-2 w-100" required>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="button submit success-btn">Cập nhập</button>
-                        <button type="button" class="button cancel-btn" data-dismiss="modal">Hủy bỏ</button>
+                        <button type="button" class="button cancel-btn" data-bs-dismiss="modal">Hủy bỏ</button>
                     </div>
                 </form>
             </div>
@@ -731,10 +731,10 @@
     <div id="deleteModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i
                         class="fa-solid fa-xmark close-modal"></i></button>
 
-                <p class="modal-title">Xóa chuyên mục</p>
+                <p class="modal-title">Xóa bài viết</p>
                 <form action="#">
                     <div class="form-group modal-body">
                         <label class="form-label">Nhập lý do xóa</label>
@@ -742,7 +742,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="button remove-btn text-uppercase submit">Xóa</button>
-                        <button data-dismiss="modal" class="button cancel-btn text-uppercase" data-dismiss="modal">Hủy
+                        <button data-dismiss="modal" class="button cancel-btn text-uppercase" data-bs-dismiss="modal">Hủy
                             bỏ</button>
 
                     </div>
