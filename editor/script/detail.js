@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".sidebar ul li").on('click', function() {
+    $(".sidebar ul li").on('click', function () {
         $(".sidebar ul li.active").removeClass('active');
         $(this).addClass('active');
 
@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     document.querySelectorAll('.fa-trash').forEach(item => {
         item.addEventListener('click', (e) => {
-            if(confirm('Are you sure you want to remove this category?')) {
+            if (confirm('Are you sure you want to remove this category?')) {
                 e.target.parentElement.remove();
             }
         });
@@ -67,7 +67,7 @@ $(document).ready(function () {
     });
 
     let hour = document.getElementById('accept-hour');
-    for(let i = 0; i <= 60; i++) {
+    for (let i = 0; i <= 60; i++) {
         let h = document.createElement('option');
         h.value = i;
         h.text = i;
@@ -75,7 +75,7 @@ $(document).ready(function () {
     }
 
     let minute = document.getElementById('accept-minute');
-    for(let i = 0; i <= 60; i++) {
+    for (let i = 0; i <= 60; i++) {
         let m = document.createElement('option');
         m.value = i;
         m.text = i;
@@ -83,7 +83,7 @@ $(document).ready(function () {
     }
 
     let day = document.getElementById('accept-day');
-    for(let i = 1; i <= 31; i++) {
+    for (let i = 1; i <= 31; i++) {
         let d = document.createElement('option');
         d.value = i;
         d.text = i;
@@ -91,7 +91,7 @@ $(document).ready(function () {
     }
 
     let month = document.getElementById('accept-month');
-    for(let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 12; i++) {
         let m = document.createElement('option');
         m.value = i;
         m.text = i;
@@ -101,12 +101,11 @@ $(document).ready(function () {
     let year = document.getElementById('accept-year');
     let currentYear = new Date().getFullYear();
     let j = 1;
-    for(let i = currentYear; i >= 1900; i--) {
+    for (let i = currentYear; i >= 1900; i--) {
         let y = document.createElement('option');
         y.value = i;
         y.text = i;
         year.options.add(y, j);
         j++;
     }
-
 })

@@ -226,6 +226,32 @@
 .list-tag__link:hover{
     color: var(--primary-color);
 }
+
+.success-btn{
+    background-color: var(--success-bg);
+}
+
+#submit-premium {
+    background: var(--success-bg);
+    color: var(--white-color);
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+#submit-premium:hover {
+    opacity: 0.9;
+}
+
+.about p {
+    text-align: justify;
+}
+
+.bg-payment {
+    background-color: #e4e4e4;
+}
+
 @media screen and (max-width: 1200px){
     #listName{
         font-size: 20px;
