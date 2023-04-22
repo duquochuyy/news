@@ -15,6 +15,14 @@
     background-color: var(--second-color) !important;
 }
 
+#user-logged-in {
+    display: flex;
+}
+
+#guest {
+    display: none;
+}
+
 .app_body {
     box-sizing: border-box;
 }
