@@ -29,18 +29,18 @@ table.table .avatar {
 .list__link p{
     margin: 0;
     padding: 0px 16px;
-    color: var(--black-color);
-    font-weight: bold;
+    color: var(--second-color);
+    /* font-weight: bold; */
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
 .status{
-    color: var(--primary-color) ;
+    color: var(--primary-color) !important ;
 }
 .published .status{
-    color: var(--success-bg);
+    color: var(--success-bg) !important;
 }
 .published .edit{
     display: block !important;
