@@ -29,3 +29,15 @@
 .content-hidden {
     display: none;
 }
+
+.about p {
+    text-align: justify;
+}
+
+#user-logged-in {
+    display: flex;
+}
+
+#guest {
+    display: none;
+}
