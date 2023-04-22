@@ -130,8 +130,8 @@ $(function () {
                 $('<label>').attr('for', `checkbox${newNumber}`)
             )
         ));
-        newRow.append($('<td>').addClass('category__name').append($('<p>').text(nameNewcategory)));
-        newRow.append($('<td>').addClass('category__parent').append($('<p>').text(parentNewcategory)));
+        newRow.append($('<td>').addClass('category__name').append($('<p class="font-weight-bold">').text(nameNewcategory)));
+        newRow.append($('<td>').addClass('category__parent').append($('<p class="font-weight-bold">').text(parentNewcategory)));
         newRow.append($('<td>').append($('<div>').addClass('d-flex table-control').append(
             $('<a>').attr('href', '#editModal').addClass('edit').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-pencil')),
             $('<a>').attr('href', '#deleteModal').addClass('delete').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-trash-can'))

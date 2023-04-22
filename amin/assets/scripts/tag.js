@@ -72,8 +72,8 @@ $(function () {
                 $('<label>').attr('for', `checkbox${newNumber}`)
             )
         ));
-        newRow.append($('<td>').addClass('tag__name').append($('<p>').text(nameNewTag)));
-        newRow.append($('<td>').addClass('').append($('<p>').text('0')));
+        newRow.append($('<td>').addClass('tag__name').append($('<p class="font-weight-bold">').text(nameNewTag)));
+        newRow.append($('<td>').addClass('').append($('<p class="font-weight-bold">').text('0')));
         newRow.append($('<td>').append($('<div>').addClass('d-flex table-control').append(
             $('<a>').attr('href', '#editModal').addClass('edit').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-pencil')),
             $('<a>').attr('href', '#deleteModal').addClass('delete').attr('data-toggle', 'modal').append($('<i>').addClass('fa-solid fa-trash-can'))
