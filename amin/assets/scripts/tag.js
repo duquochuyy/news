@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-=======
 import { checkbox } from "./main.js";
->>>>>>> c2deb573736dd7c550938486822a1c6e8658a2a7
 $(function () {
     //$('.edit').on('click', function() {
     $('#myTable').on('click', '.edit', function () {
+
         var tagSelectedEdit = $(this).closest('tr').find('.tag__name')
         console.log(tagSelectedEdit);
         var editModal = $('#editModal');
@@ -37,7 +35,7 @@ $(function () {
     //$('.delete').on('click', function() {
     $('#myTable').on('click', '.delete', function () {
         var tagSelectedDelete = $(this).closest('tr').find('.tag__name')
-        var editModal = $('#deleteModal');
+        var deleteModal = $('#deleteModal');
 
         $('tbody .selectedDelete').removeClass('selectedDelete');
         tagSelectedDelete.addClass('selectedDelete');
@@ -47,8 +45,7 @@ $(function () {
             $('#deleteModal input').focus();
         })
 
-        var deleteModal = $("#deleteModal");
-        editModal.find('.submit').on('click', function () {
+        deleteModal.find('.submit').on('click', function () {
             deleteModal.find("form").submit(() => {
                 $('#deleteModal').hide();
                 $("body").removeClass("modal-open");
@@ -91,11 +88,8 @@ $(function () {
         var newNumber = myTable.find('tr').length - 1 + 1;
 
         var newRow = createNewRow(nameNewTag, newNumber);
-<<<<<<< HEAD
         console.log(newRow);
-=======
         checkbox.push(...$(newRow).find('input[type="checkbox"]'));
->>>>>>> c2deb573736dd7c550938486822a1c6e8658a2a7
         myTable.prepend(newRow);
 
         $('#addModal').hide();

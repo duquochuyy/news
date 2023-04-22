@@ -63,6 +63,46 @@ a, .page-link {
 
 /* Modal styles */
 
+button{
+    border: none;
+    background-color: transparent;
+}
+
+.button{
+    display: block;
+    min-width: 100px;
+    max-width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--white-color);
+    text-transform: uppercase;
+    border: none !important;
+}
+
+.button + .button{
+    margin-left: 10px;
+}
+
+.button:hover{
+    opacity: 0.8 ;
+    color: var(--white-color);
+}
+.remove-btn{
+    background-color: var(--primary-color);
+}
+.success-btn{
+    background-color: var(--success-bg);
+}
+.cancel-btn{
+    background-color: var(--second-color);
+}
+.add-btn{
+    background-color: var(--success-bg);
+}
+
 .modal .modal-dialog {
 	max-width: 400px;
 
@@ -86,6 +126,17 @@ a, .page-link {
     right: 20px;
     top: 20px;
 }
+.close-modal{
+    font-size: 24px;
+    color: var(--second-color);
+    display: block;
+    float: right;
+    clear: both;
+}
+.close-modal:hover{
+    opacity: 0.8;
+    color: var(--primary-color);
+}
 .modal-body, .modal-footer {
     padding-top: 15px;
 }
@@ -105,6 +156,11 @@ a, .page-link {
 }
 .modal .modal-title {
 	display: inline-block;
+    font-size: 16px;
+    color: var(--second-color);
+    font-weight: bold;
+    text-align: center;
+    margin-top: -10px;
 }
 .modal .form-control {
 	border-radius: 2px;
@@ -128,4 +184,8 @@ a, .page-link {
 }
 .input-field{
     border-radius: 5px !important;
+}
+.modal .modal-body select {
+    width: 100%;
+    padding: 10px;
 }

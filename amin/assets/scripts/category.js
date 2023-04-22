@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+import { checkbox } from "./main.js";
 var categoryParent = {
     kinhte: 'Kinh tế',
     thethao: 'Thể thao'
@@ -21,9 +21,6 @@ function removeItemCategoryParent(nameValue, nameText) {
     $(`#category__parent--edit, #category__parent--add option[value=${nameValue}]`).remove();
 }
 
-=======
-import { checkbox } from "./main.js";
->>>>>>> c2deb573736dd7c550938486822a1c6e8658a2a7
 $(function () {
     console.log('2');
     // edit

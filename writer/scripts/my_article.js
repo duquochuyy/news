@@ -58,56 +58,51 @@ $(function () {
     console.log('2')
     $('.bodyarea').on('click', '.edit', function () {
         console.log('3')
-        var categorySelectedEdit = $(this).closest('tr').find('.category__name')
-        console.log(categorySelectedEdit);
-        var editModal = $('#editModal');
+        var articleSelectedEdit = $(this).closest('.bodyarea__item');
+        console.log(articleSelectedEdit);
 
-        $('tbody .selectedEdit').removeClass('selectedEdit');
-        // alert('huy')
-        categorySelectedEdit.addClass('selectedEdit');
-        var oldName = $('.selectedEdit').find('p').text();
-
+        $('.bodyarea .selectedEdit').removeClass('selectedEdit');
+        articleSelectedEdit.addClass('selectedEdit');
+        var name = $('.selectedEdit').find('.text-primary');
+        var oldName = name.text();
         console.log(oldName);
 
         $('#editModal').on('shown.bs.modal', function () {
-            $('#category__name--edit').val(oldName);
-            $('#category__name--edit').focus();
+            $('#title__name--edit').val(oldName);
+            $('#title__name--edit').focus();
         })
 
         $('.form-edit').submit(function (e) {
             e.preventDefault();
-            var newName = $('#category__name--edit').val();
+            var newName = $('#title__name--edit').val();
             console.log(newName);
-            $('.selectedEdit').text(newName);
+            name.text(newName);
 
-            $('#editModal').hide();
+            $('#editModal').modal('hide');
             $("body").removeClass("modal-open");
             $(".modal-backdrop.fade.show").remove();
 
         })
     })
 
-    //$('.delete').on('click', function() {
-    $('#myTable').on('click', '.delete', function () {
-        var categorySelectedDelete = $(this).closest('tr').find('.category__name')
-        var editModal = $('#deleteModal');
+    $('.bodyarea').on('click', '.delete', function () {
+        var articleSelectedDelete = $(this).closest('.bodyarea__item');
+        var deleteModal = $('#deleteModal');
 
-        $('tbody .selectedDelete').removeClass('selectedDelete');
-        categorySelectedDelete.addClass('selectedDelete');
+        $('.bodyarea .selectedDelete').removeClass('selectedDelete');
+        articleSelectedDelete.addClass('selectedDelete');
 
         $('#deleteModal').on('shown.bs.modal', function () {
             $('#deleteModal input').val('');
             $('#deleteModal input').focus();
         })
 
-        var deleteModal = $("#deleteModal");
-        editModal.find('.submit').on('click', function () {
+        deleteModal.find('.submit').on('click', function () {
             deleteModal.find("form").submit(() => {
-                $('#deleteModal').hide();
+                $('#deleteModal').modal('hide');
                 $("body").removeClass("modal-open");
-                deleteModal.removeClass("show");
                 $(".modal-backdrop.fade.show").remove();
-                $('.selectedDelete').closest('tr').remove();
+                $('.selectedDelete').remove();
 
             });
         })
