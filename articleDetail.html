@@ -67,13 +67,13 @@
 
                             </div>
                             <div class="line-separate non-ad control-item">
-                                <a href="#" class="control-link hover light-hover">Nâng
+                                <a href="listArticle.html?modal=true" class="control-link hover light-hover">Nâng
                                     cấp tài khoản</a>
                             </div>
                             <div class=" control-item">
-                                <a href="#" class="control-link hover light-hover">Cài
+                                <a href="./logged_user/page/setting.html" class="control-link hover light-hover">Cài
                                     đặt</a>
-                                <a href="#" class="control-link hover light-hover">Đăng
+                                <a href="index.html" class="control-link hover light-hover">Đăng
                                     xuất</a>
                             </div>
                         </div>
@@ -627,7 +627,7 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <form class="mt-2" id="change-category" action="#payment-modal">
+                    <form class="mt-2" id="renew-account" action="#payment-modal">
                         <div class="d-flex flex-column align-items-center">
                             <p><strong>Chỉ với 7000đ/ngày</strong></p>
                             <p class="mt-2"><strong>Tài khoản của bạn sẽ được</strong></p>
@@ -674,7 +674,7 @@
                     </h5>
                 </div>
                 <div class="modal-body mb-3">
-                    <form class="mt-2" id="change-category" action="./articleDetail.html">
+                    <form class="mt-2" id="payment" action="./articleDetail.html">
                         <div class="d-flex flex-column align-items-center">
                             <p><strong>Thanh toán 49000đ trong một lần cho 7 ngày</strong></p>
                             <p class="mt-2"><strong>Bắt đầu ngay hôm nay</strong></p>
@@ -710,6 +710,13 @@
             </div>
         </div>
     </div>
+    <script>
+        const formElement = document.getElementById('renew-account');
+        formElement.addEventListener("submit", function (event) {
+            event.preventDefault();
+            $("payment-modal").modal('show');
+        });
+    </script>
 </body>
 
 </html>
