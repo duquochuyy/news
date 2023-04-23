@@ -172,7 +172,7 @@ $(document).ready(function () {
         modal.css("display","none");
         header.classList.add("logged-in");
         if(role==1){
-            loginPage.attr("action","./editor/page/detail.html");
+            loginPage.attr("action","./editor/listpage.html");
         }
         if(role==2){
             console.log(role)
