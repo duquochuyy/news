@@ -52,14 +52,16 @@ a, .page-link {
 #sidebar-btn{
     padding: 5px;
     height: 25px;
-    font-size: 30px;
-    color: var(--second-color);
+    font-size: 32px;
+    /* color: var(--second-color); */
     margin-left: -8px;
     cursor: pointer;
+    
 }
 #sidebar-btn:hover{
     color: var(--primary-color);
 }
+
 
 /* Modal styles */
 
@@ -188,4 +190,29 @@ button{
 .modal .modal-body select {
     width: 100%;
     padding: 10px;
+}
+/* EDIT CSS */
+.text-left.col-lg-5.p-0{
+    display: inline-block;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+    hr{
+        border: none !important;
+    }
+    #sidebar-btn{
+        font-size: 26px;
+    }
+    #sidebar{
+        margin:0;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        
+    }
+}
+@media screen and(max-width: 560px) {
+    #namePage{
+        font-size: 24px !important;
+    }
 }
