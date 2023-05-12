@@ -1,110 +1,101 @@
-
-$("#sidebar ul li").on('click', function() {
-    $("#sidebar ul li.active").removeClass('active');
-    $(this).addClass('active');
-
-    if ($(this).hasClass('content-1')) {
-        $(".bodyarea div.content-active").addClass('content-hidden');
-        $(".bodyarea div.content-active").removeClass('content-active');
-
-        $(".bodyarea div.content-1").removeClass('content-hidden');
-        $(".bodyarea div.content-1").addClass('content-active');
-    }
-    else if ($(this).hasClass('content-2')) {
-        $(".bodyarea div.content-active").addClass('content-hidden');
-        $(".bodyarea div.content-active").removeClass('content-active');
-
-        $(".bodyarea div.content-2").removeClass('content-hidden');
-        $(".bodyarea div.content-2").addClass('content-active');
-    }
-    else if ($(this).hasClass('content-3')) {
-        $(".bodyarea div.content-active").addClass('content-hidden');
-        $(".bodyarea div.content-active").removeClass('content-active');
-
-        $(".bodyarea div.content-3").removeClass('content-hidden');
-        $(".bodyarea div.content-3").addClass('content-active');
-    }
-    else if ($(this).hasClass('content-4')) {
-        $(".bodyarea div.content-active").addClass('content-hidden');
-        $(".bodyarea div.content-active").removeClass('content-active');
-
-        $(".bodyarea div.content-4").removeClass('content-hidden');
-        $(".bodyarea div.content-4").addClass('content-active');
-    }
-})
-
-$(document).ready(()=>{
+// chỉnh sửa thu nhỏ sidebar
+$(() => {
     const sidebarBtn = $("#sidebar-btn");
     const sidebar = $("#sidebar");
-    const main = $(".bodyarea");
+    const main = $("#bodyarea");
     // SIDE BAR
     sidebarBtn.click(()=>{
         if(sidebar.css("display")=="block"){
             sidebar.css("display","none");
             // main.css("padding-left","20px");
-            main.removeClass('col-lg-9');
-            main.addClass('col-lg-12')
+            main.removeClass('col-lg-9 col-md-9');
+            main.addClass('col-lg-12 col-md-12');
         }
         else{
             sidebar.css("display","block");
-            main.removeClass('col-lg-12');
-            main.addClass('col-lg-9')
+            main.removeClass('col-lg-12 col-md-12');
+            main.addClass('col-lg-9 col-md-9');
         }
     })
 })
 
-$(function () {
-    //$('.edit').on('click', function() {
-    console.log('2')
-    $('.bodyarea').on('click', '.edit', function () {
-        console.log('3')
-        var articleSelectedEdit = $(this).closest('.bodyarea__item');
-        console.log(articleSelectedEdit);
+// xử lí việc chỉnh sidebar 
+const listSidebar = $('#sidebar ul li');
+const listContent = $('#bodyarea .content');
+listSidebar.each((index, item) => {
+    item.addEventListener('click', (e) => {
+        $("#sidebar ul li.active").removeClass('active');
+        let contentActive = $("#bodyarea div.content-active");
+        contentActive.addClass('content-hidden');
+        contentActive.removeClass('content-active');
+        $(item).addClass('active');
+        listContent.eq(index).removeClass('content-hidden');
+        listContent.eq(index).addClass('content-active');
+    });
+});
 
-        $('.bodyarea .selectedEdit').removeClass('selectedEdit');
-        articleSelectedEdit.addClass('selectedEdit');
-        var name = $('.selectedEdit').find('.text-primary');
-        var oldName = name.text();
-        console.log(oldName);
 
-        $('#editModal').on('shown.bs.modal', function () {
-            $('#title__name--edit').val(oldName);
-            $('#title__name--edit').focus();
-        })
+// chỉnh sửa tiêu đề bài viết
+const checkEdit = () => {
+    $('#bodyarea .edit').each((index, item) => {
+        // console.log(item);
+        item.addEventListener('click', (e) => {
+            $('#bodyarea .selectedEdit').removeClass('selectedEdit');
+            const articleSelectedEdit = $(e.currentTarget).closest('.bodyarea__item');
+            console.log(articleSelectedEdit);   
+            articleSelectedEdit.addClass('selectedEdit');
+            const titleElement = articleSelectedEdit.find('.text-primary');
 
-        $('.form-edit').submit(function (e) {
-            e.preventDefault();
-            var newName = $('#title__name--edit').val();
-            console.log(newName);
-            name.text(newName);
+            $('#editModal').on('shown.bs.modal', function () {
+                $('#editModal #title__name--edit').val(titleElement.text());
+                $('#editModal #title__name--edit').focus();
+            })
 
-            $('#editModal').modal('hide');
-            $("body").removeClass("modal-open");
-            $(".modal-backdrop.fade.show").remove();
+            $('.form-edit').submit((e) => {
+                e.preventDefault();
+                const newName = $('#title__name--edit').val();
+                // console.log(newName);
+                titleElement.text(newName);
 
+                $('#editModal').modal('hide');
+                $("body").removeClass("modal-open");
+                $(".modal-backdrop.fade.show").remove();
+
+            })        
         })
     })
+}
 
-    $('.bodyarea').on('click', '.delete', function () {
-        var articleSelectedDelete = $(this).closest('.bodyarea__item');
-        var deleteModal = $('#deleteModal');
+// xóa một bài viết
+const checkDelete = () => {
+    $('#bodyarea .delete').each((index, item) => {
+        console.log(item);
+        item.addEventListener('click', (e) => {
+            $('#bodyarea .selectedDelete').removeClass('selectedDelete');
+            const articleSelectedDelete = $(e.currentTarget).closest('.bodyarea__item');
+            console.log(articleSelectedDelete);   
+            articleSelectedDelete.addClass('selectedDelete');
 
-        $('.bodyarea .selectedDelete').removeClass('selectedDelete');
-        articleSelectedDelete.addClass('selectedDelete');
+            $('#deleteModal').on('shown.bs.modal', function () {
+                
+                $('#deleteModal #reason').val('').focus();
+            })
 
-        $('#deleteModal').on('shown.bs.modal', function () {
-            $('#deleteModal input').val('');
-            $('#deleteModal input').focus();
-        })
+            $('.form-delete').submit((e) => {
+                e.preventDefault();
+                const reason = $('#reason').val();
+                console.log(reason);
 
-        deleteModal.find('.submit').on('click', function () {
-            deleteModal.find("form").submit(() => {
                 $('#deleteModal').modal('hide');
                 $("body").removeClass("modal-open");
                 $(".modal-backdrop.fade.show").remove();
-                $('.selectedDelete').remove();
-
-            });
+                articleSelectedDelete.remove();
+            })        
         })
     })
-});
+}
+
+$(() => {
+    checkEdit();
+    checkDelete();
+})

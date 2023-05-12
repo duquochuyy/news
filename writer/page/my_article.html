@@ -166,8 +166,8 @@
                     <hr class="col-lg-3">
                 </div>
 
-                <div class="row">
-                    <div id="sidebar" class="col-lg-3">
+                <div class="row forReponsiveParent">
+                    <div id="sidebar" class="col-lg-3 col-md-3 col-sm-12 col-ex-12 forReponsiveChild">
                         <ul class="nav navbar-nav">
                             <li class="nav-item active rounded content-1">
                                 <a class="nav-link px-4 text-black hover d-block" href="#" aria-current="page">Chưa được
@@ -189,8 +189,8 @@
                     </div>
 
 
-                    <div class="bodyarea col-lg-9">
-                        <div class="content-1 content-active">
+                    <div id="bodyarea" class="col-lg-9 col-md-9">
+                        <div class="content content-1 content-active">
                             <h2>Bài viết chưa được duyệt</h2>
                             <hr>
                             <div class="bodyarea__items">
@@ -292,7 +292,7 @@
                             </div>
                         </div>
 
-                        <div class="content-2 content-hidden">
+                        <div class="content content-2 content-hidden">
                             <h2>Bài viết chờ xuất bản</h2>
                             <hr>
                             <div class="bodyarea__items">
@@ -347,7 +347,7 @@
                             </div>
                         </div>
 
-                        <div class="content-3  content-hidden">
+                        <div class="content content-3 content-hidden">
                             <h2>Bài viết đã xuất bản</h2>
                             <hr>
                             <div class="bodyarea__items">
@@ -402,7 +402,7 @@
                             </div>
                         </div>
 
-                        <div class="content-4 content-hidden">
+                        <div class="content content-4 content-hidden">
                             <h2>Bài viết bị từ chối</h2>
                             <hr>
                             <div class="bodyarea__items">
@@ -735,14 +735,14 @@
                         class="fa-solid fa-xmark close-modal"></i></button>
 
                 <p class="modal-title">Xóa bài viết</p>
-                <form action="#">
+                <form action="#" class="form-delete">
                     <div class="form-group modal-body">
                         <label class="form-label">Nhập lý do xóa</label>
-                        <input type="text" class="form-control input-field" required>
+                        <input type="text" id="reason" class="form-control input-field" required>
                     </div>
                     <div class="modal-footer">
-                        <button class="button remove-btn text-uppercase submit">Xóa</button>
-                        <button data-dismiss="modal" class="button cancel-btn text-uppercase" data-bs-dismiss="modal">Hủy
+                        <button type="submit" class="button remove-btn text-uppercase submit">Xóa</button>
+                        <button type="button" data-dismiss="modal" class="button cancel-btn text-uppercase" data-bs-dismiss="modal">Hủy
                             bỏ</button>
 
                     </div>

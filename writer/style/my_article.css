@@ -197,3 +197,46 @@ button{
     width: 100%;
     padding: 10px;
 }
+
+/* responsive */
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+    .forReponsiveParent {
+        position: relative;
+    }
+    .forReponsiveChild {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        height: 200px;
+        background-color: white;
+        border-radius: 10%;
+        border: 1px solid black;
+        animation: fadeIn 1s;
+        padding-top: 10px;
+        margin-left: 12px;
+        max-width: 200px;
+    }   
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

@@ -1,25 +1,28 @@
-$(document).ready(function(){
-    $('#resetPWForm').on('submit', function(event){
-        event.preventDefault();
-        var newPW = $('#inputNewPW').val();
-        var confirmNewPW = $('#inputConfirmNewPW').val();
+$(() => {
+    $('#resetPWForm').on('submit', (e) => {
+        e.preventDefault();
+        const oldPW = $('#inputCurrentPW').val();
+        const newPW = $('#inputNewPW').val();
+        const confirmNewPW = $('#inputConfirmNewPW').val();
+        const pwError = $('#passwordError');
+        const confirmPWError = $('#confirmPasswordError');
         
         if (newPW.length < 8) {
-            $('#passwordError').removeClass('d-none')
-            $('#passwordError').addClass('d-block')
+            pwError.removeClass('d-none')
+            pwError.addClass('d-block')
         }
         else {
-            $('#passwordError').removeClass('d-block')
-            $('#passwordError').addClass('d-none')
+            pwError.removeClass('d-block')
+            pwError.addClass('d-none')
 
         }
         if (newPW !== confirmNewPW) {
-            $('#confirmPasswordError').removeClass('d-none')
-            $('#confirmPasswordError').addClass('d-block')
+            confirmPWError.removeClass('d-none')
+            confirmPWError.addClass('d-block')
         }
         else {
-            $('#confirmPasswordError').removeClass('d-block')
-            $('#confirmPasswordError').addClass('d-none')
+            confirmPWError.removeClass('d-block')
+            confirmPWError.addClass('d-none')
         }
         if (newPW.length >= 8 && newPW === confirmNewPW) {
             this.submit();

@@ -21,19 +21,19 @@ function removeItemCategoryParent(nameValue, nameText) {
     $(`#category__parent--edit, #category__parent--add option[value=${nameValue}]`).remove();
 }
 
-$(function () {
-    console.log('2');
+$(() => {
+    // console.log('2');
     // edit
     
-    function handleEdit() {
-        var categorySelectedEdit = $(this).closest('tr').find('.category__name');
-        var editModal = $('#editModal');
+    const handleEdit = () => {
+        const categorySelectedEdit = $(this).closest('tr').find('.category__name');
+        const editModal = $('#editModal');
 
         $('tbody .selectedEdit').removeClass('selectedEdit');
         categorySelectedEdit.addClass('selectedEdit');
 
-        var selectedEdit = $('.selectedEdit');
-        var oldName = selectedEdit.find('p').text();
+        const selectedEdit = $('.selectedEdit');
+        const oldName = selectedEdit.find('p').text();
 
         // optionHidden = $(`#category__parent--select option:contains(${oldName})`).hide();
         
