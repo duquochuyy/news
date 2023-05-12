@@ -50,3 +50,31 @@ a, .page-link {
     color: var(--white-color) !important;
     background-color: var(--primary-color) !important;
 }
+/* edit CSS */
+.col-form-label.my-0.py-0{
+    
+    color: var(--second-color);
+    font-size: 18px;
+
+}
+#inputCategory{
+    color: var(--second-color);
+    font-size: 15px !important;
+}
+input{
+    color: var(--second-color) !important;
+    font-size: 15px !important;
+  
+}
+.btn-lg {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 768px) {
+    .col-lg-2 hr{
+        border: none !important;
+    }
+}

@@ -175,7 +175,7 @@
                                         <ul id="list-article" class="row">
 
                                                 <li class="list-article__item col-sm-6  mt-3">
-                                                        <a href="#" class="list-article__link">
+                                                        <a href="./articleDetail.html" class="list-article__link">
                                                                 <div class="list-article__img pos-r">
                                                                         <img src="./assets/images/news/ID10_0.jpg"
                                                                                 alt="">
@@ -497,7 +497,7 @@
                                                                 </div>
 
                                                         </a>
-                                                </li>   
+                                                </li>
 
 
                                         </ul>
@@ -801,8 +801,17 @@
                 </footer>
         </div>
         <div id="form-modal">
-
-                <form id="login-form" class="authentication-form " action="./index.html" novalidate>
+                <div id="signup-role">
+                        <header class="form-heading">
+                                <h5 class="form-title text-uppercase bold ">Đăng nhập với tư cách</h5>
+                        </header>
+                        <div id="btn-roles" class="d-flex-column">
+                                <button class="btn-role">Người dùng / Phóng viên</button>
+                                <button class="btn-role">Biên tập viên</button>
+                                <button class="btn-role">Admin</button>
+                        </div>
+                </div>
+                <form id="login-form" class="authentication-form " action="#" novalidate>
                         <header class="form-heading">
                                 <h5 class="form-title text-uppercase bold ">xin chào!</h5>
                                 <p class="form-direction">Đăng nhập bên dưới hoặc <a href="#" class="form-link bold"
@@ -923,6 +932,116 @@
                 </form>
                 <i class="fa-solid fa-xmark hover" id="search-close"></i>
         </div>
+
+        <div class="modal fade" id="premium-modal" tabindex="-1" aria-labelledby="premium-modal-label"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                        <h5 class="modal-title mt-2 text-uppercase" id="premium-modal-label">
+                                                <strong>Đăng ký
+                                                        Premium</strong>
+                                        </h5>
+                                </div>
+                                <div class="modal-body">
+                                        <form class="mt-2" id="renew-account" action="#payment-modal">
+                                                <div class="d-flex flex-column align-items-center">
+                                                        <p><strong>Chỉ với 7000đ/ngày</strong></p>
+                                                        <p class="mt-2"><strong>Tài khoản của bạn sẽ được</strong></p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-center align-items-center mt-4">
+                                                        <div
+                                                                class="col-2 border border-secondary rounded-circle d-flex justify-content-center align-items-center">
+                                                                <img src="share/assets/images/premium.png" alt=""
+                                                                        class="p-3">
+                                                        </div>
+                                                        <div class="col-9 d-flex justify-content-end">
+                                                                <p>Xem bài viết premium không giới hạn số lượng</p>
+                                                        </div>
+                                                </div>
+
+                                                <div class="d-flex justify-content-center align-items-center mt-3">
+                                                        <div
+                                                                class="col-2 border border-secondary rounded-circle d-flex justify-content-center align-items-center">
+                                                                <i class="fa-solid fa-download fa-2x p-4"></i>
+                                                        </div>
+
+                                                        <div class="col-9 d-flex justify-content-end">
+                                                                <p>Tải bài viết bạn muốn với đầy đủ nội dung một <br>
+                                                                        cách dễ dàng</p>
+                                                        </div>
+                                                </div>
+
+                                                <div class="d-flex justify-content-center mt-4">
+                                                        <button type="submit" class="btn success-btn col-9"
+                                                                id="submit-premium" data-bs-toggle="modal"
+                                                                data-bs-target="#payment-modal">Dùng một tuần với
+                                                                49000đ</button>
+                                                </div>
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="payment-modal-label"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                        <h5 class="modal-title mt-2 text-uppercase" id="payment-modal-label"><strong>Gói
+                                                        của bạn</strong>
+                                        </h5>
+                                </div>
+                                <div class="modal-body mb-3">
+                                        <form class="mt-2" id="payment" action="./listArticle.html">
+                                                <div class="d-flex flex-column align-items-center">
+                                                        <p><strong>Thanh toán 49000đ trong một lần cho 7 ngày</strong>
+                                                        </p>
+                                                        <p class="mt-2"><strong>Bắt đầu ngay hôm nay</strong></p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-center">
+                                                        <hr class="col-8">
+                                                </div>
+
+                                                <div class="text-justify about">
+                                                        <p>Bằng cách tiến hành mua, bạn cho phép chúng tôi tính giá trên
+                                                                trong
+                                                                khoản thời gian bạn đã chọn. Sau khi hết 1 tuần bạn cần
+                                                                gia hạn để tiếp tục dùng premium
+                                                                hoặc sử dụng tài khoản miễn phí với các chức năng cơ
+                                                                bản. Chúng tôi không thực hiện hoàn
+                                                                thiện với bất kỳ lí do nào.</p>
+                                                </div>
+
+                                                <div
+                                                        class="d-flex justify-content-center mt-3 bg-payment border rounded-2">
+                                                        <div
+                                                                class="col-11 d-flex flex-column justify-content-around align-items-center">
+                                                                <img class="col-2 mt-3"
+                                                                        src="share/assets/images/momologo.png" alt="">
+                                                                <div class="col-11 mt-3 text-justify about">
+                                                                        <p>Bạn sẽ được chuyển đến trang thanh toán của
+                                                                                Momo để hoàn tất giao dịch</p>
+                                                                </div>
+                                                                <div class="col-11 d-flex justify-content-center mt-3">
+                                                                        <button type="submit"
+                                                                                class="btn success-btn col-9"
+                                                                                id="submit-premium">Tiếp tục
+                                                                                mua</button>
+                                                                </div>
+                                                        </div>
+                                                </div>
+
+
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <script src="./assets/scripts/listArticle.js"></script>
 </body>
 
 </html>

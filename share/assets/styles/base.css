@@ -202,6 +202,9 @@ ul {
 }
 
 /* USER DO NOT LOG IN */
+#app__header.logged-in #guest{
+    display: none !important;
+}
 #guest {
     width: 30%;
     font-size: 12px;
@@ -218,7 +221,11 @@ ul {
 }
 
 /* USER LOGGED IN */
-#user-logged-in {
+#app__header.logged-in #user-logged-in{
+    display: flex !important; 
+}
+
+#user-logged-in{
     display: none;
     /* display: flex; */
 }
@@ -696,6 +703,9 @@ footer {
     .footer {
         background-color: black;
     }
+    #search-input{
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 560px) {
@@ -704,5 +714,8 @@ footer {
     }
     .category-card{
         font-size: 11px;
+    }
+    #search-input{
+        font-size: 16px;
     }
 }

@@ -99,11 +99,28 @@ $(document).ready(function () {
     const loginPage = $("#login-form");
     const signupPage = $("#signup-form");
     const modal = $("#form-modal");
+    let role = 0;
     $("#guest").click(() => modal.css("display", "block"));
+    // thêm vào để chạy thử
     $("#app__header-login").click(() => {
         document.title = "Đăng nhập";
-        loginPage.css("display", "block");
+        $("#signup-role").css("display", "block");
     })
+    $("#btn-roles .btn-role").each((idx,e)=>{
+        $(e).click(()=>{
+            role = idx;
+            $("#signup-role").css("display", "none");
+            if(role!=0){
+                loginPage.find(".form-direction").css("display","none");
+            }
+            loginPage.css("display", "block");
+        })
+    })
+    // $("#app__header-login").click(() => {
+    //     document.title = "Đăng nhập";
+    //     loginPage.css("display", "block");
+    // })
+    
     $("#app__header-signup").click(() => {
         document.title = "Đăng ký";
         signupPage.css("display", "block");
@@ -148,5 +165,23 @@ $(document).ready(function () {
     // // LOGIN FORM
     // const loginForm = new Validator("#login-form form");
     // loginForm.submit(".form-control");
+
+    // LOGIN
+    loginPage.submit(()=>{
+       
+        modal.css("display","none");
+        header.classList.add("logged-in");
+        if(role==1){
+            loginPage.attr("action","./editor/listpage.html");
+        }
+        if(role==2){
+            console.log(role)
+            loginPage.attr("action","./amin/categoryManagement.html");
+            
+        }
+      
+    })
+   
+
 
 })

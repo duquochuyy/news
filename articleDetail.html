@@ -67,13 +67,13 @@
 
                             </div>
                             <div class="line-separate non-ad control-item">
-                                <a href="#" class="control-link hover light-hover">Nâng
+                                <a href="listArticle.html?modal=true" class="control-link hover light-hover">Nâng
                                     cấp tài khoản</a>
                             </div>
                             <div class=" control-item">
-                                <a href="#" class="control-link hover light-hover">Cài
+                                <a href="./logged_user/page/setting.html" class="control-link hover light-hover">Cài
                                     đặt</a>
-                                <a href="#" class="control-link hover light-hover">Đăng
+                                <a href="index.html" class="control-link hover light-hover">Đăng
                                     xuất</a>
                             </div>
                         </div>
@@ -167,19 +167,23 @@
                         Tiêu đề của bài viết
                     </p>
                     <div id="detail-header__infor">
+                        <div class="d-flex align-items-center">
+                            
                         <img src="./assets/images/avatars/man_default.png" alt="" class="deatail-header__author-img">
                         <p class="deatail-header__author-name">Tên tác giả</p>
-                        <p class="detail-header__publish"> - &nbspNgày đăng&nbsp:
-                        <p class="detail-header__infor-time">&nbsp16/04/2023</p>
-                        </p>
-                        <p class="detail-header__updated"> - &nbspCập nhật :
-                        <p class="detail-header__infor-time">&nbsp16/04/2023</p>
-                        </p>
-                        <a href="#comment" class="detail-header__comment"><i
-                                class="fa-solid fa-comment comment-icon"></i>
-                            <p class="detail-header__comment-quantity">&nbsp1&nbsp</p> bình luận
-                        </a>
+                        </div>
+                        <div class="d-flex align-items-center deatail-times"> <p class="detail-header__publish"> &nbspNgày đăng&nbsp:
+                            <p class="detail-header__infor-time">&nbsp16/04/2023</p>
+                            </p>
+                            <p class="detail-header__updated"> - &nbspCập nhật :
+                            <p class="detail-header__infor-time">&nbsp16/04/2023</p>
+                            </p>
+                            <a href="#comment" class="detail-header__comment"><i
+                                    class="fa-solid fa-comment comment-icon"></i>
+                                <p class="detail-header__comment-quantity">&nbsp1&nbsp</p> bình luận
+                            </a></div>
                     </div>
+                    
                 </header>
                 <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">tải bài
                     viết <i class="fa-solid fa-download"></i></button>
@@ -501,8 +505,18 @@
 
     </div>
     <div id="form-modal">
+        <div id="signup-role">
+            <header class="form-heading">
+                <h5 class="form-title text-uppercase bold ">Đăng nhập với tư cách</h5>
+            </header>
+            <div id="btn-roles" class="d-flex-column">
+                <button class="btn-role">Người dùng / Phóng viên</button>
+                <button class="btn-role">Biên tập viên</button>
+                <button class="btn-role">Admin</button>
+            </div>
+        </div>
 
-        <form id="login-form" class="authentication-form " action="./index.html" novalidate>
+        <form id="login-form" class="authentication-form " action="#" novalidate>
             <header class="form-heading">
                 <h5 class="form-title text-uppercase bold ">xin chào!</h5>
                 <p class="form-direction">Đăng nhập bên dưới hoặc <a href="#" class="form-link bold"
@@ -627,7 +641,7 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <form class="mt-2" id="change-category" action="#payment-modal">
+                    <form class="mt-2" id="renew-account" action="#payment-modal">
                         <div class="d-flex flex-column align-items-center">
                             <p><strong>Chỉ với 7000đ/ngày</strong></p>
                             <p class="mt-2"><strong>Tài khoản của bạn sẽ được</strong></p>
@@ -674,7 +688,7 @@
                     </h5>
                 </div>
                 <div class="modal-body mb-3">
-                    <form class="mt-2" id="change-category" action="./articleDetail.html">
+                    <form class="mt-2" id="payment" action="./articleDetail.html">
                         <div class="d-flex flex-column align-items-center">
                             <p><strong>Thanh toán 49000đ trong một lần cho 7 ngày</strong></p>
                             <p class="mt-2"><strong>Bắt đầu ngay hôm nay</strong></p>
@@ -710,6 +724,13 @@
             </div>
         </div>
     </div>
+    <script>
+        const formElement = document.getElementById('renew-account');
+        formElement.addEventListener("submit", function (event) {
+            event.preventDefault();
+            $("payment-modal").modal('show');
+        });
+    </script>
 </body>
 
 </html>
