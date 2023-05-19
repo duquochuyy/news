@@ -41,3 +41,15 @@
 #guest {
     display: none;
 }
+#button-reject, #button-accept{
+    min-width: 200px !important;
+}
+@media screen and (max-width: 768px) {
+    #action{
+        flex-direction: column !important;
+    }
+    #action a{
+        margin-bottom: 16px;
+    }
+    
+}

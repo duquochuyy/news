@@ -19,3 +19,15 @@
 #guest{
     display: none;
 }
+#app__body .heading{
+    max-width: 300px;
+}
+#title{
+    padding: 8px 16px;
+}
+.list__item + .list__item{
+    margin-top: 16px;
+}
+#list-article .list__item-time{
+    font-size: 14px;
+}
