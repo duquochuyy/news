@@ -1,0 +1,226 @@
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-second {
+    color: var(--second-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--black-color) !important;
+}
+
+.bg-second {
+    background-color: var(--second-color) !important;
+}
+
+#user-logged-in {
+    display: flex;
+}
+
+#guest {
+    display: none;
+}
+
+.app_body {
+    box-sizing: border-box;
+}
+
+a, .page-link {
+    color: var(--black-color);
+}
+
+.main__path a {
+    color: var(--second-color)
+}
+
+.main__path i {
+    font-size: x-small;
+}
+
+#sidebar li.active {
+    background-color: #d9d9d9;
+}
+
+.content-hidden {
+    display: none;
+}
+
+
+.content-active {
+    display: block;
+}
+
+.btn.btn-hover-opacity {
+    color: var(--white-color) !important;
+    background-color: var(--primary-color) !important;
+}
+
+#sidebar-btn{
+    padding: 5px;
+    height: 25px;
+    font-size: 32px;
+    /* color: var(--second-color); */
+    margin-left: -8px;
+    cursor: pointer;
+    
+}
+#sidebar-btn:hover{
+    color: var(--primary-color);
+}
+
+
+/* Modal styles */
+
+button{
+    border: none;
+    background-color: transparent;
+}
+
+.button{
+    display: block;
+    min-width: 100px;
+    max-width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--white-color);
+    text-transform: uppercase;
+    border: none !important;
+}
+
+.button + .button{
+    margin-left: 10px;
+}
+
+.button:hover{
+    opacity: 0.8 ;
+    color: var(--white-color);
+}
+.remove-btn{
+    background-color: var(--primary-color);
+}
+.success-btn{
+    background-color: var(--success-bg);
+}
+.cancel-btn{
+    background-color: var(--second-color);
+}
+.add-btn{
+    background-color: var(--success-bg);
+}
+
+.modal .modal-dialog {
+	max-width: 400px;
+
+
+}
+.modal .modal-header {
+	padding: 20px 30px;
+}
+.modal-dialog {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+}
+.modal-content {
+    position: relative;
+}
+.modal .close {
+    width: 24px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.close-modal{
+    font-size: 24px;
+    color: var(--second-color);
+    display: block;
+    float: right;
+    clear: both;
+}
+.close-modal:hover{
+    opacity: 0.8;
+    color: var(--primary-color);
+}
+.modal-body, .modal-footer {
+    padding-top: 15px;
+}
+.modal .modal-footer {
+    justify-content: center;
+}
+.modal p {
+    padding-top: 45px;
+}
+.modal .modal-content {
+	border-radius: 5px;
+	font-size: 14px;
+}
+.modal .modal-footer {
+	display: flex;
+	border: none;
+}
+.modal .modal-title {
+	display: inline-block;
+    font-size: 16px;
+    color: var(--second-color);
+    font-weight: bold;
+    text-align: center;
+    margin-top: -10px;
+}
+.modal .form-control {
+	border-radius: 2px;
+	box-shadow: none;
+	border-color: #dddddd;
+}
+.modal textarea.form-control {
+	resize: vertical;
+}
+.modal .btn {
+	border-radius: 2px;
+	min-width: 100px;
+}	
+.modal form label {
+	font-weight: normal;
+}
+.modal-title{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+.input-field{
+    border-radius: 5px !important;
+}
+.modal .modal-body select {
+    width: 100%;
+    padding: 10px;
+}
+/* EDIT CSS */
+.text-left.col-lg-5.p-0{
+    display: inline-block;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+    hr{
+        border: none !important;
+    }
+    #sidebar-btn{
+        font-size: 26px;
+    }
+    #sidebar{
+        margin:0;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        
+    }
+}
+@media screen and(max-width: 560px) {
+    #namePage{
+        font-size: 24px !important;
+    }
+}

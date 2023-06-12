@@ -1,0 +1,302 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="./index" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="./listArticle" class="breadcrumb__link">Đời sống </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Tên bài
+            viết </a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div id="detail" class="container-fluid">
+        <header id="detail-header">
+            <div class="category-card">Đời sống</div>
+            <p id="detail-header__title">
+                <img src="images/premium.png" class="premium-icon premium">
+                Tiêu đề của bài viết
+            </p>
+            <div id="detail-header__infor">
+                <div class="d-flex align-items-center">
+
+                    <img src="images/users/man_default.png" alt="" class="deatail-header__author-img">
+                    <p class="deatail-header__author-name">Tên tác giả</p>
+                </div>
+                <div class="d-flex align-items-center deatail-times">
+                    <p class="detail-header__publish"> &nbspNgày đăng&nbsp:
+                    <p class="detail-header__infor-time">&nbsp16/04/2023</p>
+                    </p>
+                    <p class="detail-header__updated"> - &nbspCập nhật :
+                    <p class="detail-header__infor-time">&nbsp16/04/2023</p>
+                    </p>
+                    <a href="#comment" class="detail-header__comment"><i class="fa-solid fa-comment comment-icon"></i>
+                        <p class="detail-header__comment-quantity">&nbsp1&nbsp</p> bình luận
+                    </a>
+                </div>
+            </div>
+
+        </header>
+        <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">tải bài
+            viết <i class="fa-solid fa-download"></i></button>
+        <div class="row">
+
+
+            <div class="col-md-8">
+                <div id="detail-article">
+                    <div id="detail-article__content">
+                        <img src="images/articles/ID10_0.jpg" alt="" class="article__content-img article__content-item">
+                        <p class="article__content-text article__content-item">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing
+                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt.</p>
+
+                        <img src="images/articles/ID10_1.jpg" alt="" class="article__content-img article__content-item">
+                        <p class="article__content-title article__content-item">A cleansing hot shower or bath
+                        </p>
+                        <p class="article__content-text article__content-item">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing
+                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt.</p>
+                    </div>
+                    <div id="comment">
+                        <header id="comment__header">
+                            <i class="fa-regular fa-comments list-comment__icon"></i>
+                            <p class="list-comment__quantity">1</p>
+                            bình luận
+                        </header>
+                        <ul id="list-comment">
+                            <li class="comment-item">
+
+                                <img src="images/users/female_default.png" alt="" class="comment-item__avatar">
+                                <div class="comment-item__body">
+
+                                    <div class="comment-item__infor">
+                                        <p class="comment-item__name">Jennie</p>
+                                        <p class="conmment-item__time">16/04/2023 11:37 AM</p>
+                                    </div>
+                                    <p class="comment-item__content">Đây là một bình luận</p>
+                                    <div class="comment-item__react">
+                                        <p class="comment-item__like hover"><i class="fa-solid fa-thumbs-up"></i> Thích
+                                        </p>
+                                        <p class="comment-item__reply hover"><i class="fa-solid fa-comment"></i>
+                                            Phản hồi</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id="post-comment">
+                            <form action="#">
+                                <label for="comment-input">Bình luận</label>
+                                <textarea name="comment-content" id="comment-input"></textarea>
+                                <input type="submit" class="post-btn btn-primary" value="Bình luận">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="sidebar" class="col-md-4">
+                <div id="related-article" class="sidebar__item">
+
+                    <p class="sidebar__item-title  ">Bài viết cùng chuyên mục</p>
+                    <ul id="related-article__list pc">
+                        <li class="related-article__item mt-3 ">
+                            <a href="#" class="related-article-item__link">
+                                <img src="images/articles/ID8_0.jpg" alt="" class="related-article-item__img">
+                                <div class="related-article-item__infor">
+                                    <p class="related-article-item__title text-black bold">
+                                        Tiêu đề của bài
+                                        viết</p>
+                                    <p class="related-article-item__time ">
+                                        <i class="fa-solid fa-clock"></i>
+                                        08/04/2023
+                                    </p>
+
+                                </div>
+                            </a>
+
+                        </li>
+                        <li class="related-article__item mt-3">
+                            <a href="#" class="related-article-item__link">
+                                <img src="images/articles/ID8_0.jpg" alt="" class="related-article-item__img">
+                                <div class="related-article-item__infor">
+                                    <p class="related-article-item__title text-black bold">
+                                        Tiêu đề của bài
+                                        viết</p>
+                                    <p class="related-article-item__time ">
+                                        <i class="fa-solid fa-clock"></i>
+                                        08/04/2023
+                                    </p>
+
+                                </div>
+                            </a>
+
+                        </li>
+                        <li class="related-article__item mt-3">
+                            <a href="#" class="related-article-item__link">
+                                <img src="images/articles/ID8_0.jpg" alt="" class="related-article-item__img">
+                                <div class="related-article-item__infor">
+                                    <p class="related-article-item__title text-black bold">
+                                        Tiêu đề của bài
+                                        viết</p>
+                                    <p class="related-article-item__time ">
+                                        <i class="fa-solid fa-clock"></i>
+                                        08/04/2023
+                                    </p>
+
+                                </div>
+                            </a>
+
+                        </li>
+                        <li class="related-article__item mt-3">
+                            <a href="#" class="related-article-item__link">
+                                <img src="images/articles/ID8_0.jpg" alt="" class="related-article-item__img">
+                                <div class="related-article-item__infor">
+                                    <p class="related-article-item__title text-black bold">
+                                        Tiêu đề của bài
+                                        viết</p>
+                                    <p class="related-article-item__time ">
+                                        <i class="fa-solid fa-clock"></i>
+                                        08/04/2023
+                                    </p>
+
+                                </div>
+                            </a>
+
+                        </li>
+                        <li class="related-article__item mt-3">
+                            <a href="#" class="related-article-item__link">
+                                <img src="images/articles/ID8_0.jpg" alt="" class="related-article-item__img">
+                                <div class="related-article-item__infor">
+                                    <p class="related-article-item__title text-black bold">
+                                        Tiêu đề của bài
+                                        viết</p>
+                                    <p class="related-article-item__time ">
+                                        <i class="fa-solid fa-clock"></i>
+                                        08/04/2023
+                                    </p>
+
+                                </div>
+                            </a>
+
+                        </li>
+
+
+
+                </div>
+
+
+                <div id="article-social" class="sidebar__item pc">
+                    <p class="sidebar__item-title  ">Theo dõi chúng tôi</p>
+                    <ul id="article-social__list">
+                        <li class="article-social__item">
+                            <a href="#" class="article-social__link">
+                                <img src="images/social-logo/facebook.png" alt="">
+                            </a>
+                        </li>
+                        <li class="article-social__item">
+                            <a href="#" class="article-social__link">
+                                <img src="images/social-logo/google.png" alt="">
+                            </a>
+                        </li>
+                        <li class="article-social__item">
+                            <a href="#" class="article-social__link">
+                                <img src="images/social-logo/zalo.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="catogery" class="sidebar__item pc">
+                    <p class="sidebar__item-title ">Chuyên mục</p>
+                    <ul id="catogery__list">
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">Kinh
+                                tế
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">thể
+                                thao
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">pháp
+                                luật
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">đời
+                                sống
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">công
+                                nghệ
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">sức
+                                khỏe
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+                        <li class="category__item">
+                            <a href="#" class="category__link text-uppercase hover">âm
+                                nhạc
+                            </a>
+                            <p class="category_quantity">(30)</p>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div id="tag" class="sidebar__item pc">
+                    <p class="sidebar__item-title ">Thẻ</p>
+                    <ul id="tag__list" class="row">
+                        <li class="tag__item col-lg-6">
+                            <a href="#" class="tag__link hover">Du lịch</a>
+                        </li>
+                        <li class="tag__item col-lg-6 ">
+                            <a href="#" class="tag__link hover">Du lịch</a>
+                        </li>
+                        <li class="tag__item col-lg-6 ">
+                            <a href="#" class="tag__link hover">Du lịch</a>
+                        </li>
+                        <li class="tag__item col-lg-6 ">
+                            <a href="#" class="tag__link hover">Du lịch</a>
+                        </li>
+                        <li class="tag__item col-lg-6 ">
+                            <a href="#" class="tag__link hover">Du lịch</a>
+                        </li>
+                        <li class="tag__item col-lg-6 ">
+                            <a href="#" class="tag__link hover">Du lịch</a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </ul>
+        </div>
+    </div>
+
+</main>
+{{!-- STYLES --}}
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/authentication.css">
+<link rel="stylesheet" href="styles/articleDetails.css">

@@ -1,0 +1,222 @@
+ <aside id="sidebar">
+            <a href="./setting" id="sidebar__header">
+                <img src="images/users/female_default.png" alt="Avatar" class="rounded"
+                    id="sidebar__header-avatar">
+                <div id="sidebar__header-admin">
+                    <p id="sidebar__header-name" class="text-capitalize bold">minh Hiền</p>
+                    <p id="sidebar__header-extra">Quản trị viên</p>
+                </div>
+            </a>
+
+            <div class="line-separate"></div>
+            <ul id="sidebar__list">
+                <li class="sidebar__item">
+                    <a href="./ad-categoryManagement" class="sidebar__link">Chuyên mục</a>
+                </li>
+                <li class="sidebar__item "><a href="./ad-tagMenagement" class="sidebar__link">Nhãn</a></li>
+                <li class="sidebar__item "><a href="./ad-articleManagement" class="sidebar__link">Bài viết</a></li>
+                <li class="sidebar__item sidebar__item--active"><a href="#" class="sidebar__link">Người dùng</a>
+                </li>
+                <li class="sidebar__item"><a href="./ad-categoryAssignment" class="sidebar__link">Phân công chuyên
+                        mục</a>
+                </li>
+                <li class="sidebar__item"><a href="./ad-accountRenewal" class="sidebar__link">Gia hạn tài khoản</a>
+                </li>
+            </ul>
+
+        </aside>
+<main id="main">
+    <p id="title">Danh sách người dùng</p>
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-heading">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <form id="search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search-field" name="search-content"
+                                    placeholder="Tìm kiếm người dùng...">
+                            </form>
+                        </div>
+                        <div class="col-sm-4 d-flex justify-content-end">
+                            <a href="#deleteModal" class="button remove-btn" id="delete" data-toggle="modal">Xóa</a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="selectAll">
+                                    <label for="selectAll"></label>
+                                </span>
+                            </th>
+                            <th style="width: 45%;">Tên</th>
+                            <th style="width: 30%;">Email</th>
+                            <th style="width: 20%;">Phân hệ</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <label for="checkbox1"></label>
+                                </span>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="#"><img src="images/users/man_default.png" class="user-avatar"
+                                            alt="Avatar">
+                                    </a>
+                                    <div class="user-name">
+                                        <span class="user-fullname text-capitalize">Nguyễn Kông Đại</span>
+                                        <span class="user-nickname">kdai</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>kongdai@gmail.com</td>
+                            <td class="role">Biên tập viên</td>
+                            <td>
+                                <div class="d-flex table-control">
+                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox2" name="options[]" value="1">
+                                    <label for="checkbox2"></label>
+                                </span>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="#"><img src="images/users/man_default.png" class="user-avatar"
+                                            alt="Avatar">
+                                    </a>
+                                    <div class="user-name">
+                                        <span class="user-fullname text-capitalize">Dũ Quốc Huy</span>
+                                        <span class="user-nickname">qhuy</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>quochuy@gmail.com</td>
+                            <td class="role">Phóng viên</td>
+                            <td>
+                                <div class="d-flex table-control">
+                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox3" name="options[]" value="1">
+                                    <label for="checkbox3"></label>
+                                </span>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="#"><img src="images/users/man_default.png" class="user-avatar"
+                                            alt="Avatar">
+                                    </a>
+                                    <div class="user-name">
+                                        <span class="user-fullname text-capitalize">Lê Thị Minh Hiền</span>
+                                        <span class="user-nickname">mhneh</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>mhien@gmail.com</td>
+                            <td class="role">Premium</td>
+                            <td>
+                                <div class="d-flex table-control">
+                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix">
+                    <ul class="pagination">
+                        <li class="page-item  "><a href="#" class="page-link"><i class="fa-solid fa-caret-left"></i></a>
+                        </li>
+                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item "><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-caret-right"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<!-- Edit Modal HTML -->
+<div id="editModal" class="myModal">
+    <div class="myModal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                class="fa-solid fa-xmark close-modal"></i></button>
+
+        <p class="modal-title">Chỉnh sửa phân hệ</p>
+        <div class="form-group">
+            <select name="role" class="form-control" id="role" value="Biên tập viên">
+                <option value="editor">Biên tập viên</option>
+                <option value="user">Người dùng</option>
+                <option value="premium">Premium</option>
+                <option value="writer">Phóng viên</option>
+                <option value="admin">Quản trị viên</option>
+
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+
+        <div class="myModal-button">
+            <input type="submit" class="button submit success-btn" value="Cập nhật">
+            <input type="button" class="button cancel-btn" data-dismiss="modal" value="Hủy bỏ">
+
+        </div>
+    </div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteModal" class="myModal">
+    <div class="myModal-content">
+        <button type="button" class="close"><i class="fa-solid fa-xmark close-modal"></i></button>
+
+        <p class="modal-title">Xóa người dùng</p>
+
+        <div class="form-group ">
+            <!-- <label class="form-label">Nhập lý do xóa</label> -->
+            <textarea type="text" class="form-control input-field required" placeholder="Nhập lý do xóa..."></textarea>
+            <div class="invalid-feedback">Vui lòng ghi rõ lý do xóa!</div>
+
+
+        </div>
+        <div class="myModal-button">
+            <button class="button remove-btn text-uppercase submit">Xóa</button>
+            <button class="button cancel-btn text-uppercase">Hủy
+                bỏ</button>
+
+        </div>
+
+    </div>
+
+</div>
+{{!-- STYLES --}}
+<link rel="stylesheet" href="styles/ad-main.css">
+<link rel="stylesheet" href="styles/ad-userManagement.css">
+{{!-- SCRIPTS --}}
+<script src="scripts/ad-user.js"></script>
+<script type="module" src="scripts/ad-main.js"></script>
+

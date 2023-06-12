@@ -1,0 +1,108 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="./index" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="./my_article" class="breadcrumb__link hover">Bài viết của tôi</a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Đăng bài
+            viết</a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div class="container-fluid">
+
+
+        <div class="row mt-5 mb-2 d-flex justify-content-between align-items-center m-0">
+            <h1 class="text-left col-lg-5 p-0"><strong>Đăng bài viết</strong></h1>
+        </div>
+
+        <div class="row m-0">
+            <hr class="col-lg-3">
+        </div>
+
+        <form action="" class="needs-validation" method="get">
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputTitle" class="col-form-label my-0 py-0">Tiêu đề bài viết</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control form-control-lg" id="inputTitle" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputSumary" class="col-form-label my-0 py-0">Tóm tắt</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control form-control-lg" id="inputSumary" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputContent" class="col-form-label my-0 py-0">Nội dung</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <textarea class="form-control form-control-lg" id="inputContent" placeholder="" required></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputCategory" class="col-form-label my-0 py-0">Chuyên mục</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <select id="inputCategory" class="form-select form-select-xl custom-select" required>
+                        <option value="">Chọn chuyên mục</option>
+                        <option value="kinhte">Kinh tế</option>
+                        <option value="thethao">Thể Thao</option>
+                        <option value="phapluat">Pháp luật</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputTag" class="col-form-label my-0 py-0">Gán nhãn bài viết</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control form-control-lg" id="inputTag" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputImage" class="col-form-label my-0 py-0">Ảnh nổi bật</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input type="file" class="form-control-file" id="inputImage" accept="image/*" value="Tải ảnh lên">
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-5">
+                <button type="submit" id="btnSubmit" class="btn btn-lg btn-primary btn-hover-opacity">Đăng
+                    bài</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+{{!-- STYLES --}}
+
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/authentication.css">
+<link rel="stylesheet" href="styles/post_article.css">
+{{!-- SCRIPTS --}}
+<script src="scripts/post_article.js"></script>

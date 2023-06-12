@@ -1,0 +1,453 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="./index" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Bài viết của
+            tôi</a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div class="container-fluid">
+
+        <div class="row mt-5 mb-2 d-flex justify-content-between align-items-center m-0">
+            <h1 style="display: inline-block; width: auto;" class="text-left col-lg-5 p-0">
+
+                <i class="fa-solid fa-bars" id="sidebar-btn"></i>
+                <strong>Bài viết của tôi</strong>
+            </h1>
+            <a href="post_article.html" style="max-width: 180px; padding: 8px 0px;"
+                class="btn btn-primary col-lg-2 btn-hover-opacity"><i class="fa-regular fa-pen-to-square"></i> Đăng
+                bài
+                mới</a>
+        </div>
+
+        <div class="row m-0">
+            <hr class="col-lg-3">
+        </div>
+
+        <div class="row forReponsiveParent">
+            <div id="sidebar" class="col-lg-3 col-md-3 col-sm-12 col-ex-12 forReponsiveChild">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active rounded content-1">
+                        <a class="nav-link px-4 text-black hover d-block" href="#" aria-current="page">Chưa được
+                            duyệt <span class="visually-hidden">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-2">
+                        <a class="nav-link px-4 text-black hover d-block" href="#">Chờ xuất bản</a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-3">
+                        <a class="nav-link px-4 text-black hover d-block" href="#">Đã xuất bản</a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-4">
+                        <a class="nav-link px-4 text-black hover" href="#">Bị từ chối</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div id="bodyarea" class="col-lg-9 col-md-9">
+                <div class="content content-1 content-active">
+                    <h2>Bài viết chưa được duyệt</h2>
+                    <hr>
+                    <div class="bodyarea__items">
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+                                    <div class="dropdown open">
+                                        <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button type="button" href="#editModal" class="dropdown-item edit"
+                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa-solid fa-pen px-1"></i>
+                                                Chỉnh sửa
+                                            </button>
+                                            <button class="dropdown-item delete" href="#deletaModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="fa-solid fa-trash-can px-1"></i>
+                                                Xóa bài viết
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+                                    <div class="dropdown open">
+                                        <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button type="button" href="#editModal" class="dropdown-item edit"
+                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa-solid fa-pen px-1"></i>
+                                                Chỉnh sửa
+                                            </button>
+                                            <button class="dropdown-item delete" href="#deletaModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="fa-solid fa-trash-can px-1"></i>
+                                                Xóa bài viết
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+                                    <div class="dropdown open">
+                                        <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button type="button" href="#editModal" class="dropdown-item edit"
+                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa-solid fa-pen px-1"></i>
+                                                Chỉnh sửa
+                                            </button>
+                                            <button class="dropdown-item delete" href="#deletaModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="fa-solid fa-trash-can px-1"></i>
+                                                Xóa bài viết
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content content-2 content-hidden">
+                    <h2>Bài viết chờ xuất bản</h2>
+                    <hr>
+                    <div class="bodyarea__items">
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="#" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="#" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="#" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="content content-3 content-hidden">
+                    <h2>Bài viết đã xuất bản</h2>
+                    <hr>
+                    <div class="bodyarea__items">
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="../../articleDetail.html" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="../../articleDetail.html" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="../../articleDetail.html" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="content content-4 content-hidden">
+                    <h2>Bài viết bị từ chối</h2>
+                    <hr>
+                    <div class="bodyarea__items">
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+                                    <div class="dropdown open">
+                                        <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button type="button" href="#editModal" class="dropdown-item edit"
+                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa-solid fa-pen px-1"></i>
+                                                Chỉnh sửa
+                                            </button>
+                                            <button class="dropdown-item delete" href="#deletaModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="fa-solid fa-trash-can px-1"></i>
+                                                Xóa bài viết
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+                                    <div class="dropdown open">
+                                        <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button type="button" href="#editModal" class="dropdown-item edit"
+                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa-solid fa-pen px-1"></i>
+                                                Chỉnh sửa
+                                            </button>
+                                            <button class="dropdown-item delete" href="#deletaModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="fa-solid fa-trash-can px-1"></i>
+                                                Xóa bài viết
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">Tiêu đề của bài viết</p>
+                                    <p class="text-second mb-2">Chuyên mục</p>
+                                    <p class="text-second mb-0"><small>12 giờ trước</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-center justify-content-center">
+                                    <div class="dropdown open">
+                                        <button class="btn" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button type="button" href="#editModal" class="dropdown-item edit"
+                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <i class="fa-solid fa-pen px-1"></i>
+                                                Chỉnh sửa
+                                            </button>
+                                            <button class="dropdown-item delete" href="#deletaModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="fa-solid fa-trash-can px-1"></i>
+                                                Xóa bài viết
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- pagination -->
+        <div class="d-flex justify-content-end m-0 my-5">
+            <ul id="pagination">
+                <li class="pagination__item pagination__item--disable">
+                    <a href="#" class="pagination__link"><i class="fa-solid fa-chevron-left"></i></a>
+                </li>
+                <li class="pagination__item pagination__item--active">
+                    <a href="#" class="pagination__link ">1</a>
+                </li>
+                <li class="pagination__item">
+                    <a href="#" class="pagination__link">2</a>
+                </li>
+                <li class="pagination__item">
+                    <a href="#" class="pagination__link">3</a>
+                </li>
+                <li class="pagination__item" style="border: none;">
+                    <a href="#" class="pagination__link">...</a>
+                </li>
+                <li class="pagination__item">
+                    <a href="#" class="pagination__link">9</a>
+                </li>
+                <li class="pagination__item">
+                    <a href="#" class="pagination__link">10</a>
+                </li>
+                <li class="pagination__item">
+                    <a href="#" class="pagination__link"><i class="fa-solid fa-chevron-right"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</main>
+<!-- Edit Modal HTML -->
+<div id="editModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+            </button>
+            <p class="modal-title">Chỉnh sửa tiêu đề bài viết</p>
+            <form action="#" class="form-edit">
+                <div class="form-group modal-body">
+                    <input type="text" name="" id="title__name--edit" class="p-2 w-100" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button submit success-btn">Cập nhập</button>
+                    <button type="button" class="button cancel-btn" data-bs-dismiss="modal">Hủy bỏ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal HTML -->
+<div id="deleteModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i
+                    class="fa-solid fa-xmark close-modal"></i></button>
+
+            <p class="modal-title">Xóa bài viết</p>
+            <form action="#" class="form-delete">
+                <div class="form-group modal-body">
+                    <label class="form-label">Nhập lý do xóa</label>
+                    <input type="text" id="reason" class="form-control input-field" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button remove-btn text-uppercase submit">Xóa</button>
+                    <button type="button" data-dismiss="modal" class="button cancel-btn text-uppercase"
+                        data-bs-dismiss="modal">Hủy</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{!-- STYLES --}}
+
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/authentication.css">
+<link rel="stylesheet" href="styles/my_article.css">
+{{!-- SCRIPTS --}}
+<script src="scripts/my_article.js"></script>

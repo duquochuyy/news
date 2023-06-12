@@ -1,0 +1,262 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="./index" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link breadcrumb__link--active hover">Cài đặt</a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div class="container-fluid">
+
+        <div class="row mt-5 mb-2 d-flex justify-content-between align-items-center m-0">
+            <h1 class="text-left col-lg-5 p-0"><strong>Cài đặt</strong></h1>
+        </div>
+
+        <div class="row m-0">
+            <hr class="col-lg-3">
+        </div>
+
+        <div class="row">
+            <div class="sidebar col-lg-3">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active rounded content-1">
+                        <a class="nav-link px-3 text-black hover d-block" href="#" aria-current="page">
+                            <i class="fa-solid fa-user text-primary d-inline-block px-1"></i>
+                            Cài đặt tài khoản
+                            <span class="visually-hidden">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-2">
+                        <a class="nav-link px-3 text-black hover d-block" href="#">
+                            <i class="bi bi-shield-fill-check text-primary d-inline-block px-1"></i>
+                            Bảo mật và đăng nhập
+                        </a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-3">
+                        <a class="nav-link px-3 text-black hover d-block" href="./index">
+                            <i class="fa-solid fa-arrow-right-from-bracket  text-primary d-inline-block px-1"></i>
+                            Đăng xuất
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="bodyarea col-lg-9">
+                <div class="content-1 content-active">
+                    <h2>Thông tin cá nhân</h2>
+                    <hr>
+
+                    <form class="profileForm" method="post">
+                        <div class="form-group row m-0 p-0">
+                            <div class="col-lg-2">
+                                <div class="rounded-circle d-flex justify-content-center avatar position-relative">
+                                    <img src="images/users/man_default.png" alt="avatar">
+                                    <label class="input-group-text position-absolute camera-to-choose" for="inputImage">
+                                        <i class="fa-solid fa-camera-retro"></i>
+                                    </label>
+                                    <input type="file" class="form-control-file" id="inputImage" style="display: none;"
+                                        accept="image/*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8 .col-lg-offset-2 inner1 d-flex align-items-center">
+                                <p class="info-text font-weight-bold">Minh Hiền</p>
+                                <input type="text" class="form-control edit-input font-weight-bold d-none">
+                            </div>
+
+                            <div class="col-11 col-lg-2 d-flex align-items-center inner2 p-0">
+                                <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh
+                                    sửa</span>
+                            </div>
+
+                        </div>
+
+                        <hr class="col-lg-2">
+
+                        <div class="form-group row m-0 text-second mt-5">
+                            <i class="fa-regular fa-envelope col-lg-1"></i>
+
+                            <div class="col-lg-9 p-0 inner1">
+                                <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Email</label>
+                                <p class="info-text mt-2">leminhhien25062002@gmail.com</p>
+                                <hr class="m-0">
+                                <input type="email" class="form-control edit-input d-none">
+                            </div>
+
+                            <div class="col-lg-2 p-0 inner2">
+                                <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh
+                                    sửa</span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row m-0 text-second mt-5">
+                            <i class="fa-solid fa-phone col-lg-1"></i>
+
+                            <div class="col-lg-9 p-0 inner1">
+                                <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Số
+                                    điện thoại</label>
+                                <p class="info-text mt-2">Thêm số điện thoại</p>
+                                <hr class="m-0">
+                                <input type="tel" class="form-control edit-input d-none">
+                            </div>
+
+                            <div class="col-lg-2 p-0 inner2">
+                                <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh
+                                    sửa</span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row m-0 text-second mt-5">
+
+                            <i class="fa-solid fa-mars-and-venus col-lg-1 font"></i>
+
+                            <div class="col-lg-11 p-0 inner1">
+                                <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Giới
+                                    tính</label>
+                                <hr class="col-lg-10">
+                                <div class="row">
+                                    <div class="form-check" style="cursor: pointer;">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderMale"
+                                            value="option1" style="cursor: pointer;" checked>
+                                        <label style="cursor: pointer;" class="form-check-label" for="genderMale">
+                                            Nam
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="cursor: pointer;">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale"
+                                            value="option2" style="cursor: pointer;">
+                                        <label style="cursor: pointer;" class="form-check-label" for="genderFemale">
+                                            Nữ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group row m-0 text-second mt-5">
+
+                            <i class="fa-solid fa-mars-and-venus col-lg-1 font"></i>
+
+                            <div class="col-lg-9 p-0 inner1">
+                                <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Ngày
+                                    sinh</label>
+                                <p class="info-text mt-2">25/06/2002</p>
+                                <hr class="m-0">
+                                <input type="date" class="form-control edit-input d-none" id="dateInput">
+                            </div>
+
+                            <div class="col-lg-2 p-0 inner2">
+                                <span class="edit-icon text-second"><i class="fa-solid fa-pen mx-2"></i>Chỉnh
+                                    sửa</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-end mt-5">
+                            <button type="submit" id="btnSubmit"
+                                class="btn btn-lg btn-primary btn-hover-opacity">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="content-2 content-hidden">
+                    <h2>Liên kết tài khoản xã hội</h2>
+                    <hr>
+                    <div class="bodyarea__items">
+                        <div class="bodyarea__item row mt-4">
+                            <div class="col col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="row border m-0 b-0 rounded p-2 d-flex">
+                                    <img src="images/social-logo/google.png" alt="google"
+                                        class="logo-socialnetwork p-0">
+
+                                    <div class="vertical-line"></div>
+
+                                    <p class="p-0 account-socialnetwork">Tài khoản Google</p>
+
+                                </div>
+                            </div>
+
+                            <div
+                                class="col col-lg-2 form-check form-switch d-flex justify-content-center align-items-center">
+                                <input class="form-check-input" style="height: 20px; width: 40px; cursor:pointer"
+                                    type="checkbox" id="checkbox1">
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item row mt-4">
+                            <div class="col col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="row border m-0 b-0 rounded p-2 d-flex">
+                                    <img src="images/social-logo/facebook.png" alt="google"
+                                        class="logo-socialnetwork p-0">
+
+                                    <div class="vertical-line"></div>
+
+                                    <p class="p-0 account-socialnetwork">Tài khoản Facebook</p>
+
+                                </div>
+                            </div>
+
+                            <div
+                                class="col col-lg-2 form-check form-switch d-flex justify-content-center align-items-center">
+                                <input class="form-check-input" style="height: 20px; width: 40px; cursor:pointer"
+                                    type="checkbox" id="checkbox1">
+                            </div>
+                        </div>
+
+                        <div class="bodyarea__item row mt-4">
+                            <div class="col col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="row border m-0 b-0 rounded p-2 d-flex">
+                                    <img src="images/social-logo/zalo.png" alt="google" class="logo-socialnetwork p-0">
+
+                                    <div class="vertical-line"></div>
+
+                                    <p class="p-0 account-socialnetwork">Tài khoản Zalo</p>
+
+                                </div>
+                            </div>
+
+                            <div
+                                class="col col-lg-2 form-check form-switch d-flex justify-content-center align-items-center">
+                                <input class="form-check-input" style="height: 20px; width: 40px; cursor:pointer"
+                                    type="checkbox" id="checkbox1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-5">Đổi mật khẩu</h2>
+                    <hr>
+                    <div class="row text-second">
+                        <a class="nav-link px-3 text-black hover d-block" href="./reset_pw">
+                            <i class="fa-solid fa-pen d-inline-block px-1"></i>
+                            Đổi mật khẩu
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="content-3 content-hidden">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+{{!-- STYLES --}}
+
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/authentication.css">
+<link rel="stylesheet" href="styles/setting.css">
+{{!-- SCRIPTS --}}
+<script src="scripts/setting.js"></script>
