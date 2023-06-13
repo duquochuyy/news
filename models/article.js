@@ -24,7 +24,13 @@ module.exports = (sequelize, DataTypes) => {
     createDate: DataTypes.DATE,
     publishDate: DataTypes.DATE,
     views: DataTypes.INTEGER,
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    ts: {
+      type: `TSVECTOR GENERATED ALWAYS AS (setweight(to_tsvector('english', coalesce(title, '')), 'A') || setweight(to_tsvector('english', coalesce(abstract, '')), 'B') || setweight(to_tsvector('english', coalesce(content, '')), 'C')) STORED`,
+      // allowNull: false,
+      // defaultValue: sequelize.literal(`setweight(to_tsvector('english', coalesce("title", '')), 'A') || setweight(to_tsvector('english', coalesce("abstract", '')), 'B') || setweight(to_tsvector('english', coalesce("content", '')), 'C')`)
+    }
+    // ts: DataTypes.TSVECTOR
   }, {
     sequelize,
     modelName: 'Article',

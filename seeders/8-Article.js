@@ -1602,6 +1602,8 @@ module.exports = {
     items.forEach(item => {
       item.createdAt = Sequelize.literal('NOW()');
       item.updatedAt = Sequelize.literal('NOW()');
+      item.createDate = Sequelize.literal('NOW()');
+      item.publishDate = Sequelize.literal('NOW()');
     });
     await queryInterface.bulkInsert('Articles', items, {});
   },

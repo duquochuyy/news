@@ -358,8 +358,9 @@
 
     </div>
     <div id="search-modal" class="user-role">
-        <form action="../listArticle">
-            <input type="text" id="search-input" placeholder="Nhập để tìm kiếm...">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Nhập để tìm kiếm..." required>
+            {{!-- <i class="fa-solid fa-magnifying-glass hover"></i> --}}
         </form>
         <i class="fa-solid fa-xmark hover" id="search-close"></i>
     </div>
@@ -463,8 +464,6 @@
             </div>
         </div>
     </div>
-
-
-
+</body>
 
 </html>

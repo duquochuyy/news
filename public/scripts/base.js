@@ -182,6 +182,15 @@ $(document).ready(function () {
 
     })
 
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const keyword = searchInput.value;
+        const searchUrl = `${window.location.origin}/search?q=${encodeURIComponent(keyword)}`;
+        window.location.href = searchUrl;
+    })
 
 
 })
