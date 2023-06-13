@@ -1,24 +1,16 @@
 <main id="app__body">
     <div id="slider">
         <p class="category-card text-uppercase">nổi bật</p>
+        {{#each mostArticle}}
         <div class="my-slide">
-            <img src="images/articles/ID7_0.jpg">
-            <div class="slider__caption">
-                <p>Nội dung mô tả về bức ảnh...</p>
-            </div>
+            <a href="/articles">
+                <img src="{{mainImg}}">
+                <div class="slider__caption">
+                    <p>{{abstract}}</p>
+                </div>
+            </a>
         </div>
-        <div class="my-slide">
-            <img src="images/articles/ID1_0.png">
-            <div class="slider__caption">
-                <p>Nội dung mô tả về bức ảnh...</p>
-            </div>
-        </div>
-        <div class="my-slide">
-            <img src="images/articles/ID2_0.jpg">
-            <div class="slider__caption">
-                <p>Nội dung mô tả về bức ảnh...</p>
-            </div>
-        </div>
+        {{/each}}
         <i class="control fa-solid fa-chevron-left"></i>
         <i class=" control fa-solid fa-chevron-right"></i>
 
@@ -29,235 +21,26 @@
             <a href="./listArticle" class="heading-title__link">Xem thêm +</a>
         </header>
         <div class="row">
+            {{#each newestArticle}}
             <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID6_0.jpg" alt="Information..." class="new-article__img ">
+                <a href="/articles" class="new-article square pos-r">
+                    <img src="{{mainImg}}" alt="{{title}}" class="new-article__img ">
                     <div class="new__infor">
                         <div class="w-100">
-                            <div class="category-card">Âm nhạc</div>
+                            <div class="category-card">{{Category.name}}</div>
                             <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết Chủ
-                                đề của bài viết Chủ
-                                đề của bài viết Chủ
-                                đề của bài viết Chủ đề của bài viết Chủ
-                                đề của bài viết Chủ
-                                đề của bài viết Chủ
-                                đề của bài viết </p>
+                                {{title}} </p>
                             <div class="new-article__extra d-flex justify-content-between">
                                 <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
+                                    {{Writer}}</p>
                                 <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
+                                    {{createdAt}}</p>
                             </div>
                         </div>
-
                     </div>
-
-
                 </a>
             </div>
-
-
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-6 ">
-                <a href="#" class="new-article square pos-r">
-                    <img src="images/articles/ID7_0.jpg" alt="Information..." class="new-article__img ">
-                    <div class="new__infor">
-                        <div class="w-100">
-                            <div class="category-card">thể thao</div>
-                            <p class="new-article__title font-title text-white">
-                                Chủ đề của bài viết</p>
-                            <div class="new-article__extra d-flex justify-content-between">
-                                <p class="author "><i class="fa-solid fa-pen "></i>
-                                    Tác giả</p>
-                                <p class="time "><i class="fa-solid fa-clock"></i>
-                                    08/04/2023</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </a>
-            </div>
-
+            {{/each}}
         </div>
 
     </div>
