@@ -6,7 +6,7 @@ const controller = require('../controllers/indexController');
 const searchController = require('../controllers/searchController');
 
 router.get('/createTables', (req, res) => {
-    let models = require('./models');
+    let models = require('../models');
     models.sequelize.sync().then(() => {
         res.send('tables created!');
     })

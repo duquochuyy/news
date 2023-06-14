@@ -1603,7 +1603,8 @@ module.exports = {
       item.createdAt = Sequelize.literal('NOW()');
       item.updatedAt = Sequelize.literal('NOW()');
       item.createDate = Sequelize.literal('NOW()');
-      item.publishDate = Sequelize.literal('NOW()');
+      let intervalTime = Math.floor(Math.random() * 500);
+      item.publishDate = Sequelize.literal(`NOW() - INTERVAL '${intervalTime}' hour`);
     });
     await queryInterface.bulkInsert('Articles', items, {});
   },
