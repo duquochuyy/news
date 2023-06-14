@@ -1,10 +1,16 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "duquochuy",
-    "database": "news",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "newsgroup04db",
+    "password": "TEqPhZPBGgxa3CPiC0qWpGQzHCgXecQF",
+    "database": "newsgroup04db",
+    "host": "dpg-ci4pktenqqlf6bphuvsg-a.singapore-postgres.render.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
     "username": "root",

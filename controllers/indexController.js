@@ -32,7 +32,7 @@ controller.showHomePage = async (req, res) => {
             }]
         }],
         where: { type: 3 },
-        order: [['createdAt', 'DESC']],
+        order: [['publishDate', 'DESC']],
         limit: 10
     });
     res.locals.newestArticle = newestArticle;
@@ -61,44 +61,32 @@ controller.showHomePage = async (req, res) => {
     res.locals.mostArticle = mostArticle;
 
     // top 10 chuyen muc, moi chuyen muc 1 bai moi nhat
-    const newestArticleOfEachCategory = await models.Category.findAll({
+    let newestArticleOfEachCategory = await models.Category.findAll({
         include: [{
             model: models.Category,
             as: 'children',
             attributes: ['name'],
             include: [{
                 model: models.Article,
-                through: { attributes: [] },
-                where: {
-                    id: {
-                        [Op.in]: models.Category.sequelize.literal(`
-                            SELECT "articleId"
-                            FROM "Article_Category"
-                            WHERE "categoryId" = "Category"."id"
-                            LIMIT 2
-                        `)
-                    }
-                },
-                order: [['createdAt', 'DESC']],
+                attributes: ['id', 'title', 'mainImg', 'publishDate'],
+                order: [['publishDate', 'DESC']],
                 where: { type: 3 }
             }]
         }, {
             model: models.Article,
-            through: { attributes: [] },
-            where: {
-                id: {
-                    [Op.in]: models.Category.sequelize.literal(`
-                            SELECT "articleId"
-                            FROM "Article_Category"
-                            WHERE "categoryId" = "Category"."id"
-                            LIMIT 2
-                        `)
-                }
-            },
-            order: [['createdAt', 'DESC']],
+            attributes: ['id', 'title', 'mainImg', 'publishDate'],
+            order: [['publishDate', 'DESC']],
             where: { type: 3 }
         }],
         where: { parentId: null }
+    });
+    newestArticleOfEachCategory.forEach((category) => {
+        if (category.children && category.children.length > 0) {
+            category.children.forEach((child) => {
+                child.Articles.splice(2);
+            });
+        }
+        category.Articles.splice(2);
     });
     res.locals.newestArticleOfEachCategory = newestArticleOfEachCategory;
 
