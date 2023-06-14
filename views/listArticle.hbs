@@ -39,12 +39,17 @@
 
 
                         </ul>
-                        <ul id="pagination">
-                                <li class="pagination__item pagination__item--disable">
+
+                        <nav arie-label="Page navigation example" id="pagination">
+                                {{{createPagination pagination paginationClass="" leftText="Prev" rightText="Next" }}}
+                        </nav>
+
+                        {{!-- <ul id="pagination">
+                                <li class="pagination__item disabled">
                                         <a href="#" class="pagination__link"><i
                                                         class="fa-solid fa-chevron-left"></i></a>
                                 </li>
-                                <li class="pagination__item pagination__item--active">
+                                <li class="pagination__item active">
                                         <a href="#" class="pagination__link ">1</a>
                                 </li>
                                 <li class="pagination__item">
@@ -66,7 +71,7 @@
                                         <a href="#" class="pagination__link"><i
                                                         class="fa-solid fa-chevron-right"></i></a>
                                 </li>
-                        </ul>
+                        </ul> --}}
                 </div>
 
                 <ul id="sidebar" class="col-md-4 pc">
@@ -270,3 +275,12 @@
 <link rel="stylesheet" href="styles/base.css">
 <link rel="stylesheet" href="styles/authentication.css">
 <link rel="stylesheet" href="styles/listArticle.css">
+
+<script>
+        document.querySelectorAll('#pagination li').forEach((li, index) => {
+                li.classList.add('pagination__item');
+        })
+        document.querySelectorAll('#pagination a').forEach((a, index) => {
+                a.classList.add('pagination__link')
+        })
+</script>
