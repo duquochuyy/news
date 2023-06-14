@@ -1,7 +1,7 @@
 <main id="app__body">
     <div id="slider">
         <p class="category-card text-uppercase">nổi bật</p>
-        {{#each mostArticle}}
+        {{#each mostArticleInWeek}}
         <div class="my-slide">
             <a href="/articles">
                 <img src="{{mainImg}}">
@@ -27,12 +27,16 @@
                     <img src="{{mainImg}}" alt="{{title}}" class="new-article__img ">
                     <div class="new__infor">
                         <div class="w-100">
-                            <div class="category-card">{{Category.name}}</div>
+                            {{#each Categories}}
+                            <div class="category-card">{{name}}</div>
+                            {{/each}}
                             <p class="new-article__title font-title text-white">
                                 {{title}} </p>
                             <div class="new-article__extra d-flex justify-content-between">
+                                {{#with Writer}}
                                 <p class="author "><i class="fa-solid fa-pen "></i>
-                                    {{Writer}}</p>
+                                    {{User.name}}</p>
+                                {{/with}}
                                 <p class="time "><i class="fa-solid fa-clock"></i>
                                     {{createdAt}}</p>
                             </div>
@@ -52,171 +56,50 @@
                 <a href="./listArticle" class="heading-title__link">Xem thêm +</a>
             </header>
             <ul class="most-viewd__list d-flex-column ">
+                {{#each mostArticle}}
                 <li class="most-viewd__item mt-3 pos-r">
                     {{>mostViewdArticle-item}}
                 </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-                <li class="most-viewd__item mt-3 pos-r">
-                    {{>mostViewdArticle-item}}
-                </li>
-
-
+                {{/each}}
             </ul>
         </div>
         <ul id="categories" class=" col-md-5 ">
             <div class="row">
+                {{#each newestArticleOfEachCategory}}
                 <li class="categories-item col-md-12 col-sm-6 ">
                     <header class="categories-item__heading font-size text-uppercase text-white">
-                        kinh
-                        tế</header>
+                        {{name}}</header>
+                    {{#if children.length}}
                     <div class="categories-item__body">
+                        {{#each children}}
                         <div class="categories-item__item ">
                             <header class="categories-item__item-heading text-uppercase text-black">
-                                nông sản</header>
+                                {{name}}</header>
+                            {{#each Articles}}
                             {{>categories-item}}
+                            {{/each}}
                             <div class="categories-btn">
                                 <a href="./listArticle"><button class="btn-primary ">Xem
                                         thêm</button></a>
                             </div>
 
                         </div>
-                        <div class="categories-item__item ">
-                            <header class="categories-item__item-heading text-uppercase text-black">
-                                hải sản</header>
-
-                            {{>categories-item}}
-                            <div class="categories-btn">
-                                <a href="./listArticle"><button class="btn-primary ">Xem
-                                        thêm</button></a>
-                            </div>
-
-                        </div>
+                        {{/each}}
                     </div>
-
-                </li>
-                <li class="categories-item col-md-12 col-sm-6 ">
-                    <header class="categories-item__heading font-size text-uppercase text-white">
-                        Thể
-                        thao</header>
+                    {{else}}
                     <div class="categories-item__body">
-                        <div class="categories-item__item ">
-                            <header class="categories-item__item-heading text-uppercase text-black">
-                                trong nước</header>
-                            {{>categories-item}}
-
-                            <div class="categories-btn">
-                                <a href="./listArticle"><button class="btn-primary ">Xem
-                                        thêm</button></a>
-                            </div>
-
-                        </div>
-                        <div class="categories-item__item ">
-                            <header class="categories-item__item-heading text-uppercase text-black">
-                                ngoài nước</header>
-
-                            {{>categories-item}}
-                            <div class="categories-btn">
-                                <a href="./listArticle"><button class="btn-primary ">Xem
-                                        thêm</button></a>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-                <li class="categories-item col-md-12 col-sm-6 ">
-                    <header class="categories-item__heading font-size text-uppercase text-white">
-                        pháp
-                        luật</header>
-                    <div class="categories-item__body">
+                        {{#each Articles}}
                         {{>categories-item}}
-                        {{>categories-item}}
-                        {{>categories-item}}
+                        {{/each}}
                         <div class="categories-btn">
                             <a href="./listArticle"><button class="btn-primary ">Xem
                                     thêm</button></a>
                         </div>
                     </div>
-                </li>
-                <li class="categories-item col-md-12 col-sm-6 ">
-                    <header class="categories-item__heading font-size text-uppercase text-white">
-                        đời
-                        sống</header>
-                    <div class="categories-item__body">
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        <div class="categories-btn">
-                            <a href="./listArticle"><button class="btn-primary ">Xem
-                                    thêm</button></a>
-                        </div>
-                    </div>
-                </li>
-                <li class="categories-item col-md-12 col-sm-6 ">
-                    <header class="categories-item__heading font-size text-uppercase text-white">
-                        công
-                        nghệ</header>
+                    {{/if}}
 
-                    <div class="categories-item__body">
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        <div class="categories-btn">
-                            <a href="./listArticle"><button class="btn-primary ">Xem
-                                    thêm</button></a>
-                        </div>
-                    </div>
                 </li>
-                <li class="categories-item col-md-12 col-sm-6 ">
-                    <header class="categories-item__heading font-size text-uppercase text-white">
-                        sức
-                        khỏe</header>
-                    <div class="categories-item__body">
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        <div class="categories-btn">
-                            <a href="./listArticle"><button class="btn-primary ">Xem
-                                    thêm</button></a>
-                        </div>
-                    </div>
-                </li>
-                <li class="categories-item col-md-12 col-sm-6 ">
-                    <header class="categories-item__heading font-size text-uppercase text-white">
-                        âm
-                        nhạc</header>
-                    <div class="categories-item__body">
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        {{>categories-item}}
-                        <div class="categories-btn">
-                            <a href="./listArticle"><button class="btn-primary ">Xem
-                                    thêm</button></a>
-                        </div>
-                    </div>
-                </li>
+                {{/each}}
             </div>
         </ul>
     </div>
