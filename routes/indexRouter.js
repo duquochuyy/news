@@ -12,9 +12,9 @@ router.get('/createTables', (req, res) => {
     })
 });
 
-router.get('/', controller.showHomePage);
+router.get('/', controller.getData, controller.showHomePage);
 
-router.get('/search',  searchController.showPage)
+router.get('/search', searchController.showPage)
 
 router.get('/:page', controller.showPage);
 

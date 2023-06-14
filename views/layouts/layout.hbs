@@ -89,51 +89,26 @@
                             <li class="nav-item"><a href="/"
                                     class="nav-link text-uppercase header__nav-link hover bold pc">Trang
                                     chủ</a></li>
-                            <li class="nav-item subnav">
-                                <a href="../listArticle" class="nav-link text-uppercase header__nav-link hover bold">
-                                    Kinh tế
-                                    <i class="fa-solid fa-caret-down expand"></i>
-                                </a>
+                            {{#each categories}}
+                            {{#if children.length}}
+                            <li class="nav-item subnav"><a href="/articles?category={{id}}"
+                                    class="nav-link text-uppercase header__nav-link hover bold">{{name}}<i
+                                        class="fa-solid fa-caret-down expand"></i></a>
                                 <ul class="subnav-menu">
-                                    <li><a href="./listArticle" class="subnav-item ">nông
-                                            sản</a></li>
-                                    <li><a href="./listArticle" class="subnav-item ">hải sản</a>
-                                    </li>
+                                    {{#each children}}
+                                    <li><a href="/articles?category={{id}}" class="subnav-item ">{{name}}</a></li>
+                                    {{/each}}
                                 </ul>
                             </li>
-                            <li class="nav-item subnav"><a href="../listArticle"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Thể
-                                    thao <i class="fa-solid fa-caret-down expand"></i></a>
-                                <ul class="subnav-menu">
-                                    <li><a href="../listArticle" class="subnav-item ">trong
-                                            nước</a></li>
-                                    <li><a href="../listArticle" class="subnav-item ">ngoài
-                                            nước</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a href="../listArticle"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Pháp
-                                    luật</a></li>
-                            <li class="nav-item"><a href="../listArticle"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Đời
-                                    sống</a>
-                            </li>
-                            <li class="nav-item"><a href="../listArticle"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Công
-                                    nghệ</a></li>
-                            <li class="nav-item"><a href="../listArticle"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Sức
-                                    khỏe</a>
-                            </li>
-                            <li class="nav-item"><a href="../listArticle"
-                                    class="nav-link text-uppercase header__nav-link hover bold">Âm
-                                    nhạc</a>
-                            </li>
+                            {{else}}
+                            <li class="nav-item"><a href="/articles?category={{id}}"
+                                    class="nav-link text-uppercase header__nav-link hover bold">{{name}}</a></li>
+                            {{/if}}
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="navbar-search">
                         <i class="fa-solid fa-magnifying-glass hover" id="search-btn"></i>
-
                     </div>
                 </div>
 
@@ -200,37 +175,14 @@
             </ul>
             <div class="container d-flex  justify-content-center">
                 <ul class="navbar footer__navbar">
-                    <li class="nav-item footer__navbar-item"><a href="#"
+                    <li class="nav-item footer__navbar-item"><a href="/"
                             class="nav-link hover footer__navbar-link text-uppercase">Trang
                             chủ</a></li>
+                    {{#each categories}}
                     <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">Kinh
-                            tế</a></li>
-                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">Thể
-                            thao</a></li>
-                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">pháp
-                            luật</a></li>
-                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">đời
-                            sống</a></li>
-                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">công
-                            nghệ</a></li>
-                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">sức
-                            khỏe</a></li>
-                    <li class="nav-item footer__navbar-item footer__navbav-separate">|</li>
-                    <li class="nav-item footer__navbar-item"><a href="#"
-                            class="nav-link hover footer__navbar-link text-uppercase">âm
-                            nhạc</a></li>
+                    <li class="nav-item footer__navbar-item"><a href="/articles?category={{id}}"
+                            class="nav-link hover footer__navbar-link text-uppercase">{{name}}</a></li>
+                    {{/each}}
                 </ul>
             </div>
             <div class="footer__coppyright text-center">©Group04</div>

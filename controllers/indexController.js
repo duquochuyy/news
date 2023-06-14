@@ -4,6 +4,20 @@ const controller = {}
 const models = require('../models');
 const { Op } = require('sequelize');
 
+controller.getData = async (req, res, next) => {
+    // get categories
+    const categories = await models.Category.findAll({
+        include: [{
+            model: models.Category,
+            as: 'children'
+        }],
+        where: { parentId: null }
+    });
+    res.locals.categories = categories;
+
+    next();
+}
+
 controller.showHomePage = async (req, res) => {
     // 3 bai viet noi bac nhat tuan 
     const mostArticleInWeek = await models.Article.findAll({
@@ -18,7 +32,7 @@ controller.showHomePage = async (req, res) => {
     const newestArticle = await models.Article.findAll({
         include: [{
             model: models.Category,
-            attributes: ['name'],
+            attributes: ['id', 'name'],
             where: {
                 parentId: {
                     [Op.not]: null
@@ -28,7 +42,7 @@ controller.showHomePage = async (req, res) => {
             model: models.Writer,
             include: [{
                 model: models.User,
-                attributes: ['name']
+                attributes: ['id', 'name']
             }]
         }],
         where: { type: 3 },
@@ -41,7 +55,7 @@ controller.showHomePage = async (req, res) => {
     const mostArticle = await models.Article.findAll({
         include: [{
             model: models.Category,
-            attributes: ['name'],
+            attributes: ['id', 'name'],
             where: {
                 parentId: {
                     [Op.not]: null
@@ -51,7 +65,7 @@ controller.showHomePage = async (req, res) => {
             model: models.Writer,
             include: [{
                 model: models.User,
-                attributes: ['name']
+                attributes: ['id', 'name']
             }]
         }],
         where: { type: 3 },
@@ -65,7 +79,7 @@ controller.showHomePage = async (req, res) => {
         include: [{
             model: models.Category,
             as: 'children',
-            attributes: ['name'],
+            attributes: ['id', 'name'],
             include: [{
                 model: models.Article,
                 attributes: ['id', 'title', 'mainImg', 'publishDate'],
