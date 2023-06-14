@@ -47,11 +47,11 @@ module.exports = {
       }, {
         "name": "Ginger Anscombe",
         "email": "ganscombe5@soundcloud.com",
-        "username": "ganscombe5",
+        "username": "admin",
         "phone": "965-258-0567",
         "sex": false,
         "birthday": "1993-10-24",
-        "password": "wK0,NB7sf."
+        "password": "admin"
       }, {
         "name": "Angil Aylesbury",
         "email": "aaylesbury6@un.org",
@@ -87,11 +87,11 @@ module.exports = {
       }, {
         "name": "Josy Lante",
         "email": "jlantea@shareasale.com",
-        "username": "admin",
+        "username": "hehhee",
         "phone": "184-991-5547",
         "sex": true,
         "birthday": "1992-05-31",
-        "password": "admin"
+        "password": "hehehehe"
       }, {
         "name": "Rikki Saxon",
         "email": "rsaxonb@epa.gov",

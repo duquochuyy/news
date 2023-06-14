@@ -25,12 +25,12 @@ module.exports = {
         {
             "name": "Trong nước",
             "managerId": 2,
-            "parentId": 2
+            "parentId": 4
         },
         {
             "name": "Ngoài nước",
             "managerId": 2,
-            "parentId": 2
+            "parentId": 4
         },
         {
             "name": "Pháp luật",
