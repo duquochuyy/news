@@ -146,7 +146,7 @@ $(document).ready(function () {
     });
 
 
-    $("input").keypress((e) => {
+    $(".no-space").keypress((e) => {
         if (String.fromCharCode(e.which) == " ")
             e.preventDefault();
     })
