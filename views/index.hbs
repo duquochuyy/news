@@ -18,7 +18,7 @@
     <div id="new">
         <header class="heading-title text-uppercase">Mới nhất
 
-            <a href="/articles" class="heading-title__link">Xem thêm +</a>
+            <a href="/articles?sort=1" class="heading-title__link">Xem thêm +</a>
         </header>
         <div class="row">
             {{#each newestArticle}}
@@ -38,7 +38,7 @@
                                     {{User.name}}</p>
                                 {{/with}}
                                 <p class="time "><i class="fa-solid fa-clock"></i>
-                                    {{createdAt}}</p>
+                                    {{publishDateNew}}</p>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
         <div id="most-viewed" class="col-md-7">
             <header class="heading-title text-uppercase">Xem nhiều nhất
 
-                <a href="/articles" class="heading-title__link">Xem thêm +</a>
+                <a href="/articles?sort=2" class="heading-title__link">Xem thêm +</a>
             </header>
             <ul class="most-viewd__list d-flex-column ">
                 {{#each mostArticle}}
@@ -79,7 +79,7 @@
                             {{>categories-item}}
                             {{/each}}
                             <div class="categories-btn">
-                                <a href="/articles"><button class="btn-primary ">Xem
+                                <a href="/articles?category={{id}}&sort=1"><button class="btn-primary ">Xem
                                         thêm</button></a>
                             </div>
 
@@ -92,7 +92,7 @@
                         {{>categories-item}}
                         {{/each}}
                         <div class="categories-btn">
-                            <a href="/articles"><button class="btn-primary ">Xem
+                            <a href="/articles?{{id}}&sort=1"><button class="btn-primary ">Xem
                                     thêm</button></a>
                         </div>
                     </div>

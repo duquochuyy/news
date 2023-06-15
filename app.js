@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const models = require('./models');
 const app = express();
 const port = process.env.PORT || 5000;
 const expressHandlebars = require('express-handlebars');
@@ -22,6 +23,19 @@ app.engine('hbs', expressHandlebars.engine({
     }
 }))
 app.set('view engine', 'hbs');
+
+app.use(async (req, res, next) => {
+    const categories = await models.Category.findAll({
+        include: [{
+            model: models.Category,
+            as: 'children'
+        }],
+        where: { parentId: null }
+    });
+    res.locals.categoriesForLayout = categories;
+
+    next();
+});
 
 // routes
 app.use('/', require('./routes/indexRouter'));

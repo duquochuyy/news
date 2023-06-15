@@ -4,20 +4,6 @@ const controller = {}
 const models = require('../models');
 const { Op } = require('sequelize');
 
-controller.getData = async (req, res, next) => {
-    // get categories
-    const categories = await models.Category.findAll({
-        include: [{
-            model: models.Category,
-            as: 'children'
-        }],
-        where: { parentId: null }
-    });
-    res.locals.categories = categories;
-
-    next();
-}
-
 controller.showHomePage = async (req, res) => {
     // 3 bai viet noi bac nhat tuan 
     const mostArticleInWeek = await models.Article.findAll({
@@ -32,12 +18,7 @@ controller.showHomePage = async (req, res) => {
     const newestArticle = await models.Article.findAll({
         include: [{
             model: models.Category,
-            attributes: ['id', 'name'],
-            where: {
-                parentId: {
-                    [Op.not]: null
-                }
-            }
+            attributes: ['id', 'name']
         }, {
             model: models.Writer,
             include: [{
@@ -49,18 +30,16 @@ controller.showHomePage = async (req, res) => {
         order: [['publishDate', 'DESC']],
         limit: 10
     });
+    newestArticle.forEach(article => {
+        article.publishDateNew = (new Date(article.publishDate)).toLocaleString('vi-VN');
+    });
     res.locals.newestArticle = newestArticle;
 
     // 10 bai viet duoc xem nhieu nhat (moi chuyen muc)
     const mostArticle = await models.Article.findAll({
         include: [{
             model: models.Category,
-            attributes: ['id', 'name'],
-            where: {
-                parentId: {
-                    [Op.not]: null
-                }
-            }
+            attributes: ['id', 'name']
         }, {
             model: models.Writer,
             include: [{
@@ -71,6 +50,9 @@ controller.showHomePage = async (req, res) => {
         where: { type: 3 },
         order: [['views', 'DESC']],
         limit: 10
+    });
+    mostArticle.forEach(article => {
+        article.publishDateNew = (new Date(article.publishDate)).toLocaleString('vi-VN');
     });
     res.locals.mostArticle = mostArticle;
 
@@ -83,13 +65,11 @@ controller.showHomePage = async (req, res) => {
             include: [{
                 model: models.Article,
                 attributes: ['id', 'title', 'mainImg', 'publishDate'],
-                order: [['publishDate', 'DESC']],
                 where: { type: 3 }
             }]
         }, {
             model: models.Article,
             attributes: ['id', 'title', 'mainImg', 'publishDate'],
-            order: [['publishDate', 'DESC']],
             where: { type: 3 }
         }],
         where: { parentId: null }
@@ -97,9 +77,17 @@ controller.showHomePage = async (req, res) => {
     newestArticleOfEachCategory.forEach((category) => {
         if (category.children && category.children.length > 0) {
             category.children.forEach((child) => {
+                child.Articles.sort((a, b) => b.publishDate - a.publishDate);
                 child.Articles.splice(2);
+                child.Articles.forEach(article => {
+                    article.publishDateNew = (new Date(article.publishDate)).toLocaleString('vi-VN');
+                });
             });
         }
+        category.Articles.sort((a, b) => b.publishDate - a.publishDate);
+        category.Articles.forEach(article => {
+            article.publishDateNew = (new Date(article.publishDate)).toLocaleString('vi-VN');
+        });
         category.Articles.splice(2);
     });
     res.locals.newestArticleOfEachCategory = newestArticleOfEachCategory;
