@@ -3,7 +3,7 @@
         <p class="category-card text-uppercase">nổi bật</p>
         {{#each mostArticleInWeek}}
         <div class="my-slide">
-            <a href="/articles">
+            <a href="/articles/{{id}}">
                 <img src="{{mainImg}}">
                 <div class="slider__caption">
                     <p>{{abstract}}</p>
@@ -23,7 +23,7 @@
         <div class="row">
             {{#each newestArticle}}
             <div class="col-md-6 ">
-                <a href="/articles" class="new-article square pos-r">
+                <a href="/articles/{{id}}" class="new-article square pos-r">
                     <img src="{{mainImg}}" alt="{{title}}" class="new-article__img ">
                     <div class="new__infor">
                         <div class="w-100">
@@ -92,7 +92,7 @@
                         {{>categories-item}}
                         {{/each}}
                         <div class="categories-btn">
-                            <a href="/articles?{{id}}&sort=1"><button class="btn-primary ">Xem
+                            <a href="/articles?category={{id}}&sort=1"><button class="btn-primary ">Xem
                                     thêm</button></a>
                         </div>
                     </div>
