@@ -89,7 +89,7 @@
                             <li class="nav-item"><a href="/"
                                     class="nav-link text-uppercase header__nav-link hover bold pc">Trang
                                     chủ</a></li>
-                            {{#each categories}}
+                            {{#each categoriesForLayout}}
                             {{#if children.length}}
                             <li class="nav-item subnav"><a href="/articles?category={{id}}"
                                     class="nav-link text-uppercase header__nav-link hover bold">{{name}}<i
@@ -236,7 +236,8 @@
                         <div class="invalid-feedback">Tên đăng nhập không tồn tại!</div>
                     </li>
                     <li class="mb-3">
-                        <input type="password" class="no-space form-control password" name="pswd" placeholder="Nhập mật khẩu">
+                        <input type="password" class="no-space form-control password" name="pswd"
+                            placeholder="Nhập mật khẩu">
                         <div class="invalid-feedback">Sai mật khẩu!</div>
                     </li>
                     </li>
@@ -278,8 +279,8 @@
                 <ul class="user-input">
                     <li class="mb-2">
                         <label for="signup-email" class="form-label">Email</label>
-                        <input type="email" class="no-space form-control email" id="signup-email" placeholder="Nhập email"
-                            name="username">
+                        <input type="email" class="no-space form-control email" id="signup-email"
+                            placeholder="Nhập email" name="username">
                         <div class="invalid-feedback">Email đã được sử dụng!</div>
                     </li>
                     <li class="mb-2">

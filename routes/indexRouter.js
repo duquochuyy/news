@@ -13,7 +13,7 @@ router.get('/createTables', (req, res) => {
     })
 });
 
-router.get('/', controller.getData, controller.showHomePage);
+router.get('/', controller.showHomePage);
 
 router.get('/search', searchController.showPage)
 
