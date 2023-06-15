@@ -357,7 +357,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center mt-4">
-                            <button type="submit" class="btn success-btn col-9" id="submit-premium"
+                            <button type="submit" class="btn success-btn col-9 submit-premium"
                                 data-bs-toggle="modal" data-bs-target="#payment-modal">Dùng một tuần với
                                 49000đ</button>
                         </div>
@@ -376,7 +376,7 @@
                     </h5>
                 </div>
                 <div class="modal-body mb-3">
-                    <form class="mt-2" id="payment" action="#">
+                    <form class="mt-2" id="payment-form" action="../payment" target="_blank">
                         <div class="d-flex flex-column align-items-center">
                             <p><strong>Thanh toán 49000đ trong một lần cho 7 ngày</strong>
                             </p>
@@ -405,8 +405,11 @@
                                         Momo để hoàn tất giao dịch</p>
                                 </div>
                                 <div class="col-11 d-flex justify-content-center mt-3">
-                                    <button type="submit" class="btn success-btn col-9" id="submit-premium">Tiếp tục
+                                    {{!-- <form action="../payment.hbs" method="POST" target="_blank" id="payment-form"> --}}
+                                        <button type="submit" class="btn success-btn col-9 submit-premium" id="payment-btn">Tiếp tục
                                         mua</button>
+                                        {{!-- <input type="submit" name="momo" value="Tiếp tục mua" class="btn success-btn col-9 submit-premium" id="payment-btn"> --}}
+                                    {{!-- </form> --}}
                                 </div>
                             </div>
                         </div>

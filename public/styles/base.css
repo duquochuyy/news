@@ -743,7 +743,7 @@ footer {
 }
 
 /*  */
-#submit-premium {
+.modal .modal-content .submit-premium {
     background: var(--success-bg);
     color: var(--white-color);
     padding: 8px 16px;
@@ -752,7 +752,7 @@ footer {
     margin-bottom: 16px;
 }
 
-#submit-premium:hover {
+.modal .modal-content .submit-premium:hover {
     opacity: 0.9;
 }
 
