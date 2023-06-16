@@ -6,5 +6,6 @@ let controller = require('../controllers/articlesController');
 
 router.get('/', controller.getData, controller.show);
 router.get('/:id', controller.getData, controller.showDetail);
+router.get('/:id/download', controller.download);
 
 module.exports = router;
