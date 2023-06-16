@@ -355,7 +355,9 @@
     background-color: var(--success-bg);
 }
 
-
+.about{
+    text-align: justify;
+}
 
 /* reponsive */
 @media screen and (max-width: 1200px){

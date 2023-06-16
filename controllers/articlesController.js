@@ -13,10 +13,10 @@ controller.getData = async (req, res, next) => {
     ],
     where: { parentId: null },
   });
-  res.locals.categories = categories;
+  res.locals.categoriesRightColumn = categories;
 
   let tags = await models.Tag.findAll();
-  res.locals.tags = tags;
+  res.locals.tagsRightColumn = tags;
 
   next();
 };
@@ -31,7 +31,7 @@ controller.show = async (req, res) => {
     attributes: ['id', 'title', 'mainImg', 'abstract', 'publishDate', 'views'],
     include: []
   };
-  let message = ``;
+  let message = `Tất cả bài viết`;
 
   if (category > 0) {
     options.include.push({
@@ -50,17 +50,11 @@ controller.show = async (req, res) => {
 
   if (sort == 1) {
     options.order = [['publishDate', 'DESC']];
-    if (message.length > 0) {
-      message += ` - `;
-    }
-    message += `mới nhất`;
+    message += ` - mới nhất`;
   }
   if (sort == 2) {
     options.order = [['views', 'DESC']];
-    if (message.length > 0) {
-      message += ` - `;
-    }
-    message += `xem nhiều nhất`;
+    message += ` - xem nhiều nhất`;
   }
 
   if (tag > 0) {
@@ -69,7 +63,7 @@ controller.show = async (req, res) => {
       where: { id: tag }
     });
     let tagNew = await models.Tag.findOne({ where: { id: tag } });
-    message += `Thẻ: ${tagNew.name}`;
+    message = `Thẻ: ${tagNew.name}`;
   }
   else {
     options.include.push({
@@ -107,7 +101,36 @@ controller.show = async (req, res) => {
   res.render('listArticle');
 };
 
-controller.showDetail = (req, res) => {
+controller.showDetail = async (req, res) => {
+  let id = isNaN(req.params.id) ? 0 : parseInt(req.params.id);
+
+  let article = await models.Article.findOne({
+    include: [{
+      model: models.Category,
+      attributes: ['id', 'name']
+    }, {
+      model: models.Writer,
+      include: [{
+        model: models.User,
+        attributes: ['name']
+      }]
+    }, {
+      model: models.Comment,
+      include: [{
+        model: models.User,
+        attributes: ['id', 'name']
+      }]
+    }],
+    where: { id }
+  });
+  article.publishDateNew = (new Date(article.publishDate)).toLocaleString('vi-VN').slice(10, 19);
+  article.contentPara = article.content.split(' \n ');
+  article.Comments.forEach((comment) => {
+    comment.newTime = (new Date(comment.time)).toLocaleString('vi-VN');
+  });
+  article.Comments.sort((a, b) => a.newTime - b.newTime);
+  console.log(article.publishDateNew);
+  res.locals.article = article;
   res.render('articleDetail');
 };
 
