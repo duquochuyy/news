@@ -111,7 +111,7 @@
     <div id="catogery" class="sidebar__item mt-3">
         <p class="sidebar__item-title ">Chuyên mục</p>
         <ul id="catogery__list">
-            {{#each categories}}
+            {{#each categoriesRightColumn}}
             <li class="category__item">
                 <a href="/articles?category={{id}}" class="category__link text-uppercase hover">{{name}}
                 </a>
@@ -124,7 +124,7 @@
     <div id="tag" class="sidebar__item mt-3">
         <p class="sidebar__item-title ">Thẻ</p>
         <ul id="tag__list" class="row">
-            {{#each tags}}
+            {{#each tagsRightColumn}}
             <li class="tag__item col-lg-6">
                 <a href="/articles?tag={{id}}" class="tag__link hover">{{name}}</a>
             </li>
