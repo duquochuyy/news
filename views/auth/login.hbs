@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="module" src="/scripts/base.js"></script>
+</head>
+
+<body>
+<div id="form-modal" class="user-role" style="display: block;">
+    <form id="login-form" class="authentication-form " style="display: block;" action="/auth/login" method="post">
+        <header class="form-heading">
+            <h5 class="form-title text-uppercase bold ">xin chào!</h5>
+            <p class="form-direction">Đăng nhập bên dưới hoặc
+                <a href="/auth/register" class="form-link bold" id="form-link__signup">đăng ký ngay.</a></p>
+        </header>
+        <div class="line-separate"></div>
+        <main class="form-body">
+            <ul class="form-social d-flex justify-content-between">
+                <li class="form-social__item"><a href="#" class="form-social__link">
+                    <img src="/images/google.png"
+                         alt=""
+                         class="form-social__icon">
+                    <p class="form-social__name text-black">Google</p>
+                </a></li>
+                <li class="form-social__item"><a href="#" class="form-social__link"><i
+                        class="form-social__icon fa-brands fa-facebook"></i>
+                    <p class="form-social__name text-black">Facebook</p>
+                </a></li>
+                <li class="form-social__item"><a href="#" class="form-social__link">
+                    <img src="/images/zalo.png" alt="" class="form-social__icon">
+                    <p class="form-social__name text-black">Zalo</p>
+                </a></li>
+            </ul>
+            <div class="form-separate d-flex justify-content-between align-items-center">
+                <div class="line-separate"></div>
+                <p>Hoặc</p>
+                <duv class="line-separate"></duv>
+            </div>
+            <ul class="user-input mt-3">
+                <li class="mb-3">
+                    <input type="email" class="no-space form-control username" placeholder="Nhập email"
+                           name="email">
+                </li>
+                <li class="mb-3">
+                    <input type="password" class="no-space form-control password" name="password"
+                           placeholder="Nhập mật khẩu">
+                </li>
+                <input type="hidden" value="{{role}}" name="role"/>
+
+                <div class="invalid-feedback">{{{loginMessage}}}</div>
+            </ul>
+        </main>
+        </a>
+        <button type="submit" class=" form-submit text-uppercase">đăng nhập</button>
+        <a href="../forgotPassword" class="form-link mt-2">Quên mật khẩu?</a>
+    </form>
+</div>
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/home.css">
+</body>
+
+</html>

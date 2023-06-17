@@ -1,10 +1,15 @@
 'use strict';
+require('dotenv').config();
 const express = require('express');
+const session = require('express-session');
 const models = require('./models');
 const app = express();
 const port = process.env.PORT || 5000;
 const expressHandlebars = require('express-handlebars');
+const flash = require('connect-flash');
 const { createPagination } = require('express-handlebars-paginate');
+const passport = require("./authentication/passport");
+const cookieParser = require("cookie-parser");
 
 // cau hinh public start
 app.use(express.static(__dirname + '/public'))
@@ -24,7 +29,30 @@ app.engine('hbs', expressHandlebars.engine({
 }))
 app.set('view engine', 'hbs');
 
-app.use(async (req, res, next) => {
+// cau hinh doc du lieu post tu body
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+// cau hinh su dung session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        maxAge: 20 * 60 * 1000
+    }
+}));
+
+// cấu hình sử dụng passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// cấu hình sử dụng flash
+app.use(flash());
+
+const FetchCategories = async (req, res, next) => {
     const categories = await models.Category.findAll({
         include: [{
             model: models.Category,
@@ -35,11 +63,12 @@ app.use(async (req, res, next) => {
     res.locals.categoriesForLayout = categories;
 
     next();
-});
+};
 
 // routes
-app.use('/', require('./routes/indexRouter'));
-app.use('/articles', require('./routes/articleRouter'));
+app.use('/', FetchCategories, require('./routes/indexRouter'));
+app.use('/articles', FetchCategories, require('./routes/articleRouter'));
+app.use('/auth', require('./routes/authRouter'));
 
 
 // khoi dong web server
