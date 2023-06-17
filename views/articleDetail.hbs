@@ -1,15 +1,14 @@
 <ul id="breadcrumb">
     <li class="breadcrumb__item">
         <a href="/" class="breadcrumb__link hover">Trang chủ
-
         </a>
     </li>
     {{#with article}}
     {{#each Categories}}
-    <li class="breadcrumb__item"> ›› <a href="/articles?category={{id}}" class="breadcrumb__link">{{name}}</a>
+    <li class="breadcrumb__item"> ›› <a href="/articles?category={{id}}" class="breadcrumb__link hover">{{name}}</a>
     </li>
     {{/each}}
-    <li class="breadcrumb__item"> ›› <a href="" class="breadcrumb__link  breadcrumb__link--active hover">Chi tiết</a>
+    <li class="breadcrumb__item"> ›› <a href="" class="breadcrumb__link  breadcrumb__link--active">Chi tiết</a>
     </li>
     {{/with}}
 </ul>
@@ -17,9 +16,11 @@
     <div id="detail" class="container-fluid">
         {{#with article}}
         <header id="detail-header">
-            {{#each Categories}}
-            <div class="category-card">{{name}}</div>
-            {{/each}}
+            <div class="d-flex flex-row">
+                {{#each Categories}}
+                <div class="category-card">{{name}}</div>
+                {{/each}}
+            </div>
             <p id="detail-header__title">
                 <img src="/images/premium.png" class="premium-icon premium">
                 {{title}}
@@ -46,12 +47,13 @@
         {{/with}}
 
         {{#if isSubscriber}}
-            <a href="/articles/{{article.id}}/download" target="_blank"><button id="download-btn" class="premium">Tải bài viết <i class="fa-solid fa-download"></i></button></a>
+        <a href="/articles/{{article.id}}/download" target="_blank"><button id="download-btn" class="premium">Tải bài
+                viết <i class="fa-solid fa-download"></i></button></a>
         {{else}}
-            <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
-                viết <i class="fa-solid fa-download"></i></button>
+        <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
+            viết <i class="fa-solid fa-download"></i></button>
         {{/if}}
-        
+
         <div class="row">
             {{#with article}}
             <div class="col-md-8">
@@ -102,7 +104,30 @@
             </div>
             {{/with}}
 
-            {{> right-column}}
+            <ul id="sidebar" class="col-md-4 pc">
+                <div id="related-article" class="sidebar__item mt-3">
+
+                    <p class="sidebar__item-title  ">Bài viết có liên quan</p>
+                    <ul id="related-article__list pc">
+                        {{#each relatedArticles}}
+                        <li class="related-article__item mt-3 ">
+                            <a href="/articles/{{id}}" class="related-article-item__link">
+                                <img src="{{mainImg}}" alt="" class="related-article-item__img">
+                                <div class="related-article-item__infor">
+                                    <p class="related-article-item__title text-black bold">
+                                        {{title}}</p>
+                                    <p class="related-article-item__time ">
+                                        <i class="fa-solid fa-clock"></i>
+                                        {{publishDateNew}}
+                                    </p>
+                                </div>
+                            </a>
+
+                        </li>
+                        {{/each}}
+                </div>
+                {{> right-column}}
+            </ul>
         </div>
     </div>
 </main>

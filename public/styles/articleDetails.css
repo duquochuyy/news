@@ -8,6 +8,7 @@
 
 #detail-header .category-card {
     max-width: 100px;
+    margin-right: 5px;
 }
 
 #detail-header__title {

@@ -25,11 +25,34 @@
                         </ul>
 
                         <nav arie-label="Page navigation example" id="pagination">
-                                {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}}
-                        </nav>
+                                {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
                 </div>
 
-                {{> right-column}}
+                <ul id="sidebar" class="col-md-4 pc">
+                        <div id="related-article" class="sidebar__item mt-3">
+
+                                <p class="sidebar__item-title  ">Bài viết mới nhất</p>
+                                <ul id="related-article__list pc">
+                                        {{#each newestArticleForRightColumn}}
+                                        <li class="related-article__item mt-3 ">
+                                                <a href="/articles/{{id}}" class="related-article-item__link">
+                                                        <img src="{{mainImg}}" alt="" class="related-article-item__img">
+                                                        <div class="related-article-item__infor">
+                                                                <p class="related-article-item__title text-black bold">
+                                                                        {{title}}</p>
+                                                                <p class="related-article-item__time ">
+                                                                        <i class="fa-solid fa-clock"></i>
+                                                                        {{publishDateNew}}
+                                                                </p>
+
+                                                        </div>
+                                                </a>
+
+                                        </li>
+                                        {{/each}}
+                        </div>
+                        {{> right-column}}
+                </ul>
         </div>
 
 </main>

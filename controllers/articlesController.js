@@ -2,7 +2,9 @@
 
 const controller = {};
 const models = require("../models");
-const  PdfPrinter  = require('pdfmake');
+const sequelize = require('sequelize');
+const Op = sequelize.Op;
+const PdfPrinter = require('pdfmake');
 var path = require("path");
 const fs = require('fs');
 
@@ -103,6 +105,18 @@ controller.show = async (req, res) => {
 
   res.locals.articles = rows;
   res.locals.message = message;
+
+  const newestArticleForRightColumn = await models.Article.findAll({
+    attributes: ['id', 'mainImg', 'title', 'publishDate'],
+    where: { type: 3 },
+    order: [['publishDate', 'DESC']],
+    limit: 6
+  });
+  newestArticleForRightColumn.forEach(article => {
+    article.publishDateNew = (new Date(article.publishDate)).toLocaleString('vi-VN');
+  });
+  res.locals.newestArticleForRightColumn = newestArticleForRightColumn;
+
   res.render("listArticle");
 };
 
@@ -144,6 +158,10 @@ controller.showDetail = async (req, res) => {
           },
         ],
       },
+      {
+        model: models.Tag,
+        attributes: ["id", "name"]
+      }
     ],
     where: { id },
   });
@@ -155,8 +173,30 @@ controller.showDetail = async (req, res) => {
     comment.newTime = new Date(comment.time).toLocaleString("vi-VN");
   });
   article.Comments.sort((a, b) => a.newTime - b.newTime);
-  console.log(article.publishDateNew);
   res.locals.article = article;
+
+  let tagIds = [];
+  article.Tags.forEach(tag => tagIds.push(tag.id));
+
+  let relatedArticles = await models.Article.findAll({
+    attributes: ['id', 'mainImg', 'title', 'publishDate'],
+    include: [{
+      model: models.Tag,
+      attributes: ['id'],
+      where: {
+        id: { [Op.in]: tagIds }
+      }
+    }],
+    where: { type: 3 },
+    limit: 6
+  });
+  relatedArticles.forEach((article) => {
+    article.publishDateNew = new Date(article.publishDate).toLocaleString(
+      "vi-VN"
+    );
+  });
+  res.locals.relatedArticles = relatedArticles;
+
   res.render("articleDetail");
 };
 
@@ -198,7 +238,7 @@ controller.download = async (req, res) => {
     article.contentPara = article.content.split(" \n ");
 
     function mp(relFontPath) {
-      return path.resolve(path.join(__dirname,'..'), relFontPath)
+      return path.resolve(path.join(__dirname, '..'), relFontPath)
     }
 
     var fonts = {
@@ -212,20 +252,20 @@ controller.download = async (req, res) => {
 
     var printer = new PdfPrinter(fonts);
     var fs = require('fs');
-    
-    const content = []; 
 
-    content.push({text: article.title, fontSize: 18, bold: true, margin: [0, 0, 0, 0]});
-    content.push({text: `Tác giả: ${article.Writer.User.name}, Ngày đăng: ${article.publishDateNew}`, margin: [0, 15, 0, 0]});
-    content.push({text: article.abstract, fontSize: 14, bold: true, margin: [0, 15, 0, 0]});
-    const imgPath = path.resolve(path.join(__dirname,'..'), `./public${article.mainImg}`);
-    content.push({image: imgPath, width: 400, margin: [0, 20, 0, 10], alignment: 'center'});
+    const content = [];
+
+    content.push({ text: article.title, fontSize: 18, bold: true, margin: [0, 0, 0, 0] });
+    content.push({ text: `Tác giả: ${article.Writer.User.name}, Ngày đăng: ${article.publishDateNew}`, margin: [0, 15, 0, 0] });
+    content.push({ text: article.abstract, fontSize: 14, bold: true, margin: [0, 15, 0, 0] });
+    const imgPath = path.resolve(path.join(__dirname, '..'), `./public${article.mainImg}`);
+    content.push({ image: imgPath, width: 400, margin: [0, 20, 0, 10], alignment: 'center' });
     for (let para of article.contentPara)
-      content.push({text: para, fontSize: 14, normal: true, margin: [0, 10, 0, 0]});
+      content.push({ text: para, fontSize: 14, normal: true, margin: [0, 10, 0, 0] });
 
     const footer = {
       text: [
-        { text: 'The News Reporter', link: `${req.protocol}://${req.headers.host}`} // Đường dẫn tới trang báo của bạn
+        { text: 'The News Reporter', link: `${req.protocol}://${req.headers.host}` } // Đường dẫn tới trang báo của bạn
       ],
       style: 'footerStyle',
       alignment: 'center',
@@ -237,7 +277,7 @@ controller.download = async (req, res) => {
         fontSize: 10,
       }
     }
-  
+
 
     const docDefinition = {
       content,
