@@ -132,8 +132,6 @@
 .invalid-feedback {
     font-size: 12px;
     margin-left: 12px;
-    color: #b00020;
-    display: block;
 }
 .form-label{
     cursor: pointer;
