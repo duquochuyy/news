@@ -120,12 +120,15 @@ $(document).ready(function () {
             if (role != 0) {
                 loginPage.find(".form-direction").css("display", "none");
             }
-            loginPage.css("display", "block");
+            // loginPage.css("display", "block");
+            window.location.href = `/auth/login?role=${e.value}`;
         })
     })
     $("#app__header-signup").click(() => {
         document.title = "Đăng ký";
-        signupPage.css("display", "block");
+        // signupPage.css("display", "block");
+        signupRole.css("display", "none");
+        window.location.href = "/auth/register";
     });
     $("#form-link__signup").click(() => {
         document.title = "Đăng ký";

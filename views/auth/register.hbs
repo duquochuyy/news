@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="module" src="/scripts/base.js"></script>
+</head>
+
+<body>
+<div id="app">
+
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/authentication.css">
+    <link rel="stylesheet" href="/styles/home.css">
+    <script src="/scripts/home.js"></script>
+
+</div>
+<div id="form-modal" class="user-role" style="display: block;">
+    <form id="signup-form" class="authentication-form "  style="display: block;" action="/auth/register" method="post">
+        <header class="form-heading">
+            <h5 class="form-title text-uppercase bold ">đăng ký!</h5>
+            <p class="form-direction">Đã có tài khoản? <a href="/auth/login" class="form-link bold" id="form-link__login">
+                Đăng nhập!</a></p>
+        </header>
+        <div class="line-separate"></div>
+        <main class="form-body">
+            <ul class="form-social d-flex justify-content-between">
+                <li class="form-social__item"><a href="#" class="form-social__link">
+                    <img src="/images/google.png" alt="" class="form-social__icon">
+                    <p class="form-social__name text-black">Google</p>
+                </a></li>
+                <li class="form-social__item"><a href="#" class="form-social__link"><i
+                        class="form-social__icon fa-brands fa-facebook"></i>
+                    <p class="form-social__name text-black">Facebook</p>
+                </a></li>
+                <li class="form-social__item"><a href="#" class="form-social__link">
+                    <img src="/images/zalo.png" alt="" class="form-social__icon">
+                    <p class="form-social__name text-black">Zalo</p>
+                </a></li>
+            </ul>
+            <div class="form-separate d-flex justify-content-between align-items-center">
+                <div class="line-separate"></div>
+                <p>Hoặc</p>
+                <duv class="line-separate"></duv>
+            </div>
+            <ul class="user-input">
+                <li class="mb-2">
+                    <label for="signup-email" class="form-label">Email</label>
+                    <input type="email" class="no-space form-control email" id="signup-email"
+                           placeholder="Nhập email" name="email">
+                    <div class="invalid-feedback"></div>
+                </li>
+                <li class="mb-2">
+                    <label for="signup-username" class="form-label">Tên đăng nhập</label>
+                    <input type="text" class="no-space form-control username" id="signup-username"
+                           placeholder="Nhập tên đăng nhập" name="username">
+                    <div class="invalid-feedback"></div>
+                </li>
+                <li class="mb-2">
+                    <label for="signup-pw" class="form-label">Mật khẩu</label>
+                    <input type="password" class="no-space form-control password" id="signup-pw" name="password"
+                           placeholder="Nhập mật khẩu">
+                    <div class="invalid-feedback"></div>
+                </li>
+                <li class="mb-2">
+                    <label for="signup-repw" class="form-label">Xác nhận mật khẩu</label>
+                    <input type="password" class="no-space form-control re-password" name="confirmPassword" id="signup-repw"
+                           placeholder="Nhập lại mật khẩu">
+                    <div class="invalid-feedback"></div>
+                </li>
+                <div class="invalid-feedback">{{{registerMessage}}}</div>
+            </ul>
+        </main>
+        <button type="submit" class=" form-submit text-uppercase">đăng ký</button>
+
+    </form>
+</div>
+</body>
+
+</html>

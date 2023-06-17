@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     facebook: DataTypes.STRING,
     zalo: DataTypes.STRING,
-    google: DataTypes.STRING
+    google: DataTypes.STRING,
+    role: DataTypes.VIRTUAL
   }, {
     sequelize,
     modelName: 'User',
