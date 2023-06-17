@@ -44,8 +44,14 @@
 
         </header>
         {{/with}}
-        <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">tải bài
-            viết <i class="fa-solid fa-download"></i></button>
+
+        {{#if isSubscriber}}
+            <a href="/articles/{{article.id}}/download" target="_blank"><button id="download-btn" class="premium">Tải bài viết <i class="fa-solid fa-download"></i></button></a>
+        {{else}}
+            <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
+                viết <i class="fa-solid fa-download"></i></button>
+        {{/if}}
+        
         <div class="row">
             {{#with article}}
             <div class="col-md-8">
