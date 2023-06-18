@@ -50,8 +50,13 @@
         <a href="/articles/{{article.id}}/download" target="_blank"><button id="download-btn" class="premium">Tải bài
                 viết <i class="fa-solid fa-download"></i></button></a>
         {{else}}
-        <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
-            viết <i class="fa-solid fa-download"></i></button>
+            {{#if isLoggedIn}}
+                <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
+                    viết <i class="fa-solid fa-download"></i></button>
+            {{else}}
+                <a href={{hrefLogin}}><button id="download-btn" class="premium">Tải bài
+                viết <i class="fa-solid fa-download"></i></button></a>
+            {{/if}}
         {{/if}}
 
         <div class="row">

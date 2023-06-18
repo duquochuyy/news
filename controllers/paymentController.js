@@ -13,7 +13,13 @@ OTP
 */
 
 controller.payment = async (req, res) => {
-    const id = 12;
+    const id = (req.isAuthenticated()) ? req.user.id : 0;
+    // const id = 12;
+
+    if (id == 0) {
+        return res.redirect(`/auth/login?reqUrl=${req.originalUrl}`);
+    }
+    
     const infor = `{"id": ${id}}`
     console.log("base64" + btoa(infor));
     //https://developers.momo.vn/#/docs/en/aiov2/?id=payment-method
@@ -113,8 +119,8 @@ controller.payment = async (req, res) => {
 }
 
 controller.result = async (req, res) => {
-    console.log("hello" + req.query.extraData);
-    console.log("hello2" + atob(req.query.extraData))
+    // console.log("hello" + req.query.extraData);
+    // console.log("hello2" + atob(req.query.extraData))
 
     const idUser = isNaN(JSON.parse(atob(req.query.extraData)).id) ? 0 : parseInt(JSON.parse(atob(req.query.extraData)).id);
     console.log(`Id user buy: ${idUser}`);
