@@ -156,15 +156,6 @@ controller.showDetail = async (req, res) => {
         ],
       },
       {
-        model: models.Comment,
-        include: [
-          {
-            model: models.User,
-            attributes: ["id", "name"],
-          },
-        ],
-      },
-      {
         model: models.Tag,
         attributes: ["id", "name"]
       }
@@ -175,10 +166,6 @@ controller.showDetail = async (req, res) => {
     .toLocaleString("vi-VN")
     .slice(10, 19);
   article.contentPara = article.content.split(" \n ");
-  article.Comments.forEach((comment) => {
-    comment.newTime = new Date(comment.time).toLocaleString("vi-VN");
-  });
-  article.Comments.sort((a, b) => a.newTime - b.newTime);
   res.locals.article = article;
 
   let tagIds = [];
@@ -203,7 +190,19 @@ controller.showDetail = async (req, res) => {
   });
   res.locals.relatedArticles = relatedArticles;
 
-
+  let comments = await models.Comment.findAll({
+    include: [{
+      model: models.User,
+      attributes: ["id", "name"],
+    }],
+    where: { articleId: id }
+  });
+  comments.forEach((comment) => {
+    comment.newTime = new Date(comment.time).toLocaleString("vi-VN");
+    comment.contentPara = comment.content.split('\n');
+  });
+  comments.sort((a, b) => a.newTime - b.newTime);
+  res.locals.comments = comments;
 
   res.render("articleDetail");
 };
@@ -314,5 +313,39 @@ controller.download = async (req, res) => {
       });
   }
 };
+
+controller.comment = async (req, res) => {
+  const idUser = (req.isAuthenticated()) ? req.user.id : 0;
+  let id = isNaN(req.params.id) ? 0 : parseInt(req.params.id); // id bài viết
+  if (!idUser) {
+    return res.render('thanks', { message: 'Bạn chưa đăng nhập, vui lòng đăng nhập hoặc đăng ký nếu chưa có tài khoản!' });
+  }
+
+  let content = req.body.content;
+  let date = new Date();
+  await models.Comment.create({
+    time: date,
+    content: content,
+    articleId: id,
+    userId: idUser
+  });
+
+  let comments = await models.Comment.findAll({
+    include: [{
+      model: models.User,
+      attributes: ["id", "name"],
+    }],
+    where: { articleId: id }
+  });
+
+  comments.forEach((comment) => {
+    comment.newTime = new Date(comment.time).toLocaleString("vi-VN");
+    comment.contentPara = comment.content.split('\n');
+  });
+  comments.sort((a, b) => a.newTime - b.newTime);
+  res.locals.comments = comments;
+
+  res.redirect(`/articles/${id}`);
+}
 
 module.exports = controller;

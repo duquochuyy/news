@@ -14,8 +14,8 @@
 </ul>
 <main id="app__body">
     <div id="detail" class="container-fluid">
-        {{#with article}}
         <header id="detail-header">
+            {{#with article}}
             <div class="d-flex flex-row">
                 {{#each Categories}}
                 <div class="category-card">{{name}}</div>
@@ -25,58 +25,62 @@
                 <img src="/images/premium.png" class="premium-icon premium">
                 {{title}}
             </p>
+            {{/with}}
             <div id="detail-header__infor">
+                {{#with article}}
                 <div class="d-flex align-items-center">
-
                     <img src="/images/users/man_default.png" alt="" class="deatail-header__author-img">
                     {{#with Writer}}
                     <p class="deatail-header__author-name">Tác giả: {{User.name}}</p>
                     {{/with}}
                 </div>
+                {{/with}}
                 <div class="d-flex align-items-center deatail-times">
+                    {{#with article}}
                     <p class="detail-header__publish"> &nbspNgày đăng&nbsp:
                     <p class="detail-header__infor-time">&nbsp{{publishDateNew}}</p>
                     </p>
+                    {{/with}}
                     <a href="#comment" class="detail-header__comment"><i class="fa-solid fa-comment comment-icon"></i>
-                        <p class="detail-header__comment-quantity">&nbsp{{Comments.length}}&nbsp</p> bình luận
+                        <p class="detail-header__comment-quantity">&nbsp{{comments.length}}&nbsp</p> bình luận
                     </a>
                 </div>
             </div>
 
         </header>
-        {{/with}}
 
         {{#if isSubscriber}}
         <a href="/articles/{{article.id}}/download" target="_blank"><button id="download-btn" class="premium">Tải bài
                 viết <i class="fa-solid fa-download"></i></button></a>
         {{else}}
-            {{#if isLoggedIn}}
-                <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
-                    viết <i class="fa-solid fa-download"></i></button>
-            {{else}}
-                <a href={{hrefLogin}}><button id="download-btn" class="premium">Tải bài
+        {{#if isLoggedIn}}
+        <button id="download-btn" class="premium" data-bs-toggle="modal" data-bs-target="#premium-modal">Tải bài
+            viết <i class="fa-solid fa-download"></i></button>
+        {{else}}
+        <a href={{hrefLogin}}><button id="download-btn" class="premium">Tải bài
                 viết <i class="fa-solid fa-download"></i></button></a>
-            {{/if}}
+        {{/if}}
         {{/if}}
 
         <div class="row">
-            {{#with article}}
             <div class="col-md-8">
                 <div id="detail-article">
+                    {{#with article}}
                     <div id="detail-article__content">
                         <img src="{{mainImg}}" alt="" class="article__content-img article__content-item">
                         {{#each contentPara}}
                         <p class="article__content-text article__content-item about">{{this}}</p>
                         {{/each}}
                     </div>
+                    {{/with}}
                     <div id="comment">
                         <header id="comment__header">
                             <i class="fa-regular fa-comments list-comment__icon"></i>
-                            <p class="list-comment__quantity">{{Comments.length}}</p>
+                            <p class="list-comment__quantity">{{comments.length}}</p>
                             bình luận
                         </header>
                         <ul id="list-comment">
-                            {{#each Comments}}
+                            {{#each comments}}
                             <li class="comment-item">
 
                                 <img src="/images/users/female_default.png" alt="" class="comment-item__avatar">
@@ -86,7 +90,9 @@
                                         <p class="comment-item__name">{{User.name}}</p>
                                         <p class="conmment-item__time">{{newTime}}</p>
                                     </div>
-                                    <p class="comment-item__content">{{content}}</p>
+                                    {{#each contentPara}}
+                                    <p class="comment-item__content">{{this}}</p>
+                                    {{/each}}
                                     <div class="comment-item__react">
                                         <p class="comment-item__like hover"><i class="fa-solid fa-thumbs-up"></i> Thích
                                         </p>
@@ -97,17 +103,18 @@
                             </li>
                             {{/each}}
                         </ul>
+                        {{#with article}}
                         <div id="post-comment">
-                            <form action="#">
+                            <form action="/articles/{{id}}" method="post">
                                 <label for="comment-input">Bình luận</label>
-                                <textarea name="comment-content" id="comment-input"></textarea>
+                                <textarea name="content" id="comment-input"></textarea>
                                 <input type="submit" class="post-btn btn-primary" value="Bình luận">
                             </form>
                         </div>
+                        {{/with}}
                     </div>
                 </div>
             </div>
-            {{/with}}
 
             <ul id="sidebar" class="col-md-4 pc">
                 <div id="related-article" class="sidebar__item mt-3">
