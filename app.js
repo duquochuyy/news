@@ -36,7 +36,7 @@ app.use(cookieParser());
 
 // cau hinh su dung session
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'secret',
     resave: false,
     saveUninitialized: false,
     cookie: {

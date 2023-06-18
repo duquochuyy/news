@@ -122,8 +122,8 @@ controller.show = async (req, res) => {
 
 controller.showDetail = async (req, res) => {
   let id = isNaN(req.params.id) ? 0 : parseInt(req.params.id); // id bài viết
-
-  const idUser = 11;
+  // const idUser = 11;
+  const idUser = (req.isAuthenticated()) ? req.user.id : 0;
   const subscriber = await models.Subscriber.findOne({
     where: { userId: idUser },
   });
@@ -132,6 +132,12 @@ controller.showDetail = async (req, res) => {
     res.locals.isSubscriber = true;
   else {
     res.locals.isSubscriber = false;
+    if (idUser == 0) {
+      res.locals.isLoggedIn = false;
+      res.locals.hrefLogin = `/auth/login?reqUrl=${req.originalUrl}`
+    }
+    else
+      res.locals.isLoggedIn = true;
   }
 
   let article = await models.Article.findOne({
@@ -201,7 +207,8 @@ controller.showDetail = async (req, res) => {
 };
 
 controller.download = async (req, res) => {
-  const idUser = 11;
+  const idUser = (req.isAuthenticated()) ? req.user.id : 0;
+  // let idUser = 11;
   let idArticle = isNaN(req.params.id) ? 0 : parseInt(req.params.id); // id bài viết
   const subscriber = await models.Subscriber.findOne({
     where: { userId: idUser },
