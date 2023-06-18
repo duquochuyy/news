@@ -197,6 +197,8 @@ controller.showDetail = async (req, res) => {
   });
   res.locals.relatedArticles = relatedArticles;
 
+
+
   res.render("articleDetail");
 };
 
