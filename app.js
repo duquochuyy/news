@@ -95,8 +95,8 @@ const FetchCategories = async (req, res, next) => {
 app.use('/', FetchCategories, require('./routes/indexRouter'));
 app.use('/articles', FetchCategories, require('./routes/articleRouter'));
 app.use('/auth', require('./routes/authRouter'));
-// app.use('/writer', require('./routes/writerRouter'));
 app.use('/editor', require('./routes/editorRouter'));
+app.use('/writer', require('./routes/writerRouter'));
 // app.use('/admin', require('./routes/adminRouter'));
 
 

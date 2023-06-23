@@ -165,7 +165,7 @@ controller.showDetail = async (req, res) => {
   article.publishDateNew = new Date(article.publishDate)
     .toLocaleString("vi-VN")
     .slice(10, 19);
-  article.contentPara = article.content.split(" \n ");
+  article.contentPara = article.content.split("\n");
   res.locals.article = article;
 
   let tagIds = [];
