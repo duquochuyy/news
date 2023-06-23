@@ -14,8 +14,8 @@ const sendForgotPasswordMail = (user, host, resetLink) => {
       Messages: [
         {
           From: {
-            Email: "ttbh.test@gmail.com",
-            Name: "EShop"
+            Email: "hebiitachi2@gmail.com",
+            Name: "News"
           },
           To: [
             {
@@ -23,9 +23,9 @@ const sendForgotPasswordMail = (user, host, resetLink) => {
               Name: `${user.username}`
             }
           ],
-          Subject: "[EShop] Reset Password",
+          Subject: "[News] Reset Password",
           HTMLPart: `
-            <p>Hi ${user.username}</p>,
+            <p>Hi ${user.username},</p>
             <br/>
             <p>You recently requested to reset the password for your ${host} account. 
             Click the button below to proceed</p>
@@ -37,7 +37,7 @@ const sendForgotPasswordMail = (user, host, resetLink) => {
             <br/>
             <p>Thanks,</p>
             <br/>
-            <p>EShop</p>
+            <p>News</p>
           `
         }
       ]

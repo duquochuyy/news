@@ -226,8 +226,8 @@ ul {
 }
 
 #user-logged-in{
-    display: none;
-    /* display: flex; */
+    /*display: none;*/
+     display: flex;
 }
 
 #notice,

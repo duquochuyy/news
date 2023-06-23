@@ -1,6 +1,5 @@
 $(() => {
     $('#resetPWForm').on('submit', (e) => {
-        e.preventDefault();
         const oldPW = $('#inputCurrentPW').val();
         const newPW = $('#inputNewPW').val();
         const confirmNewPW = $('#inputConfirmNewPW').val();
@@ -10,22 +9,26 @@ $(() => {
         if (newPW.length < 8) {
             pwError.removeClass('d-none')
             pwError.addClass('d-block')
+            e.preventDefault();
+
         }
         else {
             pwError.removeClass('d-block')
             pwError.addClass('d-none')
 
+
         }
         if (newPW !== confirmNewPW) {
             confirmPWError.removeClass('d-none')
             confirmPWError.addClass('d-block')
+            e.preventDefault();
         }
         else {
             confirmPWError.removeClass('d-block')
             confirmPWError.addClass('d-none')
         }
-        if (newPW.length >= 8 && newPW === confirmNewPW) {
-            this.submit();
+        if (newPW.length < 8 || newPW !== confirmNewPW) {
+            e.preventDefault();
         }
     });
 });
