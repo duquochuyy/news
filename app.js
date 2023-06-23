@@ -61,6 +61,32 @@ const FetchCategories = async (req, res, next) => {
         where: { parentId: null }
     });
     res.locals.categoriesForLayout = categories;
+    res.locals.isLoggedIn = req.isAuthenticated();
+
+    const userId = (req.isAuthenticated()) ? req.user.id : 0;
+    let admin = await models.Admin.findOne({ where: { userId: userId } });
+    if (admin) {
+        res.locals.isAdmin = true;
+    }
+    else {
+        res.locals.isAdmin = false;
+    }
+
+    let editor = await models.Editor.findOne({ where: { userId: userId } });
+    if (editor) {
+        res.locals.isEditor = true;
+    }
+    else {
+        res.locals.isEditor = false;
+    }
+
+    let writer = await models.Writer.findOne({ where: { userId: userId } });
+    if (writer) {
+        res.locals.isWriter = true;
+    }
+    else {
+        res.locals.isWriter = false;
+    }
 
     next();
 };
@@ -84,6 +110,9 @@ app.use(function(req, res, next) {
 app.use('/', FetchCategories, require('./routes/indexRouter'));
 app.use('/articles', FetchCategories, require('./routes/articleRouter'));
 app.use('/auth', require('./routes/authRouter'));
+// app.use('/writer', require('./routes/writerRouter'));
+app.use('/editor', require('./routes/editorRouter'));
+// app.use('/admin', require('./routes/adminRouter'));
 
 // khoi dong web server
 app.listen(port, () => {
