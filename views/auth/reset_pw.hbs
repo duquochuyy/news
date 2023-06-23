@@ -1,0 +1,60 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="./index" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="./setting" class="breadcrumb__link">Cài đặt</a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Đổi mật khẩu
+        </a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div class="container-fluid">
+
+        <div class="col d-flex justify-content-center">
+            {{#if done}}
+                <p class="text-danger" style="color: #0f9170;">Cập nhật mật khẩu thành công. Vui lòng đăng nhập lại!</p>
+            {{else}}
+                {{#if false}}
+                    <p class="text-danger">Link đã quá hạn. Vui lòng thực hiện lại quên mật khẩu!</p>
+                {{else}}
+                    <form action="/auth/reset" method="post" id="resetPWForm" class=" col-lg-5 col-md-8 col-sm-10 col-xs-12">
+                        <div class="form-group mt-4">
+                            <label for="inputNewPW"><strong>Nhập mật khẩu mới</strong></label>
+                            <input type="password" class="form-control mt-1" id="inputNewPW" placeholder="Nhập mật khẩu mới"
+                                   name="password" required>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <label for="inputConfirmNewPW"><strong>Xác nhận mật khẩu</strong></label>
+                            <input type="password" class="form-control mt-1 mb-3" id="inputConfirmNewPW"
+                                   placeholder="Xác nhận mật khẩu mới" name="confirmPassword">
+                        </div>
+                        <input type="hidden" name="token" value="{{token}}"/>
+
+                        <p id="passwordError" class="text-danger d-none">Mật khẩu phải bắt buộc dài 8 kí tự.</p>
+                        <p id="confirmPasswordError" class="text-danger d-none">Xác nhận mật khẩu không khớp</p>
+
+                        <p class="text-danger">{{resetMessage}}</p>
+
+                        <button type="submit" id="btnSubmit" class="btn btn-success mt-4 btn-lg btn-block">Xác
+                            nhận</button>
+                    </form>
+
+                {{/if}}
+            {{/if}}
+        </div>
+
+    </div>
+
+</main>
+{{!-- STYLES --}}
+
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/reset_pw.css">
+{{!-- SCRIPTS --}}
+<script src="/scripts/reset_pw.js"></script>

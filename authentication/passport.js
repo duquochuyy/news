@@ -65,6 +65,10 @@ passport.use('local-login', new LocalStrategy({
         return done(null, false, req.flash('loginMessage', 'Tài khoản không tồn tại'));
       }
 
+      if (!bcrypt.compareSync(password, user.password)) { // nếu mật khẩu không đúng
+        return done(null, false, req.flash('loginMessage', 'Sai mật khẩu'));
+      }
+
       let isExisted = false;
       switch (role) {
         case "writer":
@@ -96,9 +100,6 @@ passport.use('local-login', new LocalStrategy({
         return done(null, false, req.flash('loginMessage', 'Tài khoản không có quyền tương ứng'));
       }
 
-      if (!bcrypt.compareSync(password, user.password)) { // nếu mật khẩu không đúng
-        return done(null, false, req.flash('loginMessage', 'Sai mật khẩu'));
-      }
       // cho phép đăng nhập
       done(null, user);
       return;
