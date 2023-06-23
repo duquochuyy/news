@@ -113,6 +113,7 @@ app.use('/auth', require('./routes/authRouter'));
 // app.use('/writer', require('./routes/writerRouter'));
 app.use('/editor', require('./routes/editorRouter'));
 // app.use('/admin', require('./routes/adminRouter'));
+app.use('/user', require('./routes/userRouter'));
 
 // khoi dong web server
 app.listen(port, () => {
