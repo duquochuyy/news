@@ -65,11 +65,25 @@ const FetchCategories = async (req, res, next) => {
     next();
 };
 
+app.use(function(req, res, next) {
+    const isAuthenticated = req.isAuthenticated();
+    res.locals.notAuthenticated = !isAuthenticated;
+   if (isAuthenticated) {
+       res.locals.role = {
+           isUser: req.user.role == "user",
+           isWriter: req.user.role == "writer",
+           isEditor: req.user.role == "editor",
+           isAdmin: req.user.role == "admin"
+       }
+       res.locals.user = req.user;
+   }
+   next();
+});
+
 // routes
 app.use('/', FetchCategories, require('./routes/indexRouter'));
 app.use('/articles', FetchCategories, require('./routes/articleRouter'));
 app.use('/auth', require('./routes/authRouter'));
-
 
 // khoi dong web server
 app.listen(port, () => {

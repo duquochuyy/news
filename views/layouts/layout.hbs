@@ -19,12 +19,14 @@
             <div class="header-head d-flex justify-content-between align-items-center">
                 <a href="/"><img id="header-logo" src="/images/logo.png"></img></a>
                 <!-- user don't login -->
+                {{#if notAuthenticated}}
                 <div id="guest" class="justify-content-end">
                     <a href="#" id="app__header-login" class="hover text-uppercase bold hover">Đăng
                         nhập</a>
                     <a href="#" id="app__header-signup" class="hover text-uppercase bold hover">Đăng
                         ký</a>
                 </div>
+                {{else}}
                 <!-- user logged in -->
                 <div id="user-logged-in" class="justify-content-end align-items-center">
                     <div id="notice">
@@ -45,7 +47,7 @@
                         <div id="user-control">
                             <div id="control-heading" class="line-separate">
                                 <img src="/images/users/female_default.png" alt="Avatar" class="rounded">
-                                <p class="text-capitalize bold">minh Hiền</p>
+                                <p class="text-capitalize bold">{{user.username}}</p>
                             </div>
                             <div class="editor non-ad line-separate control-item">
                                 <a href="./browsingList" class="control-link hover">Duyệt bài
@@ -76,8 +78,9 @@
                     <!--  -->
 
                 </div>
-
+                {{/if}}
             </div>
+
             <!-- nav for all user subsystem -->
             <nav id="header__navbar" class=" admin-role navbar navbar-expand-sm bg-black">
                 <div class="container-fluid ">
@@ -114,9 +117,10 @@
 
             </nav>
         </header>
+
         <header id="header" class="admin-role">
             <div class="d-flex align-items-center">
-                <a href="./index"><img id="header-logo" src="/images/logo.png"></img></a>
+                <a href="./index"><img id="header-logo" src="/images/logo.png"></a>
                 <i class="fa-solid fa-bars" id="sidebar-btn"></i>
             </div>
             <!-- user logged in -->

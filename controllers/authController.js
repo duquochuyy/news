@@ -3,8 +3,9 @@
 const controller = {};
 const models = require('../models');
 const {sign, verify} = require("../authentication/jwt");
-const {sendForgotPasswordMail} = require("../services/mailService");
 const passport = require("../authentication/passport");
+const mailService = require("../services/mailService");
+const jwt = require("../authentication/jwt");
 
 controller.showLogin = (req, res) => {
   if (req.isAuthenticated()) {
@@ -34,7 +35,6 @@ controller.login = (req, res, next) => {
       if (error) {
         return next(error);
       }
-      console.log(user);
       req.session.cookie.maxAge = keepSignedIn ? (20 * 60 * 60 * 1000) : null;
       res.redirect(reqUrl);
     });
@@ -101,19 +101,19 @@ controller.forgotPassword = async (req, res) => {
     const resetLink = `${req.protocol}://${host}/auth/reset?token=${sign(email)}&email=${email}`;
     // gui email
     // thong bao thanh cong
-    sendForgotPasswordMail(user, host, resetLink)
-      .then(result => {
-        console.log("Email has been sent");
-        return res.render('forgot-password', {done: true});
-      })
-      .catch(error => {
-        console.log(error);
-        return res.render('forgot-password', {message: 'Error sending email. Please check you email'});
-      })
-    return res.render('forgot-password', {done: true});
+    try {
+      const result = await mailService.sendForgotPasswordMail(user, host, resetLink)
+      if (result) {
+        return res.render('auth/forgot-password', {done: true});
+      }
+    } catch (e) {
+      console.log(error);
+      return res.render('auth/forgot-password', {message: 'Lỗi không thể gửi mail. Vui lòng kiểm tra email của bạn'});
+    }
+    return res.render('auth/forgot-password', {done: true});
   } else {
     // nguoc lai, thong bao email khong ton tai
-    return res.render('forgot-password', {message: 'Email does not exist!'});
+    return res.render('auth/forgot-password', {message: 'Email không tồn tại trên hệ thống'});
   }
 }
 
@@ -121,20 +121,24 @@ controller.showResetPassword = (req, res) => {
   let email = req.query.email;
   let token = req.query.token;
   if (!token || !verify(token)) {
-    return res.render('reset-password', {expired: true});
+    return res.render('auth/reset_pw', {expired: true});
   } else {
-    return res.render('reset-password', {email, token});
+    return res.render('auth/reset_pw', {email, token});
   }
 }
 
 controller.resetPassword = async (req, res) => {
-  let email = req.body.email;
-  let token = req.body.token;
   let bcrypt = require('bcrypt');
+  let token = req.body.token;
+  if (!jwt.verify(token)) {
+    res.render('auth/reset_pw', {resetMessage: "Token đã hết hạn. Vui lòng thực hiện lại quá trình!"});
+    return;
+  }
+  const email = jwt.extract(token);
   let password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8));
 
   await models.User.update({password}, {where: {email}});
-  res.render('reset-password', {done: true});
+  res.render('auth/reset_pw', {done: true});
 }
 
 module.exports = controller;
