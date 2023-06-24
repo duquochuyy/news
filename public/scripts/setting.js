@@ -56,7 +56,29 @@ $(function() {
     });
 });
 
-
+$('#profile-form').submit(false);
+$('#btnSubmit').click(function() {
+   const name = $('#name').text() == 'Thêm tên người dùng' ? undefined : $('#name').text();
+   const email = $('#email').text();
+   const phone = $('#phone').text() == 'Thêm số điện thoại' ? undefined : $('#phone').text();
+   const sex = $('input[name="sex"]:checked').val() == '1' ? true : false;
+   const birthday = new Date($('#dateInput').val());
+   $.ajax({
+       type: "POST",
+       url: "/user/setting",
+       data: {name, email, phone, sex, birthday},
+       success: function(data) {
+           if (data == 'success') {
+               window.location.href = '/user/setting';
+           } else {
+               alert("Có lỗi không thể cập nhật thông tin cá nhân");
+           }
+       },
+       error: function(XMLHttpRequest, textStatus, errorThrown) {
+           alert("Có lỗi không thể cập nhật thông tin cá nhân");
+       }
+   });
+});
 
 // var myDateInput = document.getElementById('dateInput');
 

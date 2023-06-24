@@ -50,17 +50,17 @@ passport.deserializeUser(async (id, done) => {
 
 // hàm xác thực người dùng khi đăng nhập
 passport.use('local-login', new LocalStrategy({
-  usernameField: 'email', // tên đăng nhập là email
+  usernameField: 'username', // tên đăng nhập là email
   passwordField: 'password',
   passReqToCallback: true // cho phép truyền req vào callback để kiểm tra user đã đăng nhập chưa
-}, async (req, email, password, done) => {
-  if (email) {
-    email = email.toLowerCase();
+}, async (req, username, password, done) => {
+  if (username) {
+    username = username.toLowerCase();
   }
   const role = req.body.role;
   try {
     if (!req.user) { // nếu user chưa đăng nhập
-      let user = await models.User.findOne({ where: { email } });
+      let user = await models.User.findOne({ where: { username } });
       if (!user) { // email k tồn tại
         return done(null, false, req.flash('loginMessage', 'Tài khoản không tồn tại'));
       }
@@ -114,29 +114,29 @@ passport.use('local-login', new LocalStrategy({
 
 // hàm đăng ký tài khoản
 passport.use('local-register', new LocalStrategy({
-  usernameField: 'email',
+  usernameField: 'username',
   passwordField: 'password',
   passReqToCallback: true
-}, async (req, email, password, done) => {
-  if (email) {
-    email = email.toLowerCase();
+}, async (req, username, password, done) => {
+  if (username) {
+    username = username.toLowerCase();
   }
   if (req.user) { // neu nguoi dung da dang nhap thi bo qua
     return done(null, req.user);
   }
   try {
-    let user = await models.User.findOne({ where: { email } });
+    let user = await models.User.findOne({ where: { username } });
     if (user) {
-      return done(null, false, req.flash('registerMessage', 'Email đã được sử dụng!'));
+      return done(null, false, req.flash('registerMessage', 'Tên đăng nhập đã được sử dụng!'));
     }
     await models.User.create({
       name: "",
-      email: email,
+      email: req.body.email,
       password: bcrypt.hashSync(password, bcrypt.genSaltSync(8)),
-      username: req.body.username,
+      username: username,
       phone: "",
       sex: true,
-      birthday: new Date(),
+      birthday: null,
       facebook: "",
       zalo: "",
       google: ""

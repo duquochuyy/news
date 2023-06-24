@@ -91,7 +91,7 @@ const FetchCategories = async (req, res, next) => {
     next();
 };
 
-app.use(function(req, res, next) {
+app.use(async function(req, res, next) {
     const isAuthenticated = req.isAuthenticated();
     res.locals.notAuthenticated = !isAuthenticated;
    if (isAuthenticated) {
@@ -102,6 +102,11 @@ app.use(function(req, res, next) {
            isAdmin: req.user.role == "admin"
        }
        res.locals.user = req.user;
+
+       let subscriber = await models.Subscriber.findOne({ where: { userId: req.user.id } });
+       if (subscriber) {
+           res.locals.isSubscribed = true;
+       }
    }
    next();
 });

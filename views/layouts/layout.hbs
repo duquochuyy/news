@@ -42,12 +42,22 @@
                     <!-- -->
                     <div id="user">
                         <div id="avatar" class="pos-r">
-                            <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
-                            <img src="/images/premium.png" class="premium-icon premium">
+                            {{#if user.sex}}
+                                <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
+                            {{else}}
+                                <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
+                            {{/if}}
+                            {{#if isSubscribed}}
+                                <img src="/images/premium.png" class="premium-icon premium">
+                            {{/if}}
                         </div>
                         <div id="user-control">
                             <div id="control-heading" class="line-separate">
-                                <img src="/images/users/female_default.png" alt="Avatar" class="rounded">
+                                {{#if user.sex}}
+                                    <img src="/images/users/man_default.png" alt="Avatar" class="rounded">
+                                {{else}}
+                                    <img src="/images/users/female_default.png" alt="Avatar" class="rounded">
+                                {{/if}}
                                 <p class="text-capitalize bold">{{user.username}}</p>
                             </div>
                             {{#if isEditor}}
@@ -69,14 +79,16 @@
                                     viết của tôi</a>
                             </div>
                             {{/if}}
-                            <div class="line-separate non-ad control-item">
-                                <a href="#" class="control-link hover light-hover">Nâng
-                                    cấp tài khoản</a>
-                            </div>
+                            {{#if role.isUser}}
+                                <div class="line-separate non-ad control-item">
+                                    <a href="#" class="control-link hover light-hover">Nâng
+                                        cấp tài khoản</a>
+                                </div>
+                            {{/if}}
                             <div class=" control-item">
-                                <a href="./setting" class="control-link hover light-hover">Cài
+                                <a href="/user/setting" class="control-link hover light-hover">Cài
                                     đặt</a>
-                                <a href="./index" class="control-link hover light-hover">Đăng
+                                <a href="/auth/logout" class="control-link hover light-hover">Đăng
                                     xuất</a>
                             </div>
                         </div>
@@ -229,7 +241,7 @@
             <div class="line-separate"></div>
             <main class="form-body">
                 <ul class="form-social d-flex justify-content-between">
-                    <li class="form-social__item"><a href="#" class="form-social__link"><img src="images/google.png"
+                    <li class="form-social__item"><a href="#" class="form-social__link"><img src="/images/google.png"
                                 alt="" class="form-social__icon">
                             <p class="form-social__name text-black">Google</p>
                         </a></li>
@@ -237,7 +249,7 @@
                                 class="form-social__icon fa-brands fa-facebook"></i>
                             <p class="form-social__name text-black">Facebook</p>
                         </a></li>
-                    <li class="form-social__item"><a href="#" class="form-social__link"><img src="images/zalo.png"
+                    <li class="form-social__item"><a href="#" class="form-social__link"><img src="/images/zalo.png"
                                 alt="" class="form-social__icon">
                             <p class="form-social__name text-black">Zalo</p>
                         </a></li>
