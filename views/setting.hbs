@@ -37,7 +37,7 @@
                     </li>
 
                     <li class="nav-item rounded mt-1 content-3">
-                        <a class="nav-link px-3 text-black hover d-block" href="./index">
+                        <a class="nav-link px-3 text-black hover d-block" href="/auth/logout">
                             <i class="fa-solid fa-arrow-right-from-bracket  text-primary d-inline-block px-1"></i>
                             Đăng xuất
                         </a>
@@ -51,11 +51,15 @@
                     <h2>Thông tin cá nhân</h2>
                     <hr>
 
-                    <form class="profileForm" method="post">
+                    <form class="profileForm" method="post" id="profile-form">
                         <div class="form-group row m-0 p-0">
                             <div class="col-lg-2">
                                 <div class="rounded-circle d-flex justify-content-center avatar position-relative">
-                                    <img src="images/users/man_default.png" alt="avatar">
+                                    {{#if user.sex}}
+                                        <img src="/images/users/man_default.png" alt="Avatar">
+                                    {{else}}
+                                        <img src="/images/users/female_default.png" alt="Avatar">
+                                    {{/if}}
                                     <label class="input-group-text position-absolute camera-to-choose" for="inputImage">
                                         <i class="fa-solid fa-camera-retro"></i>
                                     </label>
@@ -65,8 +69,13 @@
                             </div>
 
                             <div class="col-lg-8 .col-lg-offset-2 inner1 d-flex align-items-center">
-                                <p class="info-text font-weight-bold">Minh Hiền</p>
-                                <input type="text" class="form-control edit-input font-weight-bold d-none">
+                                {{#if profile.name}}
+                                    <p class="info-text font-weight-bold" id="name">{{profile.name}}</p>
+                                    <input type="text" class="form-control edit-input font-weight-bold d-none">
+                                {{else}}
+                                    <p class="info-text font-weight-bold" id="name">Thêm tên người dùng</p>
+                                    <input type="text" class="form-control edit-input font-weight-bold d-none">
+                                {{/if}}
                             </div>
 
                             <div class="col-11 col-lg-2 d-flex align-items-center inner2 p-0">
@@ -83,7 +92,7 @@
 
                             <div class="col-lg-9 p-0 inner1">
                                 <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Email</label>
-                                <p class="info-text mt-2">leminhhien25062002@gmail.com</p>
+                                <p class="info-text mt-2" id="email">{{profile.email}}</p>
                                 <hr class="m-0">
                                 <input type="email" class="form-control edit-input d-none">
                             </div>
@@ -101,9 +110,14 @@
                             <div class="col-lg-9 p-0 inner1">
                                 <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Số
                                     điện thoại</label>
-                                <p class="info-text mt-2">Thêm số điện thoại</p>
+                                {{#if profile.phone}}
+                                    <p class="info-text mt-2" id="phone">{{profile.phone}}</p>
+                                    <input type="tel" class="form-control edit-input d-none">
+                                {{else}}
+                                    <p class="info-text mt-2" id="phone">Thêm số điện thoại</p>
+                                    <input type="tel" class="form-control edit-input d-none">
+                                {{/if}}
                                 <hr class="m-0">
-                                <input type="tel" class="form-control edit-input d-none">
                             </div>
 
                             <div class="col-lg-2 p-0 inner2">
@@ -122,20 +136,38 @@
                                     tính</label>
                                 <hr class="col-lg-10">
                                 <div class="row">
-                                    <div class="form-check" style="cursor: pointer;">
-                                        <input class="form-check-input" type="radio" name="gender" id="genderMale"
-                                            value="option1" style="cursor: pointer;" checked>
-                                        <label style="cursor: pointer;" class="form-check-label" for="genderMale">
-                                            Nam
-                                        </label>
-                                    </div>
-                                    <div class="form-check" style="cursor: pointer;">
-                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale"
-                                            value="option2" style="cursor: pointer;">
-                                        <label style="cursor: pointer;" class="form-check-label" for="genderFemale">
-                                            Nữ
-                                        </label>
-                                    </div>
+                                    {{#if profile.sex}}
+                                        <div class="form-check" style="cursor: pointer;">
+                                            <input class="form-check-input radio-btn" type="radio" name="sex" id="genderMale"
+                                                   value="1" style="cursor: pointer;" checked>
+                                            <label style="cursor: pointer;" class="form-check-label" for="genderMale">
+                                                Nam
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="cursor: pointer;">
+                                            <input class="form-check-input radio-btn" type="radio" name="sex" id="genderFemale"
+                                                   value="0" style="cursor: pointer;">
+                                            <label style="cursor: pointer;" class="form-check-label" for="genderFemale">
+                                                Nữ
+                                            </label>
+                                        </div>
+                                    {{else}}
+                                        <div class="form-check" style="cursor: pointer;">
+                                            <input class="form-check-input radio-btn" type="radio" name="sex" id="genderMale"
+                                                   value="1" style="cursor: pointer;">
+                                            <label style="cursor: pointer;" class="form-check-label" for="genderMale">
+                                                Nam
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="cursor: pointer;">
+                                            <input class="form-check-input radio-btn" type="radio" name="sex" id="genderFemale"
+                                                   value="0" style="cursor: pointer;" checked>
+                                            <label style="cursor: pointer;" class="form-check-label" for="genderFemale">
+                                                Nữ
+                                            </label>
+                                        </div>
+                                    {{/if}}
+
                                 </div>
                             </div>
 
@@ -149,9 +181,9 @@
                             <div class="col-lg-9 p-0 inner1">
                                 <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Ngày
                                     sinh</label>
-                                <p class="info-text mt-2">25/06/2002</p>
+                                <p class="info-text mt-2" id="birthday">{{birthday}}</p>
                                 <hr class="m-0">
-                                <input type="date" class="form-control edit-input d-none" id="dateInput">
+                                <input type="date" class="form-control edit-input d-none" id="dateInput" value="{{birthday}}">
                             </div>
 
                             <div class="col-lg-2 p-0 inner2">
@@ -176,7 +208,7 @@
                         <div class="bodyarea__item row mt-4">
                             <div class="col col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                 <div class="row border m-0 b-0 rounded p-2 d-flex">
-                                    <img src="images/social-logo/google.png" alt="google"
+                                    <img src="/images/social-logo/google.png" alt="google"
                                         class="logo-socialnetwork p-0">
 
                                     <div class="vertical-line"></div>
@@ -196,7 +228,7 @@
                         <div class="bodyarea__item row mt-4">
                             <div class="col col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                 <div class="row border m-0 b-0 rounded p-2 d-flex">
-                                    <img src="images/social-logo/facebook.png" alt="google"
+                                    <img src="/images/social-logo/facebook.png" alt="google"
                                         class="logo-socialnetwork p-0">
 
                                     <div class="vertical-line"></div>
@@ -216,7 +248,7 @@
                         <div class="bodyarea__item row mt-4">
                             <div class="col col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                 <div class="row border m-0 b-0 rounded p-2 d-flex">
-                                    <img src="images/social-logo/zalo.png" alt="google" class="logo-socialnetwork p-0">
+                                    <img src="/images/social-logo/zalo.png" alt="google" class="logo-socialnetwork p-0">
 
                                     <div class="vertical-line"></div>
 
@@ -255,8 +287,8 @@
 </main>
 {{!-- STYLES --}}
 
-<link rel="stylesheet" href="styles/base.css">
-<link rel="stylesheet" href="styles/authentication.css">
-<link rel="stylesheet" href="styles/setting.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/setting.css">
 {{!-- SCRIPTS --}}
-<script src="scripts/setting.js"></script>
+<script src="/scripts/setting.js"></script>

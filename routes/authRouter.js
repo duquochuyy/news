@@ -5,11 +5,10 @@ const {body, getErrorMessage} = require("../utils/validator");
 
 router.get('/login', controller.showLogin);
 router.post('/login',
-  body('email').trim()
-    .notEmpty().withMessage('Email is required!')
-    .isEmail().withMessage('Invalid email address!'),
+  body('username').trim()
+    .notEmpty().withMessage('Tên đăng nhập không được trống!'),
   body('password').trim()
-    .notEmpty().withMessage('Password is required!'),
+    .notEmpty().withMessage('Mật khẩu không được trống!'),
   (req, res, next) => {
     let message = getErrorMessage(req);
     if (message) {
@@ -26,7 +25,7 @@ router.get('/register', controller.showRegister);
 
 router.post('/register',
   body('username').trim()
-    .notEmpty().withMessage('Username không được trống'),
+    .notEmpty().withMessage('Tên đăng nhập không được trống'),
   body('email').trim()
     .notEmpty().withMessage('Email không được trống')
     .isEmail().withMessage('Email không hợp lệ'),

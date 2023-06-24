@@ -15,32 +15,36 @@
     <div class="container-fluid">
 
         <div class="col d-flex justify-content-center">
-            <form action="reset_pw" method="post" id="resetPWForm" class=" col-lg-5 col-md-8 col-sm-10 col-xs-12">
-                <div class="form-group mt-5">
-                    <label for="inputCurrentPW"><strong>Nhập mật khẩu hiện tại</strong></label>
-                    <input type="password" class="form-control mt-1" id="inputCurrentPW" placeholder="Nhập mật khẩu"
-                        required>
-                </div>
+            {{#if done}}
+                <p class="text-success">Đổi mật khẩu thành công. Vui lòng đăng nhập lại!</p>
+            {{else}}
+                <form action="/user/reset_pw" method="post" id="resetPWForm" class=" col-lg-5 col-md-8 col-sm-10 col-xs-12">
+                    <div class="form-group mt-5">
+                        <label for="inputCurrentPW"><strong>Nhập mật khẩu hiện tại</strong></label>
+                        <input type="password" class="form-control mt-1" id="inputCurrentPW" placeholder="Nhập mật khẩu"
+                               name="pw" required>
+                    </div>
 
-                <div class="form-group mt-4">
-                    <label for="inputNewPW"><strong>Nhập mật khẩu mới</strong></label>
-                    <input type="password" class="form-control mt-1" id="inputNewPW" placeholder="Nhập mật khẩu mới"
-                        required>
-                </div>
+                    <div class="form-group mt-4">
+                        <label for="inputNewPW"><strong>Nhập mật khẩu mới</strong></label>
+                        <input type="password" class="form-control mt-1" id="inputNewPW" placeholder="Nhập mật khẩu mới"
+                               name="newPw" required>
+                    </div>
 
-                <div class="form-group mt-4">
-                    <label for="inputConfirmNewPW"><strong>Xác nhận mật khẩu</strong></label>
-                    <input type="password" class="form-control mt-1 mb-3" id="inputConfirmNewPW"
-                        placeholder="Xác nhận mật khẩu mới">
-                </div>
+                    <div class="form-group mt-4">
+                        <label for="inputConfirmNewPW"><strong>Xác nhận mật khẩu</strong></label>
+                        <input type="password" class="form-control mt-1 mb-3" id="inputConfirmNewPW"
+                               name="confirmPw" placeholder="Xác nhận mật khẩu mới">
+                    </div>
 
-                <p id="passwordError" class="text-danger d-none">Password must be at least 8 characters long.
-                </p>
-                <p id="confirmPasswordError" class="text-danger d-none">Passwords do not match.</p>
+                    <p id="passwordError" class="text-danger d-none">Mật khẩu cần dài 8 kí tự.</p>
+                    <p id="confirmPasswordError" class="text-danger d-none">Mật khẩu không khớp.</p>
+                    <p class="text-danger">{{resetMessage}}</p>
 
-                <button type="submit" id="btnSubmit" class="btn btn-success mt-4 btn-lg btn-block">Xác
-                    nhận</button>
-            </form>
+                    <button type="submit" id="btnSubmit" class="btn btn-success mt-4 btn-lg btn-block">Xác
+                        nhận</button>
+                </form>
+            {{/if}}
         </div>
 
     </div>
