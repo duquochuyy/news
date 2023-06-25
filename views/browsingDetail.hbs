@@ -148,13 +148,16 @@
                                 <h5 class="modal-title" id="reject-modal-label">Lý do từ chối bài viết</h5>
                         </div>
                         <div class="modal-body">
+                                {{#with article}}
                                 <form class="d-flex flex-column justify-content-around align-items-center"
-                                        action="./detail.html">
-                                        <textarea class="col-10 form-control mb-3" name="" id="" type="text"
+                                        action="/editor/{{id}}?type=1" method="post">
+                                        <textarea class="col-10 form-control mb-3" name="reasonForDenied" id=""
+                                                type="text"
                                                 placeholder="Ghi chú rõ lý do từ chối để phóng viên có thể hiệu chỉnh lại bài vết cho phù hợp"
                                                 rows="10" required></textarea>
                                         <button type="submit" class="btn btn-danger col-4">TỪ CHỐI</button>
                                 </form>
+                                {{/with}}
                         </div>
                 </div>
         </div>
@@ -167,14 +170,15 @@
                                         đăng bài viết lên hệ thống</h5>
                         </div>
                         <div class="modal-body">
+                                {{#with article}}
                                 <form class="d-flex flex-column justify-content-around align-items-center"
-                                        action="./detail.html">
+                                        action="/editor/{{id}}?type=2" method="post">
                                         <ul class="row mb-3 d-flex flex-direction-column justify-content-around">
                                                 <li class="mb-3 col-6">
                                                         <label for="accept-hour" class="col-form-label">Giờ</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-hour"
-                                                                required>
+                                                                name="hour" required>
                                                                 <option selected disabled value="">Chọn giờ
                                                                 </option>
                                                         </select>
@@ -183,7 +187,7 @@
                                                         <label for="accept-minute" class="col-form-label">Phút</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-minute"
-                                                                required>
+                                                                name="minute" required>
                                                                 <option selected disabled value="">Chọn phút
                                                                 </option>
                                                         </select>
@@ -192,7 +196,7 @@
                                                         <label for="accept-day" class="col-form-label">Ngày</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-day"
-                                                                required>
+                                                                name="day" required>
                                                                 <option selected disabled value="">Chọn ngày
                                                                 </option>
                                                         </select>
@@ -201,7 +205,7 @@
                                                         <label for="accept-month" class="col-form-label">Tháng</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-month"
-                                                                required>
+                                                                name="month" required>
                                                                 <option selected disabled value="">Chọn tháng
                                                                 </option>
                                                         </select>
@@ -210,7 +214,7 @@
                                                         <label for="accept-year" class="col-form-label">Năm</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-year"
-                                                                required>
+                                                                name="year" required>
                                                                 <option selected disabled value="">Chọn năm
                                                                 </option>
                                                         </select>
@@ -218,6 +222,7 @@
                                         </ul>
                                         <button type="submit" class="btn btn-success col-4">DUYỆT</button>
                                 </form>
+                                {{/with}}
                         </div>
                 </div>
         </div>

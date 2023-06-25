@@ -36,7 +36,6 @@ controller.show = async (req, res) => {
             "vi-VN"
         );
     });
-
     res.locals.articlesOfEditor = rows;
 
     res.render('browsingList');
@@ -200,6 +199,51 @@ controller.remove = async (req, res) => {
             return res.json();
         }
     }
+}
+
+controller.handle = async (req, res) => {
+    let id = isNaN(req.params.id) ? 0 : parseInt(req.params.id);
+    let type = isNaN(req.query.type) ? 0 : parseInt(req.query.type);
+
+    if (type == 1) {
+        let reason = req.body.reasonForDenied;
+        await models.Article.findOne({
+            where: { id }
+        }).then(article => {
+            if (article) {
+                article.type = 4;
+                return article.save();
+            } else {
+                // Không tìm thấy bài viết
+                throw new Error('Article not found');
+            }
+        });
+    }
+    else if (type == 2) {
+        let hour = parseInt(req.body.hour);
+        let minute = req.body.minute;
+        let day = req.body.day;
+        let month = req.body.month;
+        let year = req.body.year;
+
+        const publishDate = new Date(year, month - 1, day, hour, minute);
+        publishDate.setUTCHours(hour);
+
+        let art = await models.Article.findOne({
+            where: { id }
+        }).then(article => {
+            if (article) {
+                article.type = 2;
+                article.publishDate = publishDate;
+                return article.save();
+            } else {
+                // Không tìm thấy bài viết
+                throw new Error('Article not found');
+            }
+        });
+        console.log(art.publishDate);
+    }
+    res.redirect('/editor');
 }
 
 module.exports = controller;

@@ -72,7 +72,7 @@ $(document).ready(function () {
 
     let hour = document.getElementById('accept-hour');
     console.log(hour);
-    for (let i = 0; i <= 60; i++) {
+    for (let i = 0; i <= 23; i++) {
         let h = document.createElement('option');
         h.value = i;
         h.text = i;
@@ -106,7 +106,7 @@ $(document).ready(function () {
     let year = document.getElementById('accept-year');
     let currentYear = new Date().getFullYear();
     let j = 1;
-    for (let i = currentYear; i >= 1900; i--) {
+    for (let i = currentYear; i <= currentYear + 10; i++) {
         let y = document.createElement('option');
         y.value = i;
         y.text = i;
