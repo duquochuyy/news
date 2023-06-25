@@ -160,7 +160,10 @@ controller.showDetail = async (req, res) => {
         attributes: ["id", "name"]
       }
     ],
-    where: { id },
+    where: {
+      id,
+      type: 3
+    },
   });
   article.publishDateNew = new Date(article.publishDate)
     .toLocaleString("vi-VN")

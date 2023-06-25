@@ -26,45 +26,49 @@ $(document).ready(function () {
         }
     });
 
-    document.querySelectorAll('.fa-trash').forEach(item => {
-        item.addEventListener('click', (e) => {
-            if (confirm('Are you sure you want to remove this category?')) {
-                e.target.parentElement.remove();
-            }
-        });
-    });
+    // document.querySelectorAll('.fa-trash').forEach(item => {
+    //     item.addEventListener('click', (e) => {
+    //         if (confirm('Are you sure you want to remove this category?')) {
+    //             e.target.parentElement.remove();
+    //         }
+    //     });
+    // });
 
-    $('#menu-category p').on('click', function () {
-        var txt = ($(this).text());
-        let ul = document.getElementById('list-category');
-        let li = document.createElement('li');
-        li.className = 'item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5';
-        let p = document.createElement('p');
-        p.className = 'ms-2';
-        p.innerText = txt;
-        let i = document.createElement('i');
-        i.className = 'fa-solid fa-trash me-2';
-        i.style = 'cursor: pointer';
-        li.appendChild(p);
-        li.appendChild(i);
-        ul.insertBefore(li, ul.lastChild);
-    });
+    // $('#menu-category p').on('click', function () {
+    //     var txt = ($(this).text());
+    //     let ul = document.getElementById('list-category');
+    //     let li = document.createElement('li');
+    //     li.className = 'item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5';
+    //     let p = document.createElement('p');
+    //     p.className = 'ms-2';
+    //     p.innerText = txt;
+    //     let i = document.createElement('i');
+    //     i.className = 'fa-solid fa-trash me-2';
+    //     i.style = 'cursor: pointer';
+    //     li.appendChild(p);
+    //     li.appendChild(i);
+    //     ul.insertBefore(li, ul.lastChild);
+    // });
 
-    $('#menu-tag p').on('click', function () {
-        var txt = ($(this).text());
-        let ul = document.getElementById('list-tag');
-        let li = document.createElement('li');
-        li.className = 'item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5';
-        let p = document.createElement('p');
-        p.className = 'ms-2';
-        p.innerText = txt;
-        let i = document.createElement('i');
-        i.className = 'fa-solid fa-trash me-2';
-        i.style = 'cursor: pointer';
-        li.appendChild(p);
-        li.appendChild(i);
-        ul.insertBefore(li, ul.lastChild);
-    });
+
+
+    // $('#menu-tag p').on('click', function () {
+    //     var txt = ($(this).text());
+    //     let ul = document.getElementById('list-tag');
+    //     let li = document.createElement('li');
+    //     li.className = 'item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5';
+    //     let p = document.createElement('p');
+    //     p.className = 'ms-2';
+    //     p.innerText = txt;
+    //     let i = document.createElement('i');
+    //     i.className = 'fa-solid fa-trash me-2';
+    //     i.style = 'cursor: pointer';
+    //     li.appendChild(p);
+    //     li.appendChild(i);
+    //     ul.insertBefore(li, ul.lastChild);
+    // });
+
+
 
     let hour = document.getElementById('accept-hour');
     console.log(hour);
@@ -109,4 +113,86 @@ $(document).ready(function () {
         year.options.add(y, j);
         j++;
     }
-})
+});
+
+async function updateCategory(idArticle, idCategory) {
+    await fetch(`/editor/${idArticle}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({ idCategory, type: 1 })
+    }).then(res => {
+        if (res.ok) {
+            location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+        }
+    }).catch(error => {
+        console.log('Error:', error);
+    });
+}
+
+async function removeCategory(idArticle, idCategory, numOfCategories) {
+    if (numOfCategories > 1) {
+        if (confirm('Bạn có chắc chắn muốn xóa chuyên mục này?')) {
+            await fetch(`/editor/${idArticle}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ idCategory, numOfCategories, type: 1 })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+    }
+    else {
+        alert('Chuyên mục không được để trống!');
+    }
+}
+
+async function updateTag(idArticle, idTag) {
+    await fetch(`/editor/${idArticle}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({ idTag, type: 2 })
+    }).then(res => {
+        if (res.ok) {
+            location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+        }
+    }).catch(error => {
+        console.log('Error:', error);
+    });
+}
+
+async function removeTag(idArticle, idTag, numOfTags) {
+    if (numOfTags > 1) {
+        if (confirm('Bạn có chắc chắn muốn xóa thẻ này?')) {
+            await fetch(`/editor/${idArticle}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ idTag, numOfTags, type: 2 })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+    }
+    else {
+        alert('Thẻ không được để trống!');
+    }
+}

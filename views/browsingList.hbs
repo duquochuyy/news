@@ -1,10 +1,10 @@
 <ul id="breadcrumb">
         <li class="breadcrumb__item">
-                <a href="./index" class="breadcrumb__link hover">Trang chủ
+                <a href="/" class="breadcrumb__link hover">Trang chủ
 
                 </a>
         </li>
-        <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Duyệt bài
+        <li class="breadcrumb__item"> ›› <a href="" class="breadcrumb__link  breadcrumb__link--active hover">Duyệt bài
                         viết</a>
         </li>
 
@@ -23,79 +23,29 @@
                         </h4>
 
                         <div id="list-article"
-                                class="w-100 d-flex flex-column justify-content-center border rounded mt-3 p-4">
-                                <a class="list__item w-100 d-flex flex-column justify-content-between border rounded p-3"
-                                        href="./browsingDetail">
-                                        <div class="d-flex flex-column">
-                                                <p class="text-primary mb-2">Nhãn bài viết</p>
-                                                <p class="text-second mb-2">Tiêu đề của bài viết Tiêu đề
-                                                        của bài viết
-                                                        Tiêu đề của bài viết Tiêu đề của bài viết
+                                class="w-100 d-flex flex-column justify-content-center border rounded mt-3 mb-4 p-4">
+                                {{#each articlesOfEditor}}
+                                <a class="list__item w-100 d-flex justify-content-around border rounded p-3"
+                                        href="/editor/{{id}}">
+                                        <img src="{{mainImg}}" alt="{{title}}" class="col-md-2">
+                                        <div class="col-md-9 d-flex flex-column justify-content-between">
+                                                <div class="d-flex flex-column">
+                                                        <p class="text-black bold mb-2">{{title}}</p>
+                                                        <p class="text-second mb-2">{{abstract}}
+                                                        </p>
+                                                </div>
+
+                                                <p class="list__item-time align-self-end text-second"><i
+                                                                class="fa-solid fa-clock"></i>
+                                                        {{publishDateNew}}
                                                 </p>
                                         </div>
-
-                                        <p class="list__item-time align-self-end text-second">
-                                                12 giờ trước
-                                        </p>
                                 </a>
-                                <a class="list__item w-100 d-flex flex-column justify-content-between border rounded p-3"
-                                        href="./browsingDetail">
-                                        <div class="d-flex flex-column">
-                                                <p class="text-primary mb-2">Nhãn bài viết</p>
-                                                <p class="text-second mb-2">Tiêu đề của bài viết Tiêu đề
-                                                        của bài viết
-                                                        Tiêu đề của bài viết Tiêu đề của bài viết
-                                                </p>
-                                        </div>
-
-                                        <p class="list__item-time align-self-end text-second">
-                                                12 giờ trước
-                                        </p>
-                                </a>
-                                <a class="list__item w-100 d-flex flex-column justify-content-between border rounded p-3"
-                                        href="./browsingDetail">
-                                        <div class="d-flex flex-column">
-                                                <p class="text-primary mb-2">Nhãn bài viết</p>
-                                                <p class="text-second mb-2">Tiêu đề của bài viết Tiêu đề
-                                                        của bài viết
-                                                        Tiêu đề của bài viết Tiêu đề của bài viết
-                                                </p>
-                                        </div>
-
-                                        <p class="list__item-time align-self-end text-second">
-                                                12 giờ trước
-                                        </p>
-                                </a>
-                                <a class="list__item w-100 d-flex flex-column justify-content-between border rounded p-3"
-                                        href="./browsingDetail">
-                                        <div class="d-flex flex-column">
-                                                <p class="text-primary mb-2">Nhãn bài viết</p>
-                                                <p class="text-second mb-2">Tiêu đề của bài viết Tiêu đề
-                                                        của bài viết
-                                                        Tiêu đề của bài viết Tiêu đề của bài viết
-                                                </p>
-                                        </div>
-
-                                        <p class="list__item-time align-self-end text-second">
-                                                12 giờ trước
-                                        </p>
-                                </a>
-                                <a class="list__item w-100 d-flex flex-column justify-content-between border rounded p-3"
-                                        href="./browsingDetail">
-                                        <div class="d-flex flex-column">
-                                                <p class="text-primary mb-2">Nhãn bài viết</p>
-                                                <p class="text-second mb-2">Tiêu đề của bài viết Tiêu đề
-                                                        của bài viết
-                                                        Tiêu đề của bài viết Tiêu đề của bài viết
-                                                </p>
-                                        </div>
-
-                                        <p class="list__item-time align-self-end text-second">
-                                                12 giờ trước
-                                        </p>
-                                </a>
-
+                                {{/each}}
                         </div>
+
+                        <nav arie-label="Page navigation example" id="pagination">
+                                {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
                 </div>
         </div>
 
@@ -105,3 +55,12 @@
 <link rel="stylesheet" href="/styles/base.css">
 <link rel="stylesheet" href="/styles/authentication.css">
 <link rel="stylesheet" href="/styles/browsingList.css">
+
+<script>
+        document.querySelectorAll('#pagination li').forEach((li, index) => {
+                li.classList.add('pagination__item');
+        })
+        document.querySelectorAll('#pagination a').forEach((a, index) => {
+                a.classList.add('pagination__link')
+        })
+</script>

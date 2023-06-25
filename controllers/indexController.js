@@ -2,7 +2,6 @@
 
 const controller = {}
 const models = require('../models');
-const { Op } = require('sequelize');
 
 controller.showHomePage = async (req, res) => {
     // 3 bai viet noi bac nhat tuan 
