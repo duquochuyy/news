@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 const expressHandlebars = require('express-handlebars');
 const flash = require('connect-flash');
 const { createPagination } = require('express-handlebars-paginate');
+const {handleSelected} = require('./controllers/handlebarsHelper')
 const passport = require("./authentication/passport");
 const cookieParser = require("cookie-parser");
 
@@ -24,6 +25,7 @@ app.engine('hbs', expressHandlebars.engine({
         allowProtoPropertiesByDefault: true
     },
     helpers: {
+        handleSelected,
         createPagination,
     }
 }))

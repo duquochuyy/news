@@ -47,16 +47,21 @@ $(document).ready(function () {
 
     btnSubmit.addEventListener('click', async (e) => {
         // e.preventDefault();
-        btnSubmit.disabled = true;
 
         const title = document.querySelector('#inputTitle').value;
         const abstract = document.querySelector('#inputSumary').value
         const content = tinymce.get('inputContent').getContent({ format: 'text' })
         const categories = document.querySelector('#inputCategory').value
         const tags = document.querySelector('#inputTag').value
-
         textHidden.value = content;
 
+        console.log(categories, tags);
+
+        if (!inputImage.files[0] || !title || !abstract || !content || !categories.length || !tags.length) {
+            return;
+        }
+
+        btnSubmit.disabled = true;
         const formData = new FormData();
         formData.append('mainImg', inputImage.files[0]);
         formData.append('title', title)
@@ -66,12 +71,12 @@ $(document).ready(function () {
         formData.append('tags', tags)
         
         try {
-            const response = await fetch('/writer/postArticle', {
+            const response = await fetch('/writer/post-article', {
               method: 'POST',
               body: formData
             });
             if (response.ok) {
-                window.location.href = '/writer/myArticles';
+                window.location.href = '/writer';
             }
         } catch (error) {
             console.error('Lỗi khi tải lên hình ảnh:', error);

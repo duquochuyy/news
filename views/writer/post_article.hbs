@@ -1,0 +1,122 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="/" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="/writer" class="breadcrumb__link hover">Bài viết của tôi</a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Đăng bài
+            viết</a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div class="container-fluid">
+
+
+        <div class="row mt-5 mb-2 d-flex justify-content-between align-items-center m-0">
+            <h1 class="text-left col-lg-5 p-0"><strong>Đăng bài viết</strong></h1>
+        </div>
+
+        <div class="row m-0">
+            <hr class="col-lg-3">
+        </div>
+        {{!-- class="needs-validation" --}}
+        <form method="post" id="postArticle-form" action="/writer/myArticles">
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputTitle" class="col-form-label my-0 py-0">Tiêu đề bài viết</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" name="title" class="form-control form-control-lg" id="inputTitle" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputSumary" class="col-form-label my-0 py-0">Tóm tắt</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" name="abstract" class="form-control form-control-lg" id="inputSumary" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputContent" class="col-form-label my-0 py-0">Nội dung</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <textarea class="form-control form-control-lg" id="inputContent" placeholder="" required></textarea>
+                    <textarea class="d-none" name="content" id="hiddenContent" required></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputCategory" class="col-form-label my-0 py-0 ">Chuyên mục</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <select id="inputCategory" multiple class="mw-100 w-100 form-control form-control-lg p-0 border-0" name="categories" placeholder="Chọn chuyên mục" data-search="true" data-silent-initial-value-set="true" required>
+
+                        {{#each categories}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputTag" class="col-form-label my-0 py-0">Gán nhãn bài viết</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <select id="inputTag" multiple class="mw-100 w-100 form-control form-control-lg p-0 border-0" name="tags" placeholder="Chọn nhãn" data-search="true" data-silent-initial-value-set="true" >
+
+                        {{#each tags}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-lg-2">
+                    <label for="inputImage" class="col-form-label my-0 py-0">Ảnh nổi bật</label>
+                    <hr class="m-0">
+                </div>
+                <div class="col-lg-10">
+                    <input name="mainImg" type="file" class="form-control-file" id="inputImage" accept="image/*" value="Tải ảnh lên" required>
+                </div>
+            </div>
+            <img id="previewImage" src="" alt="">
+
+            <div class="error">{{{postMessage}}}</div>
+
+            <div class="d-flex justify-content-end mt-5">
+                <button type="submit" id="btnSubmit" class="btn btn-lg btn-primary btn-hover-opacity">Đăng
+                    bài</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+{{!-- STYLES --}}
+
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/post_article.css">
+<link rel="stylesheet" href="/styles/virtual-select.min.css">
+{{!-- SCRIPTS --}}
+<script src="https://cdn.tiny.cloud/1/slbwxf17sk4tyhfcpoj124oewjl9ls032gvadimgrg7urvhp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="/scripts/multiselect/virtual-select.min.js"></script>
+<script src="/scripts/post_article.js"></script>

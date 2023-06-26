@@ -1,0 +1,91 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="/" class="breadcrumb__link hover">Trang chủ
+
+        </a>
+    </li>
+    <li class="breadcrumb__item"> ›› <a href="#" class="breadcrumb__link  breadcrumb__link--active hover">Bài viết của
+            tôi</a>
+    </li>
+
+</ul>
+<main id="app__body">
+    <div class="container-fluid">
+
+        {{>header_my_article}}
+
+        <div class="row m-0">
+            <hr class="col-lg-3">
+        </div>
+
+        <div class="row forReponsiveParent">
+            <div id="sidebar" class="col-lg-3 col-md-3 col-sm-12 col-ex-12 forReponsiveChild">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item rounded content-1">
+                        <a class="nav-link px-4 text-black hover d-block" href="/writer/not-approved-yet" aria-current="page">Chưa được
+                            duyệt <span class="visually-hidden">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-2">
+                        <a class="nav-link px-4 text-black hover d-block" href="/writer/waiting-for-publication">Chờ xuất bản</a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-3 active">
+                        <a class="nav-link px-4 text-black hover d-block" href="/writer/published">Đã xuất bản</a>
+                    </li>
+
+                    <li class="nav-item rounded mt-1 content-4">
+                        <a class="nav-link px-4 text-black hover" href="/writer/denied">Bị từ chối</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div id="bodyarea" class="col-lg-9 col-md-9">
+
+                <div class="content content-3 content-active">
+                    <h2>Bài viết đã xuất bản</h2>
+                    <hr>
+                    <div class="bodyarea__items">
+
+                        {{#each articles}}
+                        <div class="bodyarea__item light-hover mb-3 border border-secondary rounded ">
+                            <div class="row m-0">
+                                <div class="col p-3 col-lg-10 text-left">
+                                    <p class="text-primary mb-2">{{title}}</p>
+                                    <p class="text-second mb-2">{{abstract}}</p>
+                                    <p class="text-second mb-0"><small>{{createDateNew}}</small></p>
+                                </div>
+
+                                <div class="col-lg-2 text-center d-flex align-items-end justify-content-center">
+                                    <a href="/articles/{{id}}" class="text-primary p-3 light-hover">
+                                        <small>Xem bài viết</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- pagination -->
+        <div class="d-flex justify-content-end m-0 my-5" id="pagination">
+            {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}}
+        </div>
+    </div>
+
+</main>
+
+{{!-- STYLES --}}
+
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/my_article.css">
+{{!-- SCRIPTS --}}
+<script src="/scripts/my_article.js"></script>

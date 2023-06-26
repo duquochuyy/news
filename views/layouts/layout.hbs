@@ -73,14 +73,14 @@
                             {{/if}}
                             {{#if isWriter}}
                             <div class="line-separate non-ad control-item">
-                                <a href="/writer/postArticle" class="control-link hover light-hover">Đăng
+                                <a href="/writer/post-article" class="control-link hover light-hover">Đăng
                                     bài viết</a>
-                                <a href="/writer/myArticles" class="control-link hover light-hover">Bài
+                                <a href="/writer" class="control-link hover light-hover">Bài
                                     viết của tôi</a>
                             </div>
                             {{/if}}
                             {{#if role.isUser}}
-                                <div class="line-separate non-ad control-item">
+                                <div class="line-separate non-ad control-item" data-bs-toggle="modal" data-bs-target="#premium-modal">
                                     <a href="#" class="control-link hover light-hover">Nâng
                                         cấp tài khoản</a>
                                 </div>

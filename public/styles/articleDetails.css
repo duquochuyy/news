@@ -238,6 +238,12 @@
 .article__content-item {
     margin-bottom: 32px;
 }
+
+.article__content-abstract {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 #comment{
     margin-top: 50px;
 }

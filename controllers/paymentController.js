@@ -32,7 +32,7 @@ controller.payment = async (req, res) => {
     var redirectUrl = urlReturn;
     var ipnUrl = urlReturn;
     var requestType = "payWithMethod";
-    var amount = '10000';
+    var amount = '49000';
     var orderId = partnerCode + new Date().getTime();
     var requestId = orderId;
     var extraData = String(btoa(infor));
