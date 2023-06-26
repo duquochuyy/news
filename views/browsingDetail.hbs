@@ -1,6 +1,6 @@
 <ul id="breadcrumb">
         <li class="breadcrumb__item">
-                <a href="./index" class="breadcrumb__link hover">Trang chủ
+                <a href="/" class="breadcrumb__link hover">Trang chủ
 
                 </a>
         </li>
@@ -10,9 +10,12 @@
 </ul>
 <main id="app__body">
         <div class="container-fluid mb-5">
-                <div class="col-lg-3">
-                        <h1 class="mt-4 fw-bold">Tiêu đề bài viết</h1>
+
+                {{#with article}}
+                <div class="col-lg-12">
+                        <h1 class="mt-4 fw-bold">{{title}}</h1>
                 </div>
+                {{/with}}
 
                 <div class="row m-0">
                         <hr class="col-lg-3 p-0">
@@ -30,50 +33,20 @@
                                                 <a class="nav-link text-black hover px-4" href="#">Chuyên mục</a>
                                         </li>
                                         <li class="nav-item rounded mb-1 content-3">
-                                                <a class="nav-link text-black hover px-4" href="#">Nhãn</a>
+                                                <a class="nav-link text-black hover px-4" href="#">Thẻ</a>
                                         </li>
                                 </ul>
                         </div>
 
                         <div class="content col-lg-9 ">
+                                {{#with article}}
                                 <div class="content-1 content-active">
                                         <div class="border rounded p-3 text-justify about">
-                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing
-                                                        elit. Dolor ea mollitia laborum, error ipsam,
-                                                        aut possimus beatae placeat quasi eum, corrupti
-                                                        assumenda inventore fugiat eligendi cumque ex
-                                                        optio eos. Est?
-                                                        Libero, quia distinctio soluta odit inventore
-                                                        consequatur officiis deleniti ipsa sequi
-                                                        reiciendis harum aut neque obcaecati recusandae
-                                                        cum, vitae atque temporibus repellendus eius
-                                                        repellat, impedit delectus? Aut qui in dicta.
-                                                        Eaque, ab in labore asperiores beatae impedit
-                                                        quia temporibus deserunt doloribus, inventore
-                                                        tempora ex mollitia eius consequuntur dolor, et
-                                                        maiores. Veniam ex quasi accusamus! Dolore
-                                                        ducimus laudantium id ut architecto.
-                                                        Nisi, obcaecati? Ipsam fuga dolorem quisquam cum
-                                                        optio dolor unde qui, impedit pariatur incidunt.
-                                                        Illo nemo sapiente est optio sint ut perferendis
-                                                        laudantium nam eos maiores ab, provident
-                                                        distinctio saepe!
-                                                        Est deleniti vero harum reprehenderit, facilis
-                                                        mollitia iure magni. Eum, dolor. Cumque
-                                                        necessitatibus incidunt iusto aspernatur? Sit
-                                                        praesentium itaque, molestiae inventore amet
-                                                        nemo dolor velit atque minima doloribus corrupti
-                                                        eveniet.</p>
-                                                <img src="images/articles/ID10_0.jpg" alt=""
-                                                        class="col-12 rounded-1 mt-3">
-                                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing
-                                                        elit. Nobis tempora, voluptatibus atque,
-                                                        sapiente, rerum cumque voluptates laboriosam
-                                                        quas exercitationem fuga illo. Laboriosam, amet.
-                                                        Rerum, impedit! Asperiores quos expedita libero
-                                                        vel!</p>
-
+                                                <p>{{abstract}}</p>
+                                                <img src="{{mainImg}}" alt="" class="col-12 rounded-1 mt-3">
+                                                {{#each contentPara}}
+                                                <p class="mt-3">{{this}}</p>
+                                                {{/each}}
                                         </div>
                                         <div id="action" class="d-flex justify-content-around align-items-center mt-4">
                                                 <a href="./reject" class="btn btn-danger text-uppercase p-2"
@@ -90,74 +63,26 @@
                                                 </a>
                                         </div>
                                 </div>
+                                {{/with}}
 
                                 <div class="content-2 content-hidden">
                                         <div class="d-flex justify-content-center">
                                                 <div
                                                         class="col-lg-10 border rounded d-flex flex-column justify-content-center align-items-center">
+                                                        {{#with article}}
                                                         <ul class="row col-lg-11 d-flex justify-content-around"
                                                                 id="list-category">
+                                                                {{#each Categories}}
                                                                 <li
                                                                         class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
+                                                                        <p class="ms-2">{{name}}</p>
                                                                         <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
+                                                                                style="cursor: pointer"
+                                                                                onclick="removeCategory({{../id}}, {{id}}, {{../Categories.length}})"></i>
                                                                 </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Category</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
+                                                                {{/each}}
                                                         </ul>
+                                                        {{/with}}
                                                         <div class="col-4 align-self-end dropdown m-5">
                                                                 <button class="btn btn-danger dropdown-toggle"
                                                                         type="button" data-bs-toggle="dropdown"
@@ -165,15 +90,11 @@
                                                                         Thêm chuyên mục
                                                                 </button>
                                                                 <div class="dropdown-menu" id="menu-category">
-                                                                        <p class="dropdown-item"
-                                                                                style="cursor: pointer">
-                                                                                Kinh tế</p>
-                                                                        <p class="dropdown-item"
-                                                                                style="cursor: pointer">
-                                                                                Thể thao</p>
-                                                                        <p class="dropdown-item"
-                                                                                style="cursor: pointer">
-                                                                                Trang phục</p>
+                                                                        {{#each categoriesForEditor}}
+                                                                        <p class="dropdown-item" style="cursor: pointer"
+                                                                                onclick="updateCategory({{idArticle}}, {{id}})">
+                                                                                {{name}}</p>
+                                                                        {{/each}}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -184,85 +105,32 @@
                                         <div class="d-flex justify-content-center">
                                                 <div
                                                         class="col-lg-10 border rounded d-flex flex-column justify-content-center align-items-center">
+                                                        {{#with article}}
                                                         <ul class="row col-lg-11 d-flex justify-content-around"
                                                                 id="list-tag">
+                                                                {{#each Tags}}
                                                                 <li
                                                                         class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
+                                                                        <p class="ms-2">{{name}}</p>
                                                                         <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
+                                                                                style="cursor: pointer"
+                                                                                onclick="removeTag({{../id}}, {{id}}, {{../Tags.length}})"></i>
                                                                 </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
-                                                                <li
-                                                                        class="item-child col-lg-5 d-flex justify-content-between align-items-center rounded p-2 mt-5">
-                                                                        <p class="ms-2">Tag</p>
-                                                                        <i class="fa-solid fa-trash me-2"
-                                                                                style="cursor: pointer"></i>
-                                                                </li>
+                                                                {{/each}}
                                                         </ul>
+                                                        {{/with}}
                                                         <div class="col-4 align-self-end dropdown m-5">
                                                                 <button class="btn btn-danger dropdown-toggle"
                                                                         type="button" data-bs-toggle="dropdown"
                                                                         aria-expanded="false">
-                                                                        Thêm nhãn
+                                                                        Thêm thẻ
                                                                 </button>
                                                                 <div class="dropdown-menu" id="menu-tag">
-                                                                        <p class="dropdown-item"
-                                                                                style="cursor: pointer">
-                                                                                Kinh tế</p>
-                                                                        <p class="dropdown-item"
-                                                                                style="cursor: pointer">
-                                                                                Thể thao</p>
-                                                                        <p class="dropdown-item"
-                                                                                style="cursor: pointer">
-                                                                                Trang phục</p>
+                                                                        {{#each tagsForEditor}}
+                                                                        <p class="dropdown-item" style="cursor: pointer"
+                                                                                onclick="updateTag({{idArticle}}, {{id}})">
+                                                                                {{name}}</p>
+                                                                        {{/each}}
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -280,13 +148,16 @@
                                 <h5 class="modal-title" id="reject-modal-label">Lý do từ chối bài viết</h5>
                         </div>
                         <div class="modal-body">
+                                {{#with article}}
                                 <form class="d-flex flex-column justify-content-around align-items-center"
-                                        action="./detail.html">
-                                        <textarea class="col-10 form-control mb-3" name="" id="" type="text"
+                                        action="/editor/{{id}}?type=1" method="post">
+                                        <textarea class="col-10 form-control mb-3" name="reasonForDenied" id=""
+                                                type="text"
                                                 placeholder="Ghi chú rõ lý do từ chối để phóng viên có thể hiệu chỉnh lại bài vết cho phù hợp"
                                                 rows="10" required></textarea>
                                         <button type="submit" class="btn btn-danger col-4">TỪ CHỐI</button>
                                 </form>
+                                {{/with}}
                         </div>
                 </div>
         </div>
@@ -299,14 +170,15 @@
                                         đăng bài viết lên hệ thống</h5>
                         </div>
                         <div class="modal-body">
+                                {{#with article}}
                                 <form class="d-flex flex-column justify-content-around align-items-center"
-                                        action="./detail.html">
+                                        action="/editor/{{id}}?type=2" method="post">
                                         <ul class="row mb-3 d-flex flex-direction-column justify-content-around">
                                                 <li class="mb-3 col-6">
                                                         <label for="accept-hour" class="col-form-label">Giờ</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-hour"
-                                                                required>
+                                                                name="hour" required>
                                                                 <option selected disabled value="">Chọn giờ
                                                                 </option>
                                                         </select>
@@ -315,7 +187,7 @@
                                                         <label for="accept-minute" class="col-form-label">Phút</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-minute"
-                                                                required>
+                                                                name="minute" required>
                                                                 <option selected disabled value="">Chọn phút
                                                                 </option>
                                                         </select>
@@ -324,7 +196,7 @@
                                                         <label for="accept-day" class="col-form-label">Ngày</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-day"
-                                                                required>
+                                                                name="day" required>
                                                                 <option selected disabled value="">Chọn ngày
                                                                 </option>
                                                         </select>
@@ -333,7 +205,7 @@
                                                         <label for="accept-month" class="col-form-label">Tháng</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-month"
-                                                                required>
+                                                                name="month" required>
                                                                 <option selected disabled value="">Chọn tháng
                                                                 </option>
                                                         </select>
@@ -342,7 +214,7 @@
                                                         <label for="accept-year" class="col-form-label">Năm</label>
                                                         <select class="form-select form-select-sm"
                                                                 aria-label=".form-select-sm example" id="accept-year"
-                                                                required>
+                                                                name="year" required>
                                                                 <option selected disabled value="">Chọn năm
                                                                 </option>
                                                         </select>
@@ -350,15 +222,16 @@
                                         </ul>
                                         <button type="submit" class="btn btn-success col-4">DUYỆT</button>
                                 </form>
+                                {{/with}}
                         </div>
                 </div>
         </div>
 </div>
 {{!-- STYLES --}}
 
-<link rel="stylesheet" href="styles/base.css">
-<link rel="stylesheet" href="styles/authentication.css">
-<link rel="stylesheet" href="styles/browsingDetail.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/browsingDetail.css">
 {{!-- SCRIPTS --}}
 
-<script src="scripts/browsingDetail.js"></script>
+<script src="/scripts/browsingDetail.js"></script>
