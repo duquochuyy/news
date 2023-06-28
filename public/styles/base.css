@@ -486,6 +486,11 @@ footer {
     top: 20px;
     right: 20px
 }
+#options {
+    border-radius: 20px;
+    font-size: larger;
+    color: var(--primary-color);
+}
 
 /* BREADCRUMB */
 #breadcrumb{

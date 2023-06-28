@@ -341,8 +341,14 @@
 
     </div>
     <div id="search-modal" class="user-role">
-        <form id="search-form">
+        <form id="search-form" class="d-flex">
             <input type="text" id="search-input" placeholder="Nhập để tìm kiếm..." required>
+            <select name="options" id="options" >
+                <option value="all" selected>Tất cả</option>
+                <option value="title">Tiêu đề</option>
+                <option value="abstract">Tóm tắt</option>
+                <option value="content">Nội dung</option>
+            </select>
             {{!-- <i class="fa-solid fa-magnifying-glass hover"></i> --}}
         </form>
         <i class="fa-solid fa-xmark hover" id="search-close"></i>

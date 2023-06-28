@@ -196,11 +196,13 @@ $(document).ready(function () {
     // search
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
+    
 
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const keyword = searchInput.value;
-        const searchUrl = `${window.location.origin}/search?q=${encodeURIComponent(keyword)}`;
+        const option = document.getElementById('options').value;
+        const searchUrl = `${window.location.origin}/search?option=${option}&q=${encodeURIComponent(keyword)}`;
         window.location.href = searchUrl;
     })
 })
