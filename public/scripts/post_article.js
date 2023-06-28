@@ -50,7 +50,8 @@ $(document).ready(function () {
 
         const title = document.querySelector('#inputTitle').value;
         const abstract = document.querySelector('#inputSumary').value
-        const content = tinymce.get('inputContent').getContent({ format: 'text' })
+        // const content = tinymce.get('inputContent').getContent({ format: 'text' })
+        const content = tinymce.get('inputContent').getContent().replace(/<\/?p>/g, '')
         const categories = document.querySelector('#inputCategory').value
         const tags = document.querySelector('#inputTag').value
         textHidden.value = content;
