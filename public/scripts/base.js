@@ -101,7 +101,14 @@ $(document).ready(function () {
     const modal = $("#form-modal");
     const signupRole = $("#signup-role");
     let role = 0;
-    $("#guest").click(() => modal.css("display", "block"));
+//     $("#user").click(()=>{$("#form-modal.user-role").css("display","none !important")
+// alert("hi")})
+    // signupRole.css("display", "none");
+    // modal.css("display", "none")
+    $("#guest").click(() => {
+        alert("hi")
+        modal.css("display", "block")
+    });
     // thêm vào để chạy thử
     $("#app__header-login").click(() => {
         document.title = "Đăng nhập";
