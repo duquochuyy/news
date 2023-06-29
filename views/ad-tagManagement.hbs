@@ -1,0 +1,239 @@
+<aside id="sidebar">
+    {{#with user}}
+    {{> ad-header}}
+    {{/with}}
+
+    <div class="line-separate"></div>
+    <ul id="sidebar__list">
+        <li class="sidebar__item">
+            <a href="/admin" class="sidebar__link">Chuyên mục</a>
+        </li>
+        <li class="sidebar__item sidebar__item--active"><a href="" class="sidebar__link">Nhãn</a></li>
+        <li class="sidebar__item "><a href="/admin/article-management" class="sidebar__link">Bài viết</a></li>
+        <li class="sidebar__item"><a href="/admin/user-management" class="sidebar__link">Người dùng</a>
+        </li>
+        <li class="sidebar__item"><a href="/admin/category-assignment" class="sidebar__link">Phân công chuyên
+                mục</a>
+        </li>
+        <li class="sidebar__item"><a href="/admin/account-renewal" class="sidebar__link">Gia hạn tài khoản</a>
+        </li>
+    </ul>
+
+</aside>
+<main id="main">
+    <p id="title">Danh sách nhãn</p>
+    <div class="container-fluid px-3 py-4">
+        <div class="row px-0 mx-0 py-3 rounded-top d-flex justify-content-between" style="background-color: #435d7d;">
+            <div class="col-lg-5 px-4">
+                <form action="/admin/tag-management" method="get" id="search" class="w-100">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-field" name="keyword" placeholder="Tìm kiếm nhãn..." required>
+                </form>
+            </div>
+
+            <div class="col-lg-5 px-0 d-flex justify-content-end">
+                <div class="col-lg-5 px-0">
+                    <a href="" class="button add-btn" id="add" data-bs-toggle="modal"
+                        data-bs-target="#addModal">Thêm</a>
+                </div>
+
+                <div class="col-lg-5 px-0 mx-2">
+                    <a href="" class="button remove-btn" id="delete" onclick="removeTags()">Xóa</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive bg-white mt-0 px-3 py-3 rounded-bottom">
+            <table class="table table-hover" id="myTable" style="table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 5%" class="text-center">
+                            <span class="custom-checkbox">
+                                <input type="checkbox" id="selectAll">
+                                <label for="selectAll"></label>
+                            </span>
+                        </th>
+                        <th scope="col" style="width: 55%;">Tên</th>
+                        <th scope="col" style="width: 35%;">Số bài viết</th>
+                        <th scope="col" style="width: 10%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each allTags}}
+                    <tr class="">
+                        <td class="text-center">
+                            <span class="custom-checkbox">
+                                <input type="checkbox" id="checkbox1" name="options[]" value="{{id}}">
+                                <label for="checkbox1"></label>
+                            </span>
+                        </td>
+                        <td class="tag__name">
+                            <p class="font-weight-bold">{{name}}</p>
+                        </td>
+                        <td class="">
+                            <p class="font-weight-bold">{{Articles.length}}</p>
+                        </td>
+                        <td>
+                            <div class="d-flex table-control">
+                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                    onclick="getIdTag({{id}})"><i class="fa-solid fa-pencil"></i></a>
+                                <!-- Edit Modal HTML -->
+                                <div id="editModal" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+                                            </button>
+                                            <p class="modal-title">Thay đổi tên nhãn</p>
+                                            <form class="form-add">
+                                                <div class="form-group modal-body">
+                                                    <label class="form-label">Nhập tên mới của nhãn</label>
+                                                    <input type="text" name="newTagName" id="newTagName"
+                                                        class="p-2 w-100" required>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="button success-btn"
+                                                        onclick="updateTag(document.getElementById('newTagName').value)"
+                                                        data-bs-dismiss="modal">Cập
+                                                        nhật</button>
+                                                    <button type="button" class="button cancel-btn"
+                                                        data-bs-dismiss="modal">Hủy bỏ</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="" class="delete" onclick="removeTag({{id}})"><i
+                                        class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <div class="clearfix">
+                <nav arie-label="Page navigation example" id="pagination">
+                    {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
+            </div>
+        </div>
+        <p style="display: none;" id="idTag"></p>
+    </div>
+
+
+</main>
+
+<!-- Add Modal HTML -->
+<div id="addModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+            </button>
+            <p class="modal-title">Thêm nhãn mới</p>
+            <form action="/admin/tag-management" method="post" class="form-add">
+                <div class="form-group modal-body">
+                    <label class="form-label">Nhập tên của nhãn mới</label>
+                    <input type="text" name="newTag" id="tag__name--add" class="p-2 w-100" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button submit success-btn" data-bs-dismiss="modal">Hoàn tất</button>
+                    <button type="button" class="button cancel-btn" data-bs-dismiss="modal">Hủy bỏ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{!-- STYLES --}}
+<link rel="stylesheet" href="/styles/ad-main.css">
+<link rel="stylesheet" href="/styles/ad-userManagement.css">
+<link rel="stylesheet" href="/styles/ad-tagManagement.css">
+{{!-- SCRIPTS --}}
+<script type="module" src="/scripts/ad-tag.js"></script>
+<script type="module" src="/scripts/ad-main.js"></script>
+
+<script>
+    document.querySelectorAll('#pagination li').forEach((li, index) => {
+        li.classList.add('pagination__item');
+    });
+    document.querySelectorAll('#pagination a').forEach((a, index) => {
+        a.classList.add('pagination__link')
+    });
+
+    function getIdTag(id) {
+        document.getElementById('idTag').innerHTML = id;
+    }
+
+    async function updateTag(newTagName) {
+        let id = document.getElementById('idTag').innerHTML;
+        await fetch('/admin/tag-management', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ id, newTagName })
+        }).then(res => {
+            if (res.ok) {
+                location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+            }
+        }).catch(error => {
+            console.log('Error:', error);
+        });
+    }
+
+    async function removeTag(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa thẻ này?')) {
+            await fetch(`/admin/tag-management`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ id, type: 1 })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+        else {
+            location.reload();
+        }
+    }
+
+    async function removeTags() {
+        const checkbox = [];
+        let idTags = [];
+        const tmp = document.querySelectorAll('table tbody input[type="checkbox"]');
+        [...tmp].forEach((element) => checkbox.push(element));
+        checkbox.forEach((element) => {
+            if (element.checked) {
+                idTags.push(element.value);
+            }
+        });
+        if (idTags.length > 0) {
+            if (confirm('Bạn có chắc chắn muốn xóa những thẻ này?')) {
+                await fetch(`/admin/tag-management`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ idTags, type: 2 })
+                }).then(res => {
+                    if (res.ok) {
+                        location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                    }
+                }).catch(error => {
+                    console.log('Error:', error);
+                });
+            }
+        }
+        else {
+            alert('Vui lòng chọn các thẻ muốn xóa!');
+        }
+    }
+</script>

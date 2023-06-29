@@ -1,0 +1,11 @@
+<a href="./setting" id="sidebar__header">
+    {{#if sex}}
+    <img src="/images/users/man_default.png" alt="Avatar" class="rounded" id="sidebar__header-avatar">
+    {{else}}
+    <img src="/images/users/female_default.png" alt="Avatar" class="rounded" id="sidebar__header-avatar">
+    {{/if}}
+    <div id="sidebar__header-admin">
+        <p id="sidebar__header-name" class="text-capitalize bold">{{name}}</p>
+        <p id="sidebar__header-extra">Quản trị viên</p>
+    </div>
+</a>

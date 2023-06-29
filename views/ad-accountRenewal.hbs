@@ -1,24 +1,20 @@
 <aside id="sidebar">
-    <a href="../logged_user/page/setting.html" id="sidebar__header">
-        <img src="../assets/images/avatars/female_default.png" alt="Avatar" class="rounded" id="sidebar__header-avatar">
-        <div id="sidebar__header-admin">
-            <p id="sidebar__header-name" class="text-capitalize bold">minh Hiền</p>
-            <p id="sidebar__header-extra">Quản trị viên</p>
-        </div>
-    </a>
+    {{#with user}}
+    {{> ad-header}}
+    {{/with}}
 
     <div class="line-separate"></div>
     <ul id="sidebar__list">
         <li class="sidebar__item">
-            <a href="./categoryManagement.html" class="sidebar__link">Chuyên mục</a>
+            <a href="/admin" class="sidebar__link">Chuyên mục</a>
         </li>
-        <li class="sidebar__item"><a href="./tagMenagement.html" class="sidebar__link">Nhãn</a></li>
-        <li class="sidebar__item "><a href="./articleManagement.html" class="sidebar__link">Bài viết</a></li>
-        <li class="sidebar__item "><a href="./userManagement.html" class="sidebar__link">Người dùng</a>
+        <li class="sidebar__item"><a href="/admin/tag-management" class="sidebar__link">Nhãn</a></li>
+        <li class="sidebar__item "><a href="/admin/article-management" class="sidebar__link">Bài viết</a></li>
+        <li class="sidebar__item "><a href="/admin/user-management" class="sidebar__link">Người dùng</a>
         </li>
-        <li class="sidebar__item"><a href="./categoryAssignment.html" class="sidebar__link">Phân công chuyên mục</a>
+        <li class="sidebar__item"><a href="/admin/category-assignment" class="sidebar__link">Phân công chuyên mục</a>
         </li>
-        <li class="sidebar__item sidebar__item--active"><a href="#" class="sidebar__link">Gia hạn tài khoản</a></li>
+        <li class="sidebar__item sidebar__item--active"><a href="" class="sidebar__link">Gia hạn tài khoản</a></li>
     </ul>
 
 </aside>
