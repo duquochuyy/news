@@ -101,7 +101,14 @@ $(document).ready(function () {
     const modal = $("#form-modal");
     const signupRole = $("#signup-role");
     let role = 0;
-    $("#guest").click(() => modal.css("display", "block"));
+//     $("#user").click(()=>{$("#form-modal.user-role").css("display","none !important")
+// alert("hi")})
+    // signupRole.css("display", "none");
+    // modal.css("display", "none")
+    $("#guest").click(() => {
+        alert("hi")
+        modal.css("display", "block")
+    });
     // thêm vào để chạy thử
     $("#app__header-login").click(() => {
         document.title = "Đăng nhập";
@@ -189,11 +196,13 @@ $(document).ready(function () {
     // search
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
+    
 
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const keyword = searchInput.value;
-        const searchUrl = `${window.location.origin}/search?q=${encodeURIComponent(keyword)}`;
+        const option = document.getElementById('options').value;
+        const searchUrl = `${window.location.origin}/search?option=${option}&q=${encodeURIComponent(keyword)}`;
         window.location.href = searchUrl;
     })
 })

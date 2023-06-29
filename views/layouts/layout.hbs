@@ -29,7 +29,7 @@
                 {{else}}
                 {{#if isLoggedIn}}
                 <!-- user logged in -->
-                <div id="guest" class="justify-content-end align-items-center">
+                <div id="user-logged-in" class="justify-content-end align-items-center">
                     <div id="notice">
                         <div id="notice-icon"><i class="fa-solid fa-bell "></i></div></i>
                         <ul id="notice-list">
@@ -73,14 +73,14 @@
                             {{/if}}
                             {{#if isWriter}}
                             <div class="line-separate non-ad control-item">
-                                <a href="/writer/postArticle" class="control-link hover light-hover">Đăng
+                                <a href="/writer/post-article" class="control-link hover light-hover">Đăng
                                     bài viết</a>
-                                <a href="/writer/myArticles" class="control-link hover light-hover">Bài
+                                <a href="/writer" class="control-link hover light-hover">Bài
                                     viết của tôi</a>
                             </div>
                             {{/if}}
                             {{#if role.isUser}}
-                                <div class="line-separate non-ad control-item">
+                                <div class="line-separate non-ad control-item" data-bs-toggle="modal" data-bs-target="#premium-modal">
                                     <a href="#" class="control-link hover light-hover">Nâng
                                         cấp tài khoản</a>
                                 </div>
@@ -341,8 +341,14 @@
 
     </div>
     <div id="search-modal" class="user-role">
-        <form id="search-form">
+        <form id="search-form" class="d-flex">
             <input type="text" id="search-input" placeholder="Nhập để tìm kiếm..." required>
+            <select name="options" id="options" >
+                <option value="all" selected>Tất cả</option>
+                <option value="title">Tiêu đề</option>
+                <option value="abstract">Tóm tắt</option>
+                <option value="content">Nội dung</option>
+            </select>
             {{!-- <i class="fa-solid fa-magnifying-glass hover"></i> --}}
         </form>
         <i class="fa-solid fa-xmark hover" id="search-close"></i>
