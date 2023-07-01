@@ -23,12 +23,69 @@ table.table .user-name{
     border-radius: 5px;
     margin-top: 10px;
 }
-.form-group i{
-    position: absolute;
-    color: var(--second-color);
-    top: 50%;
-    right: 40px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
 
+/* Modal styles */
+
+.modal .modal-dialog {
+	max-width: 400px;
+
+
+}
+.modal .modal-header {
+	padding: 20px 30px;
+}
+.modal-dialog {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+}
+.modal-content {
+    position: relative;
+}
+.modal .close {
+    width: 24px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.modal-body, .modal-footer {
+    padding-top: 15px;
+}
+.modal .modal-footer {
+    justify-content: center;
+}
+.modal p {
+    padding-top: 45px;
+}
+.modal .modal-content {
+	border-radius: 5px;
+	font-size: 14px;
+}
+.modal .modal-footer {
+	display: flex;
+	border: none;
+}
+.modal .modal-title {
+	display: inline-block;
+}
+.modal .form-control {
+	border-radius: 2px;
+	box-shadow: none;
+	border-color: #dddddd;
+}
+.modal textarea.form-control {
+	resize: vertical;
+}
+.modal .btn {
+	border-radius: 2px;
+	min-width: 100px;
+}	
+.modal form label {
+	font-weight: normal;
+}
+.modal-title{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}

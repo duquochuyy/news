@@ -25,18 +25,18 @@
             <div class="col-lg-5 px-4">
                 <form id="search" class="w-100">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="search-field" name="search-content" placeholder="Tìm kiếm chuyên mục..."
-                        required onkeyup="search(this.value)">
+                    <input type="text" id="search-field" name="keyword" placeholder="Tìm kiếm chuyên mục..." required>
                 </form>
             </div>
 
             <div class="col-lg-5 px-0 d-flex justify-content-end">
                 <div class="col-lg-5 px-0">
-                    <a href="#addModal" class="button add-btn" id="add" data-toggle="modal">Thêm</a>
+                    <a href="" class="button add-btn" id="add" data-bs-toggle="modal"
+                        data-bs-target="#addModal">Thêm</a>
                 </div>
 
                 <div class="col-lg-5 px-0 mx-2">
-                    <a href="#deleteModal" class="button remove-btn" id="delete" data-toggle="modal">Xóa</a>
+                    <a href="" class="button remove-btn" id="delete" onclick="removeCategories()">Xóa</a>
                 </div>
             </div>
         </div>
@@ -56,210 +56,120 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each allCategories}}
                     <tr class="">
                         <td class="text-center">
                             <span class="custom-checkbox">
-                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                <input type="checkbox" id="checkbox1" name="options[]" value="{{id}}">
                                 <label for="checkbox1"></label>
                             </span>
                         </td>
                         <td class="category__name">
-                            <p class="font-weight-bold">Kinh tế</p>
+                            <p class="font-weight-bold">{{name}}</p>
                         </td>
+                        {{#if parent}}
+                        <td class="category__parent">
+                            <p class="font-weight-bold">{{parent.name}}</p>
+                        </td>
+                        {{else}}
                         <td class="category__parent">
                             <p class="font-weight-bold"></p>
                         </td>
+                        {{/if}}
                         <td>
                             <div class="d-flex table-control">
-                                <a href="#editModal" class="edit" data-toggle="modal"><i
-                                        class="fa-solid fa-pencil"></i></a>
-                                <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                        class="fa-solid fa-trash-can"></i></a>
+                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                    onclick="getIdCate({{id}})"><i class="fa-solid fa-pencil"></i></a>
+                                <!-- Edit Modal HTML -->
+                                <div id="editModal" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+                                            </button>
+                                            <p class="modal-title">Chỉnh sửa tên chuyên mục</p>
+                                            <form action="" class="form-edit" method="post">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label for="category__name--edit">Nhập tên mới</label>
+                                                        <input type="text" name="newCateNameEdit"
+                                                            id="category__name--edit" class="p-2 w-100" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="category__parent--edit">Chọn chuyên mục cha</label>
+                                                        <select name="cateParentEdit" id="category__parent--edit">
+                                                            <option value="0" selected>--Đây là chuyên mục cấp 1--
+                                                            </option>
+                                                            {{#each ../parentCategories}}
+                                                            <option value="{{id}}">{{name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="button success-btn"
+                                                        data-bs-dismiss="modal"
+                                                        onclick="updateCategory(document.getElementById('category__name--edit').value, document.getElementById('category__parent--edit').value)">Cập
+                                                        nhập</button>
+                                                    <button type="button" class="button cancel-btn"
+                                                        data-bs-dismiss="modal">Hủy bỏ</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="" class="delete"><i class="fa-solid fa-trash-can"
+                                        onclick="removeCate({{id}})"></i></a>
                             </div>
                         </td>
                     </tr>
-                    <tr class="">
-                        <td class="text-center">
-                            <span class="custom-checkbox">
-                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                <label for="checkbox1"></label>
-                            </span>
-                        </td>
-                        <td class="category__name">
-                            <p class="font-weight-bold">Nông sản</p>
-                        </td>
-                        <td class="category__parent">
-                            <p class="font-weight-bold">Kinh tế</p>
-                        </td>
-                        <td>
-                            <div class="d-flex table-control">
-                                <a href="#editModal" class="edit" data-toggle="modal"><i
-                                        class="fa-solid fa-pencil"></i></a>
-                                <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                        class="fa-solid fa-trash-can"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <td class="text-center">
-                            <span class="custom-checkbox">
-                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                <label for="checkbox1"></label>
-                            </span>
-                        </td>
-                        <td class="category__name">
-                            <p class="font-weight-bold">Hải sản</p>
-                        </td>
-                        <td class="category__parent">
-                            <p class="font-weight-bold">Kinh tế</p>
-                        </td>
-                        <td>
-                            <div class="d-flex table-control">
-                                <a href="#editModal" class="edit" data-toggle="modal"><i
-                                        class="fa-solid fa-pencil"></i></a>
-                                <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                        class="fa-solid fa-trash-can"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <td class="text-center">
-                            <span class="custom-checkbox">
-                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                <label for="checkbox1"></label>
-                            </span>
-                        </td>
-                        <td class="category__name">
-                            <p class="font-weight-bold">Thể thao</p>
-                        </td>
-                        <td class="category__parent">
-                            <p class="font-weight-bold"></p>
-                        </td>
-                        <td>
-                            <div class="d-flex table-control">
-                                <a href="#editModal" class="edit" data-toggle="modal"><i
-                                        class="fa-solid fa-pencil"></i></a>
-                                <a href="#deleteModal" class="delete" data-toggle="modal"><i
-                                        class="fa-solid fa-trash-can"></i></a>
-                            </div>
-                        </td>
-                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
             <div class="clearfix">
-                <ul class="pagination">
-                    <li class="page-item  "><a href="#" class="page-link"><i class="fa-solid fa-caret-left"></i></a>
-                    </li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item "><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-caret-right"></i></a>
-                    </li>
-                </ul>
+                <nav arie-label="Page navigation example" id="pagination">
+                    {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
             </div>
         </div>
 
+        <p style="display: none;" id="idCategory"></p>
     </div>
 
 
 </main>
-<!-- Edit Modal HTML -->
-<div id="editModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
-            </button>
-            <p class="modal-title">Chỉnh sửa tên chuyên mục</p>
-            <form action="#" class="form-edit">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="category__name--edit">Nhập tên mới</label>
-                        <input type="text" name="" id="category__name--edit" class="p-2 w-100" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="category__parent--edit">Chọn chuyên mục cha</label>
-                        <select name="category__parent--edit" id="category__parent--edit">
-                            <option value="" selected>--Đây là chuyên mục cấp 1--</option>
-                            <option value="kinhte">Kinh tế</option>
-                            <option value="thethao">Thể thao</option>
-                            <!-- <option value="phapluat">Pháp luật</option>
-                                <option value="doisong">Đời sống</option>
-                                <option value="congnghe">Công nghệ</option>
-                                <option value="suckhoe">Sức khỏe</option>
-                                <option value="amnhac">Âm nhạc</option> -->
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="modal-footer">
-                    <button type="submit" class="button submit success-btn">Cập nhập</button>
-                    <button type="button" class="button cancel-btn" data-dismiss="modal">Hủy bỏ</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Delete Modal HTML -->
-<div id="deleteModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                    class="fa-solid fa-xmark close-modal"></i></button>
-
-            <p class="modal-title">Xóa chuyên mục</p>
-            <form action="#">
-                <div class="form-group modal-body">
-                    <label class="form-label">Nhập lý do xóa</label>
-                    <input type="text" class="form-control input-field" required>
-                </div>
-                <div class="modal-footer">
-                    <button class="button remove-btn text-uppercase submit">Xóa</button>
-                    <button data-dismiss="modal" class="button cancel-btn text-uppercase" data-dismiss="modal">Hủy
-                        bỏ</button>
-
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <!-- Add Modal HTML -->
 <div id="addModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
             </button>
             <p class="modal-title">Thêm chuyên mục mới</p>
-            <form action="#" class="form-add">
+            <form action="" class="form-add" method="post">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="category__name--add" class="form-label">Nhập tên của chuyên mục mới</label>
-                        <input type="text" name="" id="category__name--add" class="p-2 w-100" required>
+                        <input type="text" name="newCateName" id="category__name--add" class="p-2 w-100" required>
                     </div>
                     <div class="form-group">
                         <label for="category__parent--add">Chọn chuyên mục cha</label>
-                        <select name="category__parent--add" id="category__parent--add">
-                            <option value="" selected>--Đây là chuyên mục cấp 1--</option>
-                            <option value="kinhte">Kinh tế</option>
-                            <option value="thethao">Thể thao</option>
-                            <!-- <option value="phapluat">Pháp luật</option>
-                                <option value="doisong">Đời sống</option>
-                                <option value="congnghe">Công nghệ</option>
-                                <option value="suckhoe">Sức khỏe</option>
-                                <option value="amnhac">Âm nhạc</option> -->
+                        <select name="parentCate" id="category__parent--add">
+                            <option value="0" selected>--Đây là chuyên mục cấp 1--</option>
+                            {{#each parentCategories}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
                         </select>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="button submit success-btn">Hoàn tất</button>
-                    <button type="button" class="button cancel-btn" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" class="button success-btn" data-bs-dismiss="modal"
+                        onclick="addNewCategory(document.getElementById('category__name--add').value, document.getElementById('category__parent--add').value)">Hoàn
+                        tất</button>
+                    <button type="button" class="button cancel-btn" data-bs-dismiss="modal">Hủy bỏ</button>
                 </div>
             </form>
         </div>
@@ -271,3 +181,106 @@
 <link rel="stylesheet" href="/styles/ad-categoryManagement.css">
 <script type="module" src="/scripts/ad-main.js"></script>
 <script type="module" src="/scripts/ad-category.js"></script>
+
+<script>
+    document.querySelectorAll('#pagination li').forEach((li, index) => {
+        li.classList.add('pagination__item');
+    });
+    document.querySelectorAll('#pagination a').forEach((a, index) => {
+        a.classList.add('pagination__link')
+    });
+
+    function getIdCate(id) {
+        document.getElementById('idCategory').innerHTML = id;
+    }
+
+    async function addNewCategory(newCateName, parentCate) {
+        await fetch('/admin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ newCateName, parentCate })
+        }).then(res => {
+            if (res.ok) {
+                location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+            }
+        }).catch(error => {
+            console.log('Error:', error);
+        });
+    }
+
+    async function updateCategory(newTagNameEdit, cateParentEdit) {
+        let id = document.getElementById('idCategory').innerHTML;
+        await fetch('/admin', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ id, newTagNameEdit, cateParentEdit })
+        }).then(res => {
+            if (res.ok) {
+                location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+            }
+        }).catch(error => {
+            console.log('Error:', error);
+        });
+    }
+
+    async function removeCate(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa chuyên mục này?')) {
+            await fetch(`/admin`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ id, type: 1 })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+        else {
+            location.reload();
+        }
+    }
+
+    async function removeCategories() {
+        const checkbox = [];
+        let idCategories = [];
+        const tmp = document.querySelectorAll('table tbody input[type="checkbox"]');
+        [...tmp].forEach((element) => checkbox.push(element));
+        checkbox.forEach((element) => {
+            if (element.checked) {
+                idCategories.push(element.value);
+            }
+        });
+        if (idCategories.length > 0) {
+            if (confirm('Bạn có chắc chắn muốn xóa những chuyên mục này?')) {
+                await fetch(`/admin`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ idCategories, type: 2 })
+                }).then(res => {
+                    if (res.ok) {
+                        location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                    }
+                }).catch(error => {
+                    console.log('Error:', error);
+                });
+            }
+        }
+        else {
+            alert('Vui lòng chọn các chuyên mục muốn xóa!');
+        }
+    }
+</script>

@@ -30,12 +30,12 @@
                         <div class="col-sm-8">
                             <form id="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="search-field" name="search-content"
+                                <input type="text" id="search-field" name="keyword"
                                     placeholder="Tìm kiếm người dùng...">
                             </form>
                         </div>
                         <div class="col-sm-4 d-flex justify-content-end">
-                            <a href="#deleteModal" class="button remove-btn" id="delete" data-toggle="modal">Xóa</a>
+                            <a href="" class="button remove-btn" id="delete" onclick="removeUsers()">Xóa</a>
                         </div>
                     </div>
                 </div>
@@ -48,169 +48,182 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>
-                            <th style="width: 45%;">Tên</th>
-                            <th style="width: 30%;">Email</th>
+                            <th style="width: 40%;">Tên</th>
+                            <th style="width: 35%;">Email</th>
                             <th style="width: 20%;">Phân hệ</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each allUsers}}
                         <tr>
                             <td>
                                 <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="{{id}}">
                                     <label for="checkbox1"></label>
                                 </span>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <a href="#"><img src="/images/users/man_default.png" class="user-avatar"
+                                    {{#if sex}}
+                                    <a href=""><img src="/images/users/man_default.png" class="user-avatar"
                                             alt="Avatar">
                                     </a>
+                                    {{else}}
+                                    <a href=""><img src="/images/users/female_default.png" class="user-avatar"
+                                            alt="Avatar">
+                                    </a>
+                                    {{/if}}
                                     <div class="user-name">
-                                        <span class="user-fullname text-capitalize">Nguyễn Kông Đại</span>
-                                        <span class="user-nickname">kdai</span>
+                                        <span class="user-fullname text-capitalize">{{name}}</span>
+                                        <span class="user-nickname">{{username}}</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>kongdai@gmail.com</td>
-                            <td class="role">Biên tập viên</td>
+                            <td>{{email}}</td>
+                            <td class="role">{{type}}</td>
                             <td>
                                 <div class="d-flex table-control">
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editModal"><i
+                                            class="fa-solid fa-pencil" onclick="getUserType({{id}})"></i></a>
+                                    <a href="" class="delete"><i class="fa-solid fa-trash-can"
+                                            onclick="removeUser({{id}})"></i></a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                    <label for="checkbox2"></label>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="#"><img src="/images/users/man_default.png" class="user-avatar"
-                                            alt="Avatar">
-                                    </a>
-                                    <div class="user-name">
-                                        <span class="user-fullname text-capitalize">Dũ Quốc Huy</span>
-                                        <span class="user-nickname">qhuy</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>quochuy@gmail.com</td>
-                            <td class="role">Phóng viên</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                    <label for="checkbox3"></label>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="#"><img src="/images/users/man_default.png" class="user-avatar"
-                                            alt="Avatar">
-                                    </a>
-                                    <div class="user-name">
-                                        <span class="user-fullname text-capitalize">Lê Thị Minh Hiền</span>
-                                        <span class="user-nickname">mhneh</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>mhien@gmail.com</td>
-                            <td class="role">Premium</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <ul class="pagination">
-                        <li class="page-item  "><a href="#" class="page-link"><i class="fa-solid fa-caret-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item "><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-caret-right"></i></a>
-                        </li>
-                    </ul>
+                    <nav arie-label="Page navigation example" id="pagination">
+                        {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
                 </div>
             </div>
         </div>
+
+        <p style="display: none;" id="idUser"></p>
     </div>
 
 
 </main>
 
 <!-- Edit Modal HTML -->
-<div id="editModal" class="myModal">
-    <div class="myModal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                class="fa-solid fa-xmark close-modal"></i></button>
-
-        <p class="modal-title">Chỉnh sửa phân hệ</p>
-        <div class="form-group">
-            <select name="role" class="form-control" id="role" value="Biên tập viên">
-                <option value="editor">Biên tập viên</option>
-                <option value="user">Người dùng</option>
-                <option value="premium">Premium</option>
-                <option value="writer">Phóng viên</option>
-                <option value="admin">Quản trị viên</option>
-
-            </select>
-            <i class="fa-solid fa-caret-down"></i>
-        </div>
-
-        <div class="myModal-button">
-            <input type="submit" class="button submit success-btn" value="Cập nhật">
-            <input type="button" class="button cancel-btn" data-dismiss="modal" value="Hủy bỏ">
-
+<div id="editModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+            </button>
+            <p class="modal-title">Chỉnh sửa phân hệ</p>
+            <form class="form-add">
+                <div class="form-group">
+                    <select name="role" class="form-control" id="role">
+                        <option value="0" selected disabled>Chọn một</option>
+                        <option value="0">Người dùng</option>
+                        <option value="1">Biên tập viên</option>
+                        <option value="2">Phóng viên</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button success-btn" data-bs-dismiss="modal"
+                        onclick="updateUserType(document.getElementById('role').value)">Cập
+                        nhật</button>
+                    <button type="button" class="button cancel-btn" data-bs-dismiss="modal">Hủy bỏ</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<!-- Delete Modal HTML -->
-<div id="deleteModal" class="myModal">
-    <div class="myModal-content">
-        <button type="button" class="close"><i class="fa-solid fa-xmark close-modal"></i></button>
 
-        <p class="modal-title">Xóa người dùng</p>
-
-        <div class="form-group ">
-            <!-- <label class="form-label">Nhập lý do xóa</label> -->
-            <textarea type="text" class="form-control input-field required" placeholder="Nhập lý do xóa..."></textarea>
-            <div class="invalid-feedback">Vui lòng ghi rõ lý do xóa!</div>
-
-
-        </div>
-        <div class="myModal-button">
-            <button class="button remove-btn text-uppercase submit">Xóa</button>
-            <button class="button cancel-btn text-uppercase">Hủy
-                bỏ</button>
-
-        </div>
-
-    </div>
-
-</div>
 {{!-- STYLES --}}
 <link rel="stylesheet" href="/styles/ad-main.css">
 <link rel="stylesheet" href="/styles/ad-userManagement.css">
 {{!-- SCRIPTS --}}
 <script src="/scripts/ad-user.js"></script>
 <script type="module" src="/scripts/ad-main.js"></script>
+
+<script>
+    document.querySelectorAll('#pagination li').forEach((li, index) => {
+        li.classList.add('pagination__item');
+    });
+    document.querySelectorAll('#pagination a').forEach((a, index) => {
+        a.classList.add('pagination__link')
+    });
+
+    function getUserType(id) {
+        document.getElementById('idUser').innerHTML = id;
+    }
+
+    async function updateUserType(type) {
+        let id = document.getElementById('idUser').innerHTML;
+        await fetch('/admin/user-management', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ id, type })
+        }).then(res => {
+            if (res.ok) {
+                location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+            }
+        }).catch(error => {
+            console.log('Error:', error);
+        });
+    }
+
+    async function removeUser(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa người dùng này?')) {
+            await fetch(`/admin/user-management`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ id, type: 1 })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+        else {
+            location.reload();
+        }
+    }
+
+    async function removeUsers() {
+        const checkbox = [];
+        let idUsers = [];
+        const tmp = document.querySelectorAll('table tbody input[type="checkbox"]');
+        [...tmp].forEach((element) => checkbox.push(element));
+        checkbox.forEach((element) => {
+            if (element.checked) {
+                idUsers.push(element.value);
+            }
+        });
+        if (idUsers.length > 0) {
+            if (confirm('Bạn có chắc chắn muốn xóa những người dùng này?')) {
+                await fetch(`/admin/user-management`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ idUsers, type: 2 })
+                }).then(res => {
+                    if (res.ok) {
+                        location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                    }
+                }).catch(error => {
+                    console.log('Error:', error);
+                });
+            }
+        }
+        else {
+            alert('Vui lòng chọn các người dùng muốn xóa!');
+        }
+    }
+</script>
