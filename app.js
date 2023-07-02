@@ -33,7 +33,7 @@ app.set('view engine', 'hbs');
 
 // cau hinh doc du lieu post tu body
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // cau hinh su dung session

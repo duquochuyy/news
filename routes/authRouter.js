@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const controller = require('../controllers/authController');
 const {body, getErrorMessage} = require("../utils/validator");
+const passport = require("../authentication/passport");
 
 router.get('/login', controller.showLogin);
 router.post('/login',
@@ -78,5 +79,23 @@ router.post('/reset',
     next();
   }
   , controller.resetPassword);
+
+router.get('/google', passport.authenticate("google", {scope: ["profile", "email"]}));
+router.get('/google/callback',
+  passport.authenticate("google", {failureRedirect: '/auth/login', failureMessage: true}),
+  (req, res) => {
+    res.redirect("/");
+  }
+);
+
+router.get('/facebook', passport.authenticate('facebook', {
+  authType: 'reauthenticate'
+}));
+router.get('/facebook/callback',
+  passport.authenticate('facebook', {failureRedirect: '/auth/login', failureMessage: true}),
+  function (req, res) {
+    res.redirect('/');
+  }
+);
 
 module.exports = router;

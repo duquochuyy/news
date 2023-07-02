@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     facebook: DataTypes.STRING,
     zalo: DataTypes.STRING,
     google: DataTypes.STRING,
+    avatar: DataTypes.STRING,
     role: DataTypes.VIRTUAL
   }, {
     sequelize,

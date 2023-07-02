@@ -2,6 +2,7 @@
 
 const models = require("../models");
 const bcrypt = require("bcrypt");
+
 const controller = {};
 
 controller.showProfile = (req, res) => {
@@ -17,8 +18,14 @@ controller.showProfile = (req, res) => {
   if (mm < 10) mm = '0' + mm;
 
   const formattedBirthday = yyyy + '-' + mm + '-' + dd;
+  const profile = {
+    ...req.user,
+    name: !(req.user.name) ? "Thêm tên người dùng" : req.user.name,
+    phone: !(req.user.phone) ? "Thêm số điện thoại" : req.user.phone,
+    email: !(req.user.email) ? "Thêm email" : req.user.email
+  };
   return res.render('setting', {
-    profile: req.user,
+    profile: profile,
     birthday: formattedBirthday,
   });
 }
@@ -26,6 +33,7 @@ controller.showProfile = (req, res) => {
 controller.updateProfile = async (req, res) => {
   const data = {
     ...req.body,
+    avatar: !req.file ? req.user.avatar : `/images/users/${req.file.originalname}`,
     birthday: new Date(req.body.birthday)
   }
   try {

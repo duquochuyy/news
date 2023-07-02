@@ -15,7 +15,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      usename: {
+      username: {
         type: Sequelize.STRING
       },
       phone: {
@@ -36,6 +36,10 @@ module.exports = {
       google: {
         type: Sequelize.STRING
       },
+      avatar: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -43,7 +47,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
