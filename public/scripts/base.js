@@ -106,7 +106,6 @@ $(document).ready(function () {
     // signupRole.css("display", "none");
     // modal.css("display", "none")
     $("#guest").click(() => {
-        alert("hi")
         modal.css("display", "block")
     });
     // thêm vào để chạy thử

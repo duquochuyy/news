@@ -9,7 +9,8 @@ const jwt = require("../authentication/jwt");
 
 controller.showLogin = (req, res) => {
   if (req.isAuthenticated()) {
-    return res.redirect('/');
+    let reqUrl = req.query.reqUrl ? req.query.reqUrl : '/';
+    return res.redirect(reqUrl);
   }
   return res.render('auth/login', {
     layout: false,
@@ -22,7 +23,7 @@ controller.showLogin = (req, res) => {
 
 controller.login = (req, res, next) => {
   let keepSignedIn = req.body.keepSignedIn;
-  let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/';
+  let reqUrl = req.query.reqUrl ? req.query.reqUrl : '/';
   const role = req.body.role;
   passport.authenticate('local-login', (error, user) => {
     if (error) {
@@ -54,7 +55,8 @@ controller.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect(`/auth/login?reqUrl=${req.originalUrl}`);
+  let reqUrl = req.query.reqUrl ? req.query.reqUrl : req.originalUrl;
+  res.redirect(`/auth/login?reqUrl=${reqUrl}`);
 }
 
 controller.showRegister = (req, res) => {
@@ -139,6 +141,16 @@ controller.resetPassword = async (req, res) => {
 
   await models.User.update({password}, {where: {email}});
   res.render('auth/reset_pw', {done: true});
+}
+
+controller.loginByGoogle = (req, res) => {
+  return passport.authenticate('google', {
+    scope: ['profile', 'email']
+  });
+}
+
+controller.loginByGoogleCallback = (req, res) => {
+  return passport.authenticate('google');
 }
 
 module.exports = controller;

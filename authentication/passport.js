@@ -2,6 +2,8 @@
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook');
 const bcrypt = require('bcrypt');
 const models = require('../models');
 
@@ -15,7 +17,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (id, done) => {
   try {
     let user = await models.User.findOne({
-      attributes: ['id', 'email', 'name', 'username', 'phone', 'sex', 'birthday', 'password'],
+      attributes: ['id', 'email', 'name', 'username', 'phone', 'sex', 'birthday', 'password', 'avatar'],
       where: { id }
     });
     if (!user) {
@@ -139,14 +141,90 @@ passport.use('local-register', new LocalStrategy({
       birthday: null,
       facebook: "",
       zalo: "",
-      google: ""
+      google: "",
+      avatar: null
     });
 
     // thong bao dang ky thanh cong
     done(null, false, req.flash('registerMessage', 'Đăng ký thành công. Mời đăng nhập lại!'));
   } catch (error) {
-
+    console.log("PASSPORT_REGISTER: Register failed.");
+    done(null, false, req.flash('registerMessage', 'Đã xảy ra lỗi. Vui lòng thử lại sau!'));
   }
 }));
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: "125809521564-160fo1pmpiu741cjn7dhbk9j37akkvrn.apps.googleusercontent.com",
+      clientSecret: "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",
+      callbackURL: '/auth/google/callback'
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        let user = await models.User.findOne({ where: { google: profile.id } });
+        if (!user) {
+          user = await models.User.create({
+            name: profile.displayName,
+            email: profile.emails[0].value,
+            password: bcrypt.hashSync("ABCKXLKFJL1", bcrypt.genSaltSync(8)),
+            username: profile.displayName.replace(/ /g, ''),
+            phone: "",
+            sex: true,
+            birthday: null,
+            facebook: "",
+            zalo: "",
+            avatar: profile.photos[0].value,
+            google: profile.id
+          });
+        }
+
+        // thong bao dang ky thanh cong
+        done(null, user);
+        return;
+      } catch (error) {
+        console.log("PASSPORT_GOOGLE: Login by google failed.", error);
+        return done(null, null);
+      }
+
+    }
+  )
+);
+
+passport.use(new FacebookStrategy({
+    clientID: "259649473368076",
+    clientSecret: "7c36668a341d1ac7e67802563174c2b3",
+    callbackURL: 'http://localhost:5000/auth/facebook/callback',
+    profileFields: ['id', 'displayName', 'photos', 'email'],
+    enableProof: true
+  },
+  async function verify(accessToken, refreshToken, profile, cb) {
+    try {
+      let user = await models.User.findOne({ where: { facebook: profile.id } });
+      if (!user) {
+        user = await models.User.create({
+          name: profile.displayName,
+          email: "",
+          password: bcrypt.hashSync("ABCKXLKFJL1", bcrypt.genSaltSync(8)),
+          username: profile.displayName.replace(/ /g, ''),
+          phone: "",
+          sex: true,
+          birthday: null,
+          facebook: profile.id,
+          zalo: "",
+          avatar: profile.photos.length > 0 ? profile.photos[0].value : null,
+          google: ""
+        });
+      }
+
+      // thong bao dang ky thanh cong
+      cb(null, user);
+      return;
+    } catch (error) {
+      console.log("PASSPORT_FACEBOOK: Login by facebook failed.", error);
+      return cb(null, null);
+    }
+  }
+));
 
 module.exports = passport;

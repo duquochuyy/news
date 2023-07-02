@@ -42,21 +42,30 @@
                     <!-- -->
                     <div id="user">
                         <div id="avatar" class="pos-r">
-                            {{#if user.sex}}
-                                <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
+                            {{#if user.avatar}}
+                                <img src="{{user.avatar}}" alt="Avatar" id="user-img">
                             {{else}}
-                                <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
+                                {{#if user.sex}}
+                                    <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
+                                {{else}}
+                                    <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
+                                {{/if}}
                             {{/if}}
+
                             {{#if isSubscribed}}
                                 <img src="/images/premium.png" class="premium-icon premium">
                             {{/if}}
                         </div>
                         <div id="user-control">
                             <div id="control-heading" class="line-separate">
-                                {{#if user.sex}}
-                                    <img src="/images/users/man_default.png" alt="Avatar" class="rounded">
+                                {{#if user.avatar}}
+                                    <img src="{{user.avatar}}" alt="Avatar" id="user-img">
                                 {{else}}
-                                    <img src="/images/users/female_default.png" alt="Avatar" class="rounded">
+                                    {{#if user.sex}}
+                                        <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
+                                    {{else}}
+                                        <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
+                                    {{/if}}
                                 {{/if}}
                                 <p class="text-capitalize bold">{{user.username}}</p>
                             </div>
