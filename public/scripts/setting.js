@@ -58,10 +58,10 @@ $(function() {
 
 $('#profile-form').submit(false);
 $('#btnSubmit').click(function() {
-   const name = $('#name').text() == 'Thêm tên người dùng' ? undefined : $('#name').text();
+   const name = $('#name').text();
    const email = $('#email').text();
-   const phone = $('#phone').text() == 'Thêm số điện thoại' ? undefined : $('#phone').text();
-   const sex = $('input[name="sex"]:checked').val() == '1' ? true : false;
+   const phone = $('#phone').text() == 'Thêm số điện thoại' ? "" : $('#phone').text();
+   const sex = $('input[name="sex"]:checked').val() == '1';
    const birthday = new Date($('#dateInput').val());
 
    const formData = new FormData();
@@ -107,6 +107,10 @@ function previewAvatar(input) {
 
 $("#inputImage").change(function() {
     previewAvatar(this);
+});
+
+$("#logout-btn").click(function() {
+    $('#logout-modal').modal('show');
 });
 // var myDateInput = document.getElementById('dateInput');
 

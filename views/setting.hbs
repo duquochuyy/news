@@ -1,6 +1,6 @@
 <ul id="breadcrumb">
     <li class="breadcrumb__item">
-        <a href="./index" class="breadcrumb__link hover">Trang chủ
+        <a href="/" class="breadcrumb__link hover">Trang chủ
 
         </a>
     </li>
@@ -37,8 +37,9 @@
                     </li>
 
                     <li class="nav-item rounded mt-1 content-3">
-                        <a class="nav-link px-3 text-black hover d-block" href="/auth/logout">
-                            <i class="fa-solid fa-arrow-right-from-bracket  text-primary d-inline-block px-1"></i>
+                        <a class="nav-link px-3 text-black hover d-block"
+                           data-toggle="modal" id="logout-btn" href="#">
+                            <i class="fa-solid fa-arrow-right-from-bracket text-primary d-inline-block px-1"></i>
                             Đăng xuất
                         </a>
                     </li>
@@ -80,7 +81,7 @@
                                     <input type="text" class="form-control edit-input font-weight-bold d-none"
                                            value="{{profile.name}}">
                                 {{else}}
-                                    <p class="info-text font-weight-bold" id="name">Thêm tên người dùng</p>
+                                    <p class="info-text font-weight-bold" id="name">Người dùng</p>
                                     <input type="text" class="form-control edit-input font-weight-bold d-none">
                                 {{/if}}
                             </div>
@@ -290,6 +291,26 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="modal" id="logout-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Đăng xuất</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn đăng xuất?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/auth/logout" class="btn btn-danger">Ok</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </main>
