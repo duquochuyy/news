@@ -51,27 +51,34 @@
                     <h2>Thông tin cá nhân</h2>
                     <hr>
 
-                    <form class="profileForm" method="post" id="profile-form">
+                    <form class="profileForm" method="post" enctype="multipart/form-data" id="profile-form">
                         <div class="form-group row m-0 p-0">
                             <div class="col-lg-2">
                                 <div class="rounded-circle d-flex justify-content-center avatar position-relative">
-                                    {{#if user.sex}}
-                                        <img src="/images/users/man_default.png" alt="Avatar">
+                                    {{#if user.avatar}}
+                                        <img src="{{user.avatar}}" alt="Avatar" id="avatar-preview">
                                     {{else}}
-                                        <img src="/images/users/female_default.png" alt="Avatar">
+                                        {{#if user.sex}}
+                                            <img src="/images/users/man_default.png" alt="Avatar" id="avatar-preview">
+                                        {{else}}
+                                            <img src="/images/users/female_default.png" alt="Avatar" id="avatar-preview">
+                                        {{/if}}
                                     {{/if}}
                                     <label class="input-group-text position-absolute camera-to-choose" for="inputImage">
                                         <i class="fa-solid fa-camera-retro"></i>
                                     </label>
                                     <input type="file" class="form-control-file" id="inputImage" style="display: none;"
-                                        accept="image/*">
+                                       name="avatar" accept="image/*">
                                 </div>
                             </div>
 
                             <div class="col-lg-8 .col-lg-offset-2 inner1 d-flex align-items-center">
                                 {{#if profile.name}}
-                                    <p class="info-text font-weight-bold" id="name">{{profile.name}}</p>
-                                    <input type="text" class="form-control edit-input font-weight-bold d-none">
+                                    <p class="info-text font-weight-bold" id="name">
+                                        {{profile.name}}
+                                    </p>
+                                    <input type="text" class="form-control edit-input font-weight-bold d-none"
+                                           value="{{profile.name}}">
                                 {{else}}
                                     <p class="info-text font-weight-bold" id="name">Thêm tên người dùng</p>
                                     <input type="text" class="form-control edit-input font-weight-bold d-none">
@@ -91,10 +98,11 @@
                             <i class="fa-regular fa-envelope col-lg-1"></i>
 
                             <div class="col-lg-9 p-0 inner1">
-                                <label for="inputEmail" class="col-form-label my-0 py-0 font-weight-bold">Email</label>
+                                <label for="inputEmail"
+                                       class="col-form-label my-0 py-0 font-weight-bold">Email</label>
                                 <p class="info-text mt-2" id="email">{{profile.email}}</p>
                                 <hr class="m-0">
-                                <input type="email" class="form-control edit-input d-none">
+                                <input type="email" class="form-control edit-input d-none" value="{{profile.email}}">
                             </div>
 
                             <div class="col-lg-2 p-0 inner2">
@@ -112,7 +120,7 @@
                                     điện thoại</label>
                                 {{#if profile.phone}}
                                     <p class="info-text mt-2" id="phone">{{profile.phone}}</p>
-                                    <input type="tel" class="form-control edit-input d-none">
+                                    <input type="tel" class="form-control edit-input d-none" value="{{profile.phone}}">
                                 {{else}}
                                     <p class="info-text mt-2" id="phone">Thêm số điện thoại</p>
                                     <input type="tel" class="form-control edit-input d-none">

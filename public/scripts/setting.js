@@ -63,10 +63,23 @@ $('#btnSubmit').click(function() {
    const phone = $('#phone').text() == 'Thêm số điện thoại' ? undefined : $('#phone').text();
    const sex = $('input[name="sex"]:checked').val() == '1' ? true : false;
    const birthday = new Date($('#dateInput').val());
+
+   const formData = new FormData();
+   formData.append("avatar", document.getElementById("inputImage").files[0]);
+   formData.append("name", name);
+   formData.append("email", email);
+   formData.append("phone", phone);
+   formData.append("sex", sex);
+   formData.append("birthday", birthday);
+
    $.ajax({
        type: "POST",
+       enctype: 'multipart/form-data',
        url: "/user/setting",
-       data: {name, email, phone, sex, birthday},
+       data: formData,
+       processData: false,
+       contentType: false,
+       cache: false,
        success: function(data) {
            if (data == 'success') {
                window.location.href = '/user/setting';
@@ -80,6 +93,21 @@ $('#btnSubmit').click(function() {
    });
 });
 
+function previewAvatar(input) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('avatar-preview').src = e.target.result;
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#inputImage").change(function() {
+    previewAvatar(this);
+});
 // var myDateInput = document.getElementById('dateInput');
 
 // myDateInput.addEventListener('blur', function(){
@@ -93,4 +121,4 @@ $('#btnSubmit').click(function() {
 //     var formattedDate = day + '/' + month + '/' + year;
 //     myDateInput.value = formattedDate;
 // });
-})
+});
