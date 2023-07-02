@@ -156,8 +156,8 @@ passport.use('local-register', new LocalStrategy({
 passport.use(
   new GoogleStrategy(
     {
-      clientID: "125809521564-160fo1pmpiu741cjn7dhbk9j37akkvrn.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: '/auth/google/callback'
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -167,8 +167,8 @@ passport.use(
           user = await models.User.create({
             name: profile.displayName,
             email: profile.emails[0].value,
-            password: bcrypt.hashSync("ABCKXLKFJL1", bcrypt.genSaltSync(8)),
-            username: profile.displayName.replace(/ /g, ''),
+            password: "",
+            username: "",
             phone: "",
             sex: true,
             birthday: null,
@@ -192,8 +192,8 @@ passport.use(
 );
 
 passport.use(new FacebookStrategy({
-    clientID: "259649473368076",
-    clientSecret: "7c36668a341d1ac7e67802563174c2b3",
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     callbackURL: 'http://localhost:5000/auth/facebook/callback',
     profileFields: ['id', 'displayName', 'photos', 'email'],
     enableProof: true
@@ -205,8 +205,8 @@ passport.use(new FacebookStrategy({
         user = await models.User.create({
           name: profile.displayName,
           email: "",
-          password: bcrypt.hashSync("ABCKXLKFJL1", bcrypt.genSaltSync(8)),
-          username: profile.displayName.replace(/ /g, ''),
+          password: "",
+          username: "",
           phone: "",
           sex: true,
           birthday: null,

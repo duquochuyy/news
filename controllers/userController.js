@@ -20,7 +20,7 @@ controller.showProfile = (req, res) => {
   const formattedBirthday = yyyy + '-' + mm + '-' + dd;
   const profile = {
     ...req.user,
-    name: !(req.user.name) ? "Thêm tên người dùng" : req.user.name,
+    name: !(req.user.name) ? "Người dùng" : req.user.name,
     phone: !(req.user.phone) ? "Thêm số điện thoại" : req.user.phone,
     email: !(req.user.email) ? "Thêm email" : req.user.email
   };
