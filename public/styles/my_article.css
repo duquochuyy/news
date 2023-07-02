@@ -113,6 +113,27 @@ button{
     background-color: var(--success-bg);
 }
 
+#search{
+    /* margin-top: 5px; */
+    width: 70%;
+    background-color: var(--white-color);
+    border: 1px solid #1e1d1d;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: var(--second-color);
+    display: flex;
+    align-items: center;
+}
+#search-field{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0px 8px;
+    flex: 1;
+    color: var(--second-color);
+}
+
 .modal .modal-dialog {
 	max-width: 400px;
 
@@ -209,14 +230,29 @@ button{
     hr{
         border: none !important;
     }
-    #sidebar-btn{
+    #header-writer {
+        position: sticky;
+        top: 80px;
+        background-color: white;
+        width: 100%;
+    }
+    #sidebarBtnWriter{
         font-size: 26px;
     }
     #sidebar{
         margin:0;
         margin-top: -20px;
         margin-bottom: 30px;
-        
+        display: none;
+        background-color: white;
+        width: fit-content;
+        display: none;
+        position: fixed;
+        padding: 60px 20px;
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        margin-left: 12px;
+        z-index: 99;
     }
 }
 @media screen and(max-width: 560px) {

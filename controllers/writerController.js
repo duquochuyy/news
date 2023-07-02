@@ -138,11 +138,22 @@ controller.postArticle = async (req, res) => {
     res.redirect(`/writer`);
 };
 
-const getArticles = async (type, page, limit, authorId) => {
+const getArticles = async (type, page, limit, authorId, keyword) => {
     const options = {
         attributes: ['id', 'title', 'abstract', 'createDate'],
         where: { type: type, authorId: authorId },
         order: [['createDate', 'DESC']]
+    }
+    if (keyword.trim() != '') {
+        options.where[Op.or] = [
+            {
+              [Op.and]: [
+                { title: { [Op.iLike]: `%${keyword}%` } },
+                { abstract: { [Op.notILike]: `%${keyword}%` } }
+              ]
+            },
+            { abstract: { [Op.iLike]: `%${keyword}%` } }
+        ];
     }
     options.limit = limit;
     options.offset = limit * (page - 1);
@@ -157,10 +168,11 @@ controller.showNotApprovedYet = async (req, res) => {
     const userId = req.user.id;
     const writer = await models.Writer.findOne({ where: { userId: userId } });
     const writerId = writer.id;
+    let keyword = req.query.keyword || '';
     let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
 
     const limit = 5;
-    const { rows, count } = await getArticles(NOT_APPROVED_YET, page, limit, writerId);
+    const { rows, count } = await getArticles(NOT_APPROVED_YET, page, limit, writerId, keyword);
     const pagination = {
         page: page,
         limit: limit,
@@ -177,10 +189,11 @@ controller.showNotApprovedYet = async (req, res) => {
 controller.showWaitingForPublication = async (req, res) => {
     const writer = await models.Writer.findOne({ where: { userId: req.user.id } });
     const writerId = writer.id;
+    let keyword = req.query.keyword || '';
     let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
 
     const limit = 5;
-    const { rows, count } = await getArticles(WAITING_FOR_PUBLICATION, page, limit, writerId);
+    const { rows, count } = await getArticles(WAITING_FOR_PUBLICATION, page, limit, writerId, keyword);
     const pagination = {
         page: page,
         limit: limit,
@@ -198,10 +211,11 @@ controller.showWaitingForPublication = async (req, res) => {
 controller.showPublished = async (req, res) => {
     const writer = await models.Writer.findOne({ where: { userId: req.user.id } });
     const writerId = writer.id;
+    let keyword = req.query.keyword || '';
     let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
 
     const limit = 5;
-    const { rows, count } = await getArticles(PUBLISHED, page, limit, writerId);
+    const { rows, count } = await getArticles(PUBLISHED, page, limit, writerId, keyword);
     const pagination = {
         page: page,
         limit: limit,
@@ -219,10 +233,11 @@ controller.showPublished = async (req, res) => {
 controller.showDenied = async (req, res) => {
     const writer = await models.Writer.findOne({ where: { userId: req.user.id } });
     const writerId = writer.id;
+    let keyword = req.query.keyword || '';
     let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
 
     const limit = 5;
-    const { rows, count } = await getArticles(DENIED, page, limit, writerId);
+    const { rows, count } = await getArticles(DENIED, page, limit, writerId, keyword);
     const pagination = {
         page: page,
         limit: limit,

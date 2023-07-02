@@ -45,7 +45,16 @@
 
 
                 <div class="content content-4 content-active">
-                    <h2>Bài viết bị từ chối</h2>
+                    <div class="d-flex justify-content-between">
+                        <h2 class="col-sm-7" >Bài viết bị từ chối</h2>
+                        <div class="col-sm-5">
+                            <form id="search" class="w-100 d-flex justify-content-end" action="/writer/denied" method="get">
+                                <input type="text" id="search-field" name="keyword"
+                                    placeholder="Tìm kiếm bài viết..." required>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </form>
+                        </div>
+                    </div>
                     <hr>
                     <div class="bodyarea__items">
                         {{#each articles}}
@@ -131,7 +140,7 @@
 <link rel="stylesheet" href="/styles/authentication.css">
 <link rel="stylesheet" href="/styles/my_article.css">
 {{!-- SCRIPTS --}}
-<script src="/scripts/my_article.js"></script>
+<script type="module" src="/scripts/my_article.js"></script>
 <script>
     const handleArticleId = (id) => {
         const articleIdHidden = document.querySelector('#articleIdHidden').value = id;
