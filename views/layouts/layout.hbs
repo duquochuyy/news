@@ -67,7 +67,11 @@
                                         <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
                                     {{/if}}
                                 {{/if}}
-                                <p class="text-capitalize bold">{{user.username}}</p>
+                                {{#if user.name}}
+                                    <p class="text-capitalize bold">{{user.name}}</p>
+                                {{else}}
+                                    <p class="text-capitalize bold">Người dùng</p>
+                                {{/if}}
                             </div>
                             {{#if isEditor}}
                             <div class="non-ad line-separate control-item">
