@@ -6,4 +6,6 @@ const controller = require('../../controllers/admin/accountRenewalController');
 
 router.get('/', controller.show);
 
+router.put('/', controller.update)
+
 module.exports = router;

@@ -14,7 +14,7 @@
         </li>
         <li class="sidebar__item"><a href="/admin/category-assignment" class="sidebar__link">Phân công chuyên mục</a>
         </li>
-        <li class="sidebar__item sidebar__item--active"><a href="" class="sidebar__link">Gia hạn tài khoản</a></li>
+        <li class="sidebar__item sidebar__item--active"><a href="/admin/account-renewal" class="sidebar__link">Gia hạn tài khoản</a></li>
     </ul>
 
 </aside>
@@ -26,10 +26,10 @@
                 <div class="table-heading">
                     <div class="row">
                         <div class="col-sm-8">
-                            <form id="search">
+                            <form id="search" class="w-100" action="/admin/account-renewal" method="get">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="search-field" name="search-content"
-                                    placeholder="Tìm kiếm biên tập viên...">
+                                <input type="text" id="search-field" name="keyword"
+                                    placeholder="Tìm kiếm người dùng..." required>
                             </form>
                         </div>
                     </div>
@@ -45,92 +45,37 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each subscribers}}
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <a href="#"><img src="../assets/images/avatars/man_default.png" class="user-avatar"
+                                    <a href="#"><img src="{{User.avatar}}" class="user-avatar"
                                             alt="Avatar">
                                     </a>
                                     <div class="user-name">
-                                        <span class="user-fullname text-capitalize">Nguyễn Kông Đại</span>
-                                        <span class="user-nickname">kdai</span>
+                                        <span class="user-fullname text-capitalize">{{User.name}}</span>
+                                        <span class="user-nickname">{{User.username}}</span>
                                     </div>
                                 </div>
                             </td>
-                            <td>kongdai@gmail.com</td>
-                            <td>10/10/2020</td>
-                            <td class="role">15/02/2023</td>
+                            <td>{{User.email}}</td>
+                            <td>{{newSubdate}}</td>
+                            <td>{{newExpDate}}</td>
                             <td>
                                 <div class="d-flex table-control">
-                                    <a href="#" class="edit" id="button-edit" data-bs-toggle="modal"
+                                    <a onclick="handleSubscriberId({{id}})" href="#" class="edit" id="button-edit" data-bs-toggle="modal"
                                         data-bs-target="#editModal">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="#"><img src="../assets/images/avatars/man_default.png" class="user-avatar"
-                                            alt="Avatar">
-                                    </a>
-                                    <div class="user-name">
-                                        <span class="user-fullname text-capitalize">Dũ Quốc Huy</span>
-                                        <span class="user-nickname">qhuy</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>quochuy@gmail.com</td>
-                            <td>10/10/2020</td>
-                            <td class="role">15/02/2023</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#" class="edit" id="button-edit" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
-                                        <i class="fa-solid fa-pencil"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="#"><img src="../assets/images/avatars/man_default.png" class="user-avatar"
-                                            alt="Avatar">
-                                    </a>
-                                    <div class="user-name">
-                                        <span class="user-fullname text-capitalize">Lê Thị Minh Hiền</span>
-                                        <span class="user-nickname">mhneh</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>mhien@gmail.com</td>
-                            <td>10/10/2020</td>
-                            <td class="role">15/02/2023</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#" class="edit" id="button-edit" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
-                                        <i class="fa-solid fa-pencil"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <ul class="pagination">
-                        <li class="page-item  "><a href="#" class="page-link"><i class="fa-solid fa-caret-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item "><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-caret-right"></i></a>
-                        </li>
-                    </ul>
+                    <nav arie-label="Page navigation example" id="pagination">
+                                {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
                 </div>
             </div>
         </div>
@@ -151,13 +96,13 @@
                     <div class="d-flex justify-content-center">
                         <div class="col-10 d-flex flex-column">
                             <label for="due-date">Gia hạn đến ngày</label>
-                            <input type="date" id="due-date" name="due-date"
+                            <input type="datetime-local" id="due-date" name="due-date"
                                 class="mt-1 p-2 border border-1 border-secondary rounded-2">
                         </div>
                     </div>
 
                     <div class="myModal-button mt-3">
-                        <input type="submit" class="button submit success-btn" value="Cập nhật">
+                        <input type="button" onclick="updateSubscriber()" class="button submit success-btn" value="Cập nhật">
                         <input type="button" class="button cancel-btn" data-bs-dismiss="modal" value="Hủy bỏ">
                     </div>
                 </form>
@@ -176,3 +121,27 @@
 <script type="module" src="/scripts/ad-main.js"></script>
 <script type="module" src="/scripts/ad-category.js"></script>
 <script src="/scripts/ad-accountRenewal.js"></script>
+<script>
+    const handleSubscriberId = (id) => {
+        document.querySelector('#editModal').setAttribute('data-subscriber-id', id);
+    }
+
+    const updateSubscriber = async () => {
+        const subscriberId = document.querySelector('#editModal').getAttribute('data-subscriber-id');
+        const time = document.querySelector('#due-date').value;
+        await fetch('/admin/account-renewal', {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            body: JSON.stringify({ subscriberId, time })
+        }).then(res => {
+            if (res.ok) {
+                location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+            }
+        }).catch(error => {
+            console.log('Error:', error);
+        });
+    }
+</script>
