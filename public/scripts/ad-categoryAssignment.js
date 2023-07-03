@@ -1,33 +1,82 @@
-$(document).ready(() => {
+// $(document).ready(() => {
 
-    VirtualSelect.init({
-        ele: '#multipleSelect'
-    });
+//     VirtualSelect.init({
+//         ele: '#multipleSelect'
+//     });
 
-    const edit = $(".edit");
-    const editModal = $("#editModal");
-    const roles = $("tbody tr td.role");
-    let currentIdx = 0;
+// })
 
-    // HANDLE edit
-    [...edit].forEach((element, idx) => {
-        $(element).click((e) => {
-            editModal.css("display", "flex");
-            currentIdx = idx;
+document.querySelectorAll('#pagination li').forEach((li, index) => {
+    li.classList.add('pagination__item');
+});
+document.querySelectorAll('#pagination a').forEach((a, index) => {
+    a.classList.add('pagination__link')
+});
+
+async function setDataModal(id) {
+    document.getElementById('idEditor').innerHTML = id;
+
+    try {
+        let res = await fetch('/admin/category-assignment', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ id })
         });
-    });
 
-    let inputElement = document.getElementById("category-assigned");
+        if (res.ok) {
+            let json = await res.json();
 
-    let selectContent = document.getElementById('multipleSelect');
-    selectContent.addEventListener('change', function () {
-        inputElement.value = selectContent.value;
-    });
+            // Lấy tham chiếu đến select trong form của modal
+            let mySelect = document.getElementById('selectCategory');
 
-    const formElement = document.getElementById('change-category');
-    formElement.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const newCategory = inputElement.value.replace(/,/g, ", ");
-        $(roles[currentIdx]).html(newCategory);
+            // Thêm các option mới vào select
+            let options = ``;
+            for (const category of json.data) {
+                console.log(category.selected);
+                if (category.selected) {
+                    options += `<option value="${category.id}" selected>${category.name}</option>`;
+                }
+                else {
+                    options += `<option value="${category.id}">${category.name}</option>`;
+                }
+            }
+
+            mySelect.innerHTML = `<label for="multipleSelect" class="col-form-label">Chọn chuyên mục</label>
+            <select id="multipleSelect" multiple name="" placeholder="Nhấn để chọn chuyên mục"
+                data-search="false" data-silent-initial-value-set="true">
+                ${options}
+            </select>`;
+
+            VirtualSelect.init({
+                ele: '#multipleSelect'
+            });
+
+        } else {
+            console.error('Response error:', res.status);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+async function updateCateAssign(catesAssign) {
+    let id = document.getElementById('idEditor').innerHTML;
+
+    await fetch('/admin/category-assignment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({ id, catesAssign })
+    }).then(res => {
+        if (res.ok) {
+            location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+        }
+    }).catch(error => {
+        console.log('Error:', error);
     });
-})
+}

@@ -26,14 +26,11 @@
                         <div class="col-sm-8">
                             <form id="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="search-field" name="search-content"
-                                    placeholder="Tìm kiếm bài viết...">
+                                <input type="text" id="search-field" name="keyword" placeholder="Tìm kiếm bài viết...">
                             </form>
                         </div>
                         <div class="col-sm-4 d-flex justify-content-end">
-                            <a href="#publishModal" class="button success-btn" id="publish">Xuất
-                                bản</a>
-                            <a href="#deleteModal" class="button remove-btn" id="delete">Xóa</a>
+                            <a href="" class="button remove-btn" id="delete" onclick="removeArticles()">Xóa</a>
                         </div>
                     </div>
                 </div>
@@ -54,172 +51,62 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each allArticles}}
                         <tr>
                             <td>
                                 <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="{{id}}">
                                     <label for="checkbox1"></label>
                                 </span>
                             </td>
                             <td>
-                                <a href="#" class="list__link">
-                                    <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                    <p>Tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
-                                        tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
-                                    </p>
+                                <a href="/articles/{{id}}" class="list__link">
+                                    <img src="{{mainImg}}" alt="">
+                                    <p>{{title}}</p>
                                 </a>
                             </td>
-                            <td>Kinh tế</td>
-                            <td>Tag1, Tag2</td>
+                            <td>{{category}}</td>
+                            <td>{{tag}}</td>
+                            {{#if isPublished}}
+                            <td class="status published">Đã xuất bản</td>
+                            <td>
+                                <div class="d-flex table-control">
+                                    <a href="" class="edit published"><i class="fa-solid fa-pencil"
+                                            title="Chỉnh sửa"></i></a>
+                                    <a href="" class="delete" onclick="removeArticle({{id}})"><i
+                                            class="fa-solid fa-trash-can" title="Xóa"></i></a>
+                                </div>
+                            </td>
+                            {{else}}
                             <td class="status ">Chờ xuất bản</td>
                             <td>
                                 <div class="d-flex table-control">
-                                    <a href="#publishModal" class="success publish"><i
+                                    <a href="" class="success publish" onclick="publishArticle({{id}})"><i
                                             class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
                                             title="Xuất bản"></i></a>
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
-                                            data-toggle="tooltip" title="Xóa"></i></a>
+                                    <a href="" class="delete" onclick="removeArticle({{id}})"><i
+                                            class="fa-solid fa-trash-can" title="Xóa"></i></a>
                                 </div>
                             </td>
+                            {{/if}}
                         </tr>
-                        <tr class="published">
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
-                            <td>
-                                <a href="#" class="list__link">
-                                    <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                    <p>Tiêu đề bài viết 2
-                                    </p>
-                                </a>
-                            </td>
-                            <td>Kinh tế</td>
-                            <td>Tag1, Tag2</td>
-                            <td class="status ">Đã xuất bản</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#publishModal" class="success publish"><i
-                                            class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
-                                            title="Xuất bản"></i></a>
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
-                                            data-toggle="tooltip" title="Xóa"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
-                            <td>
-                                <a href="#" class="list__link">
-                                    <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                    <p>Tiêu đề bài viết 3
-                                    </p>
-                                </a>
-                            </td>
-                            <td>Kinh tế</td>
-                            <td>Tag1, Tag2</td>
-                            <td class="status ">Chờ xuất bản</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#publishModal" class="success publish"><i
-                                            class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
-                                            title="Xuất bản"></i></a>
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
-                                            data-toggle="tooltip" title="Xóa"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
-                            <td>
-                                <a href="#" class="list__link">
-                                    <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                    <p>Tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
-                                        tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
-                                    </p>
-                                </a>
-                            </td>
-                            <td>Kinh tế</td>
-                            <td>Tag1, Tag2</td>
-                            <td class="status ">Chờ xuất bản</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#publishModal" class="success publish"><i
-                                            class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
-                                            title="Xuất bản"></i></a>
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
-                                            data-toggle="tooltip" title="Xóa"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
-                            <td>
-                                <a href="#" class="list__link">
-                                    <img src="../assets/images/news/ID10_0.jpg" alt="">
-                                    <p>Tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
-                                        tiêu đề bài viết tiêu đề bài viết tiêu đề bài viết
-                                    </p>
-                                </a>
-                            </td>
-                            <td>Kinh tế</td>
-                            <td>Tag1, Tag2</td>
-                            <td class="status ">Chờ xuất bản</td>
-                            <td>
-                                <div class="d-flex table-control">
-                                    <a href="#publishModal" class="success publish"><i
-                                            class="fa-solid fa-arrow-up-right-from-square" data-toggle="tooltip"
-                                            title="Xuất bản"></i></a>
-                                    <a href="#editModal" class="edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="#deleteModal" class="delete"><i class="fa-solid fa-trash-can"
-                                            data-toggle="tooltip" title="Xóa"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <ul class="pagination">
-                        <li class="page-item  "><a href="#" class="page-link"><i class="fa-solid fa-caret-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item "><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-caret-right"></i></a>
-                        </li>
-                    </ul>
+                    <nav arie-label="Page navigation example" id="pagination">
+                        {{{createPagination pagination paginationClass="" leftText="<" rightText=">" }}} </nav>
                 </div>
             </div>
         </div>
+
+        <p style="display: none;" id="idArticle"></p>
     </div>
 
 
 </main>
 <!-- Edit Modal HTML -->
-<div id="editModal" class="modal fade">
+{{!-- <div id="editModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
@@ -251,50 +138,24 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
+
 <!-- PUBLISH Modal -->
-<div id="publishModal" class="myModal">
-
-    <div class="myModal-content">
-
-
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                class="fa-solid fa-xmark close-modal"></i></button>
-
-        <p class="modal-title">Bạn có muốn xuất bản bài viết đã chọn?</p>
-
-        <div class="myModal-button">
-            <button id="publish-btn" class="button success-btn text-uppercase">Xuất bản</button>
-            <button data-dismiss="modal" class="button cancel-btn text-uppercase">Hủy bỏ</button>
-
+{{!-- <div id="publishModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa-solid fa-xmark close-modal" aria-hidden="true"></i>
+            </button>
+            <p class="modal-title">Bạn có muốn xuất bản bài viết đã chọn?</p>
+            <div class="modal-footer form-control">
+                <button type="button" class="button success-btn" data-bs-dismiss="modal" onclick="publishArticle()">Xuất
+                    bản</button>
+                <button type="button" class="button cancel-btn" data-bs-dismiss="modal">Hủy bỏ</button>
+            </div>
         </div>
-
     </div>
-
-</div>
-<!-- Delete Modal HTML -->
-<div id="deleteModal" class="myModal">
-    <div class="myModal-content">
-        <button type="button" class="close"><i class="fa-solid fa-xmark close-modal"></i></button>
-
-        <p class="modal-title">Xóa bài viết</p>
-
-        <div class="form-group ">
-            <textarea type="text" class="form-control input-field required" placeholder="Nhập lý do xóa..."></textarea>
-            <div class="invalid-feedback">Vui lòng ghi rõ lý do xóa!</div>
-
-
-        </div>
-        <div class="myModal-button">
-            <button class="button remove-btn text-uppercase submit">Xóa</button>
-            <button class="button cancel-btn text-uppercase">Hủy
-                bỏ</button>
-
-        </div>
-
-    </div>
-
-</div>
+</div> --}}
 
 {{!-- STYLES --}}
 <link rel="stylesheet" href="/styles/ad-main.css">
@@ -303,3 +164,86 @@
 {{!-- SCRIPTS --}}
 <script type="module" src="/scripts/ad-main.js"></script>
 <script src="/scripts/ad-artiles.js"></script>
+
+<script>
+    document.querySelectorAll('#pagination li').forEach((li, index) => {
+        li.classList.add('pagination__item');
+    });
+    document.querySelectorAll('#pagination a').forEach((a, index) => {
+        a.classList.add('pagination__link')
+    });
+
+    async function publishArticle(id) {
+        if (confirm('Bạn chắc chắn muốn xuất bản bài viết này không?')) {
+            await fetch('/admin/article-management', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ id })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+    }
+
+    async function removeArticle(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa bài viết này?')) {
+            await fetch(`/admin/article-management`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ id, type: 1 })
+            }).then(res => {
+                if (res.ok) {
+                    location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+        }
+        else {
+            location.reload();
+        }
+    }
+
+    async function removeArticles() {
+        const checkbox = [];
+        let idArticles = [];
+        const tmp = document.querySelectorAll('table tbody input[type="checkbox"]');
+        [...tmp].forEach((element) => checkbox.push(element));
+        checkbox.forEach((element) => {
+            if (element.checked) {
+                idArticles.push(element.value);
+            }
+        });
+        if (idArticles.length > 0) {
+            if (confirm('Bạn có chắc chắn muốn xóa những bài viết này?')) {
+                await fetch(`/admin/article-management`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ idArticles, type: 2 })
+                }).then(res => {
+                    if (res.ok) {
+                        location.reload(); // Reload lại trang khi nhận được phản hồi thành công
+                    }
+                }).catch(error => {
+                    console.log('Error:', error);
+                });
+            }
+        }
+        else {
+            alert('Vui lòng chọn các bài viết muốn xóa!');
+        }
+    }
+</script>
