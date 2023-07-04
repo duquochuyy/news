@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 const expressHandlebars = require('express-handlebars');
 const flash = require('connect-flash');
 const { createPagination } = require('express-handlebars-paginate');
-const {handleSelected} = require('./controllers/handlebarsHelper')
+const { handleSelected } = require('./controllers/handlebarsHelper')
 const passport = require("./authentication/passport");
 const cookieParser = require("cookie-parser");
 
@@ -69,6 +69,8 @@ const FetchCategories = async (req, res, next) => {
     let admin = await models.Admin.findOne({ where: { userId: userId } });
     if (admin) {
         res.locals.isAdmin = true;
+        let informationAdmin = await models.User.findOne({ where: { id: userId } });
+        res.locals.informationAdmin = informationAdmin;
     }
     else {
         res.locals.isAdmin = false;

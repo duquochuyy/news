@@ -43,34 +43,34 @@
                     <div id="user">
                         <div id="avatar" class="pos-r">
                             {{#if user.avatar}}
-                                <img src="{{user.avatar}}" alt="Avatar" id="user-img">
+                            <img src="{{user.avatar}}" alt="Avatar" id="user-img">
                             {{else}}
-                                {{#if user.sex}}
-                                    <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
-                                {{else}}
-                                    <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
-                                {{/if}}
+                            {{#if user.sex}}
+                            <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
+                            {{else}}
+                            <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
+                            {{/if}}
                             {{/if}}
 
                             {{#if isSubscribed}}
-                                <img src="/images/premium.png" class="premium-icon premium">
+                            <img src="/images/premium.png" class="premium-icon premium">
                             {{/if}}
                         </div>
                         <div id="user-control">
                             <div id="control-heading" class="line-separate">
                                 {{#if user.avatar}}
-                                    <img src="{{user.avatar}}" alt="Avatar" id="user-img">
+                                <img src="{{user.avatar}}" alt="Avatar" id="user-img">
                                 {{else}}
-                                    {{#if user.sex}}
-                                        <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
-                                    {{else}}
-                                        <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
-                                    {{/if}}
+                                {{#if user.sex}}
+                                <img src="/images/users/man_default.png" alt="avatar of user" id="user-img">
+                                {{else}}
+                                <img src="/images/users/female_default.png" alt="avatar of user" id="user-img">
+                                {{/if}}
                                 {{/if}}
                                 {{#if user.name}}
-                                    <p class="text-capitalize bold">{{user.name}}</p>
+                                <p class="text-capitalize bold">{{user.name}}</p>
                                 {{else}}
-                                    <p class="text-capitalize bold">Người dùng</p>
+                                <p class="text-capitalize bold">Người dùng</p>
                                 {{/if}}
                             </div>
                             {{#if isEditor}}
@@ -93,10 +93,11 @@
                             </div>
                             {{/if}}
                             {{#if role.isUser}}
-                                <div class="line-separate non-ad control-item" data-bs-toggle="modal" data-bs-target="#premium-modal">
-                                    <a href="#" class="control-link hover light-hover">Nâng
-                                        cấp tài khoản</a>
-                                </div>
+                            <div class="line-separate non-ad control-item" data-bs-toggle="modal"
+                                data-bs-target="#premium-modal">
+                                <a href="#" class="control-link hover light-hover">Nâng
+                                    cấp tài khoản</a>
+                            </div>
                             {{/if}}
                             <div class=" control-item">
                                 <a href="/user/setting" class="control-link hover light-hover">Cài
@@ -174,25 +175,47 @@
                     </ul>
                 </div>
                 <!-- -->
+                {{#if isAdmin}}
+                {{#with informationAdmin}}
                 <div id="header-admin">
+                    {{#if avatar}}
+                    <img src="{{avatar}}" alt="avatar of user" id="header-admin__avatar">
+                    {{else}}
+                    {{#if sex}}
+                    <img src="/images/users/man_default.png" alt="avatar of user" id="header-admin__avatar">
+                    {{else}}
                     <img src="/images/users/female_default.png" alt="avatar of user" id="header-admin__avatar">
+                    {{/if}}
+                    {{/if}}
 
                     <div id="header-admin__control">
                         <div id="header-control__heading" class="line-separate">
-                            <img src="/images/users/female_default.png" alt="Avatar" class="rounded">
-                            <p class="text-capitalize bold">minh Hiền</p>
+                            {{#if avatar}}
+                            <img src="{{avatar}}" alt="avatar of user" id="header-admin__avatar" class="rounded">
+                            {{else}}
+                            {{#if sex}}
+                            <img src="/images/users/man_default.png" alt="avatar of user" id="header-admin__avatar"
+                                class="rounded">
+                            {{else}}
+                            <img src="/images/users/female_default.png" alt="avatar of user" id="header-admin__avatar"
+                                class="rounded">
+                            {{/if}}
+                            {{/if}}
+                            <p class="text-capitalize bold">{{name}}</p>
                         </div>
                         <div class="header-control__item">
-                            <a href="./index" class="header-control__link hover">Trang người dùng</a>
+                            <a href="/admin" class="header-control__link hover">Trang người dùng</a>
                         </div>
                         <div class=" header-control__item">
-                            <a href="./setting" class="header-control__link hover light-hover">Cài
+                            <a href="/user/setting" class="header-control__link hover light-hover">Cài
                                 đặt</a>
-                            <a href="./index" class="header-control__link hover light-hover">Đăng
+                            <a href="/auth/logout" class="header-control__link hover light-hover">Đăng
                                 xuất</a>
                         </div>
                     </div>
                 </div>
+                {{/with}}
+                {{/if}}
                 <!--  -->
 
             </div>
@@ -356,7 +379,7 @@
     <div id="search-modal" class="user-role">
         <form id="search-form" class="d-flex">
             <input type="text" id="search-input" placeholder="Nhập để tìm kiếm..." required>
-            <select name="options" id="options" >
+            <select name="options" id="options">
                 <option value="all" selected>Tất cả</option>
                 <option value="title">Tiêu đề</option>
                 <option value="abstract">Tóm tắt</option>
