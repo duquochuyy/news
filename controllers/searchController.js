@@ -17,13 +17,13 @@ controller.showPage = async (req, res) => {
 
     
     const options = {
-        attributes: ["id", "title", "abstract", "mainImg", "content", "createDate", "publishDate", "views", "type"],
+        attributes: ["id", "title", "abstract", "mainImg", "content", "createDate", "publishDate", "views", "type", "ts"],
         where: { 
             type: 3, 
             // để cho việc hiển thị khi có khớp chuỗi
             // [Op.and]: literal(`ts @@ to_tsquery('english', '${keywordQuery}')`)
         },
-        include: [
+        include : [
             {
                 model: models.Category,
                 attributes: ["id", "name"],
@@ -42,7 +42,6 @@ controller.showPage = async (req, res) => {
                 ],
             }
         ],
-        // subQuery: false
     }
 
     switch (optionSearch) {
@@ -60,6 +59,8 @@ controller.showPage = async (req, res) => {
             break;
     }
 
+    
+
     const limit = 10;
     options.limit = limit,
     options.offset = limit * (page - 1)
@@ -75,10 +76,8 @@ controller.showPage = async (req, res) => {
         article.publishDateNew = new Date(article.publishDate).toLocaleString(
           "vi-VN"
         );
-        // article.Tags.splice(2);
-
-        // console.log(article.id)
-      });
+        console.log(article.id);
+    });
 
     res.locals.message = `Kết quả tìm kiếm: ${keyword}`;
     res.locals.articles = rows;
