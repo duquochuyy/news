@@ -170,6 +170,32 @@ controller.remove = async (req, res) => {
             // Xử lý lỗi nếu có
         });
 
+        await models.Subscriber.destroy({
+            where: { userId: id }
+        }).then(rowsDeleted => {
+            if (rowsDeleted > 0) {
+                console.log('Dòng dữ liệu đã được xóa thành công');
+            } else {
+                console.log('Không tìm thấy dòng dữ liệu để xóa');
+            }
+        }).catch(error => {
+            console.log(error);
+            // Xử lý lỗi nếu có
+        });
+
+        await models.Comment.destroy({
+            where: { userId: id }
+        }).then(rowsDeleted => {
+            if (rowsDeleted > 0) {
+                console.log('Dòng dữ liệu đã được xóa thành công');
+            } else {
+                console.log('Không tìm thấy dòng dữ liệu để xóa');
+            }
+        }).catch(error => {
+            console.log(error);
+            // Xử lý lỗi nếu có
+        });
+
         await models.User.destroy({
             where: { id }
         }).then(rowsDeleted => {
@@ -201,6 +227,32 @@ controller.remove = async (req, res) => {
         });
 
         await models.Editor.destroy({
+            where: { userId: { [Op.in]: idUsers } }
+        }).then(rowsDeleted => {
+            if (rowsDeleted > 0) {
+                console.log('Dòng dữ liệu đã được xóa thành công');
+            } else {
+                console.log('Không tìm thấy dòng dữ liệu để xóa');
+            }
+        }).catch(error => {
+            console.log(error);
+            // Xử lý lỗi nếu có
+        });
+
+        await models.Subscriber.destroy({
+            where: { userId: { [Op.in]: idUsers } }
+        }).then(rowsDeleted => {
+            if (rowsDeleted > 0) {
+                console.log('Dòng dữ liệu đã được xóa thành công');
+            } else {
+                console.log('Không tìm thấy dòng dữ liệu để xóa');
+            }
+        }).catch(error => {
+            console.log(error);
+            // Xử lý lỗi nếu có
+        });
+
+        await models.Comment.destroy({
             where: { userId: { [Op.in]: idUsers } }
         }).then(rowsDeleted => {
             if (rowsDeleted > 0) {

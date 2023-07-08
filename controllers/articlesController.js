@@ -207,6 +207,22 @@ controller.showDetail = async (req, res) => {
   comments.sort((a, b) => a.newTime - b.newTime);
   res.locals.comments = comments;
 
+  try {
+    await models.Article.findOne({
+      where: { id }
+    }).then(article => {
+      if (article) {
+        article.views += 1;
+        return article.save();
+      } else {
+        // Không tìm thấy bài viết
+        throw new Error('Không tìm thấy bài viết');
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+
   res.render("articleDetail");
 };
 

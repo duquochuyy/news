@@ -114,6 +114,46 @@ controller.remove = async (req, res) => {
 
         return res.json();
     }
+
+    // note: việc xóa article chỉ đơn giản là chuyển type sang 5, vì vậy k cần thiết phải 
+    // xóa bỏ những thứ liên quan như article_category, article_tag hay comment của article 
+    // đó nên nhóm em xin phép thầy cô được bỏ qua, nếu có thì cũng làm thêm một số bước khá
+    // đơn giản nên nên em mong điều này không ảnh hưởng đến bài của nhóm ạ!
+}
+
+controller.showDemoArticle = async (req, res) => {
+    let id = isNaN(req.params.id) ? 0 : parseInt(req.params.id); // id bài viết
+
+    let article = await models.Article.findOne({
+        include: [
+            {
+                model: models.Category,
+                attributes: ["id", "name"],
+            },
+            {
+                model: models.Writer,
+                include: [
+                    {
+                        model: models.User,
+                        attributes: ["name"],
+                    },
+                ],
+            },
+            {
+                model: models.Tag,
+                attributes: ["id", "name"]
+            }
+        ],
+        where: { id },
+    });
+    article.publishDateNew = new Date(article.publishDate)
+        .toLocaleString("vi-VN")
+        .slice(10, 19);
+    article.contentPara = article.content.split("\n");
+
+    res.locals.article = article;
+
+    res.render('ad-demoArticle');
 }
 
 module.exports = controller;

@@ -1,0 +1,61 @@
+<ul id="breadcrumb">
+    <li class="breadcrumb__item">
+        <a href="/" class="breadcrumb__link hover">Trang chủ
+        </a>
+    </li>
+    {{!-- {{#with article}}
+    {{#each Categories}}
+    <li class="breadcrumb__item"> ›› <a href="/articles?category={{id}}" class="breadcrumb__link hover">{{name}}</a>
+    </li>
+    {{/each}}
+    <li class="breadcrumb__item"> ›› <a href="" class="breadcrumb__link  breadcrumb__link--active">Chi tiết</a>
+    </li>
+    {{/with}} --}}
+</ul>
+<main id="app__body">
+    <div id="detail" class="container-fluid">
+        <header id="detail-header">
+            {{#with article}}
+            <div class="d-flex flex-row">
+                {{#each Categories}}
+                <div class="category-card">{{name}}</div>
+                {{/each}}
+            </div>
+            <p id="detail-header__title">
+                {{title}}
+            </p>
+            {{/with}}
+            <div id="detail-header__infor">
+                {{#with article}}
+                <div class="d-flex align-items-center">
+                    <img src="/images/users/man_default.png" alt="" class="deatail-header__author-img">
+                    {{#with Writer}}
+                    <p class="deatail-header__author-name">Tác giả: {{User.name}}</p>
+                    {{/with}}
+                </div>
+                {{/with}}
+            </div>
+
+        </header>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="detail-article">
+                    {{#with article}}
+                    <div id="detail-article__content">
+                        <p class="article__content-abstract article__content-item about">{{abstract}}</p>
+                        <img src="{{mainImg}}" alt="" class="article__content-img article__content-item">
+                        {{#each contentPara}}
+                        <p class="article__content-text article__content-item about">{{{this}}}</p>
+                        {{/each}}
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+{{!-- STYLES --}}
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/authentication.css">
+<link rel="stylesheet" href="/styles/articleDetails.css">
