@@ -111,25 +111,26 @@ $(document).ready(function () {
     // thêm vào để chạy thử
     $("#app__header-login").click(() => {
         document.title = "Đăng nhập";
-        signupRole.css("display", "block");
+        window.location.href = `/auth/login`;
+        // signupRole.css("display", "block");
     })
-    $("#form-modal").click((e) => {
-        if ([...signupRole].every(f => !f.contains(e.target)) && signupRole.css("display") == "block") {
-            $("#form-modal").css("display", "none");
-            signupRole.css("display", "none");
-        }
-    })
-    $("#btn-roles .btn-role").each((idx, e) => {
-        $(e).click(() => {
-            role = idx;
-            signupRole.css("display", "none");
-            if (role != 0) {
-                loginPage.find(".form-direction").css("display", "none");
-            }
-            // loginPage.css("display", "block");
-            window.location.href = `/auth/login?role=${e.value}`;
-        })
-    })
+    // $("#form-modal").click((e) => {
+    //     if ([...signupRole].every(f => !f.contains(e.target)) && signupRole.css("display") == "block") {
+    //         $("#form-modal").css("display", "none");
+    //         signupRole.css("display", "none");
+    //     }
+    // })
+    // $("#btn-roles .btn-role").each((idx, e) => {
+    //     $(e).click(() => {
+    //         role = idx;
+    //         signupRole.css("display", "none");
+    //         if (role != 0) {
+    //             loginPage.find(".form-direction").css("display", "none");
+    //         }
+    //         // loginPage.css("display", "block");
+    //         window.location.href = `/auth/login?role=${e.value}`;
+    //     })
+    // })
     $("#app__header-signup").click(() => {
         document.title = "Đăng ký";
         // signupPage.css("display", "block");
@@ -145,6 +146,7 @@ $(document).ready(function () {
         document.title = "Đăng nhập";
         signupPage.css("display", "none");
         loginPage.css("display", "block");
+        window.location.href = `/auth/login?role=${e.value}`;
     })
     $(".close-btn").click((e) => {
 
