@@ -5,12 +5,25 @@ const models = require('../models');
 
 controller.showHomePage = async (req, res) => {
     // 3 bai viet noi bac nhat tuan 
-    const mostArticleInWeek = await models.Article.findAll({
-        attributes: ['id', 'mainImg', 'abstract', 'views'],
-        where: { type: 3 },
-        order: [['views', 'DESC']],
-        limit: 4
+    const articles = await models.Article.findAll({
+        attributes: ['id', 'mainImg', 'abstract', 'views', 'publishDate'],
+        where: { type: 3 }
     });
+
+    articles.forEach(article => {
+        const currentDate = new Date();
+
+        // Tính khoảng cách theo milliseconds
+        const timeDiff = currentDate.getTime() - article.publishDate.getTime();
+        // Chuyển đổi milliseconds thành ngày
+        const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+        article.averageViews = Math.floor(article.views / (Math.floor(daysDiff / 7) + 1));
+    });
+
+    articles.sort((a, b) => b.averageViews - a.averageViews);
+    let mostArticleInWeek = articles.slice(0, 3);
+    console.log(mostArticleInWeek);
+
     res.locals.mostArticleInWeek = mostArticleInWeek;
 
     // 10 bai viet moi nhat (moi chuyen muc)
