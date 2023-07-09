@@ -23,7 +23,7 @@
 
 <body>
 <div id="form-modal" class="user-role" style="display: block;">
-    <form id="login-form" class="authentication-form " style="display: block;" action="/auth/login" method="post">
+    <form id="login-form" class="authentication-form " style="display: block;" action="/auth/login?reqUrl={{reqUrl}}" method="post">
         <header class="form-heading">
             <h5 class="form-title text-uppercase bold ">xin chào!</h5>
             <p class="form-direction">Đăng nhập bên dưới hoặc
@@ -65,6 +65,11 @@
                            placeholder="Nhập mật khẩu">
                     <div class="invalid-feedback">Sai mật khẩu!</div>
                 </li>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input"
+                           id="keepSignedIn" name="keepSignedIn">
+                    <label class="form-check-label" for="keepSignedIn">Duy trì đăng nhập.</label>
+                </div>
                 <input type="hidden" value="{{role}}" name="role"/>
 
                 <div class="error">{{{loginMessage}}}</div>

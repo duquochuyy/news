@@ -36,7 +36,7 @@ controller.login = (req, res, next) => {
       if (error) {
         return next(error);
       }
-      req.session.cookie.maxAge = keepSignedIn ? (20 * 60 * 60 * 1000) : null;
+      req.session.cookie.maxAge = (keepSignedIn == "on") ? (20 * 60 * 60 * 1000) : null;
       res.redirect(reqUrl);
     });
   })(req, res, next);
