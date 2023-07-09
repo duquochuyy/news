@@ -486,12 +486,26 @@ footer {
     top: 20px;
     right: 20px
 }
-#options {
-    border-radius: 20px;
-    font-size: larger;
-    color: var(--primary-color);
+#search-form{
+    align-items: end;
 }
-
+#options {
+    border-radius: 5px;
+    font-size: 20px;
+    color: var(--second-color);
+    background-color: transparent;
+    height: fit-content;
+    bottom: -20px;
+    padding: 4px 0px;
+    cursor: pointer;
+}
+#options  option{
+    font-size: 18px !important;
+    padding: 4px !important;
+}
+#options  option:hover{
+    cursor: pointer !important;
+}
 /* BREADCRUMB */
 #breadcrumb{
     display: flex;

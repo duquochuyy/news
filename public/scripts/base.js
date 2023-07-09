@@ -75,6 +75,7 @@ $(document).ready(function () {
     window.onscroll = function () {
         scroll();
     };
+    nav.style.display = "flex";
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
@@ -82,7 +83,6 @@ $(document).ready(function () {
             nav.style.display = "flex";
             nav.style.top = "0px";
             header.style.boxShadow = "none";
-
             breadcrumb.css("top", `${breadcrumbTop + nav.offsetHeight}px`);
 
 
