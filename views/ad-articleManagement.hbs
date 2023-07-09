@@ -78,7 +78,11 @@
                                 </div>
                             </td>
                             {{else}}
+                            {{#if isRevise}}
                             <td class="status ">Chờ xuất bản</td>
+                            {{else}}
+                            <td class="status ">Chờ duyệt</td>
+                            {{/if}}
                             <td>
                                 <div class="d-flex table-control">
                                     <a href="" class="success publish" onclick="publishArticle({{id}})"><i

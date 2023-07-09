@@ -17,7 +17,7 @@ controller.show = async (req, res) => {
             model: models.Tag,
             attributes: ['id', 'name']
         }],
-        where: { type: { [Op.in]: [2, 3] } },
+        where: { type: { [Op.in]: [1, 2, 3] } },
         order: [['id', 'ASC']]
     }
 
@@ -52,6 +52,9 @@ controller.show = async (req, res) => {
 
         article.isPublished = false;
         if (article.type == 3) article.isPublished = true;
+
+        article.isRevise = false;
+        if (article.type == 2) article.isRevise = true;
     });
 
     res.locals.allArticles = rows;
@@ -65,6 +68,7 @@ controller.update = async (req, res) => {
     }).then(article => {
         if (article) {
             article.type = 3;
+            article.publishDate = new Date();
             return article.save();
         } else {
             // Không tìm thấy bài viết
