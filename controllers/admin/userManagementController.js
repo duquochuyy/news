@@ -144,6 +144,22 @@ controller.remove = async (req, res) => {
     if (type == 1) {
         let id = isNaN(req.body.id) ? 0 : parseInt(req.body.id);
 
+        let writer = await models.Writer.findOne({ where: { userId: id } });
+
+        if (writer) {
+            await models.Article.findOne({
+                where: { authorId: writer.id }
+            }).then(article => {
+                if (article) {
+                    article.type = 5;
+                    return article.save();
+                } else {
+                    // Không tìm thấy bài viết
+                    throw new Error('Không tìm thấy bài viết');
+                }
+            });
+        }
+
         await models.Writer.destroy({
             where: { userId: id }
         }).then(rowsDeleted => {
