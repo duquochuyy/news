@@ -111,7 +111,8 @@ $(document).ready(function () {
     // thêm vào để chạy thử
     $("#app__header-login").click(() => {
         document.title = "Đăng nhập";
-        window.location.href = `/auth/login`;
+        const currentUrl = window.location.href;
+        window.location.href = `/auth/login?reqUrl=${currentUrl.replace(window.location.origin, "")}`;
         // signupRole.css("display", "block");
     })
     // $("#form-modal").click((e) => {
